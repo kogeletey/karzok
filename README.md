@@ -1,8 +1,11 @@
+[![builds.sr.ht status](https://builds.sr.ht/~kogeletey/karzok.svg)](https://builds.sr.ht/~kogeletey/karzok?)
 # Karzok
+A theme for your documentation. Fast and secure
+
 ![screenshot](./screenshot.png)
 ## Demo
 [Fmatch Karzok](https://fmatch.org/karzok)
-A theme for your documentation. Fast and secure
+
 ## Requirements
 
 Karzok uses npm,zola to dependency managment,rendering, scripts and plugins.

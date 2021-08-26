@@ -20,7 +20,7 @@ npm run gen
 [[tasks]]
 clean = """
 pip install awscli-plugin-endpoint
-aws s3 rm --recursive s3://fmatch.org
+aws s3 rm --recursive s3://fmatch.org/karzok
 """
 
 [[tasks]]
