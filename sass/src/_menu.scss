@@ -1,0 +1,46 @@
+.menu {
+    font-family: 'Courier Prime', monospace;
+    display: flex;
+    padding: 0.95rem;
+    flex-flow: row wrap;
+    margin-bottom: 1em;
+    align-items: center;
+    min-height: calc(100vh - 84px);
+    &-div {
+        padding: 4em;
+    }
+    &-a {
+        display: flex;
+        justify-content: center;
+        flex: 1 0 auto;
+        width: 300px;
+        height: 250px;
+        margin: 25px;
+        color: $black;
+        box-shadow: -6px 6px 6px 6px rgba(0, 0, 0, 0.2);
+        & h3 {
+            font-size: 20px;
+            text-align: center;
+        }
+    }
+    &-index {
+        padding-top: 2em;
+    }
+    &-time {
+        display: flex;
+        font-size: 14px;
+        font-weight: 400;
+        color: $dark3;
+        padding-bottom: 2em;
+    }
+    &-a:hover {
+        border: 1px solid;
+        border-color: transparent;
+        & h3 {
+            border-bottom: 1px solid $green;
+        }
+    }
+    &-time + &-div:hover {
+        color: $black;
+    }
+}

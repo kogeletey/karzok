@@ -1,0 +1,107 @@
+{% macro title_or_last(component, offset=2) %}
+    {% set length = component.components | length %}
+    {% set last = component.components | last %}
+    {{ component.title | default(value=name) }}
+{% endmacro title_or_last %}
+<!-- Math liblary - katex enable -->
+{% macro math() %}
+{% if page.extra.math or section.extra.math or config.extra.math %}
+       <link rel="stylesheet" href="{{ get_url(path='katex/dist/katex.min.css') }}">
+        <script defer src="{{ get_url(path='katex/dist/katex.min.js') }}"></script>
+        <script defer src="{{ get_url(path='katex/dist/contrib/auto-render.min.js') }}"></script>
+        <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          // customised options
+          // • auto-render specific keys, e.g.:
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false}
+            ],
+          // • rendering keys, e.g.:
+          throwOnError : false,
+          strict: false
+        });
+    });
+</script>
+        {% endif %}
+{% endmacro %}
+
+<!-- table of contnet -->
+{% macro toc(page) %}
+<aside class="toc">
+    <h3 class="toc-h3"> In this article </h3>
+    <ul class="toc-ul">
+        {% for h1 in page.toc %}
+        <li class="toc-li"> <a class="toc-a" href="{{ h1.permalink }}"> {{ h1.title }} </a></li>
+        {% endfor %}
+    </ul>
+</aside>
+{% endmacro %}
+
+{% macro sidebar(current_url) %}
+    {% set index = get_section(path="_index.md") %}
+<nav class="sidebar">
+    <ul class="sidebar-ul">
+    {% if index.pages %}
+        {% for page in index.pages %}
+        <li class="sidebar-pages"> <a class="sidebar-link-a" href="{{ page.permalink | safe  }}">
+      <div class="sidebar-link-div{% if current_url == page.permalink %} sidebar-link-a__active{% endif %}"><svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="none" viewBox="0 0 8 8"><circle cx="4" cy="4" r="3" fill="#000"/></svg></div><span class="{% if current_url == page.permalink %}sidebar-link-a__active{% endif %}"> {{page.title }} </span></a></li>
+        {% endfor %}
+    {% endif %}
+        {% if index.subsections %}
+            {% for s in index.subsections %}
+            {% set subsection = get_section(path=s) %}
+
+            <input class="sidebar-li-toggle" type="checkbox" {% if current_path is starting_with(subsection.path) %}checked{% endif %} />
+            <li class="sidebar-li">
+                <a href="{{ subsection.permalink }}"> <span>{{ subsection.title }}</span> </a>
+            </li>
+            {% if subsection.pages %}
+            {% for page in subsection.pages %}
+            <li class="sidebar-link">
+                    <a class="sidebar-link-a"  href="{{ page.permalink | safe}}"><div class="sidebar-link-div{% if current_url == page.permalink %} sidebar-link-a__active{% endif %}"><svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="none" viewBox="0 0 8 8"><circle cx="4" cy="4" r="3" fill="#000"/></svg></div><span class="{% if current_url == page.permalink %}sidebar-link-a__active{% endif %}"> {{page.title }} </span></a></li>
+            {% endfor %}
+            {% endif%}
+            {% endfor %}
+    {% endif %}
+    </ul>
+</nav>
+{% endmacro %}
+
+{% macro header(current_url) %}
+
+<!-- It's hack -->
+{% set current_link = current_url | safe | trim_end_matches(pat="/")  %}
+<header class="header">
+    <nav class="header-nav" itemscope itemtype="http://shema.org/SiteNavigationElement">
+        <ul class="header-ul">
+            <li class="header-li"> <a class="header-a {% if current_link == config.base_url %} header-active {% endif %}" href="{{ config.base_url | safe }}" ><span class="header-span">  {{ config.extra.header.name | default(value="Home") }} </span></a> </li>
+                        {%if config.extra.header %}
+                        {% for item in config.extra.header %}
+                        {% set val_link = item.link  | replace(from="$base_url", to=config.base_url) %}
+                        <li class="header-li"> <a itemprop="url" class="header-a{% if current_link == val_link %} header-active {% endif %}" href="{{ val_link | safe }}">
+                                    <span class="header-span"> {{ item.text }} </span>
+                        </a>
+                        </li>
+                        {% endfor %}
+                        {% endif %}
+                        </ul>
+                    </nav>
+</header>
+{% endmacro %}
+
+{% macro footer() %}
+<footer class="footer">
+        <ul>
+            {% if config.extra.footer %}
+            {% for item in config.extra.footer%}
+            <li><a href="{{ item.url }}"><span>{{ item.text }}</span></li>
+            {% endfor %}
+            {% else %}
+            <span class = "footer-span"> powered by <!-- work in progress <a class="footer-a" href="https://fmatch.org/karzok">--> karzok<!-- </a>--></span>
+            <span class = "footer-span"> version <!-- work in progress <a class="footer-a" href="https://re128.org/releases/karzok/{{config.extra.version | safe }}">--> {{ config.extra.version }}<!-- </a>--> </span>
+            {% endif %}
+        </ul>
+</footer>
+{% endmacro %}

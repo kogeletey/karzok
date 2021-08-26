@@ -1,0 +1,83 @@
+// Imnport fonts
+@import '../@fontsource/courier-prime/400.css';
+@import '../@fontsource/inter/400.css';
+@import '../@fontsource/inter/700.css';
+@import '../@fontsource/jetbrains-mono/400.css';
+// Import normalize styles
+@import '../normalize.css/normalize.css';
+
+// Color system variables
+$black: #111111 !default;
+$dark3: #333333 !default;
+$dark2: #555555 !default;
+$dark1: #777777 !default;
+$light1: #999999 !default;
+$light2: #bbbbbb !default;
+$light3: #dddddd !default;
+$white: #ffffff !default;
+$red: #ff4136 !default;
+$orange: #ff851b !default;
+$yellow: #ffdc00 !default;
+$green: #2ecc40 !default;
+$aqua: #7fdbff !default;
+$blue: #0074d9 !default;
+$purple: #b10dc9 !default;
+$brown: #85144b !default;
+
+:root {
+    --black: #{$black};
+    --white: #{$white};
+    --green: #{$green};
+}
+
+$black: var(--black);
+$green: var(--green);
+$white: var(--white);
+
+
+// Import components
+@import 'src/toc';
+@import 'src/header';
+@import 'src/page';
+@import 'src/footer';
+@import 'src/menu';
+
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+html {
+    font-family: 'Inter';
+}
+a {
+    text-decoration: none;
+    color: $black;
+    &:hover {
+        color: $green;
+    }
+}
+ul {
+    list-style: none;
+}
+
+.docs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    margin-top: 15px;
+}
+
+.welcome {
+    display: flex;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 60px;
+    padding-top: 2em;
+    &-p {
+        display: flex;
+        justify-content: center;
+    }
+}

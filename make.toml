@@ -1,0 +1,14 @@
+[tasks.dockerbuild]
+command = "docker-compose"
+args = ["build"]
+
+[tasks.compose2yaml]
+script = "cat compose.toml | yj -ty > compose.yaml"
+
+[tasks.dockerup]
+command = "docker-compose"
+args = ["up", "-d"]
+dependencies =["compose2yaml","dockerbuild"]
+
+[tasks.clean]
+script="rm -r compose.yaml"

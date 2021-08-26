@@ -1,0 +1,13 @@
+name = "karzok"
+description = "A theme for your documentation. Fast and secure"
+license = "Apache-2.0"
+homepage = "https://fmatch.org/karzok"
+min_version = "0.0.14"
+
+[extra]
+show_word_count = true
+show_reading_time = true
+
+[author]
+name = "Konrad Geletey"
+homepage = "https://re128.org/maintainers/karzok"

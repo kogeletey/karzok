@@ -1,0 +1,36 @@
+.toc {
+    position: sticky;
+    top: 1rem;
+    box-sizing: border-box;
+    margin-right: 1.25em;
+    height: calc(120vh - 1rem);
+    margin-left: 1em;
+    &-ul {
+        position: sticky;
+        border-left: 3px solid;
+        padding-left: 0;
+        border-color: $dark2;
+    }
+    &-li {
+        position: relative;
+        margin-top: 0.345rem;
+        padding-top: 0.345rem;
+    }
+    &-a {
+        display: block;
+        letter-spacing: normal;
+        margin-left: 24px;
+        padding: 8px 0;
+        font-size: 15px;
+        line-height: 16px;
+    }
+    &-li:hover::before,
+    &-li__active::before {
+        position: absolute;
+        left: -3px;
+        height: 100%;
+        content: '';
+        border-left: 3px solid;
+        border-color: $green;
+    }
+}

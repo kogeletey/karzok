@@ -1,0 +1,38 @@
+{% import 'macros.html' as macros -%}
+<!DOCTYPE html>
+<html lang="{{ lang | default(value="en")}}">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="chrome=1">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="referrer" content="no-referrer">
+        {% block math %}
+        {{ macros::math() }}
+        {% endblock math %}
+        {% if config.extra.favicon %}
+            <link rel="shortcut icon" type="image/svg" href="{{ get_url(path=config.extra.favicon) }}">
+        {% endif %}
+        {% if config.extra.assets_url %}
+        <link rel="stylesheet" href="{{ config.extra.assets_url }}/main.css">
+        {% else %}
+        <link rel="stylesheet" href="{{ get_url(path='main.css') }}">
+        {% endif %}
+        <title>{% block htmltitle %}{{ config.title }}{% endblock htmltitle %}</title>
+
+    {% if config.generate_rss %}
+            <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path='rss.xml') }}">
+    {% endif %}
+</head>
+<body>
+    {% block header%}
+        {{ macros::header(current_url=current_url) }}
+    {% endblock header%}
+    {% block content %}
+    {% endblock content %}
+    {% block footer %}
+        {{ macros::footer() }}
+    {% endblock footer%}
+</body>
+</html>

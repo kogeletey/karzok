@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+    <body>
+        {% block body %}
+            {% block content %}
+            {% block welcome %}
+            <h1 class="welcome"> Welcome to Karzok</h1>
+            <p class="welcome-p">
+                A theme for your documentation. Fast and secure
+            </p>
+            {% endblock welcome %}
+            <section class="menu">
+                {% for link in config.extra.menu %}
+                    <a class="menu-a" href="{{ link.link }}">
+                        <div class="menu-div">
+                            <h3 class="menu-index"> {{ link.text }} </h3>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </section>
+            {% endblock content %}
+        {% endblock body %}
+    </body>
+</html>

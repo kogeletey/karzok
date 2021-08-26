@@ -1,0 +1,4 @@
+# node_moodules folder from styles and math rendering
+node_moodules/
+# public folder generation from zola
+public/

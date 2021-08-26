@@ -1,0 +1,23 @@
+image: alpine/edge
+packages:
+  - npm
+  - zola
+  - rsync
+sources:
+  - https://git.sr.ht/~kogeletey/karzok.git
+secrets:
+  - 33b937c0-5b0d-4b30-a102-732c1490e2cb
+environment:
+  github_mirror: git@github.com:kogeletey/karzok
+  website: fmatch.org
+tasks:
+  - mirror: |
+      ssh-keyscan github.com > "$HOME"/.ssh/known_hosts && cd dindog-ru && git push --mirror "$github_mirror" || echo "failed mirroring"
+  - generate: |
+      cd karzok
+      npm run gen
+  - tar: |
+      cd karzok
+      tar -C public -cvz . > ../karzok.tar.gz
+  - deploy: |
+      acurl -f https://pages.sr.ht/publish/$website -Fcontent=@karzok.tar.gz

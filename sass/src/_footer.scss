@@ -1,0 +1,17 @@
+.footer {
+    font-family: 'Courier Prime', monospace;
+    display: block;
+    width: 100%;
+    background-color: $black;
+    border-top: 2px solid;
+    border-color: $black;
+    color: $white;
+    &-span {
+        padding-left: 1em;
+        font-size: 18px;
+        margin-right: 25%;
+    }
+    &-a {
+        color: $white;
+    }
+}

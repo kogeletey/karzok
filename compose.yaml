@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  zola:
+    build: .
+    container_name: karzok
+    restart: unless-stopped
+    environment:
+      VIRTUAL_HOST: localhost
+      LETSENCRYPT_HOST: localhost
+      LETSENCRYPT_MAIl: lr@localhost
+networks:
+  default:
+    external:
+      name: proxy

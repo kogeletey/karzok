@@ -1,0 +1,42 @@
+# Change to you title
+title = "Karzok"
+
+base_url = "https://fmatch.org"
+
+default_language = "en"
+
+build_search_index = true
+
+compile_sass = true
+
+[slugify]
+paths = "on"
+taxonomies = "on"
+anchors = "on"
+
+[markdown]
+highlight_code = true
+highlight_theme = "base16-ocean-dark"
+
+render_emoji = true
+
+[extra]
+version = "0.1.0"
+favicon = "favicon.ico"
+
+[[extra.header]]
+text = "Meta"
+link = "$base_url/meta"
+
+[[extra.menu]]
+text = "Install"
+link = "/install"
+
+[[extra.menu]]
+text = "Configure"
+link = "/configure"
+
+[[extra.menu]]
+text = "Contribute"
+link = "/contribute"
+

@@ -1,0 +1,41 @@
+.header {
+    font-family: 'Courier Prime', monospace;
+    position: relative;
+    display: block;
+    height: 32px;
+    border-bottom: 1px solid;
+    border-color: $dark2;
+    width: 100%;
+    &-nav {
+        font-size: 18px;
+        font-weight: 400;
+        margin: auto;
+        max-width: 90%;
+        display: flex;
+        align-items: center;
+        height: 100%;
+        justify-content: space-between;
+    }
+    &-ul {
+        margin: 0px;
+        padding: 0px;
+        display: flex;
+        align-items: center;
+    }
+    &-li {
+        margin-right: 2rem;
+        padding: 1em 0 1.25em;
+    }
+    &-span {
+        color: $dark3;
+    }
+    &-span:hover {
+        color: $green;
+    }
+    &-span:hover,
+    &-active {
+        padding-bottom: 8px;
+        border-bottom: 2px solid;
+        border-color: $green;
+    }
+}

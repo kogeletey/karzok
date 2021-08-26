@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block htmltitle %}
+    404 Page Not Found
+{% endblock htmltitle %}
+
+{% block header %}
+    {{macros::header(current_url="/")}}
+{% endblock header %}
+{% block content %}
+<h1> 404 </h1>
+<h2> Page Not Found </h2>
+<h3> The requested page doesn't exist
+ or you don't have access to it. </h3>
+{% endblock content %}
