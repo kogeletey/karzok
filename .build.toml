@@ -1,6 +1,6 @@
 image = "alpine/edge"
 packages = ["npm", "zola", "rsync"]
-sources = ["https://git.sr.ht/~kogeletey/karzok.git"]
+sources = ["https://git.sr.ht/~kogeletey/karzok"]
 secrets = ["33b937c0-5b0d-4b30-a102-732c1490e2cb"]
 
 [environment]
