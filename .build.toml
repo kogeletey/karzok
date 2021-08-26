@@ -2,14 +2,14 @@ image = "alpine/edge"
 packages = ["npm", "zola", "rsync"]
 sources = ["https://git.sr.ht/~kogeletey/karzok"]
 secrets = ["33b937c0-5b0d-4b30-a102-732c1490e2cb"]
-
+oauth = "pages.sr.ht/PAGES:RW"
 [environment]
 github_mirror = "git@github.com:kogeletey/karzok"
 website  = "fmatch.org"
 
 [[tasks]]
 mirror = """
-ssh-keyscan github.com > "$HOME"/.ssh/known_hosts && cd dindog-ru && git push --mirror "$github_mirror" || echo "failed mirroring"
+ssh-keyscan github.com > "$HOME"/.ssh/known_hosts && cd karzok && git push --mirror "$github_mirror" || echo "failed mirroring"
 """
 
 [[tasks]]
