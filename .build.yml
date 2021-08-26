@@ -19,6 +19,8 @@ tasks:
   - generate: |
       cd karzok
       npm run gen
-  - deploy: |
+  - clean: |
       pip install awscli-plugin-endpoint
-      aws s3 cp --recursive karzok/public s3://fmatch.org
+      aws s3 rm --recursive s3://fmatch.org
+  - deploy: |
+      aws s3 cp --recursive karzok/public s3://fmatch.org/karzok

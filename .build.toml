@@ -18,9 +18,14 @@ npm run gen
 """
 
 [[tasks]]
-deploy = """
+clean = """
 pip install awscli-plugin-endpoint
-aws s3 cp --recursive karzok/public s3://fmatch.org
+aws s3 rm --recursive s3://fmatch.org
+"""
+
+[[tasks]]
+deploy = """
+aws s3 cp --recursive karzok/public s3://fmatch.org/karzok
 """
 
 

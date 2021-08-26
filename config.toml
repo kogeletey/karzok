@@ -1,7 +1,7 @@
 # Change to you title
 title = "Karzok"
 
-base_url = "https://fmatch.org"
+base_url = "https://fmatch.org/karzok"
 
 default_language = "en"
 
@@ -30,13 +30,13 @@ link = "$base_url/meta"
 
 [[extra.menu]]
 text = "Install"
-link = "/install"
+link = "/karzok/install"
 
 [[extra.menu]]
 text = "Configure"
-link = "/configure"
+link = "/karzok/configure"
 
 [[extra.menu]]
 text = "Contribute"
-link = "/contribute"
+link = "/karzok/contribute"
 
