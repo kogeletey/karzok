@@ -10,7 +10,8 @@
             {% endblock welcome %}
             <section class="menu">
                 {% for link in config.extra.menu %}
-                    <a class="menu-a" href="{{ link.link }}">
+                {% set item_link = link.link  | replace(from="$base_url", to=config.base_url) %}
+                        <a class="menu-a" href="{{ item_link | safe }}">
                         <div class="menu-div">
                             <h3 class="menu-index"> {{ link.text }} </h3>
                         </div>

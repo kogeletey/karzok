@@ -21,6 +21,13 @@
         {% endif %}
         <title>{% block htmltitle %}{{ config.title }}{% endblock htmltitle %}</title>
 
+        <link rel="stylesheet" href="{{ get_url(path='normalize.css/normalize.css') }}">
+
+        <link rel="stylesheet" href="{{ get_url(path='@fontsource/courier-prime/400.css') }}">
+        <link rel="stylesheet" href="{{ get_url(path='@fontsource/inter/400.css') }}">
+        <link rel="stylesheet" href="{{ get_url(path='@fontsource/inter/700.css') }}">
+        <link rel="stylesheet" href="{{ get_url(path='@fontsource/jetbrains-mono/400.css') }}">
+
     {% if config.generate_rss %}
             <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path='rss.xml') }}">
     {% endif %}

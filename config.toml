@@ -30,13 +30,13 @@ link = "$base_url/meta"
 
 [[extra.menu]]
 text = "Install"
-link = "/karzok/install"
+link = "$base_url/install"
 
 [[extra.menu]]
 text = "Configure"
-link = "/karzok/configure"
+link = "$base_url/configure"
 
 [[extra.menu]]
 text = "Contribute"
-link = "/karzok/contribute"
+link = "$base_url/contribute"
 
