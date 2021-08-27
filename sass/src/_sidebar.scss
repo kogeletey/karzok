@@ -1,11 +1,9 @@
 .sidebar {
     position: sticky;
     top: 1rem;
-    box-sizing: border-box;
     padding-left: 0;
-    height: calc(120vh - 1rem);
-    overflow-y: auto;
-    max-width: 70%;
+    height: calc(110vh - 1rem);
+    overflow-y: scroll;
     &-li {
         display: flex;
         padding: 8px 0;
@@ -73,5 +71,8 @@
     }
     &-pages {
         margin-left: 1em;
+    }
+    &-ul {
+        max-width: 100%;
     }
 }

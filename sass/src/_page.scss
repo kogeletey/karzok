@@ -3,7 +3,8 @@
     padding: 1.5rem;
     margin-left: 2.25em;
     flex-direction: column;
-    overflow-x: hidden;
+    overflow-x: auto;
+    width: calc(100% - (1.5rem * 4 - 10rem));
     &-title {
         margin: 2rem 0 0.5rem;
         font-size: 40px;

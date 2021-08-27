@@ -52,15 +52,14 @@
     <ul class="sidebar-ul">
     {% if index.pages %}
         {% for page in index.pages %}
-        <li class="sidebar-pages"> <a class="sidebar-link-a" href="{{ page.permalink | safe  }}">
+        <li class="sidebar-pages">
+            <a class="sidebar-link-a" href="{{ page.permalink | safe  }}">
       <div class="sidebar-link-div{% if current_url == page.permalink %} sidebar-link-a__active{% endif %}"><svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="none" viewBox="0 0 8 8"><circle cx="4" cy="4" r="3" fill="#000"/></svg></div><span class="{% if current_url == page.permalink %}sidebar-link-a__active{% endif %}"> {{page.title }} </span></a></li>
         {% endfor %}
     {% endif %}
         {% if index.subsections %}
             {% for s in index.subsections %}
             {% set subsection = get_section(path=s) %}
-
-            <input class="sidebar-li-toggle" type="checkbox" {% if current_path is starting_with(subsection.path) %}checked{% endif %} />
             <li class="sidebar-li">
                 <a href="{{ subsection.permalink }}"> <span>{{ subsection.title }}</span> </a>
             </li>
