@@ -129,8 +129,10 @@ Open in favorite browser [https://localhost](http://localhost)
 
 1. `math` - rendering math formulas throught [katex](https://katex.org)
 2. `favicon` - set path to favicon icon import(default `favicon`)
-3. `[[extra.menu]]` - the main navigation on the site
-4. `[[extra.header]]` - the header navigantion for the site
+3. `localcdn`- if you want to store all assets on your domain, then enable this setting
+4. `cdnurl` - you can customize your url to store assets,default use [jsdelivr](https://www.jsdelivr.com)
+5. `[[extra.menu]]` - the main navigation on the site
+6. `[[extra.header]]` - the header navigantion for the site
 
 ### Templates
 
@@ -151,14 +153,15 @@ On the [todo.sr.ht](https://todo.sr.ht/~kogeletey/karzok) or [github issues](htt
 The Karzok is stored in the repository at [sr.ht](https://sr.ht/~kogeletey/karzok) and mirror [github](https://github.com/kogeletey/karzok)
 ### TODOs:
 -   [ ] readme contrubutions
+-   [x] configure loading from cdn
 -   [x] choose code_of_conduct
--   [x] Proceed subpages
+-   [x] proceed subpages
 -   [ ] create mobile version
--   [x] Choose license
--   [ ] Adding full path article in the page
--   [ ] Make dark theme
--   [ ] Continue author rendering
--   [ ] Adding word count
+-   [x] choose license
+-   [ ] adding full path article in the page
+-   [ ] make dark theme
+-   [ ] continue author rendering
+-   [ ] adding word count
 -   [x] refactor home.scss
 
 > Thank you so much for any help

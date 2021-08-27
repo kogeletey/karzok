@@ -2,7 +2,6 @@ image: alpine/edge
 packages:
   - npm
   - zola
-  - rsync
   - aws-cli
   - py-pip
 sources:
@@ -18,7 +17,7 @@ tasks:
       ssh-keyscan github.com > "$HOME"/.ssh/known_hosts && cd karzok && git push --mirror "$github_mirror" || echo "failed mirroring"
   - generate: |
       cd karzok
-      npm run gen
+      zola build
   - clean: |
       pip install awscli-plugin-endpoint
       aws s3 rm --recursive s3://fmatch.org/karzok

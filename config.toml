@@ -23,7 +23,7 @@ render_emoji = true
 [extra]
 version = "0.1.0"
 favicon = "favicon.ico"
-
+cdnurl = "https://get.re128.net/"
 [[extra.header]]
 text = "Meta"
 link = "$base_url/meta"

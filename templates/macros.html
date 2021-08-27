@@ -6,9 +6,16 @@
 <!-- Math liblary - katex enable -->
 {% macro math() %}
 {% if page.extra.math or section.extra.math or config.extra.math %}
-       <link rel="stylesheet" href="{{ get_url(path='katex/dist/katex.min.css') }}">
+        {% if config.extra.localcdn %}
+        <link rel="stylesheet" href="{{ get_url(path='katex/dist/katex.min.css') }}">
         <script defer src="{{ get_url(path='katex/dist/katex.min.js') }}"></script>
         <script defer src="{{ get_url(path='katex/dist/contrib/auto-render.min.js') }}"></script>
+        {% else %}
+        {% set cdnurl = config.extra.cdnurl | default(value="https://cdn.jsdelivr.net/npm/") %}
+        <link rel="stylesheet" href="{{ cdnurl | safe }}katex/dist/katex.min.css">
+        <script defer src="{{ cdnurl | safe }}katex/dist/katex.min.js"></script>
+        <script defer src="{{ cdnurl | safe }}katex/dist/contrib/auto-render.min.js"></script>
+        {% endif %}
         <script>
     document.addEventListener("DOMContentLoaded", function() {
         renderMathInElement(document.body, {

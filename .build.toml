@@ -1,5 +1,5 @@
 image = "alpine/edge"
-packages = ["npm", "zola", "rsync","aws-cli","py-pip"]
+packages = ["npm", "zola", "aws-cli","py-pip"]
 sources = ["https://git.sr.ht/~kogeletey/karzok"]
 secrets = ["33b937c0-5b0d-4b30-a102-732c1490e2cb","d7f382ed-22db-46c4-af64-d8068bd0cf36","193f0269-687e-4076-a774-f547e5cb4272"]
 
@@ -14,7 +14,7 @@ ssh-keyscan github.com > "$HOME"/.ssh/known_hosts && cd karzok && git push --mir
 [[tasks]]
 generate = """
 cd karzok
-npm run gen
+zola build
 """
 
 [[tasks]]
