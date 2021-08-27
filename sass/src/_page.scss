@@ -136,7 +136,7 @@
         }
         &::before {
             content: '';
-            background-image: url('/chevron.svg');
+            background-image: url('./chevron.svg');
             background-size: 15px 15px;
             height: 15px;
             width: 15px;
@@ -153,7 +153,7 @@
         }
         &-toggle:checked + &::before {
             content: '';
-            background-image: url('/chevron.svg');
+            background-image: url('./chevron.svg');
             background-size: 15px 15px;
             height: 15px;
             width: 15px;
