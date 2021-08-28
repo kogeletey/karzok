@@ -66,11 +66,28 @@ ul {
 .welcome {
     display: flex;
     justify-content: center;
-    font-weight: 700;
-    font-size: 60px;
+    font-weight: 400;
+    font-size: 100px;
     padding-top: 2em;
     &-p {
         display: flex;
         justify-content: center;
+    }
+}
+.error {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    font-weight: 400;
+    margin-bottom: 2em;
+    min-height: calc(100vh - 87px);
+    & h1 {
+        font-size: 250px;
+    }
+    & h2 {
+        font-size: 100px;
+    }
+    & h3 {
+        font-size: 50px;
     }
 }

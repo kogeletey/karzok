@@ -19,7 +19,7 @@
         {% else %}
         <link rel="stylesheet" href="{{ get_url(path='main.css') }}">
         {% endif %}
-        <title>{% block htmltitle %}{{ config.title }}{% endblock htmltitle %}</title>
+        <title>{% block htmltitle %} {{ config.title }}{% endblock htmltitle %}</title>
         {% if config.extra.localcdn %}
         <link rel="stylesheet" href="{{ get_url(path='normalize.css/normalize.css') }}">
         <link rel="stylesheet" href="{{ get_url(path='@fontsource/courier-prime/400.css') }}">
