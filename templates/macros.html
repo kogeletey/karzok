@@ -40,7 +40,7 @@
     <h3 class="toc-h3"> In this article </h3>
     <ul class="toc-ul">
         {% for h1 in page.toc %}
-        <li class="toc-li"> <a class="toc-a" href="{{ h1.permalink }}"> {{ h1.title }} </a></li>
+        <li class="toc-li {% if h1.permalink == current_url %} toc-li__active {% endif %}"> <a class="toc-a " href="{{ h1.permalink }}"> {{ h1.title }} </a></li>
         {% endfor %}
     </ul>
 </aside>
@@ -98,15 +98,28 @@
 {% endmacro %}
 
 {% macro footer() %}
+{% if config.extra.version and not config.extra.footer %}
+ <script>
+    fetch('{{ config.extra.version | safe }}')
+          .then((response) => {
+            return response.json();
+          })
+          .then((data) => {
+            let version_name = data.name;
+            let html_url = data.html_url;
+                   version.innerHTML = `<a class="footer-a" href='${html_url}'>${version_name}</a>`;
+          });
+</script>
+{%endif%}
 <footer class="footer">
         <ul>
             {% if config.extra.footer %}
             {% for item in config.extra.footer%}
-            <li><a href="{{ item.url }}"><span>{{ item.text }}</span></li>
+            <li><span class="footer-span">{% if item.url %}<a href="{{ item.url }}"/> {% endif %}{{ item.text }}</span></li>
             {% endfor %}
             {% else %}
-            <span class = "footer-span"> powered by <!-- work in progress <a class="footer-a" href="https://fmatch.org/karzok">--> karzok<!-- </a>--></span>
-            <span class = "footer-span"> version <!-- work in progress <a class="footer-a" href="https://re128.org/releases/karzok/{{config.extra.version | safe }}">--> {{ config.extra.version }}<!-- </a>--> </span>
+            <span class = "footer-span"> powered by  <a class="footer-a" href="https://fmatch.org/karzok"> karzok </a></span>
+            <span class = "footer-span"><span id="version"></span></span>
             {% endif %}
         </ul>
 </footer>
