@@ -82,7 +82,11 @@
 <header class="header">
     <nav class="header-nav" itemscope itemtype="http://shema.org/SiteNavigationElement">
         <ul class="header-ul">
-            <li class="header-li"> <a class="header-a {% if current_link == config.base_url %} header-active {% endif %} {% if config.extra.logotype %}header-img-a{%endif%}" href="{{ config.base_url | safe }}" >  {% if config.extra.logotype %} <img class="header-img" width="31" height="31" alt="favicon" src="{{ config.extra.logotype }}" />
+            <li class="header-li">
+                <a class="header-a {% if current_link == config.base_url %} header-active {% endif %} {% if config.extra.logotype %}header-img-a{%endif%}" href="{{ config.base_url | safe }}" >
+                    {% if config.extra.logotype %}
+                    <img class="header-img" width="31" height="31" alt="favicon" src="{{ get_url(path=config.extra.logotype)}}" />
+
 {% else %}
 <span class="header-span"> {{ config.extra.header.name | default(value="Home") }}
                     </span>
