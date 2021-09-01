@@ -19,4 +19,5 @@ tasks:
       cd karzok
       zola build
   - deploy: |
+      pip install awscli-plugin-endpoint
       aws s3 cp --recursive karzok/public s3://fmatch.org/karzok
