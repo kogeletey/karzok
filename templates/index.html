@@ -9,6 +9,7 @@
             </p>
             {% endblock welcome %}
             <section class="menu">
+                {% if config.extra.menu %}
                 {% for link in config.extra.menu %}
                 {% set item_link = link.link  | replace(from="$base_url", to=config.base_url) %}
                         <a class="menu-a" href="{{ item_link | safe }}">
@@ -18,6 +19,7 @@
                     </a>
                     {% endfor %}
                 </section>
+                {% endif %}
             {% endblock content %}
         {% endblock body %}
     </body>
