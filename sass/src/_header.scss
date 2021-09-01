@@ -1,15 +1,21 @@
 .header {
     font-family: 'Courier Prime', monospace;
-    position: relative;
-    display: block;
-    height: 32px;
-    border-bottom: 1px solid;
+    height: 36px;
+    border-bottom: 2px solid;
     border-color: $dark2;
     width: 100%;
+    &-img {
+        max-height: 2rem;
+        min-height: 1.25rem;
+        padding-top: 0.15em;
+        &-a {
+            padding-bottom: 0% !important;
+        }
+    }
     &-nav {
         font-size: 18px;
         font-weight: 400;
-        margin: auto;
+        margin-left: 10px;
         max-width: 90%;
         display: flex;
         align-items: center;
@@ -34,7 +40,7 @@
     }
     &-span:hover,
     &-active {
-        padding-bottom: 8px;
+        padding-bottom: 10px;
         border-bottom: 2px solid;
         border-color: $green;
     }
