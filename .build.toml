@@ -19,12 +19,12 @@ zola build
 
 #[[tasks]]
 #clean = """
-#pip install awscli-plugin-endpoint
 #aws s3 rm --recursive s3://fmatch.org/karzok
 #"""
 
 [[tasks]]
 deploy = """
+pip install awscli-plugin-endpoint
 aws s3 cp --recursive karzok/public s3://fmatch.org/karzok
 """
 
