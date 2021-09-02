@@ -23,8 +23,6 @@ render_emoji = true
 [extra]
 # github
 version = "https://api.github.com/repos/kogeletey/karzok/releases/latest"
-favicon = "fmatch.ico"
-logotype = "rlogo.svg"
 cdnurl = "https://get.re128.net/"
 
 
