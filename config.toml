@@ -5,14 +5,12 @@ base_url = "https://fmatch.org/karzok"
 
 default_language = "en"
 
-build_search_index = true
+build_search_index = false
 
 compile_sass = true
 
 [slugify]
 paths = "on"
-taxonomies = "on"
-anchors = "on"
 
 [markdown]
 highlight_code = true

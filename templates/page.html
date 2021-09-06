@@ -13,7 +13,7 @@
         {% if page.date %}
         <time> Updated: {{ page.date | date(format="%F") }}</time>
         {% endif %}
-           {{page.content | safe }}
+           {{ page.content | safe }}
         </article>
 {{ macros::toc(page=page) }}
 </main>
