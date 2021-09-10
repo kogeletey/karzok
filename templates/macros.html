@@ -41,10 +41,12 @@
     <h3 class="toc-h3"> In this article </h3>
     <ul class="toc-ul">
         {% for h1 in page.toc %}
-        <li class="toc-li {% if h1.permalink == current_url %} toc-li__active {% endif %}"> <a class="toc-a " href="{{ h1.permalink }}"> {{ h1.title }} </a></li>
+        <li class="toc-li {% if h1.permalink | safe == current_url %} toc-li__active {% endif %}"> <a class="toc-a " href="{{ h1.permalink }}"> {{ h1.title }} </a></li>
+        {% if h1.children %}
+        {% for h2 in h1.children %}
+        <li class="toc-li {% if h2.permalink | safe == current_url %} toc-li__active {% endif %}"> <a class="toc-a " href="{{ h2.permalink }}"> {{ h2.title }} </a></li>
         {% endfor %}
-        {% for h2 in page.toc %}
-        <li class="toc-li {% if h2.permalink == current_url %} toc-li__active {% endif %}"> <a class="toc-a " href="{{ h2.permalink }}"> {{ h2.title }} </a></li>
+        {%endif%}
         {% endfor %}
     </ul>
 </aside>

@@ -20,13 +20,13 @@ install for your platform.
 
 # Get Started
 
-# 1. Create a new zola site
+## 1. Create a new zola site
 
 ```zsh
 zola init zola_site
 ```
 
-# 2. Download this theme to you themes directory:
+## 2. Download this theme to you themes directory:
 
 ```zsh
 git clone https://github.com/re128/karzok zola_site/themes
@@ -40,7 +40,7 @@ git init # if your project is a git repository already, ignore this command
 git submodule add https://github.com/re128/karzok zola_site/themes
 ```
 
-# 3. Configuration. Open in favorite editor `config.toml`
+## 3. Configuration. Open in favorite editor `config.toml`
 
 ```toml
 base_url = "https://karzok.example.net" # set-up for production
@@ -49,7 +49,7 @@ theme = "karzok"
 
 See more in [Karzok Configuration](#configuration)
 
-# 4. Added new content
+## 4. Added new content
 
 ```zsh
     cp ./themes/content/_index.md content/_index.md
@@ -58,15 +58,15 @@ See more in [Karzok Configuration](#configuration)
 
 how you can give freedom to your creativity
 
-# 5. Run the project
+## 5. Run the project
 
-## With [docker-compose](https://docs.docker.com/compose) and [cargo make](https://sagiegurari.github.io/cargo-make/)
+### With [docker-compose](https://docs.docker.com/compose) and [cargo make](https://sagiegurari.github.io/cargo-make/)
 
 ```zsh
 cargo make --makefile make.toml dockerup
 ```
 
-## Without
+### Without
 
 i. development enviroment
 

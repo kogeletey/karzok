@@ -3,7 +3,7 @@ title = "Configure"
 weight = 2
 +++
 
-# Options under the `[extra]`
+## Options under the `[extra]`
 
 1. `math` - rendering math formulas throught [katex](https://katex.org)
 2. `favicon` - set path to favicon icon import(default `favicon`)
@@ -12,6 +12,6 @@ weight = 2
 5. `[[extra.menu]]` - the main navigation on the site
 6. `[[extra.header]]` - the header navigantion for the site
 
-# Templates
+## Templates
 
 All pages are extend to the base.html, and you can customize them as need.
