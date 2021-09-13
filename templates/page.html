@@ -6,12 +6,25 @@
 {% block content %}
 <main class="docs">
 {{ macros::sidebar(current_url=current_url) }}
-{% block sections %} {% endblock sections %}
     <article class="page">
        <h1 class="page-title"> {{ page.title }} </h1>
-        {% if page.date %}
-        <time> Updated: {{ page.date | date(format="%F") }}</time>
+{% block sections %}
+    <ul class="sections">
+        {% if page.taxonomies.authors %}
+        <span> Authors: </span>
+                {% for author in page.taxonomies.authors %}
+                <li>
+                    <!--  <a href="{{ get_taxonomy_url(kind="authors",name=author) | safe }}"> -->
+                        <span>{{ author }}</span>
+                        <!-- </a> -->
+                </li>
+                {% endfor %}
         {% endif %}
+        {% if page.date %}
+        <li><time> Updated: {{ page.date | date(format="%F") }}</time></li>
+        {% endif %}
+        </ul>
+{% endblock sections %}
            {{ page.content | safe }}
         </article>
 {{ macros::toc(page=page) }}

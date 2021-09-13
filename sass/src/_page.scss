@@ -99,4 +99,11 @@
         height: auto;
     }
 }
-
+.sections {
+    display: flex;
+    flex-wrap: wrap;
+    li {
+        list-style: none;
+        padding-left: 1em;
+    }
+}
