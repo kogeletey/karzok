@@ -27,6 +27,8 @@ render_emoji = true
 version = "https://api.github.com/repos/kogeletey/karzok/releases/latest"
 cdnurl = "https://get.re128.net/"
 
+show_word_count = true
+show_reading_time = true
 
 [[extra.header]]
 text = "Meta"

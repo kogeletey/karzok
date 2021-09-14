@@ -10,12 +10,21 @@
        <h1 class="page-title"> {{ page.title }} </h1>
 {% block sections %}
     <ul class="sections">
+        {% if config.extra.render_path %}
+        <li> <a href="{{ page.permalink }}">/{{ page.relative_path | trim_end_matches(pat=".md") }}</a></li>
+        {% endif %}
+        {% if config.extra.show_word_count %}
+        <li> <span> {{ page.word_count }} words </span></li>
+        {% endif %}
+        {% if config.extra.show_reading_time %}
+        <li> <span> {{ page.reading_time}} minutes to read </span></li>
+        {% endif %}
         {% if page.taxonomies.authors %}
-        <span> Authors: </span>
+        <span> Authors:  </span>
                 {% for author in page.taxonomies.authors %}
                 <li>
                     <!--  <a href="{{ get_taxonomy_url(kind="authors",name=author) | safe }}"> -->
-                        <span>{{ author }}</span>
+                    <span class="sections-author">{{ author }}</span>
                         <!-- </a> -->
                 </li>
                 {% endfor %}

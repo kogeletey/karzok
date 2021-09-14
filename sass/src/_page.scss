@@ -103,7 +103,12 @@
     display: flex;
     flex-wrap: wrap;
     li {
+        display: flex;
         list-style: none;
-        padding-left: 1em;
+        padding-right: 1em;
+    }
+    &-author {
+        padding-right: 0;
+        padding-left: 0.5em;
     }
 }
