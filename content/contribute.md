@@ -12,16 +12,16 @@ The Karzok is stored in the repository at [sr.ht](https://sr.ht/~kogeletey/karzo
 
 ## TODOs
 
--   [ ] readme contrubutions
--   [x] choose code_of_conduct
+-   [x] readme contrubutions
 -   [x] configure loading from cdn
--   [x] Proceed subpages
+-   [x] choose code_of_conduct
+-   [x] proceed subpages
 -   [ ] create mobile version
--   [x] Choose license
--   [ ] Adding full path article in the page
--   [ ] Make dark theme
--   [ ] Continue author rendering
--   [ ] Adding word count
+-   [x] choose license
+-   [ ] adding full path article in the page
+-   [ ] make dark theme
+-   [x] continue author rendering
+-   [x] adding word count
 -   [x] refactor home.scss
 
 

@@ -29,7 +29,7 @@ zola init zola_site
 ## 2. Download this theme to you themes directory:
 
 ```zsh
-git clone https://github.com/re128/karzok zola_site/themes
+git clone https://git.sr.ht/~kogeletey/karzok zola_site/theme
 ```
 
 or install as submodule:
@@ -37,7 +37,7 @@ or install as submodule:
 ```zsh
 cd zola_site
 git init # if your project is a git repository already, ignore this command
-git submodule add https://github.com/re128/karzok zola_site/themes
+git submodule add https://git.sr.ht/~kogeletey/karzok zola_site/themes
 ```
 
 ## 3. Configuration. Open in favorite editor `config.toml`

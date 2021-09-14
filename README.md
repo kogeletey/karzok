@@ -131,7 +131,10 @@ Open in favorite browser [https://localhost](http://localhost)
 2. `favicon` - set path to favicon icon import(default `favicon`)
 3. `localcdn`- if you want to store all assets on your domain, then enable this setting
 4. `cdnurl` - you can customize your url to store assets,default use [jsdelivr](https://www.jsdelivr.com)
-5. `[[extra.menu]]` - the main navigation on the site
+5. `show_word_count` - allowing you to show number of words
+6. `show_reading_time`- allowing you to show reading time
+7. `children`- for header nesting to work
+8. `[[extra.menu]]` - the main navigation on the site
 6. `[[extra.header]]` - the header navigantion for the site
 
 ### Templates
@@ -152,7 +155,7 @@ On the [todo.sr.ht](https://todo.sr.ht/~kogeletey/karzok) or [github issues](htt
 ## Improve Code
 The Karzok is stored in the repository at [sr.ht](https://sr.ht/~kogeletey/karzok) and mirror [github](https://github.com/kogeletey/karzok)
 ### TODOs:
--   [ ] readme contrubutions
+-   [x] readme contrubutions
 -   [x] configure loading from cdn
 -   [x] choose code_of_conduct
 -   [x] proceed subpages
@@ -160,8 +163,8 @@ The Karzok is stored in the repository at [sr.ht](https://sr.ht/~kogeletey/karzo
 -   [x] choose license
 -   [ ] adding full path article in the page
 -   [ ] make dark theme
--   [ ] continue author rendering
--   [ ] adding word count
+-   [x] continue author rendering
+-   [x] adding word count
 -   [x] refactor home.scss
 
 > Thank you so much for any help
