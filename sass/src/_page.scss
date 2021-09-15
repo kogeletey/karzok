@@ -10,10 +10,7 @@
         font-size: 40px;
         font-weight: 700;
     }
-    time {
-        color: $dark2;
-    }
-    h1,
+       h1,
     h2,
     h3,
     h4,
@@ -68,7 +65,7 @@
         margin-top: 1rem;
         background-color: #f6f7f6 !important;
         box-shadow: 2px solid;
-        padding: 0 8px;
+        padding: 8px;
         overflow-x: auto;
     }
     code {
@@ -107,8 +104,14 @@
         list-style: none;
         padding-right: 1em;
     }
-    &-author {
-        padding-right: 0;
-        padding-left: 0.5em;
+    &-no-padding {
+        padding-right: 0 !important;
     }
+    &-string {
+        padding-top: 1em;
+    }
+    time {
+        color: $dark2;
+    }
+
 }

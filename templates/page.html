@@ -10,27 +10,35 @@
        <h1 class="page-title"> {{ page.title }} </h1>
 {% block sections %}
     <ul class="sections">
-        {% if config.extra.render_path %}
-        <li> <a href="{{ page.permalink }}">/{{ page.relative_path | trim_end_matches(pat=".md") }}</a></li>
-        {% endif %}
+        {% if config.extra.relative_path or page.extra.relative_path %}
+            {% for parent in page.ancestors %}
+            {% set s = get_section(path=parent, include_pages=false) %}
+            <li class="sections-no-padding">
+                    <a href="{{s.permalink}}">/{{s.title | lower }}</a>
+                </li>
+            {% endfor %}
+            <li> <a href="{{ page.permalink }}">/{{ page.slug }}</a></li>
+            {% endif %}
         {% if config.extra.show_word_count %}
         <li> <span> {{ page.word_count }} words </span></li>
         {% endif %}
         {% if config.extra.show_reading_time %}
         <li> <span> {{ page.reading_time}} minutes to read </span></li>
         {% endif %}
+        {% if page.date %}
+        <li><time> Updated: {{ page.date | date(format="%F") }}</time></li>
+        {% endif %}
         {% if page.taxonomies.authors %}
+        <li>
         <span> Authors:  </span>
                 {% for author in page.taxonomies.authors %}
                 <li>
                     <!--  <a href="{{ get_taxonomy_url(kind="authors",name=author) | safe }}"> -->
-                    <span class="sections-author">{{ author }}</span>
+                    <span>{{ author }}</span>
                         <!-- </a> -->
                 </li>
                 {% endfor %}
-        {% endif %}
-        {% if page.date %}
-        <li><time> Updated: {{ page.date | date(format="%F") }}</time></li>
+            </li>
         {% endif %}
         </ul>
 {% endblock sections %}

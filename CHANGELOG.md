@@ -29,7 +29,7 @@
 - toc fixed width layout error
 
 
-## [0.1.0] - 2021-08-26
+# [0.1.0] - 2021-08-26
 
 - new zola theme for your documentation, first public release under license Apache 2.0
 
