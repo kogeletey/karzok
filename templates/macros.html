@@ -83,6 +83,7 @@
 
 {% macro header(current_url) %}
 
+
 <!-- It's hack -->
 {% set current_link = current_url | safe | trim_end_matches(pat="/")  %}
 <header class="header">
@@ -107,6 +108,10 @@
                         </li>
                         {% endfor %}
                         {% endif %}
+                        <!-- enable for dev -->
+                        <!--
+                        <button id="mode" type="button" aria-label="Toggle mode">Dark Mode</button>
+                        -->
                         </ul>
                     </nav>
 </header>

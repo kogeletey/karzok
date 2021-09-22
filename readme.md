@@ -159,9 +159,10 @@ The Karzok is stored in the repository at [sr.ht](https://sr.ht/~kogeletey/karzo
 -   [x] configure loading from cdn
 -   [x] choose code_of_conduct
 -   [x] proceed subpages
+-   [ ] adding page description
 -   [ ] create mobile version
 -   [x] choose license
--   [ ] adding full path article in the page
+-   [x] adding full path article in the page
 -   [ ] make dark theme
 -   [x] continue author rendering
 -   [x] adding word count
