@@ -27,6 +27,9 @@ render_emoji = true
 version = "https://api.github.com/repos/kogeletey/karzok/releases/latest"
 cdnurl = "https://get.re128.net/"
 
+localcdn = false
+
+
 show_word_count = true
 show_reading_time = true
 relative_path = true

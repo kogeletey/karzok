@@ -14,13 +14,20 @@
 {% block content %}
     <section class="menu">
     {% for page in section.pages %}
-                        <a class="menu-a" href="{{ page.permalink }}">
-<div class="menu-div">
+<a class="menu-a" href="{{ page.permalink }}">
+    <div class="menu-div">
                         {% if page.date %}
                         <time class="menu-time"> {{page.date}} </time>
                         {% endif %}
-    <h3>{{ macros::title_or_last(component=page, offset=0) }}</h3>
-</div></a>
+                        <!-- arrow is disabled
+            <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="19.714176609654032" xmlns="http://www.w3.org/2000/svg" id="screenshot" version="1.1" viewBox="-0.24061561945813992 -0.46729156980757125 19.714176609654032 20.299822055169898" height="20.299822055169898" style="-webkit-print-color-adjust: exact;"><g id="shape-ea9d0b43-01e2-11ec-a29e-f16589617175"><g id="shape-ea9d0b44-01e2-11ec-a29e-f16589617175"><path d="M3.4517417743529677,-0.7528795064459928L3.4517417709590745,0.9117234184983545L13.628109251063165,0.9117233982553898L0.21858289289173172,14.719604687343349L1.3582713850935306,15.893149747162056L14.767797743265419,2.0852684580742107L14.76779772189957,12.563943870598905L16.384377146856878,12.563943867383045L16.38437717400916,-0.7528795321718462L3.4517417743529677,-0.7528795064459928ZZ"/></g></g></svg>
+                        -->
+        <h3>{{ macros::title_or_last(component=page, offset=0) }}</h3>
+                        {% if page.description %}
+                        <p> {{ page.description }} </p>
+                        {% endif %}
+</div>
+    </a>
         {% endfor %}
     </section>
 {% endblock content %}

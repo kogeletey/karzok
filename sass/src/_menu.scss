@@ -1,26 +1,28 @@
 .menu {
     font-family: 'Courier Prime', monospace;
-    display: flex;
+    display: grid;
     padding: 0.95rem;
-    flex-flow: row wrap;
     margin-bottom: 1em;
-    align-items: center;
+    grid-gap: 1rem;
+    grid-template-rows: auto;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
     min-height: calc(100vh - 84px);
-    &-div {
-        padding: 4em;
-    }
+    height: auto;
+    width: 100%;
     &-a {
-        display: flex;
-        justify-content: center;
-        flex: 1 0 auto;
-        width: 300px;
+        position: relative;
+        margin-top: 1em;
+        padding: 1rem;
+        width: 75%;
         height: 250px;
-        margin: 25px;
         color: $black;
-        box-shadow: -6px 6px 6px 6px rgba(0, 0, 0, 0.2);
+        background-color: $light4;
+        box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.2);
+        text-decoration: none;
         & h3 {
             font-size: 20px;
             text-align: center;
+            margin-bottom: 2rem;
         }
     }
     &-index {
@@ -36,11 +38,14 @@
     &-a:hover {
         border: 1px solid;
         border-color: transparent;
-        & h3 {
-            border-bottom: 1px solid $green;
-        }
+        outline: 1px solid $green;
     }
-    &-time + &-div:hover {
-        color: $black;
+    svg {
+        position: fixed;
+        transform: translate(25em, -2.75em);
+    }
+    & p {
+        color: $dark2;
+        overflow: hidden;
     }
 }
