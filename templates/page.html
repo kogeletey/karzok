@@ -23,7 +23,7 @@
         <li> <span> {{ page.word_count }} words </span></li>
         {% endif %}
         {% if config.extra.show_reading_time %}
-        <li> <span> {% if page.reading_time < 1  %} {{ page.reading_time}} minutes {% elif page.reading_time == 0  %} less minute {% else %} {{ page.reading_time}} minute {% endif %} to read </span></li>
+        <li> <span> {% if page.reading_time > 1  %} {{ page.reading_time}} minutes {% elif page.reading_time == 0  %} less minute {% else %} {{ page.reading_time}} minute {% endif %} to read </span></li>
         {% endif %}
         {% if page.date %}
         <li><time> Updated: {{ page.date | date(format="%F") }}</time></li>
