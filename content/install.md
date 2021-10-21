@@ -53,7 +53,8 @@ See more in [Karzok Configuration](#configuration)
 
 ```zsh
     cp ./themes/content/_index.md content/_index.md
-    cp ./thems/content/tmpl.md content/filename.md
+    # a template will appear with which you can quickly start writing 
+    # cp ./themes/content/tmpl.md content/filename.md
 ```
 
 how you can give freedom to your creativity
