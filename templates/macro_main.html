@@ -1,0 +1,62 @@
+{% macro header(current_url) %}
+
+<!-- It's hack -->
+{% set current_link = current_url | safe | trim_end_matches(pat="/")  %}
+<header class="header">
+    <nav class="header-nav" itemscope itemtype="http://shema.org/SiteNavigationElement">
+        <ul class="header-ul">
+            <li class="header-li">
+                <a class="header-a {% if current_link == config.base_url %} header-active {% endif %} {% if config.extra.logotype %}header-img-a{%endif%}" href="{{ config.base_url | safe }}" >
+                    {% if config.extra.logotype %}
+                    <img class="header-img" width="31" height="31" alt="favicon" src="{{ get_url(path=config.extra.logotype)}}" />
+
+{% else %}
+<span class="header-span"> {{ config.extra.header.name | default(value="Home") }}
+                    </span>
+{% endif %}
+                </a> </li>
+
+                        {%if config.extra.header %}
+                        {% for item in config.extra.header %}
+                        {% set val_link = item.link  | replace(from="$base_url", to=config.base_url) %}
+                        <li class="header-li"> <a itemprop="url" class="header-a{% if current_link == val_link %} header-active {% endif %}" href="{{ val_link | safe }}"> <span class="header-span"> {{ item.text }} </span>
+                        </a>
+                        </li>
+                        {% endfor %}
+                        {% endif %}
+                        <!-- enable for dev -->
+                        <!--
+                        <button id="mode" type="button" aria-label="Toggle mode">Dark Mode</button>
+                        -->
+                        </ul>
+                    </nav>
+</header>
+{% endmacro %}
+
+{% macro footer() %}
+{% if config.extra.version and not config.extra.footer %}
+ <script>
+    fetch('{{ config.extra.version | safe }}')
+          .then((response) => {
+            return response.json();
+          })
+          .then((data) => {
+            let version_name = data.name;
+            let html_url = data.html_url;
+                   version.innerHTML = `<a class="footer-a" href='${html_url}'>${version_name}</a>`;
+          });
+</script>
+{%endif%}
+<footer class="footer">
+        <ul>
+            {% if config.extra.footer %}
+            {% for item in config.extra.footer%}
+            <li><span class="footer-span">{% if item.url %}<a href="{{ item.url }}"/> {% endif %}{{ item.text }}</span></li>
+            {% endfor %}
+            {% else %}
+            <span class = "footer-span"> powered by  <a class="footer-a" href="https://fmatch.org/karzok"> karzok </a></span>
+            <span class = "footer-span"><span id="version"></span></span>
+            {% endif %}
+        </ul>
+</footer>
+{% endmacro %}
