@@ -51,6 +51,8 @@
     {% block footer %}
         {{ macro_main::footer() }}
     {% endblock footer%}
+    {% if config.extra.devmode %}
     <script src="{{ get_url(path='helpers/dark-light-switcher.js') }}"></script>
+    {% endif %}
 </body>
 </html>
