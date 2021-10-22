@@ -1,6 +1,5 @@
 {% import 'macros.html' as macros -%}
-{% import 'macro_main.html' as macro_main -%}
-
+{% import 'page_macros.html' as page_macros -%}
 <!DOCTYPE html>
 <html lang="{{ lang | default(value="en")}}">
     <head>
@@ -44,12 +43,12 @@
 </head>
 <body>
     {% block header%}
-        {{ macro_main::header(current_url=current_url) }}
+        {{ macros::header(current_url=current_url) }}
     {% endblock header%}
     {% block content %}
     {% endblock content %}
     {% block footer %}
-        {{ macro_main::footer() }}
+        {{ macros::footer() }}
     {% endblock footer%}
     {% if config.extra.devmode %}
     <script src="{{ get_url(path='helpers/dark-light-switcher.js') }}"></script>

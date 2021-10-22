@@ -3,15 +3,15 @@
     border-bottom: 2px solid;
     border-color: $dark2;
     width: 100%;
-    &-img {
+    &__logotype {
         max-height: 2rem;
         min-height: 1.25rem;
         padding-top: 0.15em;
-        &-a {
+        &__link {
             padding-bottom: 0% !important;
         }
     }
-    &-nav {
+    &__nav {
         font-size: 16px;
         font-weight: 400;
         margin-left: 10px;
@@ -21,26 +21,28 @@
         height: 100%;
         justify-content: space-between;
     }
-    &-ul {
+    &__list {
         margin: 0px;
         padding: 0px;
         display: flex;
         align-items: center;
+        &-item {
+            margin-right: 2rem;
+            padding: 1em 0 1.25em;
+        }
     }
-    &-li {
-        margin-right: 2rem;
-        padding: 1em 0 1.25em;
-    }
-    &-span {
-        color: $dark3;
-    }
-    &-span:hover {
-        color: $green;
-    }
-    &-span:hover,
-    &-active {
-        padding-bottom: 10px;
-        border-bottom: 2px solid;
-        border-color: $green;
+    &__link {
+        &-text {
+            color: $dark3;
+        }
+        &-text:hover {
+            color: $green;
+        }
+        &-text:hover,
+        &-active {
+            padding-bottom: 10px;
+            border-bottom: 2px solid;
+            border-color: $green;
+        }
     }
 }

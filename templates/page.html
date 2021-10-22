@@ -5,7 +5,7 @@
 
 {% block content %}
 <main class="docs">
-{{ macros::sidebar(current_url=current_url) }}
+{{ page_macros::sidebar(current_url=current_url) }}
     <article class="page">
        <h1 class="page-title"> {{ page.title }} </h1>
 {% block sections %}
@@ -44,6 +44,6 @@
 {% endblock sections %}
            {{ page.content | safe }}
         </article>
-{{ macros::toc(page=page) }}
+{{ page_macros::toc(page=page) }}
 </main>
 {% endblock content %}
