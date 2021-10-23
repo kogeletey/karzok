@@ -1,13 +1,12 @@
 <!-- header  -->
-{% macro header(current_url) %}
-
 <!-- It's hack -->
+{% macro header(current_url) %}
 {% set current_link = current_url | safe | trim_end_matches(pat="/")  %}
 <header class="header">
-    <nav class="header__nav" itemscope itemtype="http://shema.org/SiteNavigationElement">
-        <ul class="header__list">
+    <nav aria-label="section navigation" class="header__nav" itemscope itemtype="http://shema.org/SiteNavigationElement">
+        <ul class="header__right">
             <li class="header__list-item">
-                <a class="header__link {% if current_link == config.base_url %} header__link-active {% endif %} {% if config.extra.logotype %}header-img-a{%endif%}" href="{{ config.base_url | safe }}">
+                <a class="header__link {% if current_link == config.base_url %} header__link-active {% endif %} {% if config.extra.logotype %}header__logotype-link {%endif%}" href="{{ config.base_url | safe }}">
                     {% if config.extra.logotype %}
                     <img class="header__logotype" width="31" height="31" alt="favicon" src="{{ get_url(path=config.extra.logotype)}}" />
                     {% else %}
@@ -15,8 +14,8 @@
                     {% endif %}
                 </a>
             </li>
-            {% if config.extra.header %}
-            {% for item in config.extra.header %}
+            {% if config.extra.header_left %}
+            {% for item in config.extra.header_left %}
             {% set val_link = item.link  | replace(from="$base_url", to=config.base_url) %}
             <li class="header__list-item">
                 <a itemprop="url" class="header__link {% if current_link == val_link %} header__link-active {% endif %}" href="{{ val_link | safe }}">
@@ -25,10 +24,25 @@
             </li>
             {% endfor %}
             {% endif %}
-            {% if config.extra.devmode %}
-            <button id="mode" type="button" aria-label="Toggle mode">Dark Mode</button>
-            {% endif %}
         </ul>
+        {% if config.extra.header_right %}
+            <ul class="header__left">
+            {% for item in config.extra.header_right %}
+            {% set item_link = item.link | replace(from = "$base_url", to=config.base_url) %}
+                <li class="header__list-item">
+                    <a itemprop="url" class="header__link header__link-vector" href=" {{ item_link | safe }} ">
+                        <span class="header__svg">
+                            {{ item.svg | safe }}
+                        </span>
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        {% if config.extra.devmode %}
+            <button id="mode" type="button" aria-label="Toggle mode">Dark Mode</button>
+        {% endif %}
     </nav>
 </header>
 {% endmacro %}
