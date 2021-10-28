@@ -20,6 +20,24 @@
             <li class="header__list-item">
                 <a itemprop="url" class="header__link {% if current_link == val_link %} header__link-active {% endif %}" href="{{ val_link | safe }}">
                     <span class="header__link-text"> {{ item.text }} </span>
+                    {% if config.extra.devmode %}
+                    {{ item.name }}
+                    {% if extra.name.container %}
+                    <div class="header__container">
+                    {% for val in item.container %}
+                    <a itemprop="url" class="header__link" href="{{ val.url | safe }}">
+                            {% if val.svg %}
+                              <span class="header__container-svg">
+                                {{ val.svg | safe }}
+                              </span>
+                            {% endif %}
+                            <span class="header__container-title"> {{ val.title }} </span>
+                            <span class="header__container-description"> {{ val.description }} </span>
+                        </a>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    {% endif %}
                 </a>
             </li>
             {% endfor %}
@@ -31,15 +49,19 @@
             {% set item_link = item.link | replace(from = "$base_url", to=config.base_url) %}
                 <li class="header__list-item">
                     <a itemprop="url" class="header__link header__link-vector" href=" {{ item_link | safe }} ">
+                    {% if item.svg %}
                         <span class="header__svg">
                             {{ item.svg | safe }}
                         </span>
+                    {% endif %}
+                    {% if item.text %}
+                        <span class="header__link-text"> {{ item.text }} </span>
+                    {% endif %}
                     </a>
                 </li>
                 {% endfor %}
             </ul>
         {% endif %}
-
         {% if config.extra.devmode %}
             <button id="mode" type="button" aria-label="Toggle mode">Dark Mode</button>
         {% endif %}
