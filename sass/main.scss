@@ -6,7 +6,7 @@ $dark1: #777777 !default;
 $light1: #999999 !default;
 $light2: #bbbbbb !default;
 $light3: #dddddd !default;
-$light4: #f9f9f9  !default;
+$light4: #f9f9f9 !default;
 $white: #ffffff !default;
 $red: #ff4136 !default;
 $orange: #ff851b !default;
@@ -18,15 +18,14 @@ $purple: #b10dc9 !default;
 $brown: #85144b !default;
 
 :root {
-    --black: #{$black};
-    --white: #{$white};
-    --green: #{$green};
+  --black: #{$black};
+  --white: #{$white};
+  --green: #{$green};
 }
 
 $black: var(--black);
 $green: var(--green);
 $white: var(--white);
-
 
 // Import components
 @import 'src/toc';
@@ -36,59 +35,58 @@ $white: var(--white);
 @import 'src/footer';
 @import 'src/menu';
 
-
 * {
-    margin: 0;
-    padding: 0;
-    border: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
 }
 
 html {
-    font-family: 'Inter';
+  font-family: 'Inter';
 }
 a {
-    text-decoration: none;
-    color: $black;
-    &:hover {
-        color: $green;
-    }
+  text-decoration: none;
+  color: $black;
+  &:hover {
+    color: $green;
+  }
 }
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 .docs {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 25px;
-    margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  margin-top: 15px;
 }
 
 .welcome {
+  display: flex;
+  justify-content: center;
+  font-weight: 400;
+  font-size: 100px;
+  padding-top: 2em;
+  &-p {
     display: flex;
     justify-content: center;
-    font-weight: 400;
-    font-size: 100px;
-    padding-top: 2em;
-    &-p {
-        display: flex;
-        justify-content: center;
-    }
+  }
 }
 .error {
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    font-weight: 400;
-    margin-bottom: 2em;
-    min-height: calc(100vh - 87px);
-    & h1 {
-        font-size: 250px;
-    }
-    & h2 {
-        font-size: 100px;
-    }
-    & h3 {
-        font-size: 50px;
-    }
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  font-weight: 400;
+  margin-bottom: 2em;
+  min-height: calc(100vh - 87px);
+  & h1 {
+    font-size: 250px;
+  }
+  & h2 {
+    font-size: 100px;
+  }
+  & h3 {
+    font-size: 50px;
+  }
 }

@@ -1,117 +1,116 @@
 .page {
-    display: flex;
-    padding: 1.5rem;
-    margin-left: 2.25em;
-    flex-direction: column;
-    overflow-x: auto;
-    width: calc(100% - (1.5rem * 4 - 10rem));
-    &-title {
-        margin: 2rem 0 0.5rem;
-        font-size: 40px;
-        font-weight: 700;
+  display: flex;
+  padding: 1.5rem;
+  margin-left: 2.25em;
+  flex-direction: column;
+  overflow-x: auto;
+  width: calc(100% - (1.5rem * 4 - 10rem));
+  &-title {
+    margin: 2rem 0 0.5rem;
+    font-size: 40px;
+    font-weight: 700;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+  a {
+    color: $green;
+    &:hover {
+      color: $black;
+      border-bottom: $black solid 1px;
     }
-       h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    p {
-        margin-top: 1.25rem;
-        margin-bottom: 1.25rem;
+  }
+  blockquote {
+    margin-left: 0;
+    margin-right: 0;
+    color: $dark1;
+    padding-left: 10px;
+    border-left: 3px solid $dark1;
+    sup {
+      padding-left: 0.25rem;
     }
     a {
-        color: $green;
-        &:hover {
-            color: $black;
-            border-bottom: $black solid 1px;
-        }
+      border-bottom: 1px solid $green;
     }
-    blockquote {
-        margin-left: 0;
-        margin-right: 0;
-        color: $dark1;
-        padding-left: 10px;
-        border-left: 3px solid $dark1;
-        sup {
-            padding-left: 0.25rem;
-        }
-        a {
-            border-bottom: 1px solid $green;
-        }
+  }
+  .footnote-definition {
+    sup {
+      top: -0.2.5em;
+      font-size: 0.75em;
+      display: inline;
     }
-    .footnote-definition {
-        sup {
-            top: -0.2.5em;
-            font-size: 0.75em;
-            display: inline;
-        }
-        p {
-            display: inline;
-        }
+    p {
+      display: inline;
     }
-    table {
-        margin-top: 1rem;
-        width: 100%;
-        border-collapse: collapse;
-        td,
-        th {
-            border: 1px solid $dark1;
-            background-color: $white;
-            padding: 5px 14px;
-        }
+  }
+  table {
+    margin-top: 1rem;
+    width: 100%;
+    border-collapse: collapse;
+    td,
+    th {
+      border: 1px solid $dark1;
+      background-color: $white;
+      padding: 5px 14px;
     }
-    pre {
-        margin-top: 1rem;
-        background-color: #f6f7f6 !important;
-        box-shadow: 2px solid;
-        padding: 8px;
-        overflow-x: auto;
-    }
-    code {
-        font-family: 'JetBrains Mono';
-        color: $black;
-        font-size: 85%;
-        background-color: transparent !important;
-    }
+  }
+  pre {
+    margin-top: 1rem;
+    background-color: #f6f7f6 !important;
+    box-shadow: 2px solid;
+    padding: 8px;
+    overflow-x: auto;
+  }
+  code {
+    font-family: 'JetBrains Mono';
+    color: $black;
+    font-size: 85%;
+    background-color: transparent !important;
+  }
+  ol {
+    list-style-type: decimal;
+  }
+  ul {
+    list-style-type: disc;
     ol {
-        list-style-type: decimal;
+      padding-left: 15px;
     }
-    ul {
-        list-style-type: disc;
-        ol {
-            padding-left: 15px;
-        }
-    }
-    kbd {
-        display: inline-block;
-        padding: 4px 5px;
-        font-size: 1.125rem;
-        box-shadow: inset $light2 0px -1px 0;
-        vertical-align: middle;
-        border-radius: 2px;
-    }
-    img {
-        max-width: 100%;
-        height: auto;
-    }
+  }
+  kbd {
+    display: inline-block;
+    padding: 4px 5px;
+    font-size: 1.125rem;
+    box-shadow: inset $light2 0px -1px 0;
+    vertical-align: middle;
+    border-radius: 2px;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 }
 .sections {
+  display: flex;
+  flex-wrap: wrap;
+  li {
     display: flex;
-    flex-wrap: wrap;
-    li {
-        display: flex;
-        list-style: none;
-        padding-right: 1em;
-    }
-    &-no-padding {
-        padding-right: 0 !important;
-    }
-    &-string {
-        padding-top: 1em;
-    }
-    time {
-        color: $dark2;
-    }
-
+    list-style: none;
+    padding-right: 1em;
+  }
+  &-no-padding {
+    padding-right: 0 !important;
+  }
+  &-string {
+    padding-top: 1em;
+  }
+  time {
+    color: $dark2;
+  }
 }

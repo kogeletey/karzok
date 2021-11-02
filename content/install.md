@@ -2,6 +2,7 @@
 title = "Install"
 weight = 1
 +++
+
 # Dependencies
 
 1. [Zola](https://www.getzola.org/documentation/getting-started/installation/)
@@ -12,11 +13,11 @@ install for your platform.
 ## Optional
 
 1. [yj](https://github.com/sclevine/yj)
-    > for transfer toml file in yaml
+   > for transfer toml file in yaml
 2. [docker](https://docs.docker.com/engine/install/)
-    > for packaging container
+   > for packaging container
 3. [rsync](https://rsync.samba.org/)
-    > A better copy and move
+   > A better copy and move
 
 # Get Started
 
@@ -53,7 +54,7 @@ See more in [Karzok Configuration](#configuration)
 
 ```zsh
     cp ./themes/content/_index.md content/_index.md
-    # a template will appear with which you can quickly start writing 
+    # a template will appear with which you can quickly start writing
     # cp ./themes/content/tmpl.md content/filename.md
 ```
 
@@ -88,7 +89,7 @@ changes live reolad.
 
 ii. production enviroment
 
--   with docker
+- with docker
 
 1. Build docker image
 
@@ -115,5 +116,3 @@ docker-compose up -d
 ```
 
 Open in favorite browser [https://localhost](http://localhost)
-
-

@@ -1,9 +1,13 @@
 [![builds.sr.ht status](https://builds.sr.ht/~kogeletey/karzok.svg)](https://builds.sr.ht/~kogeletey/karzok?)
+
 # Karzok
+
 A theme for your documentation. Fast and secure
 
 ![screenshot](./screenshot.png)
+
 ## Demo
+
 [Fmatch Karzok](https://fmatch.org/karzok)
 
 ## Requirements
@@ -20,11 +24,11 @@ for your platform.
 ### Optional
 
 1. [yj](https://github.com/sclevine/yj)
-    > for transfer toml file in yaml
+   > for transfer toml file in yaml
 2. [docker](https://docs.docker.com/engine/install/)
-    > for packaging container
+   > for packaging container
 3. [rsync](https://rsync.samba.org/)
-    > A better copy and move
+   > A better copy and move
 
 ## Get Started
 
@@ -61,7 +65,7 @@ See more in [Karzok Configuration](#configuration)
 
 ```zsh
     cp ./themes/content/_index.md content/_index.md
-    # a template will appear with which you can quickly start writing 
+    # a template will appear with which you can quickly start writing
     # cp ./themes/content/tmpl.md content/filename.md
 ```
 
@@ -96,7 +100,7 @@ changes live reolad.
 
 ii. production enviroment
 
--   with docker
+- with docker
 
 1. Build docker image
 
@@ -130,13 +134,15 @@ Open in favorite browser [https://localhost](http://localhost)
 
 1. `math` - rendering math formulas throught [katex](https://katex.org)
 2. `favicon` - set path to favicon icon import(default `favicon`)
-3. `localcdn`- if you want to store all assets on your domain, then enable this setting
-4. `cdnurl` - you can customize your url to store assets,default use [jsdelivr](https://www.jsdelivr.com)
+3. `localcdn`- if you want to store all assets on your domain, then enable this
+   setting
+4. `cdnurl` - you can customize your url to store assets,default use
+   [jsdelivr](https://www.jsdelivr.com)
 5. `show_word_count` - allowing you to show number of words
 6. `show_reading_time`- allowing you to show reading time
 7. `children`- for header nesting to work
 8. `[[extra.menu]]` - the main navigation on the site
-6. `[[extra.header]]` - the header navigantion for the site
+9. `[[extra.header]]` - the header navigantion for the site
 
 ### Templates
 
@@ -147,26 +153,35 @@ All pages are extend to the base.html, and you can customize them as need.
 This program is Free Software: You can use, study share and improve it at your
 will. Specifically you can redistribute and/or modify it under the terms of the
 [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0)
+
 # Contribute
+
 Make sure to read the [Code of Conduct](/meta/code-of-conduct)
 
 ## Find bugs and come up with features
-On the [todo.sr.ht](https://todo.sr.ht/~kogeletey/karzok) or [github issues](https://github.com/kogeletey/karzok/issues)
+
+On the [todo.sr.ht](https://todo.sr.ht/~kogeletey/karzok) or
+[github issues](https://github.com/kogeletey/karzok/issues)
 
 ## Improve Code
-The Karzok is stored in the repository at [sr.ht](https://sr.ht/~kogeletey/karzok) and mirror [github](https://github.com/kogeletey/karzok)
+
+The Karzok is stored in the repository at
+[sr.ht](https://sr.ht/~kogeletey/karzok) and mirror
+[github](https://github.com/kogeletey/karzok)
+
 ### TODOs:
--   [x] readme contrubutions
--   [x] configure loading from cdn
--   [x] choose code_of_conduct
--   [x] proceed subpages
--   [ ] adding page description
--   [ ] create mobile version
--   [x] choose license
--   [x] adding full path article in the page
--   [ ] make dark theme
--   [x] continue author rendering
--   [x] adding word count
--   [x] refactor home.scss
+
+- [x] readme contrubutions
+- [x] configure loading from cdn
+- [x] choose code_of_conduct
+- [x] proceed subpages
+- [ ] adding page description
+- [ ] create mobile version
+- [x] choose license
+- [x] adding full path article in the page
+- [ ] make dark theme
+- [x] continue author rendering
+- [x] adding word count
+- [x] refactor home.scss
 
 > Thank you so much for any help

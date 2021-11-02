@@ -89,13 +89,13 @@ out-of-the-box.
 ```html
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <title>Example HTML5 Document</title>
-    </head>
-    <body>
-        <p>Test</p>
-    </body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Example HTML5 Document</title>
+  </head>
+  <body>
+    <p>Test</p>
+  </body>
 </html>
 ```
 
@@ -122,15 +122,15 @@ out-of-the-box.
 
 #### Unordered List
 
--   List item
--   Another item
--   And another item
+- List item
+- Another item
+- And another item
 
 #### Nested list
 
--   Item
-    1. First Sub-item
-    2. Second Sub-item
+- Item
+  1. First Sub-item
+  2. Second Sub-item
 
 # Other Elements — abbr, sub, sup, kbd, mark
 
@@ -157,6 +157,7 @@ x_2 \\
 x_3
 \%
 $$
+
 # Media
 
 ## Images
@@ -165,9 +166,7 @@ $$
 
 ![Media CDN](https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80)
 
-{% hint style="warning" %}
-123
-{% endhint %}
+{% hint style="warning" %} 123 {% endhint %}
 
 [^1]:
     The above quote is excerpted from Rob Pike's

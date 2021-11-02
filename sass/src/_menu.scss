@@ -1,51 +1,51 @@
 .menu {
-    font-family: 'Courier Prime', monospace;
-    display: grid;
-    padding: 0.95rem;
-    margin-bottom: 1em;
-    grid-gap: 1rem;
-    grid-template-rows: auto;
-    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-    min-height: calc(100vh - 84px);
-    height: auto;
-    width: 100%;
-    &-a {
-        position: relative;
-        margin-top: 1em;
-        padding: 1rem;
-        width: 75%;
-        height: 250px;
-        color: $black;
-        background-color: $light4;
-        box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.2);
-        text-decoration: none;
-        & h3 {
-            font-size: 20px;
-            text-align: center;
-            margin-bottom: 2rem;
-        }
+  font-family: 'Courier Prime', monospace;
+  display: grid;
+  padding: 0.95rem;
+  margin-bottom: 1em;
+  grid-gap: 1rem;
+  grid-template-rows: auto;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  min-height: calc(100vh - 84px);
+  height: auto;
+  width: 100%;
+  &-a {
+    position: relative;
+    margin-top: 1em;
+    padding: 1rem;
+    width: 75%;
+    height: 250px;
+    color: $black;
+    background-color: $light4;
+    box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    & h3 {
+      font-size: 20px;
+      text-align: center;
+      margin-bottom: 2rem;
     }
-    &-index {
-        padding-top: 2em;
-    }
-    &-time {
-        display: flex;
-        font-size: 14px;
-        font-weight: 400;
-        color: $dark3;
-        padding-bottom: 2em;
-    }
-    &-a:hover {
-        border: 1px solid;
-        border-color: transparent;
-        outline: 1px solid $green;
-    }
-    svg {
-        position: fixed;
-        transform: translate(25em, -2.75em);
-    }
-    & p {
-        color: $dark2;
-        overflow: hidden;
-    }
+  }
+  &-index {
+    padding-top: 2em;
+  }
+  &-time {
+    display: flex;
+    font-size: 14px;
+    font-weight: 400;
+    color: $dark3;
+    padding-bottom: 2em;
+  }
+  &-a:hover {
+    border: 1px solid;
+    border-color: transparent;
+    outline: 1px solid $green;
+  }
+  svg {
+    position: fixed;
+    transform: translate(25em, -2.75em);
+  }
+  & p {
+    color: $dark2;
+    overflow: hidden;
+  }
 }
