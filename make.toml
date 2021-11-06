@@ -1,4 +1,4 @@
-[tasks.dockerbuild]
+[tasks.docker_build]
 command = "docker-compose"
 args = ["build"]
 
