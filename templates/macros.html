@@ -20,24 +20,6 @@
             <li class="header__list-item">
                 <a itemprop="url" class="header__link {% if current_link == val_link %} header__link-active {% endif %}" href="{{ val_link | safe }}">
                     <span class="header__link-text"> {{ item.text }} </span>
-                    {% if config.extra.devmode %}
-                    {{ item.name }}
-                    {% if extra.name.container %}
-                    <div class="header__container">
-                    {% for val in item.container %}
-                    <a itemprop="url" class="header__link" href="{{ val.url | safe }}">
-                            {% if val.svg %}
-                              <span class="header__container-svg">
-                                {{ val.svg | safe }}
-                              </span>
-                            {% endif %}
-                            <span class="header__container-title"> {{ val.title }} </span>
-                            <span class="header__container-description"> {{ val.description }} </span>
-                        </a>
-                        {% endfor %}
-                    </div>
-                    {% endif %}
-                    {% endif %}
                 </a>
             </li>
             {% endfor %}
@@ -77,6 +59,19 @@
         {% endif %}
     </nav>
 </header>
+{% if config.extra.devmode %}
+<div class="header__container">
+    <a itemprop="url" class="header__container-link" href="/zero">
+    <span class="header__container-svg">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--simple-line-icons" width="32" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1024 1024"><path d="M768 0H416q-27 0-45.5 18.5T352 64h352v256h256v512H736v64h224q27 0 45.5-18.5T1024 832V256zm0 256V90l165 166H768zM64 128q-27 0-45.5 18.5T0 192v768q0 27 18.5 45.5T64 1024h544q27 0 45.5-18.5T672 960V384L416 128H64zm544 832H64V192h288v256h256v512zM416 384V218l165 166H416z" fill="currentColor"></path></svg>
+    </span>
+     <div class="header__container-column">
+     <h3 class="header__container-title"> zero </h3>
+     <p class="header__container-description"> is a number </p>
+     </div>
+    </a>
+</div>
+{% endif %}
 {% endmacro %}
 
 <!-- footer in the page -->
