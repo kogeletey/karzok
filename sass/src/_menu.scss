@@ -1,50 +1,56 @@
 .menu {
-  font-family: 'Courier Prime', monospace;
-  display: grid;
-  padding: 0.95rem;
+  width: 100%;
+  margin-top: 0.25em;
   margin-bottom: 1em;
-  grid-gap: 1rem;
-  grid-template-rows: auto;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  display: grid;
+  grid-auto-columns: 3fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: repeat(auto-fit, 1fr);
   min-height: calc(100vh - 84px);
-  height: auto;
-  &-a {
+  gap: 1px 1px;
+  &__link {
+    display: block;
     position: relative;
-    margin-top: 1em;
-    padding: 1rem;
-    width: 75%;
-    height: 250px;
     color: $black;
-    background-color: $light4;
-    box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.2);
+    background-size: cover;
+    background-color: $white;
     text-decoration: none;
-    & h3 {
+    box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.2);
+    padding-top: 1em;
+    padding-left: 1em;
+    overflow: hidden;
+    &-title,&-index {
+      display: block;
+      position: relative;
+      opacity: 1;
+      transform: translateY(0);
       font-size: 20px;
-      text-align: center;
-      margin-bottom: 2rem;
     }
+    &:hover &-title {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+  &-in {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: transform .4s,opacity .4s;
+    color: $black;
+  }
+  &:hover &-in{
+      opacity: 1;
+      transform: translateY(0);
+  }
+  &-time,p {
+    display: block;
+    position: relative;
+    opacity: .8;
+  }
+  }
+  &__link:hover{
+    outline: 1px solid $green;
+    transform: scale(1,1);
   }
   &-index {
     padding-top: 2em;
-  }
-  &-time {
-    display: flex;
-    font-size: 14px;
-    font-weight: 400;
-    color: $dark3;
-    padding-bottom: 2em;
-  }
-  &-a:hover {
-    border: 1px solid;
-    border-color: transparent;
-    outline: 1px solid $green;
-  }
-  svg {
-    position: fixed;
-    transform: translate(25em, -2.75em);
-  }
-  & p {
-    color: $dark2;
-    overflow: hidden;
   }
 }
