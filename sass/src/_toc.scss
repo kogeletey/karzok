@@ -10,7 +10,7 @@
   width: 250px;
   &-ul {
     position: sticky;
-    border-left: 3px solid;
+    border-left: 1px solid;
     padding-left: 0;
     border-color: $dark2;
     max-width: 100%;
@@ -31,10 +31,10 @@
   &-li:hover::before,
   &-li__active::before {
     position: absolute;
-    left: -3px;
+    left: -2px;
     height: 100%;
     content: '';
-    border-left: 3px solid;
+    border-left: 2px solid;
     border-color: $green;
   }
 }

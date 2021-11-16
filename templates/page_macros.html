@@ -21,24 +21,30 @@
 <nav class="sidebar">
     <ul class="sidebar-ul">
     {% if index.pages %}
-        {% for page in index.pages %}
-        <li class="sidebar-pages">
-            <a class="sidebar-link-a" href="{{ page.permalink | safe  }}">
-      <div class="sidebar-link-div{% if current_url == page.permalink %} sidebar-link-a__active{% endif %}"><svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="none" viewBox="0 0 8 8"><circle cx="4" cy="4" r="3" fill="#000"/></svg></div><span class="{% if current_url == page.permalink %}sidebar-link-a__active{% endif %}"> {{page.title }} </span></a></li>
-        {% endfor %}
+    {% for page in index.pages %}
+    <li class="sidebar__pages {% if current_url == page.permalink %} sidebar__active-pages{% endif %}">
+            <a class="sidebar__pages-link {% if current_url == page.permalink %} sidebar__active-link {%endif%}" href="{{ page.permalink | safe  }}">
+                <span> {{page.title }} </span>
+            </a>
+        </li>
+    {% endfor %}
     {% endif %}
         {% if index.subsections %}
-            {% for s in index.subsections %}
-            {% set subsection = get_section(path=s) %}
-            <li class="sidebar-li">
-                <a href="{{ subsection.permalink }}"> <span>{{ subsection.title }}</span> </a>
-            </li>
+        {% for s in index.subsections %}
+        {% set subsection = get_section(path=s) %}
+        <li class="sidebar__subsection-page">{{ subsection.title }}
+        <ul class="sidebar__subsection">
             {% if subsection.pages %}
             {% for page in subsection.pages %}
-            <li class="sidebar-link">
-                    <a class="sidebar-link-a"  href="{{ page.permalink | safe}}"><div class="sidebar-link-div{% if current_url == page.permalink %} sidebar-link-a__active{% endif %}"><svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="none" viewBox="0 0 8 8"><circle cx="4" cy="4" r="3" fill="#000"/></svg></div><span class="{% if current_url == page.permalink %}sidebar-link-a__active{% endif %}"> {{page.title }} </span></a></li>
+            <li class="sidebar-link {% if current_url == page.permalink %} sidebar__active-pages{% endif %}">
+                <a class="sidebar__pages-link {% if current_url == page.permalink %} sidebar__active-link {%endif%}"  href="{{ page.permalink | safe}}">
+                    <span> {{page.title }} </span>
+                </a>
+            </li>
             {% endfor %}
             {% endif%}
+            </ul>
+        </li>
             {% endfor %}
     {% endif %}
     </ul>
