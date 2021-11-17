@@ -1,6 +1,9 @@
 FROM alpine:latest AS zola
 
+ARG content_dir=content
+
 COPY . /www
+COPY $content_dir /www/content
 
 RUN apk update
 
@@ -10,7 +13,6 @@ npm \
 rsync
 
 WORKDIR /www
-
 RUN npm run gen
 
 FROM nginx:stable-alpine

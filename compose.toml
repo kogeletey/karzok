@@ -1,5 +1,0 @@
-[services.karzok]
-build="."
-container_name="karzok"
-ports = ["3000:80"]
-
