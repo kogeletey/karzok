@@ -1,0 +1,10 @@
+.git/
+*.toml
+!config.toml
+*.yml
+Dockerfile
+LICENSE
+README.md
+theme.toml
+screenshot.png
+changelog.md

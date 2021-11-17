@@ -73,14 +73,6 @@ how you can give freedom to your creativity
 
 ### 5. Run the project
 
-#### With [docker-compose](https://docs.docker.com/compose) and [cargo make](https://sagiegurari.github.io/cargo-make/)
-
-```zsh
-cargo make --makefile make.toml dockerup
-```
-
-#### Without
-
 i. development enviroment
 
 1. Install node dependencies needed to work
@@ -168,20 +160,5 @@ On the [todo.sr.ht](https://todo.sr.ht/~kogeletey/karzok) or
 The Karzok is stored in the repository at
 [sr.ht](https://sr.ht/~kogeletey/karzok) and mirror
 [github](https://github.com/kogeletey/karzok)
-
-### TODOs:
-
-- [x] readme contrubutions
-- [x] configure loading from cdn
-- [x] choose code_of_conduct
-- [x] proceed subpages
-- [ ] adding page description
-- [ ] create mobile version
-- [x] choose license
-- [x] adding full path article in the page
-- [ ] make dark theme
-- [x] continue author rendering
-- [x] adding word count
-- [x] refactor home.scss
 
 > Thank you so much for any help

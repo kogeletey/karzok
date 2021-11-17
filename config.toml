@@ -1,6 +1,7 @@
 # Change to you title
 title = "Karzok"
 
+#base_url = "http://localhost:3000"
 base_url = "https://fmatch.org/karzok"
 
 default_language = "en"

@@ -7,7 +7,6 @@
     "gen": "npm install && rsync -va --delete-after node_modules/* static/ && rm -rf static/commander node_modules && zola build"
   },
   "dependencies": {
-    "@fontsource/courier-prime": "^4.5.0",
     "@fontsource/inter": "^4.5.0",
     "@fontsource/jetbrains-mono": "^4.5.0",
     "katex": "^0.13.13",
