@@ -3,10 +3,12 @@
         {% block body %}
             {% block content %}
             {% block welcome %}
-            <h1 class="welcome"> Welcome to Karzok</h1>
-            <p class="welcome-p">
+            <div class="welcome">
+            <h1 class="welcome__heading"> Welcome to Karzok</h1>
+            <p class="welcome__description">
                 A theme for your documentation. Fast and secure
             </p>
+            </div>
             {% endblock welcome %}
             <section class="menu">
                 {% if config.extra.menu %}

@@ -8,7 +8,7 @@
     min-height: 1.25rem;
     padding-top: 0.15em;
     &-link {
-      padding-bottom: 0% !important;
+      padding-bottom: 0%;
     }
   }
   &__nav {
@@ -33,7 +33,7 @@
     }
     &-text:hover,
     &-active {
-      padding-bottom: 10px;
+      padding-bottom: 9px;
       border-bottom: 2px solid;
       border-color: $green;
     }

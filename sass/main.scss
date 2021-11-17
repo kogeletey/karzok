@@ -1,31 +1,29 @@
 // Color system variables
-$black: #111111 !default;
 $dark3: #333333 !default;
 $dark2: #555555 !default;
 $dark1: #777777 !default;
-$light1: #999999 !default;
-$light2: #bbbbbb !default;
-$light3: #dddddd !default;
 $light4: #f9f9f9 !default;
-$white: #ffffff !default;
 $red: #ff4136 !default;
 $orange: #ff851b !default;
 $yellow: #ffdc00 !default;
-$green: #2ecc40 !default;
 $aqua: #7fdbff !default;
 $blue: #0074d9 !default;
 $purple: #b10dc9 !default;
 $brown: #85144b !default;
 
 :root {
-  --black: #{$black};
-  --white: #{$white};
-  --green: #{$green};
+  --black: #111111;
+  --white: #ffffff;
+  --light2: #bbbbbb;
+  --light3: #dddddd;
+  --green: #2ecc40;
 }
 
 $black: var(--black);
 $green: var(--green);
 $white: var(--white);
+$light2: var(--light2);
+$light3: var(--light3);
 
 // Import components
 @import 'src/toc';
@@ -39,6 +37,7 @@ $white: var(--white);
   margin: 0;
   padding: 0;
   border: 0;
+  box-sizing: border-box;
 }
 
 html {
@@ -63,14 +62,17 @@ ul {
 }
 
 .welcome {
-  display: flex;
-  justify-content: center;
-  font-weight: 400;
-  font-size: 100px;
   padding-top: 2em;
-  &-p {
+  height: 60vh;
+  &__heading {
     display: flex;
     justify-content: center;
+    font-size: 100px;
+  }
+  &__description {
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
   }
 }
 .error {

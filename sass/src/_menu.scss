@@ -6,7 +6,7 @@
   grid-auto-columns: 3fr;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: repeat(auto-fit, 1fr);
-  min-height: calc(100vh - 84px);
+  height: 100vh;
   gap: 1px 1px;
   &__link {
     display: block;

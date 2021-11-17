@@ -1,17 +1,16 @@
 .footer {
-  font-family: 'Courier Prime', monospace;
   display: block;
   width: 100%;
-  background-color: $black;
+  background-color: $white;
   border-top: 2px solid;
   border-color: $black;
-  color: $white;
+  color: $black;
   &-span {
     padding-left: 1em;
     font-size: 18px;
     margin-right: 25%;
   }
   &-a {
-    color: $white;
+    color: $black;
   }
 }
