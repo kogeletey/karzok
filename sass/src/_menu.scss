@@ -22,13 +22,9 @@
     &-title,&-index {
       display: block;
       position: relative;
-      opacity: 1;
-      transform: translateY(0);
       font-size: 20px;
-    }
-    &:hover &-title {
-        opacity: 0;
-        transform: translateY(-40px);
+      margin-bottom: 10px;
+      color: $black
     }
   &-in {
     opacity: 0;
