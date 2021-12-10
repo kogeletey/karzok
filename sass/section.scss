@@ -1,0 +1,35 @@
+@import 'src/base';
+
+@import 'src/menu';
+
+.welcome {
+  padding-top: 2em;
+  height: 60vh;
+  &__heading {
+    display: flex;
+    justify-content: center;
+    font-size: 100px;
+  }
+  &__description {
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+  }
+}
+.error {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  font-weight: 400;
+  margin-bottom: 2em;
+  min-height: calc(100vh - 87px);
+  & h1 {
+    font-size: 250px;
+  }
+  & h2 {
+    font-size: 100px;
+  }
+  & h3 {
+    font-size: 50px;
+  }
+}

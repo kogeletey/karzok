@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 
+{% block styles %}
+{{ macros::styles(file='section.css') }}
+{% endblock styles %}
+
 {% block htmltitle %}
     404 Page Not Found
 {% endblock htmltitle %}

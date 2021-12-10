@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block styles %}
+{{ macros::styles(file='section.css') }}
+{% endblock styles %}
+
 {% block htmltitle %}
     {{ macros::title_or_last(component=section) }} - {{ config.title }}
 {% endblock htmltitle %}

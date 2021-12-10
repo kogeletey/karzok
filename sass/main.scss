@@ -1,37 +1,7 @@
-// Color system variables
-$dark3: #333333 !default;
-$dark2: #555555 !default;
-$dark1: #777777 !default;
-$light4: #f9f9f9 !default;
-$red: #ff4136 !default;
-$orange: #ff851b !default;
-$yellow: #ffdc00 !default;
-$aqua: #7fdbff !default;
-$blue: #0074d9 !default;
-$purple: #b10dc9 !default;
-$brown: #85144b !default;
+@import 'src/base';
 
-:root {
-  --black: #111111;
-  --white: #ffffff;
-  --light2: #bbbbbb;
-  --light3: #dddddd;
-  --green: #2ecc40;
-}
-
-$black: var(--black);
-$green: var(--green);
-$white: var(--white);
-$light2: var(--light2);
-$light3: var(--light3);
-
-// Import components
-@import 'src/toc';
-@import 'src/sidebar';
 @import 'src/header';
-@import 'src/page';
 @import 'src/footer';
-@import 'src/menu';
 
 * {
   margin: 0;
@@ -54,41 +24,3 @@ ul {
   list-style: none;
 }
 
-.docs {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 25px;
-  margin-top: 15px;
-}
-
-.welcome {
-  padding-top: 2em;
-  height: 60vh;
-  &__heading {
-    display: flex;
-    justify-content: center;
-    font-size: 100px;
-  }
-  &__description {
-    display: flex;
-    justify-content: center;
-    font-size: 30px;
-  }
-}
-.error {
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  font-weight: 400;
-  margin-bottom: 2em;
-  min-height: calc(100vh - 87px);
-  & h1 {
-    font-size: 250px;
-  }
-  & h2 {
-    font-size: 100px;
-  }
-  & h3 {
-    font-size: 50px;
-  }
-}

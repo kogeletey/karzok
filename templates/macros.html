@@ -139,3 +139,11 @@
 </script>
         {% endif %}
 {% endmacro %}
+
+{% macro styles(file) %}
+{% if config.extra.assets_url %}
+<link rel="stylesheet" href="{{ config.extra.assets_url }}/{{ file }}">
+{% else %}
+<link rel="stylesheet" href="{{ get_url(path=file) }}">
+{% endif %}
+{% endmacro %}

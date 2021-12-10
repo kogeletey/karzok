@@ -1,4 +1,7 @@
 {% extends 'base.html' %}
+{% block styles %}
+{{ macros::styles(file='section.css') }}
+{% endblock styles %}
     <body>
         {% block body %}
             {% block content %}

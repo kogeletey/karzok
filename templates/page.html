@@ -1,4 +1,9 @@
 {% extends "base.html" %}
+
+{% block styles %}
+    {{ macros::styles(file='page.css') }}
+{% endblock styles %}
+
 {% block htmltitle %}
     {{ page.title }}
 {% endblock htmltitle %}

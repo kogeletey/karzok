@@ -15,11 +15,9 @@
         {% if config.extra.favicon %}
             <link rel="shortcut icon" type="image/svg" href="{{ get_url(path=config.extra.favicon) }}">
         {% endif %}
-        {% if config.extra.assets_url %}
-        <link rel="stylesheet" href="{{ config.extra.assets_url }}/main.css">
-        {% else %}
-        <link rel="stylesheet" href="{{ get_url(path='main.css') }}">
-        {% endif %}
+        {{ macros::styles(file='main.css') }}
+        {% block styles %}
+        {% endblock styles %}
         <title>{% block htmltitle %} {{ config.title }}{% endblock htmltitle %}</title>
         {% if config.extra.localcdn %}
         <link rel="stylesheet" href="{{ get_url(path='normalize.css/normalize.css') }}">

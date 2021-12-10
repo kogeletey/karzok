@@ -1,0 +1,12 @@
+@import 'src/base';
+
+@import 'src/article';
+@import 'src/sidebar';
+@import 'src/toc';
+
+.docs {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  margin-top: 15px;
+}
