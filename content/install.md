@@ -48,7 +48,7 @@ base_url = "https://karzok.example.net" # set-up for production
 theme = "karzok"
 ```
 
-See more in [Karzok Configuration](#configuration)
+See more in [Karzok Configuration](/configure)
 
 ## 4. Added new content
 
