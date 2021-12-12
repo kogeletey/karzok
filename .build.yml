@@ -17,7 +17,10 @@ tasks:
       ssh-keyscan github.com > "$HOME"/.ssh/known_hosts && cd karzok && git push --mirror "$github_mirror" || echo "failed mirroring"
   - generate: |
       cd karzok
+      npm install
+      npm run compile:js
       zola build
+      npm run postcss
   - deploy: |
       pip install awscli-plugin-endpoint
       aws s3 cp --recursive karzok/public s3://fmatch.org/karzok
