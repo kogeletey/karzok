@@ -4,7 +4,8 @@
   "author": "kogeletey",
   "private": true,
   "scripts": {
-    "gen": "npm install && rsync -va --delete-after node_modules/* static/ && rm -rf static/commander node_modules && zola build"
+    "link": "ln -s ../node_modules/* static/",
+    "gen": "zola build"
   },
   "dependencies": {
     "@fontsource/inter": "^4.5.0",
