@@ -9,11 +9,11 @@ RUN apk update
 
 RUN apk add \
 zola --repository http://dl-cdn.alpinelinux.org/alpine/edge/community/ \
-npm \
-rsync
+npm
 
 WORKDIR /www
 RUN npm run gen
+
 
 FROM nginx:stable-alpine
 
