@@ -3,6 +3,14 @@
 @import 'src/header';
 @import 'src/footer';
 
+:root {
+  --black: #111111;
+  --white: #ffffff;
+  --light2: #bbbbbb;
+  --light3: #dddddd;
+  --green: #2ecc40;
+}
+
 * {
   margin: 0;
   padding: 0;
