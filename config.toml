@@ -1,12 +1,14 @@
 # Change to you title
 title = "Karzok"
 
-#base_url = "http://localhost:3000"
+#base_url = "http://localhost:8080"
 base_url = "https://fmatch.org/karzok"
 
 default_language = "en"
 
 build_search_index = true
+
+#hard_link_static = true
 
 compile_sass = true
 
