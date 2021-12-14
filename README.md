@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://builds.sr.ht/~kogeletey/karzok"<img alt="builds.sr.ht status" src="https://builds.sr.ht/~kogeletey/karzok.svg" /></a>
-  <a href="https://design.penpot.app/#/view/b4a9c170-5cb6-11ec-826f-e949c75b760d?page-id=ef8611e1-7c24-11eb-89c7-03f8ac143bbf&index=0&share-id=d81024f0-5cb7-11ec-826f-e949c75b760d"<img alt="design with penpot" src="https://flat.badgen.net/badge/designed%20with/penpot/31EFB8"/></a>
+  <a href="https://builds.sr.ht/~kogeletey/karzok"><img src="https://builds.sr.ht/~kogeletey/karzok.svg"  alt="builds.sr.ht status" /></a>
+  <a href="https://design.penpot.app/#/view/b4a9c170-5cb6-11ec-826f-e949c75b760d?page-id=ef8611e1-7c24-11eb-89c7-03f8ac143bbf&index=0&share-id=d81024f0-5cb7-11ec-826f-e949c75b760d"><img alt="designed with penpot" src="https://badgen.net/badge/designed%20with/penpot/31EFB8" /></a>
 </p>
 
 # Karzok
