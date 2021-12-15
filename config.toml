@@ -8,6 +8,8 @@ default_language = "en"
 
 build_search_index = true
 
+#minify_html = true
+
 #hard_link_static = true
 
 compile_sass = true
