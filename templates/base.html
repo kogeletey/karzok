@@ -20,14 +20,15 @@
         {% endblock styles %}
         <title>{% block htmltitle %} {{ config.title }}{% endblock htmltitle %}</title>
         {% if config.extra.localcdn %}
-        <link rel="stylesheet" href="{{ get_url(path='normalize.css/normalize.css') }}">
+        <link rel="stylesheet" href="{{ get_url(path='modern-normalize.css') }}">
+        {#        <!--        <link rel="stylesheet" href="{{ get_url(path='normalize.css/normalize.css') }}"> --> #}
         <link rel="stylesheet" href="{{ get_url(path='@fontsource/inter/400.css') }}">
         <link rel="stylesheet" href="{{ get_url(path='@fontsource/inter/700.css') }}">
         <link rel="stylesheet" href="{{ get_url(path='@fontsource/jetbrains-mono/400.css') }}">
         {% else %}
         {% set cdnurl = config.extra.cdnurl | default(value="https://cdn.jsdelivr.net/npm/") %}
-        <link rel="stylesheet" href="{{ cdnurl | safe }}normalize.css/normalize.css">
-
+        <!--        <link rel="stylesheet" href="{{ cdnurl | safe }}normalize.css/normalize.css"> -->
+        <link rel="stylesheet" href="{{cdnurl | safe }}modern-normalize/modern-normalize.min.css }}">
         <link rel="stylesheet" href="{{cdnurl | safe }}@fontsource/inter/400.css">
         <link rel="stylesheet" href="{{cdnurl | safe }}@fontsource/inter/700.css">
         <link rel="stylesheet" href="{{cdnurl | safe }}@fontsource/jetbrains-mono/400.css">

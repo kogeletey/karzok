@@ -6,7 +6,7 @@
   "scripts": {
     "postcss": "postcss public/{main,page,section}.css --replace",
     "compile:js": "swc helpers --only -d static",
-    "link": "rm -rf static && mkdir static && cp -r node_modules/@fontsource node_modules/katex node_modules/normalize.css assets static/ || :",
+    "link": "rm -rf static && mkdir static && cp -r node_modules/@fontsource node_modules/katex node_modules/modern-normalize/modern-normalize.css assets static/ || :",
     "clean": "rm -rf static node_modules",
     "gen": "npm run link && npm run compile:js && zola build && npm run postcss"
   },
@@ -14,7 +14,7 @@
     "@fontsource/inter": "^4.5.0",
     "@fontsource/jetbrains-mono": "^4.5.0",
     "katex": "^0.13.13",
-    "normalize.css": "^8.0.1"
+    "modern-normalize": "^1.1.0"
   },
   "otherDependencies": {
     "zola": "0.14.0"
@@ -23,6 +23,8 @@
     "@swc/cli": "^0.1.53",
     "@swc/core": "^1.2.119",
     "autoprefixer": "^10.4.0",
+    "clean-css": "^5.2.2",
+    "clean-css-cli": "^5.5.0",
     "postcss": "^8.4.4",
     "postcss-cli": "^9.1.0"
   }

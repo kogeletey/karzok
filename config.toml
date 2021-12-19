@@ -36,7 +36,7 @@ cdnurl = "https://get.re128.net/"
 #assets_url = "https://get.re128.net/_/karzok"
 #devmode = true
 
-localcdn = false
+#localcdn = true
 
 show_word_count = true
 show_reading_time = true
