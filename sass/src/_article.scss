@@ -11,14 +11,17 @@
     font-weight: 700;
   }
   h1,
-  h2,
+  h2 {
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
   h3,
   h4,
   h5,
   h6,
   p {
-    margin-top: 1.25rem;
-    margin-bottom: 1.25rem;
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
   }
   a {
     color: $green;
@@ -54,6 +57,7 @@
     margin-top: 1rem;
     width: 100%;
     border-collapse: collapse;
+    overflow-x: auto;
     td,
     th {
       border: 1px solid $dark1;
@@ -92,7 +96,6 @@
     border-radius: 2px;
   }
   img {
-    max-width: 100%;
     height: auto;
   }
 }

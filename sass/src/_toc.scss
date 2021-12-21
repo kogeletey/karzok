@@ -1,7 +1,6 @@
 .toc {
   position: sticky;
   top: 1rem;
-  box-sizing: border-box;
   margin-right: 1.25em;
   height: calc(110vh - 1rem);
   overflow-y: auto;
@@ -37,4 +36,10 @@
     border-left: 2px solid;
     border-color: $green;
   }
+}
+
+@media(max-width: 500px) {
+    .toc {
+        display: none;
+    }
 }
