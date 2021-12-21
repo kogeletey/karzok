@@ -1,12 +1,12 @@
 .sidebar {
   position: sticky;
   top: 1rem;
-  padding-left: 0;
   height: calc(110vh - 1rem);
-  border-right: 1px solid $black;
+  padding-left: 0;
   max-height: 100vh;
-  overflow-y: auto;
   width: 350px;
+  border-right: 1px solid $black;
+  overflow-y: auto;
   &__pages {
     margin-left: 0.5rem;
     margin-top: 1em;
@@ -44,8 +44,26 @@
   }
 }
 
-@media(max-width: 500px) {
-    .sidebar {
+.show-bar {
+    display: none;
+}
+
+@media(max-width: 1000px) {
+    .sidebar{
         display: none;
+        transform: translateX(-100%);
+        transition: transform .25s;
+        &:target,
+        &.active {
+          transform: translateX(100%);
+         // transform: translateX(0);
     }
+  }
+  .show-sidebar {
+    margin-left: 0.5rem;
+  }
+  .show-toc {
+    margin-right: 0.5rem;
+  }
+
 }
