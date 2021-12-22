@@ -42,18 +42,26 @@
   &__active-link {
     color: $green;
   }
+  &__close {
+    display: none;
+  }
 }
+
+
 
 @media(max-width: 1000px) {
     .sidebar{
         display: none;
-        transform: translateX(-100%);
-        transition: transform .25s;
-        &:target,
-        &.active {
-          transform: translateX(100%);
-         // transform: translateX(0);
+        &__close {
+            display: block;
+            z-index: 100;
+        }
+    &__active-pages,
+    &-link:hover,&__pages:hover{
+       color: $green;
+       border: none;
     }
+
   }
   .show-sidebar {
     margin-left: 0.5rem;
@@ -61,5 +69,18 @@
   .show-toc {
     margin-right: 0.5rem;
   }
-
+  #sidebar {
+    display: inline-block;
+    border: none;
+    position: fixed;
+    background: $white;
+    width: 250px;
+    height: 100%;
+    transition: transform .25s;
+    transform: translateX(-100%);
+    &:target {
+       transform: translateX(0);
+       z-index: 100;
+   }
+}
 }

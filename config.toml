@@ -28,6 +28,9 @@ highlight_theme = "base16-ocean-dark"
 render_emoji = true
 
 [extra]
+# logotype
+favicon = "assets/favicon.ico"
+
 # github
 version = "https://api.github.com/repos/kogeletey/karzok/releases/latest"
 cdnurl = "https://get.re128.net/"
