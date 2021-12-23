@@ -36,10 +36,37 @@
     border-left: 2px solid;
     border-color: $green;
   }
+  &__close {
+    display: none;
+  }
 }
 
 @media(max-width: 1000px) {
     .toc {
         display: none;
+        &__close {
+            display: block;
+        }
+        &-ul {
+         border: none;
+        }
+        &-a:hover {
+            color: $green;
+        }
+    }
+    .show-toc {
+    margin-right: 0.5rem;
+    }
+    #toc {
+//        display: block;
+        position: absolute;
+        background: $white;
+        transition: transform .25s;
+        width: 100%;
+        height: 100%;
+        transform: translateY(0);
+        &:target {
+            transform: translateY(0);
+        }
     }
 }
