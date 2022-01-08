@@ -8,7 +8,7 @@
     "compile:js": "swc helpers --only -d static",
     "link": "rm -rf static && mkdir static && cp -r node_modules/@fontsource node_modules/katex node_modules/modern-normalize/modern-normalize.css assets static/ || :",
     "clean": "rm -rf static node_modules",
-    "gen": "npm run link && npm run compile:js && zola build && npm run postcss"
+    "gen": "npm run link && zola build && npm run postcss"
   },
   "dependencies": {
     "@fontsource/inter": "^4.5.0",
