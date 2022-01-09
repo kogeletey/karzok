@@ -10,7 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="referrer" content="no-referrer">
         <meta name="theme-color" content="{{ config.extra.theme_color | default(value="#fff") }}">
-        <link rel="icon" href="{{ get_url(path=config.extra.favicon) | default(value='/favicon.ico') }}">
+        <link rel="icon" href="{{ get_url(path=config.extra.favicon | default(value='/favicon.ico') ) }}">
         {% block math %}
         {{ macros::math() }}
         {% endblock math %}
