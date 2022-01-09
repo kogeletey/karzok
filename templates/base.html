@@ -9,12 +9,11 @@
         <meta name="MobileOptimized" content="320">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="referrer" content="no-referrer">
+        <meta name="theme-color" content="{{ config.extra.theme_color | default(value="#fff") }}">
+        <link rel="icon" href="{{ get_url(path=config.extra.favicon) | default(value='/favicon.ico') }}">
         {% block math %}
         {{ macros::math() }}
         {% endblock math %}
-        {% if config.extra.favicon %}
-            <link rel="shortcut icon" type="image/svg" href="{{ get_url(path=config.extra.favicon) }}">
-        {% endif %}
         {{ macros::styles(file='main.css') }}
         {% block styles %}
         {% endblock styles %}
