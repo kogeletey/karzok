@@ -67,11 +67,12 @@
     margin-left: 0.5rem;
   }
   #sidebar {
-    display: inline-block;
+    display: block;
     border: none;
+    top: 4.5rem;
     position: fixed;
     background: $white;
-    width: 250px;
+    width: 50%;
     height: 100%;
     transition: transform .25s;
     transform: translateX(-100%);
