@@ -1,3 +1,37 @@
+# [unreleased]
+
+## New features
+
+- mobile version is made in early version
+- alpha search
+- new settings `relative_path` which prints in full page
+- new parameter `config.extra.theme_color` which allow tab coloring in safari
+- experimental settings `header.container`
+- new Dockerfile
+
+## Bug fixing
+
+- fixed favicons
+- fixing toc and sidebar overflow
+- fixing article.css large list
+- correct minutes word
+- fix bug with typo
+
+
+## Maintenance
+
+- improved normalize.css by @sindresorhus
+- separate header parameter to `header_right` and `header_left`
+- README.md set link center and add design with penpot
+- remove static folder, by it generation
+- .build.yml new steps added for compile and optimize css code
+- split the css files and reduced the size of the loaded content
+- redesigned menu 
+- replaces font with inter
+- write components a bem methology
+- globally set img width
+- separate macros file
+
 # [0.1.3] - 2021-09-14
 
 ## New features
