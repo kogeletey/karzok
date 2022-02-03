@@ -134,3 +134,10 @@
     padding-left: 1rem;
 }
 }
+
+@media(max-width: 1000px) {
+    .header__center,
+    #suggestions {
+        display: none;
+    }
+}

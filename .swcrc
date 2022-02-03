@@ -8,7 +8,7 @@
       "compress": {
         "unused": true
       },
-      "mangle": true
+      "mangle": false
     }
   }
 }

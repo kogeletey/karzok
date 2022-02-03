@@ -6,7 +6,7 @@ base_url = "https://fmatch.org/karzok"
 
 default_language = "en"
 
-#build_search_index = true
+build_search_index = true
 
 #minify_html = true
 

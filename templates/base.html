@@ -47,7 +47,9 @@
         {{ macros::footer() }}
     {% endblock footer%}
     {% if config.build_search_index %}
-    <script async src="{{ get_url(path='search_index.'~ lang ~'.js') | safe }}"></script>
+    <script  src="{{ get_url(path="elasticlunr.min.js") | safe }}" defer></script>
+    <script src="{{ get_url(path='search_index.'~ lang ~'.js') | safe }}" defer></script>
+    <script src="{{ get_url(path="search.js") | safe }}" defer></script>
     {% endif%}
     {% if config.extra.devmode %}
     <script src="{{ get_url(path='dark-light-switcher.js') }}"></script>
