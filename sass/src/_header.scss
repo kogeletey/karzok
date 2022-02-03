@@ -55,55 +55,56 @@
     }
   }
   &__container {
-      display: none;
-      display: flex;
-      flex-flow: row wrap;
-      background: $white;
-      box-shadow: 0 3px 10px $light3;
-      width: 100%;
-      justify-content: space-between;
-      gap: 3rem;
+    display: none;
+    display: flex;
+    flex-flow: row wrap;
+    background: $white;
+    box-shadow: 0 3px 10px $light3;
+    width: 100%;
+    justify-content: space-between;
+    gap: 3rem;
     &-link {
-        display: flex;
-        margin: 1em;
-        margin-left: 3rem;
-        flex: 0 0 25%;
+      display: flex;
+      margin: 1em;
+      margin-left: 3rem;
+      flex: 0 0 25%;
     }
-    &-title,&-description {
-        padding-left: 1em;
+    &-title,
+    &-description {
+      padding-left: 1em;
     }
     &-svg {
-        margin-top: 0.25rem;
-        color: $black;
+      margin-top: 0.25rem;
+      color: $black;
     }
     &-column {
-        display: flex;
-        flex-direction: column;
-        max-width: 10rem;
+      display: flex;
+      flex-direction: column;
+      max-width: 10rem;
     }
-    &-description{
-        color: $black;
+    &-description {
+      color: $black;
     }
   }
   &__center {
-      display: flex;
-        &-input {
-            padding: 4px 30px;
-            background-color: $light4;
-            border: none;
-        }
-        &-suggestions {
-            overflow: auto;
-            background-color: $white;
+    display: flex;
+    &-input {
+      padding: 4px 30px;
+      background-color: $light4;
+      border: none;
+    }
+    &-suggestions {
+      overflow: auto;
+      background-color: $white;
     }
     &-svg {
-        margin-left: 0.1em;
-        margin-top: 0.35em;
-        position: absolute;
-        background: transparent;
+      margin-left: 0.1em;
+      margin-top: 0.35em;
+      position: absolute;
+      background: transparent;
     }
-}
- &__right {
+  }
+  &__right {
     margin: 0px;
     padding: 0px;
     display: flex;
@@ -112,32 +113,32 @@
 }
 
 #suggestions {
-        position: absolute;
-        max-height: 500px;
-        overflow: auto;
-        margin-top: 2.1em;
-        max-width: 100%;
+  position: absolute;
+  max-height: 500px;
+  overflow: auto;
+  margin-top: 2.1em;
+  max-width: 100%;
 
-& a {
-  display: flex;
-  padding: 0.75rem;
-  border: 1px solid $black;
-}
+  & a {
+    display: flex;
+    padding: 0.75rem;
+    border: 1px solid $black;
+  }
 
-& span:first-child {
+  & span:first-child {
     padding-right: 1.5rem;
     text-align: right;
-}
+  }
 
-& span:nth-child(2) {
+  & span:nth-child(2) {
     width: 20rem;
     padding-left: 1rem;
-}
+  }
 }
 
-@media(max-width: 1000px) {
-    .header__center,
-    #suggestions {
-        display: none;
-    }
+@media (max-width: 1000px) {
+  .header__center,
+  #suggestions {
+    display: none;
+  }
 }

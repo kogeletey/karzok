@@ -19,32 +19,34 @@
     padding-top: 1em;
     padding-left: 1em;
     overflow: hidden;
-    &-title,&-index {
+    &-title,
+    &-index {
       display: block;
       position: relative;
       font-size: 20px;
       margin-bottom: 10px;
-      color: $black
+      color: $black;
     }
-  &-in {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: transform .4s,opacity .4s;
-    color: $black;
-  }
-  &:hover &-in{
+    &-in {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: transform 0.4s, opacity 0.4s;
+      color: $black;
+    }
+    &:hover &-in {
       opacity: 1;
       transform: translateY(0);
+    }
+    &-time,
+    p {
+      display: block;
+      position: relative;
+      opacity: 0.8;
+    }
   }
-  &-time,p {
-    display: block;
-    position: relative;
-    opacity: .8;
-  }
-  }
-  &__link:hover{
+  &__link:hover {
     outline: 1px solid $green;
-    transform: scale(1,1);
+    transform: scale(1, 1);
   }
   &-index {
     padding-top: 2em;

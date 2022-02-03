@@ -7,9 +7,10 @@
     "postcss": "postcss public/{main,page,section}.css --replace",
     "compile:js": "swc helpers --only -d static",
     "link": "rsync -va node_modules/@fontsource node_modules/katex node_modules/modern-normalize/modern-normalize.css static && npm run link:assets :",
-    "link:assets":"mkdir -p static && cp -r assets static || :",
+    "link:assets": "mkdir -p static && cp -r assets static || :",
     "clean": "rm -rf static node_modules",
-    "gen": "npm run link && zola build && npm run postcss"
+    "gen": "npm run link && zola build && npm run postcss",
+    "watch": "swc helpers --only -d static --watch & zola serve -O -f"
   },
   "dependencies": {
     "@fontsource/inter": "^4.5.0",
@@ -27,6 +28,7 @@
     "clean-css": "^5.2.2",
     "clean-css-cli": "^5.5.0",
     "postcss": "^8.4.4",
-    "postcss-cli": "^9.1.0"
+    "postcss-cli": "^9.1.0",
+    "prettier": "^2.5.1"
   }
 }
