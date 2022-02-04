@@ -7,16 +7,14 @@ weight = 1
 
 1. [Zola](https://www.getzola.org/documentation/getting-started/installation/)
 2. [Node.js](https://nodejs.org/)
+3. [rsync](https://rsync.samba.org/)
 
 install for your platform.
 
 ## Optional
 
-1. [yj](https://github.com/sclevine/yj)
-   > for transfer toml file in yaml
-2. [docker](https://docs.docker.com/engine/install/)
+- [docker](https://docs.docker.com/engine/install/)
    > for packaging container
-3. [rsync](https://rsync.samba.org/)
    > A better copy and move
 
 # Get Started
@@ -62,20 +60,13 @@ how you can give freedom to your creativity
 
 ## 5. Run the project
 
-### With [docker-compose](https://docs.docker.com/compose) and [cargo make](https://sagiegurari.github.io/cargo-make/)
-
-```zsh
-cargo make --makefile make.toml dockerup
-```
-
-### Without
-
 i. development enviroment
 
 1. Install node dependencies needed to work
 
 ```zsh
-npm run gen # don't use npm install before that
+npm ci
+npm run gen 
 ```
 
 2. Just run `zola serve` in the root path of the project
@@ -100,7 +91,7 @@ docker build .
 or if installed docker-compose
 
 ```zsh
-docker-compose build
+docker compose build
 ```
 
 2. Run containers
@@ -109,10 +100,10 @@ docker-compose build
 docker start -d -p 80:80 container_id
 ```
 
-or if installed docker-compose
+or if installed docker compose
 
 ```zsh
-docker-compose up -d
+docker compose up -d
 ```
 
 Open in favorite browser [https://localhost](http://localhost)

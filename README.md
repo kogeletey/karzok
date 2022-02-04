@@ -21,17 +21,14 @@ Karzok uses npm,zola to dependency managment,rendering, scripts and plugins.
 
 1. [Zola](https://www.getzola.org/documentation/getting-started/installation/)
 2. [Node.js](https://nodejs.org/)
+3. [rsync](https://rsync.samba.org)
 
 for your platform.
 
 ### Optional
 
-1. [yj](https://github.com/sclevine/yj)
-   > for transfer toml file in yaml
-2. [docker](https://docs.docker.com/engine/install/)
+- [docker](https://docs.docker.com/engine/install/)
    > for packaging container
-3. [rsync](https://rsync.samba.org/)
-   > A better copy and move
 
 ## Get Started
 
@@ -81,7 +78,8 @@ i. development enviroment
 1. Install node dependencies needed to work
 
 ```zsh
-npm run gen # don't use npm install before that
+npm ci
+npm run gen 
 ```
 
 2. Just run `zola serve` in the root path of the project
@@ -103,10 +101,10 @@ ii. production enviroment
 docker build .
 ```
 
-or if installed docker-compose
+or if installed docker compose
 
 ```zsh
-docker-compose build
+docker compose build
 ```
 
 2. Run containers
@@ -115,7 +113,7 @@ docker-compose build
 docker start -d -p 80:80 container_id
 ```
 
-or if installed docker-compose
+or if installed docker compose
 
 ```zsh
 docker-compose up -d
@@ -137,7 +135,9 @@ Open in favorite browser [https://localhost](http://localhost)
 6. `show_reading_time`- allowing you to show reading time
 7. `children`- for header nesting to work
 8. `[[extra.menu]]` - the main navigation on the site
-9. `[[extra.header]]` - the header navigantion for the site
+9. `[[extra.header_right]]`,`[[extra.header_left]]` - the header navigantion for the site
+10. `theme_color` which allow tab coloring in safari
+11. `relative_path` which prints in full url on the page
 
 ### Templates
 

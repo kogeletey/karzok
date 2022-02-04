@@ -1,4 +1,9 @@
-# [unreleased]
++++
+title = "Changelog"
+weight = 4
++++
+
+# [0.2.0] 
 
 ## New features
 
@@ -6,8 +11,9 @@
 - alpha search
 - new settings `relative_path` which prints in full page
 - new parameter `config.extra.theme_color` which allow tab coloring in safari
-- experimental settings `header.container`
+- experimental settings `header.container` activate by `devmode`
 - new Dockerfile
+- setup postcss and swc to compiling
 
 ## Bug fixing
 
