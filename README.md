@@ -59,7 +59,7 @@ base_url = "https://karzok.example.net" # set-up for production
 theme = "karzok"
 ```
 
-See more in [Karzok Configuration](#configuration)
+See more in [configuration](https://fmatch.org/karzok/configure/)
 
 ### 4. Added new content
 
@@ -133,11 +133,10 @@ Open in favorite browser [https://localhost](http://localhost)
    [jsdelivr](https://www.jsdelivr.com)
 5. `show_word_count` - allowing you to show number of words
 6. `show_reading_time`- allowing you to show reading time
-7. `children`- for header nesting to work
-8. `[[extra.menu]]` - the main navigation on the site
-9. `[[extra.header_right]]`,`[[extra.header_left]]` - the header navigantion for the site
-10. `theme_color` which allow tab coloring in safari
-11. `relative_path` which prints in full url on the page
+7. `[[extra.menu]]` - the main navigation on the site
+8. `[[extra.header_right]]`,`[[extra.header_left]]` - the header navigantion for the site
+9. `theme_color` which allow tab coloring in safari
+10. `relative_path` which prints in full url on the page
 
 ### Templates
 
