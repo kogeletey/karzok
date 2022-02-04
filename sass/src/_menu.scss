@@ -1,13 +1,13 @@
 .menu {
-  width: 100%;
-  margin-top: 0.25em;
-  margin-bottom: 1em;
+  margin-top: 0.25rem;
+  margin-bottom: 3rem;
   display: grid;
-  grid-auto-columns: 3fr;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: repeat(auto-fit, 1fr);
-  height: 100vh;
-  gap: 1px 1px;
+  position: relative;
+  grid-template-columns: repeat(auto-fit, minmax(33%,1fr));
+  grid-auto-rows: 25rem;
+  width: 100%;
+  grid-gap: 1px 1px;
+  overflow-y: auto;
   &__link {
     display: block;
     position: relative;
@@ -51,4 +51,10 @@
   &-index {
     padding-top: 2em;
   }
+}
+
+@media (max-width: 1000px) {
+    .menu{
+        grid-template-columns: 1fr;
+    }
 }

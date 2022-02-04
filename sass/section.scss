@@ -16,6 +16,19 @@
     font-size: 30px;
   }
 }
+
+@media (max-width: 1000px) {
+    .welcome {
+        height: 20vh;
+        &__heading {
+          font-size: 40px;
+        }
+        &__description {
+           font-size: 18px;
+        }
+    }
+}
+
 .error {
   display: flex;
   flex-flow: column;

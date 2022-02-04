@@ -93,11 +93,17 @@
         <ul>
             {% if config.extra.footer %}
             {% for item in config.extra.footer%}
-            <li><span class="footer-span">{% if item.url %}<a href="{{ item.url }}"/> {% endif %}{{ item.text }}</span></li>
+            <li>
+                <span class="footer-span">{% if item.url %}<a href="{{ item.url }}"/> {% endif %}{{ item.text }}</span>
+            </li>
             {% endfor %}
             {% else %}
+            <li>
             <span class = "footer-span"> powered by  <a class="footer-a" href="https://fmatch.org/karzok"> karzok </a></span>
+            </li>
+            <li>
             <span class = "footer-span"><span id="version"></span></span>
+            </li>
             {% endif %}
         </ul>
 </footer>
