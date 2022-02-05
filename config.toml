@@ -1,5 +1,5 @@
 # Change to you title
-title = "Karzok"
+title = "Fmatch | Karzok"
 
 #base_url = "http://localhost:8080"
 base_url = "https://fmatch.org/karzok"
@@ -31,8 +31,13 @@ render_emoji = true
 # logotype
 favicon = "assets/favicon.ico"
 
+# header title
+header.name = "Karzok"
+
 # github
 version = "https://api.github.com/repos/kogeletey/karzok/releases/latest"
+
+# change default cdn
 cdnurl = "https://get.re128.net/"
 
 # special parameter for develop
