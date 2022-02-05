@@ -21,6 +21,7 @@ tasks:
       npm run compile:js
       npm run link:assets
       zola build
+      npm run postcss
   - deploy: |
       pip install awscli-plugin-endpoint
       aws s3 cp --recursive karzok/public s3://fmatch.org/karzok
