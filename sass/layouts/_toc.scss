@@ -1,10 +1,5 @@
 .toc {
-  position: sticky;
-  top: 1rem;
   margin-right: 1.25em;
-  height: calc(110vh - 1rem);
-  overflow-y: auto;
-  overflow-x: hidden;
   margin-left: 1em;
   width: 250px;
   &-ul {
@@ -44,10 +39,6 @@
 @media (max-width: 1000px) {
   .toc {
     display: none;
-    &__close {
-      display: block;
-      z-index: 6;
-    }
     &-ul {
       border: none;
     }
@@ -62,15 +53,7 @@
     display: none;
   }
   #toc {
-    display: block;
-    position: fixed;
-    top: -0.25rem;
     right: 0;
-    bottom: 0;
-    background: $white;
-    transition: transform 0.25s ease;
-    width: 50%;
-    height: 100%;
     transform: translateX(150%);
     &:target {
       transform: translateX(25px);

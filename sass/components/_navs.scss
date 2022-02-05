@@ -1,0 +1,30 @@
+.nav {
+  position: sticky;
+  top: 1rem;
+  height: calc(110vh - 1rem);
+  overflow-y: auto;
+  overflow-x: hidden;
+  &__close {
+    display: none;
+  }
+}
+
+@media (max-width: 1000px) {
+    .nav {
+        display: block;
+        top: -0.25rem;
+        border: none;
+        bottom: 0;
+        background: $white;
+        width: 50%;
+        height: 100%;
+        overflow-y: auto;
+        display: block;
+        position: fixed;
+        transition: transform 0.25s ease;
+    &__close {
+      display: block;
+      z-index: 6;
+     }
+}
+}

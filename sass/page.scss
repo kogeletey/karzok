@@ -1,8 +1,10 @@
-@import 'src/base';
+@import 'layouts/base';
 
-@import 'src/article';
-@import 'src/sidebar';
-@import 'src/toc';
+@import 'layouts/article';
+@import 'layouts/sidebar';
+@import 'layouts/toc';
+
+@import 'components/navs';
 
 .docs {
   display: flex;
