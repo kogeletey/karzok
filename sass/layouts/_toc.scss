@@ -29,7 +29,7 @@
     height: 100%;
     content: '';
     border-left: 2px solid;
-    border-color: $green;
+    border-color: var(--green);
   }
   &__close {
     display: none;
@@ -43,7 +43,7 @@
       border: none;
     }
     &-a:hover {
-      color: $green;
+      color: var(--green);
     }
   }
   .show-toc {

@@ -1,7 +1,8 @@
+
 .header {
   height: 36px;
   border-bottom: 1px solid;
-  border-color: $dark2;
+  border-color: $dark1;
   width: 100%;
   &__logotype {
     max-height: 2rem;
@@ -15,10 +16,8 @@
     font-size: 16px;
     font-weight: 400;
     margin-left: 10px;
-    display: flex;
     align-items: center;
     height: 100%;
-    justify-content: space-between;
   }
   &__list-item {
     margin-right: 2rem;
@@ -29,13 +28,13 @@
       color: $dark3;
     }
     &-text:hover {
-      color: $green;
+      color: var(--green);
     }
     &-text:hover,
     &-active {
       padding-bottom: 9px;
       border-bottom: 2px solid;
-      border-color: $green;
+      border-color: var(--green);
     }
     &-vector {
       display: flex;
@@ -56,12 +55,10 @@
   }
   &__container {
     display: none;
-    display: flex;
     flex-flow: row wrap;
-    background: $white;
+    background: var(--white);
     box-shadow: 0 3px 10px $light3;
     width: 100%;
-    justify-content: space-between;
     gap: 3rem;
     &-link {
       display: flex;
@@ -75,7 +72,7 @@
     }
     &-svg {
       margin-top: 0.25rem;
-      color: $black;
+      color: var(--black);
     }
     &-column {
       display: flex;
@@ -83,7 +80,7 @@
       max-width: 10rem;
     }
     &-description {
-      color: $black;
+      color: var(--black);
     }
   }
   &__center {
@@ -95,7 +92,7 @@
     }
     &-suggestions {
       overflow: auto;
-      background-color: $white;
+      background-color: var(--white);
     }
     &-svg {
       margin-left: 0.1em;
@@ -122,7 +119,7 @@
   & a {
     display: flex;
     padding: 0.75rem;
-    border: 1px solid $black;
+    border: 1px solid var(--black);
   }
 
   & span:first-child {

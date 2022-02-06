@@ -2,7 +2,7 @@
   padding-left: 0;
   max-height: 100vh;
   width: 350px;
-  border-right: 1px solid $black;
+  border-right: 1px solid var(--black);
   &__pages {
     margin-left: 0.5rem;
     margin-top: 1em;
@@ -27,17 +27,17 @@
     &::before {
       content: '';
       margin-right: 1.5em;
-      border-left: 1px solid $black;
+      border-left: 1px solid var(--black);
     }
   }
   &__active-pages,
   &-link:hover,
   &__pages:hover {
-    color: $green;
-    border-right: 1px solid $green;
+    color: var(--green);
+    border-right: 1px solid var(--green);
   }
   &__active-link {
-    color: $green;
+    color: var(--green);
   }
 }
 
@@ -47,7 +47,7 @@
     &__active-pages,
     &-link:hover,
     &__pages:hover {
-      color: $green;
+      color: var(--green);
       border: none;
     }
   }

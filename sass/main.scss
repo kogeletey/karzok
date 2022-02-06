@@ -1,7 +1,11 @@
 @import 'layouts/base';
 
+@import 'components/navs';
+@import 'components/flexs';
+
 @import 'layouts/header';
 @import 'layouts/footer';
+
 
 :root {
   --black: #111111;
@@ -22,9 +26,9 @@ html {
 }
 a {
   text-decoration: none;
-  color: $black;
+  color: var(--black);
   &:hover {
-    color: $green;
+    color: var(--green);
   }
 }
 ul {

@@ -1,9 +1,9 @@
 .footer {
   width: 100%;
-  background-color: $white;
+  background-color: var(--white);
   border-top: 1px solid;
-  border-color: $black;
-  color: $black;
+  border-color: $dark1;
+  color: var(--black);
   ul {
     display: flex;
     flex-wrap: wrap;
@@ -17,6 +17,6 @@
     font-size: 16px;
   }
   &-a {
-    color: $black;
+    color: var(--black);
   }
 }

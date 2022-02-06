@@ -3,7 +3,7 @@
 {% macro header(current_url) %}
 {% set current_link = current_url | safe | trim_end_matches(pat="/")  %}
 <header class="header">
-    <nav aria-label="section navigation" class="header__nav" itemscope itemtype="http://shema.org/SiteNavigationElement">
+    <nav aria-label="section navigation" class="flex-between header__nav" itemscope itemtype="http://shema.org/SiteNavigationElement">
         <ul class="header__right">
             <li class="header__list-item">
                 <a class="header__link {% if current_link == config.base_url %} header__link-active {% endif %} {% if config.extra.logotype %}header__logotype-link {%endif%}" href="{{ config.base_url | safe }}">
@@ -60,7 +60,7 @@
     </nav>
 </header>
 {% if config.extra.devmode %}
-<div class="header__container">
+<div class="header__container flex-between">
     <a itemprop="url" class="header__container-link" href="/zero">
     <span class="header__container-svg">
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--simple-line-icons" width="32" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1024 1024"><path d="M768 0H416q-27 0-45.5 18.5T352 64h352v256h256v512H736v64h224q27 0 45.5-18.5T1024 832V256zm0 256V90l165 166H768zM64 128q-27 0-45.5 18.5T0 192v768q0 27 18.5 45.5T64 1024h544q27 0 45.5-18.5T672 960V384L416 128H64zm544 832H64V192h288v256h256v512zM416 384V218l165 166H416z" fill="currentColor"></path></svg>

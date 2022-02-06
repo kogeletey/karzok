@@ -1,14 +1,13 @@
 @import 'layouts/base';
 
+@import 'components/navs';
+
 @import 'layouts/article';
 @import 'layouts/sidebar';
 @import 'layouts/toc';
 
-@import 'components/navs';
 
 .docs {
-  display: flex;
-  justify-content: space-between;
   margin-bottom: 25px;
   margin-top: 15px;
 }
@@ -22,12 +21,10 @@
     margin-top: 0px;
   }
   .show-bar {
-    display: flex;
-    justify-content: space-between;
     position: absolute;
-    background-color: $white;
+    background-color: var(--white);
     width: 100%;
     height: 2.1rem;
-    border-bottom: 1px solid $black;
+    border-bottom: 1px solid var(--black);
   }
 }
