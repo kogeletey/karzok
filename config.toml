@@ -2,7 +2,7 @@
 title = "Fmatch | Karzok"
 
 #base_url = "http://localhost:8080"
-base_url = "https://fmatch.org/karzok"
+base_url = "https://stg.fmatch.org"
 
 default_language = "en"
 

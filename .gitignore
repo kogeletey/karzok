@@ -4,6 +4,9 @@ node_modules/
 public/
 static/
 
+# github
+!static/CNAME
+
 # toml files
 .build.toml
 compose.toml
