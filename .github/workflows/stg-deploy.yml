@@ -6,7 +6,7 @@ on:
 name: deploy to staging fmatch
 jobs:
   build:
-    name: zola build
+    name: build theme
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
@@ -14,8 +14,11 @@ jobs:
       run: |
         npm ci
         npm run compile:js
-    - name: shalzz/zola-deploy-action
+    - name: zola build
       uses: shalzz/zola-deploy-action@master
       env:
         PAGES_BRANCH: gh-pages
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: postcss
+      run: |
+        npm run postcss

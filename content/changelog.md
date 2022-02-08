@@ -5,8 +5,15 @@ weight = 4
 
 ## [unreleased]
 
+## New features
+
+## Maintenance
+
+- switch from sr.ht builds to github workflows 
+- setup staging domain
 - README.md remove deprecated parameter and karzok configuration adding link
 - Rename src to layout folder, and started common styles into individual components.
+
 
 # [0.2.0] 
 
