@@ -53,6 +53,7 @@
     display: none;
   }
   #toc {
+    display: block;
     right: 0;
     transform: translateX(150%);
     &:target {
