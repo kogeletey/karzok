@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
         - uses: actions/checkout@v1
-        - uses: nhsllc/mirror-action@master
+        - uses: nhsllc/mirror-action@v0.1.2
           with:
             REMOTE: https://git.sr.ht/~kogeletey/${{ github.event.repository.name }}
             GIT_SSH_PRIVATE_KEY: ${{ secrets.GIT_SSH_PRIVATE_KEY }}
