@@ -3,7 +3,7 @@ on:
     branches:
       - develop
 
-name: Deploy to staging fmatch
+name: deploy to staging fmatch
 jobs:
   build:
     name: shalzz/zola-deploy-action
