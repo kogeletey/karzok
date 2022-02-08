@@ -21,4 +21,4 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: postcss
       run: |
-        npm run postcss
+        npx postcss {main,page,section}.css --replace
