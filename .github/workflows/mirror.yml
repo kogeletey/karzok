@@ -14,7 +14,7 @@ jobs:
         - uses: actions/checkout@v1
         - uses: nhsllc/mirror-action@v0.1.2
           with:
-            REMOTE: https://git.sr.ht/~kogeletey/${{ github.event.repository.name }}
+            REMOTE: git@git.sr.ht:~kogeletey/${{ github.event.repository.name }}
             GIT_SSH_PRIVATE_KEY: ${{ secrets.GIT_SSH_PRIVATE_KEY }}
             GIT_SSH_NO_VERIFY_HOST: "true"
             DEBUG: false

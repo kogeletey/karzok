@@ -6,10 +6,14 @@ on:
 name: deploy to staging fmatch
 jobs:
   build:
-    name: shalzz/zola-deploy-action
+    name: zola build
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
+    - name: swc compile
+      run: |
+        npm ci
+        npm run compile:js
     - name: shalzz/zola-deploy-action
       uses: shalzz/zola-deploy-action@master
       env:
