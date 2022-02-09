@@ -19,6 +19,6 @@ jobs:
       env:
         PAGES_BRANCH: gh-pages
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - name: postcss
-      run: |
-        npx postcss {main,page,section}.css --replace
+  #- name: postcss
+ #   run: |
+  #  npx postcss {main,page,section}.css --replace
