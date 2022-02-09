@@ -14,12 +14,12 @@ jobs:
       run: |
         npm ci
         npm run compile:js
+    - name: link assets folder
+      run: |
+        npm run link:assets
     - name: zola build
       uses: shalzz/zola-deploy-action@master
       env:
         PAGES_BRANCH: gh-pages
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         BUILD_FLAGS: -u https://karzok.stg.fmatch.org
-  #- name: postcss
- #   run: |
-  #  npx postcss {main,page,section}.css --replace

@@ -1,0 +1,13 @@
+on:
+  push:
+    branches:
+      - gh-pages
+
+jobs:
+  postcss:
+    name: run postcss
+    runs-on: ubuntu-latest
+    steps:
+    - name: postcss
+      run: |
+        npx postcss {main,page,section}.css --replace
