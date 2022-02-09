@@ -19,6 +19,7 @@ jobs:
       env:
         PAGES_BRANCH: gh-pages
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BUILD_FLAGS: -u https://karzok.stg.fmatch.org
   #- name: postcss
  #   run: |
   #  npx postcss {main,page,section}.css --replace
