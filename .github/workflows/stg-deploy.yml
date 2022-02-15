@@ -23,3 +23,7 @@ jobs:
         PAGES_BRANCH: gh-pages
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         BUILD_FLAGS: -u https://karzok.stg.fmatch.org
+        #BUILD_ONLY: true
+        #- name: postcss
+        #run: |
+        #npx postcss {main,page,section}.css --replace

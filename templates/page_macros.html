@@ -38,7 +38,10 @@
         {% if index.subsections %}
         {% for s in index.subsections %}
         {% set subsection = get_section(path=s) %}
-        <li class="sidebar__subsection-page">{{ subsection.title }}
+        <li class="sidebar__subsection-page">
+        <input class="sidebar__toggle" type="checkbox" checked="">
+        <svg class="sidebar__toggle-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><path fill="currentColor" d="M22 16L12 26l-1.4-1.4l8.6-8.6l-8.6-8.6L12 6z"></path></svg>
+        {{ subsection.title }}
         <ul class="sidebar__subsection">
             {% if subsection.pages %}
             {% for page in subsection.pages %}

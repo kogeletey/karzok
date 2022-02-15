@@ -13,9 +13,36 @@
   &__subsection {
     margin-left: 0.5rem;
     &-page {
-      margin-left: 0.5em;
+      padding-left: 0.5em;
       margin-top: 1em;
       color: $dark3;
+    }
+  }
+  &__toggle {
+    position: absolute;
+    opacity: 0;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 2;
+    &-icon {
+        position: relative;
+        cursor: pointer;
+        top: 0.150rem;
+        left: -0.15rem;
+    }
+    & ~ .sidebar__subsection {
+        display: none;
+    }
+    &:checked ~ .sidebar__subsection {
+        display: block;
+    }
+    & ~ &-icon {
+        transform: rotate(0deg);
+        transition: .2s ease-in-out;
+    }
+    &:checked ~ &-icon {
+        transform: rotate(90deg);
+        transition: .2s ease-in-out;
     }
   }
   &-link {
@@ -26,8 +53,8 @@
     }
     &::before {
       content: '';
-      margin-right: 1.5em;
-      border-left: 1px solid var(--black);
+      padding-left: 1.5rem;
+//      border-left: 1px solid var(--black);
     }
   }
   &__active-pages,
