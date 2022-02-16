@@ -3,9 +3,11 @@ title = "Changelog"
 weight = 4
 +++
 
-## [unreleased]
+## [0.2.1]
 
 ## New features
+
+- added the ability to tear down the sidebar menu
 
 ## Maintenance
 
