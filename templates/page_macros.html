@@ -7,12 +7,7 @@
     </a>
     <ul class="toc-ul">
         {% for h1 in page.toc %}
-        <li class="toc-li {% if h1.permalink | safe == current_url %} toc-li__active {% endif %}"> <a class="toc-a " href="{{ h1.permalink | safe }}"> {{ h1.title }} </a></li>
-        {% if h1.children and config.extra.children %}
-        {% for h2 in h1.children %}
-        <li class="toc-li x2 {% if h2.permalink | safe == current_url %} toc-li__active {% endif %}"> <a class="toc-a " href="{{ h2.permalink| safe }}"> {{ h2.title }} </a></li>
-        {% endfor %}
-        {% endif %}
+          <li class="toc-li"> <a class="toc-a" href="{{ h1.permalink | safe }}"> {{ h1.title }} </a></li>
         {% endfor %}
     </ul>
 </aside>
@@ -89,7 +84,13 @@
 
 {% macro date() %}
 {% if page.date %}
-    <li><time> Updated: {{ page.date | date(format="%F") }}</time></li>
+    <li><time> date: {{ page.date | date(format="%F") }}</time></li>
+{% endif %}
+{% endmacro %}
+
+{% macro updated() %}
+{% if page.updated %}
+  <li><time> updated: {{ page.updated | date(format="%F") }}</time></li>
 {% endif %}
 {% endmacro %}
 
