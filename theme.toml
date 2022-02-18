@@ -1,8 +1,8 @@
 name = "karzok"
 description = "A theme for your documentation. Fast and secure"
-license = "Apache-2.0"
+license = "MIT"
 homepage = "https://github.com/kogeletey/karzok"
-min_version = "0.0.14"
+min_version = "0.15.0"
 demo = "https://fmatch.org/karzok"
 
 [extra]

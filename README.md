@@ -146,7 +146,7 @@ All pages are extend to the base.html, and you can customize them as need.
 
 This program is Free Software: You can use, study share and improve it at your
 will. Specifically you can redistribute and/or modify it under the terms of the
-[Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0)
+[MIT](https://mit-license.org/)
 
 # Contribute
 

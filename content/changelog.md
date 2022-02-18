@@ -3,6 +3,11 @@ title = "Changelog"
 weight = 4
 +++
 
+# [unreleased]
+
+## Maintenance
+- change license at the MIT
+
 # [0.2.1]
 
 ## New features
