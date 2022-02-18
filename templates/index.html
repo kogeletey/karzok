@@ -19,11 +19,10 @@
                 {% set item_link = link.link  | replace(from="$base_url", to=config.base_url) %}
                         <a class="menu__link" href="{{ item_link | safe }}">
                             <span class="menu__link-index"> {{ link.text }} </span>
-                        </div>
                     </a>
                     {% endfor %}
-                </section>
                 {% endif %}
+            </section>
             {% endblock content %}
         {% endblock body %}
     </body>
