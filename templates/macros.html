@@ -4,8 +4,8 @@
 {% set current_link = current_url | safe | trim_end_matches(pat="/")  %}
 <header class="header">
     <nav aria-label="section navigation" class="flex-between header__nav" itemscope itemtype="http://shema.org/SiteNavigationElement">
-        <ul class="header__right">
-            <li class="header__list-item">
+        <ul class="flex-center">
+            <li class="list-item header__left">
                 <a class="header__link {% if current_link == config.base_url %} header__link-active {% endif %} {% if config.extra.logotype %}header__logotype-link {%endif%}" href="{{ config.base_url | safe }}">
                     {% if config.extra.logotype %}
                     <img class="header__logotype" width="31" height="31" alt="favicon" src="{{ get_url(path=config.extra.logotype)}}" />
@@ -17,7 +17,7 @@
             {% if config.extra.header_left %}
             {% for item in config.extra.header_left %}
             {% set val_link = item.link  | replace(from="$base_url", to=config.base_url) %}
-            <li class="header__list-item">
+            <li class="list-item">
                 <a itemprop="url" class="header__link {% if current_link == val_link %} header__link-active {% endif %}" href="{{ val_link | safe }}">
                     <span class="header__link-text"> {{ item.text }} </span>
                 </a>
@@ -36,11 +36,11 @@
 				</form>
 			{% endif %}
         {% if config.extra.header_right %}
-            <ul class="header__left">
+            <ul class="flex-center">
             {% for item in config.extra.header_right %}
             {% set item_link = item.link | replace(from = "$base_url", to=config.base_url) %}
-                <li class="header__list-item">
-                    <a itemprop="url" class="header__link header__link-vector" href=" {{ item_link | safe }} ">
+                <li class="list-item">
+                    <a  aria-label="{% if item.alt %} {{ item.alt }} {% else %} {{ item.link }} {%endif%}" itemprop="url" class="header__link header__link-vector" href=" {{ item_link | safe }} ">
                     {% if item.svg %}
                         <span class="header__svg">
                             {{ item.svg | safe }}

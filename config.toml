@@ -4,6 +4,9 @@ title = "Fmatch | Karzok"
 #base_url = "http://localhost:8080"
 base_url = "/karzok"
 
+# change your description
+description = "A fast theme for documentation"
+
 default_language = "en"
 
 build_search_index = true

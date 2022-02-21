@@ -5,6 +5,10 @@ weight = 4
 
 # [unreleased]
 
+## New features
+- provide zola description by meta tag in html
+- new parameter `item.alt` text for your svg icon in header, if it is not specified, then the link to the resource is used as it
+
 ## Maintenance
 - change license at the MIT
 

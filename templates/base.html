@@ -9,6 +9,9 @@
         <meta name="MobileOptimized" content="320">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="referrer" content="no-referrer">
+        {% if config.description %}
+        <meta name="description" content="{{ config.description }}">
+        {% endif %}
         <meta name="theme-color" content="{{ config.extra.theme_color | default(value="#fff") }}">
         <link rel="icon" href="{{ get_url(path=config.extra.favicon | default(value='/favicon.ico') ) }}">
         {% block math %}

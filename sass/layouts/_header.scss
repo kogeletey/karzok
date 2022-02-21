@@ -19,10 +19,6 @@
     align-items: center;
     height: 100%;
   }
-  &__list-item {
-    margin-right: 2rem;
-    padding: 1em 0 1.25em;
-  }
   &__link {
     &-text {
       color: $dark3;
@@ -46,12 +42,8 @@
     display: flex;
     padding: 3px 3px;
   }
-  &__left {
-    display: flex;
-    align-items: center;
-    li {
+  li {
       margin-right: 1rem;
-    }
   }
   &__container {
     display: none;
@@ -115,6 +107,7 @@
   overflow: auto;
   margin-top: 2.1em;
   max-width: 100%;
+  z-index: 2;
 
   & a {
     display: flex;
@@ -138,4 +131,9 @@
   #suggestions {
     display: none;
   }
+}
+
+.list-item {
+    margin-right: 2rem;
+    padding: 1em 0 1.25em;
 }

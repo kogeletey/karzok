@@ -8,9 +8,11 @@
             {% block welcome %}
             <div class="welcome">
             <h1 class="welcome__heading"> Welcome to Karzok</h1>
+            {% if config.description %}
             <p class="welcome__description">
-                A theme for your documentation. Fast and secure
+                {{ config.description }}
             </p>
+            {% endif %}
             </div>
             {% endblock welcome %}
             <section class="menu">
