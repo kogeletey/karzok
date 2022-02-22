@@ -1,6 +1,8 @@
 <p align="center">
-  <a href="https://builds.sr.ht/~kogeletey/karzok"><img src="https://builds.sr.ht/~kogeletey/karzok.svg"  alt="builds.sr.ht status" /></a>
-  <a href="https://design.penpot.app/#/view/b4a9c170-5cb6-11ec-826f-e949c75b760d?page-id=ef8611e1-7c24-11eb-89c7-03f8ac143bbf&index=0&share-id=d81024f0-5cb7-11ec-826f-e949c75b760d"><img alt="designed with penpot" src="https://badgen.net/badge/designed%20with/penpot/31EFB8" /></a>
+  <a href="https://github.com/kogeletey/karzok/actions"><img src="https://flat.badgen.net/github/status/kogeletey/karzok"  alt="github workflows status" /></a>
+<!--  <a href="https://github.com/kogeletey/karzok/actions"><img src="https://github.com/kogeletey/karzok/actions/workflows/badge.svg"  alt="github workflows action status" /></a> -->
+  <a href="https://github.com/kogeletey/karzok/LICENSE"><img src="https://flat.badgen.net/github/license/kogeletey/karzok" alt="license a repository" /></a>
+  <a href="https://github.com/kogeletey/karzok/release"><img src="https://flat.badgen.net/github/release/kogeletey/karzok" alt="latest release as a repository" /></a>
 </p>
 
 # Karzok
