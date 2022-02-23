@@ -3,13 +3,18 @@ title = "Changelog"
 weight = 4
 +++
 
-# [unreleased]
+# [0.2.2]
 
 ## New features
-- provide zola description by meta tag in html
 - new parameter `item.alt` text for your svg icon in header, if it is not specified, then the link to the resource is used as it
 
+## Fix
+
+- adding aria labels, where they were not
+- provide zola description by meta tag in html
+
 ## Maintenance
+- change h3 to span in toc
 - change license at the MIT
 
 # [0.2.1]
