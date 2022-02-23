@@ -1,8 +1,8 @@
 <p align="center">
-  <a href="https://github.com/kogeletey/karzok/actions"><img src="https://flat.badgen.net/github/status/kogeletey/karzok"  alt="github workflows status" /></a>
+  <a href="https://github.com/kogeletey/karzok/actions"><img src="https://flat.badgen.net/github/checks/kogeletey/karzok"  alt="github workflows status" /></a>
 <!--  <a href="https://github.com/kogeletey/karzok/actions"><img src="https://github.com/kogeletey/karzok/actions/workflows/badge.svg"  alt="github workflows action status" /></a> -->
-  <a href="https://github.com/kogeletey/karzok/LICENSE"><img src="https://flat.badgen.net/github/license/kogeletey/karzok" alt="license a repository" /></a>
-  <a href="https://github.com/kogeletey/karzok/release"><img src="https://flat.badgen.net/github/release/kogeletey/karzok" alt="latest release as a repository" /></a>
+  <a href="https://github.com/kogeletey/karzok/blob/develop/LICENSE"><img src="https://flat.badgen.net/github/license/kogeletey/karzok" alt="license a repository" /></a>
+  <a href="https://github.com/kogeletey/karzok/releases"><img src="https://flat.badgen.net/github/release/kogeletey/karzok" alt="latest release as a repository" /></a>
 </p>
 
 # Karzok

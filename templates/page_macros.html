@@ -1,13 +1,13 @@
 <!-- table of content -->
 {% macro toc(page) %}
 <aside id="toc" class="nav toc">
-    <h3 class="toc-h3"> In this article </h3>
-    <a href="#close" class="nav__close" role="button">
+    <span class="font-12"> In this article: </span>
+    <a aria-label="close button" href="#close" class="nav__close" role="button">
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" width="32" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><path d="M24 9.4L22.6 8L16 14.6L9.4 8L8 9.4l6.6 6.6L8 22.6L9.4 24l6.6-6.6l6.6 6.6l1.4-1.4l-6.6-6.6L24 9.4z" fill="currentColor"></path></svg>
     </a>
     <ul class="toc-ul">
         {% for h1 in page.toc %}
-          <li class="toc-li"> <a class="toc-a" href="{{ h1.permalink | safe }}"> {{ h1.title }} </a></li>
+        <li class="toc-li"> <a aria-label="{{ h1.id }}" class="toc-a" href="{{ h1.permalink | safe }}"> {{ h1.title }} </a></li>
         {% endfor %}
     </ul>
 </aside>
@@ -17,7 +17,7 @@
 {% macro sidebar(current_url) %}
     {% set index = get_section(path="_index.md") %}
     <nav id="sidebar" class="nav sidebar" >
-        <a href="#close" class="nav__close" role="button" @click="open = !open" :class="{ 'is-active': open }">
+        <a aria-label="close button" href="#close" class="nav__close" role="button">
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" width="32" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><path d="M24 9.4L22.6 8L16 14.6L9.4 8L8 9.4l6.6 6.6L8 22.6L9.4 24l6.6-6.6l6.6 6.6l1.4-1.4l-6.6-6.6L24 9.4z" fill="currentColor"></path></svg>
     </a>
     <ul>
@@ -34,9 +34,11 @@
         {% for s in index.subsections %}
         {% set subsection = get_section(path=s) %}
         <li class="sidebar__subsection-page">
-        <input class="sidebar__toggle" type="checkbox" {% if current_path is starting_with(subsection.path) %}checked{% endif %}>
+          <input id="sidebar__toggle" class="sidebar__toggle" type="checkbox" {% if current_path is starting_with(subsection.path) %}checked{% endif %}>
         <svg class="sidebar__toggle-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><path fill="currentColor" d="M22 16L12 26l-1.4-1.4l8.6-8.6l-8.6-8.6L12 6z"></path></svg>
-        {{ subsection.title }}
+        <label for="sidebar__toggle">
+          {{ subsection.title }}
+        </label>
         <ul class="sidebar__subsection">
             {% if subsection.pages %}
             {% for page in subsection.pages %}
@@ -60,10 +62,10 @@
     {% for parent in page.ancestors %}
     {% set s = get_section(path=parent, include_pages=false) %}
     <li class="sections-no-padding">
-        <a href="{{s.permalink}}">/{{s.title | lower }}</a>
+        <a aria-label="{{ s.title }}" href="{{s.permalink}}">/{{s.title | lower }}</a>
     </li>
     {% endfor %}
-    <li> <a href="{{ page.permalink }}">/{{ page.slug }}</a></li>
+    <li> <a aria-label="{{ page.slug }}" href="{{ page.permalink }}">/{{ page.slug }}</a></li>
     {% endif %}
 {% endmacro %}
 
