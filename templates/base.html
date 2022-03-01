@@ -50,9 +50,18 @@
         {{ macros::footer() }}
     {% endblock footer%}
     {% if config.build_search_index %}
-    <script  src="{{ get_url(path="elasticlunr.min.js") | safe }}" defer></script>
-    <script src="{{ get_url(path='search_index.'~ lang ~'.js') | safe }}" defer></script>
-    <script src="{{ get_url(path="search.js") | safe }}" defer></script>
+      {% if config.extra.localcdn %}
+        <script src="{{ get_url(path="elasticlunr.min.js") | safe }}" defer></script>
+      {% else %}
+      {# cdnurl is defined earlier #}
+        <script src="{{ cdnurl | safe }}elasticlunr/elasticlunr.min.js" defer></script>
+      {% endif %}
+       <script src="{{ get_url(path='search_index.'~ lang ~'.js') | safe }}" defer></script>
+      {% if config.extra.assets_url %}
+        <script src="{{ config.extra.assets_url }}/search.js" defer></script>
+      {% else %}
+        <script src="{{ get_url(path="search.js") | safe }}" defer></script>
+      {% endif %}
     {% endif%}
     {% if config.extra.devmode %}
     <script src="{{ get_url(path='dark-light-switcher.js') }}"></script>
