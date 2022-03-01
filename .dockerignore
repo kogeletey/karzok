@@ -1,4 +1,6 @@
 .git/
+.github/
+.swc/
 *.toml
 !config.toml
 *.yml
