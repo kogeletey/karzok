@@ -1,4 +1,4 @@
-FROM alpine:latest AS zola
+FROM alpine:latest
 
 COPY . /www
 
@@ -16,9 +16,9 @@ WORKDIR /www
 RUN npm ci
 RUN npm run gen
 
-ENV PORT 80
-
 FROM nginx:stable-alpine
+
+ENV PORT 80
 
 ENV BASE_URL localhost
 
