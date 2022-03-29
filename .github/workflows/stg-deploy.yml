@@ -3,7 +3,7 @@ on:
     branches:
       - develop
 
-name: deploy to staging fmatch
+name: deploy to staging
 jobs:
   build:
     name: build theme
@@ -22,7 +22,7 @@ jobs:
       env:
         PAGES_BRANCH: gh-pages
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        BUILD_FLAGS: -u https://karzok.stg.fmatch.org
+        BUILD_FLAGS: -u https://karzok.stg.re128.org
         #BUILD_ONLY: true
         #- name: postcss
         #run: |
