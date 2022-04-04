@@ -1,11 +1,11 @@
 # Change to you title
-title = "Fmatch | Karzok"
+title = "Re128 | Karzok"
 
-#base_url = "http://localhost:8080"
-base_url = "/karzok"
+base_url = "http://localhost:8080"
+#base_url = "/karzok"
 
 # change your description
-description = "A fast theme for documentation"
+description = "The theme for launching fast documentation sites"
 
 default_language = "en"
 
