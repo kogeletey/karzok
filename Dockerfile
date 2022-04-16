@@ -2,8 +2,6 @@ FROM alpine:edge
 
 COPY . /www
 
-ENV BASE_URL localhost
-
 RUN apk update
 
 RUN apk add --no-cache \
@@ -14,7 +12,10 @@ npm
 WORKDIR /www
 
 RUN npm ci
-RUN npm run gen
+RUN npm run link && npm run compile:js
+
+RUN mkdir -p themes/karzok
+RUN rsync -va static sass templates config.toml themes/karzok
 
 RUN npm run clean
 
