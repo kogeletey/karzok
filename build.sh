@@ -1,6 +1,10 @@
 #!/usr/bin/env sh
 
-zola build &
-npm run postcss
+if [ $1 ]; then
+  zola build -u $1
+else
+  zola build
+fi
+
 
 
