@@ -14,9 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
         - uses: actions/checkout@v1
-        - uses: nhsllc/mirror-action@v0.1.2
+        - uses: pixta-dev/repository-mirroring-action@v1
           with:
-            REMOTE: git@git.sr.ht:~kogeletey/${{ github.event.repository.name }}
-            GIT_SSH_PRIVATE_KEY: ${{ secrets.GIT_SSH_PRIVATE_KEY }}
-            GIT_SSH_NO_VERIFY_HOST: "true"
-            DEBUG: false
+            target_repo_url:: git@git.sr.ht:~kogeletey/${{ github.event.repository.name }}
+            ssh_private_key: ${{ secrets.GIT_SSH_PRIVATE_KEY }}
