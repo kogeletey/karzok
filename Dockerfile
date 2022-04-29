@@ -20,4 +20,6 @@ RUN rsync -va static sass templates config.toml themes/karzok
 
 RUN npm run clean
 
+RUN find . -not -name "build.sh" -and -not -depth -path './themes/*' -print -delete
+
 RUN apk del rsync npm

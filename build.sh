@@ -3,9 +3,9 @@
 DIRECTORY="content templates static"
 FILE="config.toml"
 
-for i in "${DIRECTORY[@]}"; do
-  echo $i
-  if [[ -d "$i" ]] && [[ -f "$FILE" ]]; then
+for i in "${DIRECTORY}"; do
+  if [[ -d "$i" ]] || [[ -f "$FILE" ]]; then
+     echo $i
      cp -rf $i $FILE /www
   fi
 done
