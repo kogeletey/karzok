@@ -16,5 +16,7 @@ jobs:
         - uses: actions/checkout@v1
         - uses: pixta-dev/repository-mirroring-action@v1
           with:
-            target_repo_url:: git@git.sr.ht:~kogeletey/${{ github.event.repository.name }}
-            ssh_private_key: ${{ secrets.GIT_SSH_PRIVATE_KEY }}
+            target_repo_url:
+              git@git.sr.ht:~kogeletey/${{ github.event.repository.name }}
+            ssh_private_key:
+              ${{ secrets.GIT_SSH_PRIVATE_KEY }}
