@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-DIRECTORY=("content" "templates" "static")
+DIRECTORY="content templates static"
 FILE="config.toml"
 
 for i in "${DIRECTORY[@]}"; do

@@ -5,7 +5,8 @@ COPY . /www
 RUN apk update
 
 RUN apk add --no-cache \
-zola --repository http://dl-cdn.alpinelinux.org/alpine/edge/community/ \
+--repository http://dl-cdn.alpinelinux.org/alpine/edge/community/ \
+zola \
 rsync \
 npm
 
