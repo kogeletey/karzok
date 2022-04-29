@@ -16,7 +16,7 @@ RUN npm ci
 RUN npm run link && npm run compile:js
 
 RUN mkdir -p themes/karzok
-RUN rsync -va static sass templates config.toml themes/karzok
+RUN rsync -va static sass templates config.toml theme.toml themes/karzok
 
 RUN npm run clean
 
