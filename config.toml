@@ -54,8 +54,8 @@ show_reading_time = true
 relative_path = true
 
 [[extra.header_left]]
-text = "Meta"
-link = "$base_url/meta"
+text = "Reference"
+link = "$base_url/reference"
 
 # experiments in container header, disabled
 #[[extra.meta.container]]

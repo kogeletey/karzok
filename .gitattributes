@@ -2,3 +2,4 @@
 *.yml linguist-detectable
 *.md linguist-detectable
 README.md -linguist-detectable
+**/_index.md -linguist-detectable
