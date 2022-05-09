@@ -85,25 +85,21 @@ ii. production enviroment
 1. Build docker image
 
 ```zsh
-docker build .
-```
-
-or if installed docker-compose
-
-```zsh
-docker compose build
+docker build -t karzok .
 ```
 
 2. Run containers
 
 ```zsh
-docker start -d -p 80:80 container_id
+docker run karzok
 ```
 
+<!-- 
 or if installed docker compose
 
 ```zsh
 docker compose up -d
 ```
+-->
 
 Open in favorite browser [https://localhost](http://localhost)
