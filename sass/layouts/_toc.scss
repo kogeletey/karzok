@@ -1,25 +1,24 @@
-.font-17 {
-    font-weight: bold;
-    font-size: 17px;
-}
-
-.toc {
+aside {
   margin-right: 1.25em;
   margin-left: 1em;
   width: 250px;
-  &-ul {
+  span {
+    font-weight: bold;
+    font-size: 17px;
+  }
+  ul {
     position: sticky;
     border-left: 1px solid;
     padding-left: 0;
     border-color: $dark2;
     max-width: 100%;
   }
-  &-li {
+  li {
     position: relative;
     margin-top: 0.345rem;
     padding-top: 0.345rem;
   }
-  &-a {
+  a {
     display: block;
     letter-spacing: normal;
     margin-left: 24px;
@@ -27,8 +26,8 @@
     font-size: 15px;
     line-height: 16px;
   }
-  &-li:hover::before,
-  &-li__active::before {
+  li:hover::before,
+  .active::before {
     position: absolute;
     left: -2px;
     height: 100%;
@@ -36,18 +35,18 @@
     border-left: 2px solid;
     border-color: var(--green);
   }
-  &__close {
+  .nav__close {
     display: none;
   }
 }
 
 @media (max-width: 1000px) {
-  .toc {
+  aside {
     display: none;
-    &-ul {
+    ul {
       border: none;
     }
-    &-a:hover {
+    a:hover {
       color: var(--green);
     }
   }
