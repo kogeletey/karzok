@@ -1,3 +1,4 @@
-*.toml linguist-detectable=true
-*.yml linguist-detectable=true
-*.md linguist-detectable=true
+*.toml linguist-detectable
+*.yml linguist-detectable
+*.md linguist-detectable
+README.md -linguist-detectable

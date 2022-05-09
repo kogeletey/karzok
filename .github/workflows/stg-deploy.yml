@@ -18,6 +18,9 @@ jobs:
     - name: link assets folder
       run: |
         npm run link:assets
+    - name: move CNAME
+      run: |
+        mv helpers/CNAME static/CNAME
     - name: zola build
       uses: shalzz/zola-deploy-action@master
       env:
