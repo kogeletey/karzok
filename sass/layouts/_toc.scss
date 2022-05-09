@@ -35,9 +35,6 @@ aside {
     border-left: 2px solid;
     border-color: var(--green);
   }
-  .nav__close {
-    display: none;
-  }
 }
 
 @media (max-width: 1000px) {
@@ -49,12 +46,12 @@ aside {
     a:hover {
       color: var(--green);
     }
+    .nav__close {
+      display: block;
+    }
   }
   .show-toc {
     margin-right: 0.5rem;
-  }
-  .font-12 {
-    display: none;
   }
   #toc {
     display: block;
