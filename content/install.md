@@ -82,24 +82,39 @@ ii. production enviroment
 
 - with docker
 
-1. Build docker image
+1. Write file for container
 
-```zsh
-docker build -t karzok .
+```Dockerfile
+FROM ghcr.io/kogeletey/karzok:latest AS build-stage
+# or your path to image
+ADD . /www
+WORKDIR /www
+RUN sh /www/build.sh 
+
+FROM nginx:stable-alpine
+
+COPY --from=build-stage /www/public /usr/share/nginx/html
+
+EXPOSE 80
 ```
 
-2. Run containers
-
+2.  Run the your container
 ```zsh
-docker run karzok
+docker build -t <your_name_image> . &&\
+docker run -d -p 8080:8080 <your_name_image> 
+```
+- using gitlab-ci and gitlab-pages
+
+```yml
+image: ghcr.io/kogeletey/karzok:latest # or change use your registry
+
+pages: 
+  script:
+    - sh /www/build.sh   
+    - mv /www/public public
+  artifacts:
+    paths:
+      - public/
 ```
 
-<!-- 
-or if installed docker compose
-
-```zsh
-docker compose up -d
-```
--->
-
-Open in favorite browser [https://localhost](http://localhost)
+Open in favorite browser [https://localhost:8080](http://localhost:8080)
