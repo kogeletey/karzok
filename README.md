@@ -14,7 +14,7 @@ A theme for your documentation. Fast and secure
 
 ## Demo
 
-[Fmatch Karzok](https://fmatch.org/karzok)
+[Karzok](https://karzok.re128.org)
 
 ## Requirements
 
@@ -31,7 +31,7 @@ for your platform.
 ### Optional
 
 - [docker](https://docs.docker.com/engine/install/)
-   > for packaging container
+   > for packaging container and production
 
 ## Get Started
 
@@ -62,7 +62,7 @@ base_url = "https://karzok.example.net" # set-up for production
 theme = "karzok"
 ```
 
-See more in [configuration](https://fmatch.org/karzok/configure/)
+See more in [configuration](https://karzok.re128.org/configure/)
 
 ### 4. Added new content
 
@@ -98,52 +98,42 @@ ii. production enviroment
 
 - with docker
 
-1. Build docker image
+1. Write file for container
 
-```zsh
-docker build .
+```Dockerfile
+FROM ghcr.io/kogeletey/karzok:latest AS build-stage
+# or your path to image
+ADD . /www
+WORKDIR /www
+RUN sh /www/build.sh 
+
+FROM nginx:stable-alpine
+
+COPY --from=build-stage /www/public /usr/share/nginx/html
+
+EXPOSE 80
 ```
 
-or if installed docker compose
-
+2.  Run the your container
 ```zsh
-docker compose build
+docker build -t <your_name_image> . &&\
+docker run -d -p 8080:8080 <your_name_image> 
+```
+- using gitlab-ci and gitlab-pages
+
+```yml
+image: ghcr.io/kogeletey/karzok:latest # or change use your registry
+
+pages: 
+  script:
+    - sh /www/build.sh   
+    - mv /www/public public
+  artifacts:
+    paths:
+      - public/
 ```
 
-2. Run containers
-
-```zsh
-docker start -d -p 80:80 container_id
-```
-
-or if installed docker compose
-
-```zsh
-docker-compose up -d
-```
-
-Open in favorite browser [https://localhost](http://localhost)
-
-## Configuration
-
-## options under the `[extra]`
-
-1. `math` - rendering math formulas throught [katex](https://katex.org)
-2. `favicon` - set path to favicon icon import(default `favicon`)
-3. `localcdn`- if you want to store all assets on your domain, then enable this
-   setting
-4. `cdnurl` - you can customize your url to store assets,default use
-   [jsdelivr](https://www.jsdelivr.com)
-5. `show_word_count` - allowing you to show number of words
-6. `show_reading_time`- allowing you to show reading time
-7. `[[extra.menu]]` - the main navigation on the site
-8. `[[extra.header_right]]`,`[[extra.header_left]]` - the header navigantion for the site
-9. `theme_color` which allow tab coloring in safari
-10. `relative_path` which prints in full url on the page
-
-### Templates
-
-All pages are extend to the base.html, and you can customize them as need.
+Open in favorite browser [https://localhost:8080](http://localhost:8080)
 
 ## License
 
@@ -153,7 +143,7 @@ will. Specifically you can redistribute and/or modify it under the terms of the
 
 # Contribute
 
-Make sure to read the [Code of Conduct](/meta/code-of-conduct)
+Make sure to read the [Code of Conduct](https://karzok.re128.org/reference/code-of-conduct/)
 
 ## Find bugs and come up with features
 
@@ -162,7 +152,7 @@ On the [todo.sr.ht](https://todo.sr.ht/~kogeletey/karzok) or
 
 ## Improve Code
 
-The Karzok is stored in the repository at
+The karzok is stored in the repository at
 [sr.ht](https://sr.ht/~kogeletey/karzok) and mirror
 [github](https://github.com/kogeletey/karzok)
 
