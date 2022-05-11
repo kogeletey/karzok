@@ -1,9 +1,9 @@
 name = "karzok"
-description = "A theme for your documentation. Fast and secure"
+description = "The theme for launching fast documentation sites"
 license = "MIT"
 homepage = "https://github.com/kogeletey/karzok"
 min_version = "0.15.0"
-demo = "https://fmatch.org/karzok"
+demo = "https://karzok.re128.org"
 
 [extra]
 show_word_count = true
