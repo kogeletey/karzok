@@ -1,10 +1,10 @@
 // flex space between basic styles
-.flex-between {
+header > nav, main, main > div{
   display: flex;
   justify-content: space-between;
 }
 
-.flex-center {
+header > nav > ul,.flex-center {
     display: flex;
     align-items: center;
 }

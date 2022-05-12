@@ -2,52 +2,54 @@
 <!-- It's hack -->
 {% macro header(current_url) %}
 {% set current_link = current_url | safe | trim_end_matches(pat="/")  %}
-<header class="header">
-    <nav aria-label="section navigation" class="flex-between header__nav" itemscope itemtype="http://shema.org/SiteNavigationElement">
-        <ul class="flex-center">
-            <li class="list-item header__left">
-                <a class="header__link {% if current_link == config.base_url %} header__link-active {% endif %} {% if config.extra.logotype %}header__logotype-link {%endif%}" href="{{ config.base_url | safe }}">
+<header>
+    <nav aria-label="section navigation" itemscope itemtype="http://shema.org/SiteNavigationElement">
+        <ul>
+            <li>
+                <a class="{% if current_link == config.base_url %} active {% endif %} {% if config.extra.logotype %} {%endif%}" href="{{ config.base_url | safe }}">
                     {% if config.extra.logotype %}
-                    <img class="header__logotype" width="31" height="31" alt="favicon" src="{{ get_url(path=config.extra.logotype)}}" />
+                    <div class="logotype">
+                      <img width="31" height="31" alt="favicon" src="{{ get_url(path=config.extra.logotype)}}" />
+                    </div>
                     {% else %}
-                    <span class="header__link-text"> {{ config.extra.header.name | default(value="Home") }}</span>
+                    <span> {{ config.extra.header.name | default(value="Home") }}</span>
                     {% endif %}
                 </a>
             </li>
             {% if config.extra.header_left %}
             {% for item in config.extra.header_left %}
             {% set val_link = item.link  | replace(from="$base_url", to=config.base_url) %}
-            <li class="list-item">
-                <a itemprop="url" class="header__link {% if current_link == val_link %} header__link-active {% endif %}" href="{{ val_link | safe }}">
-                    <span class="header__link-text"> {{ item.text }} </span>
+            <li>
+                <a itemprop="url" class="{% if current_link == val_link %} active {% endif %}" href="{{ val_link | safe }}">
+                    <span > {{ item.text }} </span>
                 </a>
             </li>
             {% endfor %}
             {% endif %}
         </ul>
         	{% if config.build_search_index %}
-            <form class="header__center">
-                <input id="userinput" class="header__center-input"  type="search" placeholder="Search ..."
+            <form>
+                <input id="userinput" type="search" placeholder="Search ..."
 						aria-label="Search ..." autocomplete="off">
-                <button type="submit" title="Submit your search query." class="header__center header__center-svg">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16"  preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><path d="M29 27.586l-7.552-7.552a11.018 11.018 0 1 0-1.414 1.414L27.586 29zM4 13a9 9 0 1 1 9 9a9.01 9.01 0 0 1-9-9z" fill="currentColor"></path></svg>
+                <button type="submit" title="Submit your search query.">
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16"  preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><path d="M29 27.586l-7.552-7.552a11.018 11.018 0 1 0-1.414 1.414L27.586 29zM4 13a9 9 0 1 1 9 9a9.01 9.01 0 0 1-9-9z" fill="currentColor"></path></svg>
                 </button>
-                <div id="suggestions" class="header__center-suggestions"></div>
+                <div id="suggestions"></div>
 				</form>
 			{% endif %}
         {% if config.extra.header_right %}
-            <ul class="flex-center">
+        <ul>
             {% for item in config.extra.header_right %}
             {% set item_link = item.link | replace(from = "$base_url", to=config.base_url) %}
-                <li class="list-item">
-                    <a  aria-label="{% if item.alt %} {{ item.alt }} {% else %} {{ item.link }} {%endif%}" itemprop="url" class="header__link header__link-vector" href=" {{ item_link | safe }} ">
+                <li>
+                    <a  aria-label="{% if item.alt %} {{ item.alt }} {% else %} {{ item.link }} {%endif%}" itemprop="url" class="vector" href=" {{ item_link | safe }} ">
                     {% if item.svg %}
-                        <span class="header__svg">
+                        <span class="svg">
                             {{ item.svg | safe }}
                         </span>
                     {% endif %}
                     {% if item.text %}
-                        <span class="header__link-text"> {{ item.text }} </span>
+                        <span> {{ item.text }} </span>
                     {% endif %}
                     </a>
                 </li>

@@ -1,92 +1,63 @@
-
-.header {
+header {
   height: 36px;
   border-bottom: 1px solid;
   border-color: $dark1;
   width: 100%;
-  &__logotype {
+  .logotype {
     max-height: 2rem;
     min-height: 1.25rem;
     padding-top: 0.15em;
-    &-link {
+    a {
       padding-bottom: 0%;
     }
   }
-  &__nav {
+  nav {
     font-size: 16px;
     font-weight: 400;
     margin-left: 10px;
     align-items: center;
     height: 100%;
-  }
-  &__link {
-    &-text {
-      color: $dark3;
+    li {
+      margin-right: 1rem;
     }
-    &-text:hover {
-      color: var(--green);
-    }
-    &-text:hover,
-    &-active {
+    ul:first-child {
+    span:hover,
+    .active{
       padding-bottom: 9px;
       border-bottom: 2px solid;
       border-color: var(--green);
     }
-    &-vector {
+    .vector {
       display: flex;
       margin-top: 0.25em;
       border: 1px solid $dark3;
     }
   }
-  &__svg {
+}
+  a {
+    span {
+      color: $dark3;
+    }
+    span.svg {
+       display: flex;
+       padding: 3px 3px;
+      }
+    span:hover {
+      color: var(--green);
+    }
+  }
+  form {
     display: flex;
-    padding: 3px 3px;
-  }
-  li {
-      margin-right: 1rem;
-  }
-  &__container {
-    display: none;
-    flex-flow: row wrap;
-    background: var(--white);
-    box-shadow: 0 3px 10px $light3;
-    width: 100%;
-    gap: 3rem;
-    &-link {
-      display: flex;
-      margin: 1em;
-      margin-left: 3rem;
-      flex: 0 0 25%;
-    }
-    &-title,
-    &-description {
-      padding-left: 1em;
-    }
-    &-svg {
-      margin-top: 0.25rem;
-      color: var(--black);
-    }
-    &-column {
-      display: flex;
-      flex-direction: column;
-      max-width: 10rem;
-    }
-    &-description {
-      color: var(--black);
-    }
-  }
-  &__center {
-    display: flex;
-    &-input {
+    input {
       padding: 4px 30px;
       background-color: $light4;
       border: none;
     }
-    &-suggestions {
+    div#suggestions {
       overflow: auto;
       background-color: var(--white);
     }
-    &-svg {
+    button {
       margin-left: 0.1em;
       margin-top: 0.35em;
       position: absolute;
@@ -127,13 +98,13 @@
 }
 
 @media (max-width: 1000px) {
-  .header__center,
+   header > form,
   #suggestions {
     display: none;
   }
 }
 
-.list-item {
+li {
     margin-right: 2rem;
     padding: 1em 0 1.25em;
 }
