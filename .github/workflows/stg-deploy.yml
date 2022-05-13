@@ -22,7 +22,8 @@ jobs:
     - name: zola build
       uses: shalzz/zola-deploy-action@master
       env:
-        PAGES_BRANCH: gh-pages
+        PAGES_BRANCH: stg
+        REPOSITORY: git:github.com:kogeletey/nebra
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         BUILD_FLAGS: -u https://karzok.stg.re128.org
         #BUILD_ONLY: true
