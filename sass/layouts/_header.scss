@@ -18,6 +18,7 @@ header {
     align-items: center;
     height: 100%;
     li {
+      padding: 1em 0 1.25em;
       margin-right: 1rem;
     }
     ul:first-child {
@@ -27,11 +28,11 @@ header {
       border-bottom: 2px solid;
       border-color: var(--green);
     }
-    .vector {
+  }
+  .vector {
       display: flex;
       margin-top: 0.25em;
       border: 1px solid $dark3;
-    }
   }
 }
   a {
@@ -63,12 +64,6 @@ header {
       position: absolute;
       background: transparent;
     }
-  }
-  &__right {
-    margin: 0px;
-    padding: 0px;
-    display: flex;
-    align-items: center;
   }
 }
 
@@ -102,9 +97,4 @@ header {
   #suggestions {
     display: none;
   }
-}
-
-li {
-    margin-right: 2rem;
-    padding: 1em 0 1.25em;
 }

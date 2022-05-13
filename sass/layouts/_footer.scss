@@ -1,4 +1,4 @@
-.footer {
+footer {
   width: 100%;
   background-color: var(--white);
   border-top: 1px solid;
@@ -12,11 +12,11 @@
   li {
     margin-right: 33%;
   }
-  &-span {
+  span {
     padding-left: 1em;
     font-size: 16px;
   }
-  &-a {
+  a {
     color: var(--black);
   }
 }

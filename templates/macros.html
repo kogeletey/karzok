@@ -61,6 +61,7 @@
         {% endif %}
     </nav>
 </header>
+
 {% if config.extra.devmode %}
 <div class="header__container flex-between">
     <a itemprop="url" class="header__container-link" href="/zero">
@@ -87,24 +88,24 @@
           .then((data) => {
             let version_name = data.name;
             let html_url = data.html_url;
-                   version.innerHTML = `<a class="footer-a" href='${html_url}'>${version_name}</a>`;
+                   version.innerHTML = `<a href='${html_url}'>${version_name}</a>`;
           });
 </script>
 {%endif%}
-<footer class="footer">
+<footer>
         <ul>
             {% if config.extra.footer %}
             {% for item in config.extra.footer%}
             <li>
-                <span class="footer-span">{% if item.url %}<a href="{{ item.url }}"/> {% endif %}{{ item.text }}</span>
+                <span {% if item.url %}<a href="{{ item.url }}"/> {% endif %}{{ item.text }} </a></span>
             </li>
             {% endfor %}
             {% else %}
             <li>
-            <span class = "footer-span"> powered by  <a class="footer-a" href="https://karzok.re128.org"> karzok </a></span>
+            <span> powered by  <a href="https://karzok.re128.org"> karzok </a></span>
             </li>
             <li>
-            <span class = "footer-span"><span id="version"></span></span>
+                <span id="version"></span>
             </li>
             {% endif %}
         </ul>
