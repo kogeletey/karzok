@@ -1,4 +1,4 @@
-.menu {
+section {
   margin-top: 0.25rem;
   margin-bottom: 3rem;
   display: grid;
@@ -7,7 +7,7 @@
   grid-auto-rows: 25rem;
   width: 100%;
   grid-gap: 1px 1px;
-  &__link {
+  a {
     display: block;
     position: relative;
     color: var(--black);
@@ -18,42 +18,38 @@
     padding-top: 1em;
     padding-left: 1em;
     overflow: hidden;
-    &-title,
-    &-index {
+    & span {
       display: block;
       position: relative;
       font-size: 20px;
       margin-bottom: 10px;
       color: var(--black);
     }
-    &-in {
+    & div {
       opacity: 0;
       transform: translateY(40px);
       transition: transform 0.4s, opacity 0.4s;
       color: var(--black);
     }
-    &:hover &-in {
+    &:hover div {
       opacity: 1;
       transform: translateY(0);
     }
-    &-time,
+    & time,
     p {
       display: block;
       position: relative;
       opacity: 0.8;
     }
   }
-  &__link:hover {
+  & a:hover {
     outline: 1px solid var(--green);
     transform: scale(1, 1);
-  }
-  &-index {
-    padding-top: 2em;
   }
 }
 
 @media (max-width: 1000px) {
-    .menu{
+    section {
         grid-template-columns: 1fr;
     }
 }

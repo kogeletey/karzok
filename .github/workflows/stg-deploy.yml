@@ -25,14 +25,13 @@ jobs:
       uses: shalzz/zola-deploy-action@master
       env:
         PAGES_BRANCH: stg
-        BUILD_ONLY: true
-        REPOSITORY: kogeletey/nebra
+        #        BUILD_ONLY: true
+        REPOSITORY: nebra
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         BUILD_FLAGS: -u https://karzok.stg.re128.org
-        #BUILD_ONLY: true
-        #- name: postcss
-        #run: |
-        #npx postcss {main,page,section}.css --replace
+      #- name: postcss
+      # run: |
+      #   npx postcss {main,page,section}.css --replace
   container-build:
 
     runs-on: ubuntu-latest
