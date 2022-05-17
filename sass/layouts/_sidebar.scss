@@ -1,79 +1,81 @@
-.sidebar {
+main > nav{
   padding-left: 0;
   max-height: 100vh;
   width: 350px;
   border-right: 1px solid var(--black);
-  &__pages {
+  li {
     margin-left: 0.5rem;
     margin-top: 1em;
-    &-link {
+    a {
       margin-top: 1em;
     }
   }
-  &__subsection {
+  li.subsection {
     margin-left: 0.5rem;
-    &-page {
-      padding-left: 0.5em;
-      margin-top: 1em;
-      color: $dark3;
-    }
-  }
-  &__toggle {
+    svg {
+        position: relative;
+        cursor: pointer;
+        top: 0.150rem;
+        left: -0.15rem;
+   }
+   input[type="checkbox"] {
     position: absolute;
     opacity: 0;
     overflow: hidden;
     cursor: pointer;
     z-index: 2;
-    &-icon {
-        position: relative;
-        cursor: pointer;
-        top: 0.150rem;
-        left: -0.15rem;
-    }
-    & ~ .sidebar__subsection {
+   }
+    input[type="checkbox"] ~ ul.subsection {
         display: none;
     }
-    &:checked ~ .sidebar__subsection {
+     input[type="checkbox"]:checked ~ ul.subsection {
         display: block;
     }
-    & ~ &-icon {
+     input[type="checkbox"] ~ nav > li > svg {
         transform: rotate(0deg);
         transition: .2s ease-in-out;
     }
-    &:checked ~ &-icon {
+    input[type="checkbox"]:checked ~ svg {
         transform: rotate(90deg);
         transition: .2s ease-in-out;
     }
+    &:hover {
+        color: var(--black);
+        border-right: none;
+    }
   }
-  &-link {
+  ul.subsection {
+    padding-left: 0.5em;
+    margin-top: 1em;
+    color: $dark3;
+   li {
     display: flex;
     text-align: left;
-    &-a {
-      margin-top: 1em;
+    a {
+      margin-top: 0em;
     }
     &::before {
       content: '';
       padding-left: 1.5rem;
-//      border-left: 1px solid var(--black);
     }
   }
-  &__active-pages,
-  &-link:hover,
-  &__pages:hover {
+}
+  li.active,
+  li:hover {
     color: var(--green);
     border-right: 1px solid var(--green);
   }
-  &__active-link {
+  a.active {
     color: var(--green);
   }
 }
 
 @media (max-width: 1000px) {
-  .sidebar {
+  main > nav {
     display: none;
-    &__active-pages,
-    &-link:hover,
-    &__pages:hover {
+    .active,
+    li:hover,
+    a:hover {
       color: var(--green);
       border: none;
     }

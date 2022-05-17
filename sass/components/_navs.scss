@@ -1,16 +1,16 @@
-.nav {
+.nav, main>nav {
   position: sticky;
   top: 1rem;
   height: calc(110vh - 1rem);
   overflow-y: auto;
   overflow-x: hidden;
-  &__close {
+  a.close {
     display: none;
   }
 }
 
 @media (max-width: 1000px) {
-    .nav {
+    .nav, main>nav {
         top: -0.25rem;
         border: none;
         bottom: 0;
@@ -20,7 +20,7 @@
         overflow-y: auto;
         position: fixed;
         transition: transform 0.25s ease;
-    &__close {
+    a.close {
       display: block;
       z-index: 6;
      }
