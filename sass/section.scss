@@ -5,12 +5,12 @@
 .welcome {
   padding-top: 2em;
   height: 60vh;
-  &__heading {
+  h1 {
     display: flex;
     justify-content: center;
     font-size: 100px;
   }
-  &__description {
+  p {
     display: flex;
     justify-content: center;
     font-size: 30px;
@@ -20,10 +20,10 @@
 @media (max-width: 1000px) {
     .welcome {
         height: 20vh;
-        &__heading {
+        h1 {
           font-size: 40px;
         }
-        &__description {
+        p {
            font-size: 18px;
         }
     }

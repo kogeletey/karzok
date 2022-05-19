@@ -46,11 +46,11 @@ aside {
     a:hover {
       color: var(--green);
     }
-    .nav__close {
+    a.close {
       display: block;
     }
   }
-  .show-toc {
+  .toc {
     margin-right: 0.5rem;
   }
   #toc {

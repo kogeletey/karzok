@@ -31,8 +31,18 @@ header {
   }
   .vector {
       display: flex;
-      margin-top: 0.25em;
+      margin-top: 0.2em;
       border: 1px solid $dark3;
+      &:hover {
+        color: var(--white);
+        background: var(--black);
+      }
+      span:hover {
+        color: var(--black);
+      }
+      span.svg:hover{
+        filter: invert(100%);
+      }
   }
 }
   a {
@@ -49,14 +59,11 @@ header {
   }
   form {
     display: flex;
+    border: 1px solid;
+    border-color: var(--black);
     input {
-      padding: 4px 30px;
-      background-color: $light4;
+      padding: 4px 4px;
       border: none;
-    }
-    div#suggestions {
-      overflow: auto;
-      background-color: var(--white);
     }
     button {
       margin-left: 0.1em;
@@ -64,17 +71,21 @@ header {
       position: absolute;
       background: transparent;
     }
+    &:hover,& input:focus, & input:hover {
+       width: 34rem;
+
+   }
   }
 }
 
 #suggestions {
   position: absolute;
-  max-height: 500px;
-  overflow: auto;
+  max-height: 200px;
   margin-top: 2.1em;
   max-width: 100%;
   z-index: 2;
-
+  overflow: auto;
+  background-color: var(--white);
   & a {
     display: flex;
     padding: 0.75rem;
@@ -93,7 +104,7 @@ header {
 }
 
 @media (max-width: 1000px) {
-   header > form,
+   header form,
   #suggestions {
     display: none;
   }

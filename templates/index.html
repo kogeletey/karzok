@@ -7,20 +7,20 @@
             {% block content %}
             {% block welcome %}
             <div class="welcome">
-            <h1 class="welcome__heading"> Welcome to Karzok</h1>
+            <h1> Welcome to Karzok</h1>
             {% if config.description %}
-            <p class="welcome__description">
+            <p>
                 {{ config.description }}
             </p>
             {% endif %}
             </div>
             {% endblock welcome %}
-            <section class="menu">
+            <section>
                 {% if config.extra.menu %}
                 {% for link in config.extra.menu %}
                 {% set item_link = link.link  | replace(from="$base_url", to=config.base_url) %}
-                        <a class="menu__link" href="{{ item_link | safe }}">
-                            <span class="menu__link-index"> {{ link.text }} </span>
+                        <a  href="{{ item_link | safe }}">
+                            <span> {{ link.text }} </span>
                     </a>
                     {% endfor %}
                 {% endif %}
