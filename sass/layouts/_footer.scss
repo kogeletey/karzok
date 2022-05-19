@@ -1,8 +1,13 @@
 footer {
   width: 100%;
+  position: relative;
+  bottom: 0;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
   background-color: var(--white);
   border-top: 1px solid;
   border-color: $dark1;
+  font-size: 16px;
   color: var(--black);
   ul {
     display: flex;

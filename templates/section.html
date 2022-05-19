@@ -1,9 +1,9 @@
-{% extends "base.html" %} {% block styles %} {{
-macros::styles(file='section.css') }} {% endblock styles %} {% block htmltitle
-%} {{ macros::title_or_last(component=section) }} - {{ config.title }} {%
-endblock htmltitle %} {% block title %} {{
-macros::title_or_last(component=section) }} {% endblock title %} {% block math
-%} {{ macros::math() }} {% endblock math %} {% block content %}
+{% extends "base.html" %}
+{% block styles %} {{macros::styles(file='section.css') }} {% endblock styles %}
+{% block htmltitle%} {{ macros::title_or_last(component=section) }} - {{ config.title }} {%endblock htmltitle %}
+{% block title %} {{macros::title_or_last(component=section) }} {% endblock title %}
+{% block math%} {{ macros::math() }} {% endblock math %}
+{% block content %}
 <section>
   {% for page in section.pages %}
   <a href="{{ page.permalink }}">

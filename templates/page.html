@@ -1,6 +1,8 @@
-{% extends "base.html" %} {% block styles %} {{ macros::styles(file='page.css')
-}} {% endblock styles %} {% block htmltitle %} {{ page.title }} {% endblock
-htmltitle %} {% block content %}
+{% extends "base.html" %}
+{# import styles for page #}
+{% block styles %} {{ macros::styles(file='page.css')}} {% endblock styles %}
+{% block htmltitle %} {{ page.title }} {% endblock htmltitle %}
+{% block content %}
 <main>
   <div class="show-bar">
     <a href="#sidebar" class="sidebar" role="button" x-data="{ open:false}">
@@ -37,11 +39,14 @@ htmltitle %} {% block content %}
     <h1 class="title">{{ page.title }}</h1>
     {% block sections %}
     <ul class="sections">
-      {{ page_macros::relative_path() }} {{ page_macros::word_count() }} {{
-      page_macros::reading_time() }} {{ page_macros::date() }} {{
-      page_macros::taxonomies_authors() }}
+      {{ page_macros::relative_path() }}
+      {{ page_macros::word_count() }}
+      {{ page_macros::reading_time() }}
+      {{ page_macros::date() }}
+      {{ page_macros::taxonomies_authors() }}
     </ul>
-    {% endblock sections %} {{ page.content | safe }}
+    {% endblock sections %}
+    {{ page.content | safe }}
   </article>
   {{ page_macros::toc(page=page) }}
 </main>
