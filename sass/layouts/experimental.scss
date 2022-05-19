@@ -1,30 +1,30 @@
 .header__container {
-    display: none;
-    flex-flow: row wrap;
-    background: var(--white);
-//    box-shadow: 0 3px 10px $light3;
-    width: 100%;
-    gap: 3rem;
-    &-link {
-      display: flex;
-      margin: 1em;
-      margin-left: 3rem;
-      flex: 0 0 25%;
-    }
-    &-title,
-    &-description {
-      padding-left: 1em;
-    }
-    &-svg {
-      margin-top: 0.25rem;
-      color: var(--black);
-    }
-    &-column {
-      display: flex;
-      flex-direction: column;
-      max-width: 10rem;
-    }
-    &-description {
-      color: var(--black);
-    }
+  display: none;
+  flex-flow: row wrap;
+  background: var(--white);
+  //    box-shadow: 0 3px 10px $light3;
+  width: 100%;
+  gap: 3rem;
+  &-link {
+    display: flex;
+    margin: 1em;
+    margin-left: 3rem;
+    flex: 0 0 25%;
+  }
+  &-title,
+  &-description {
+    padding-left: 1em;
+  }
+  &-svg {
+    margin-top: 0.25rem;
+    color: var(--black);
+  }
+  &-column {
+    display: flex;
+    flex-direction: column;
+    max-width: 10rem;
+  }
+  &-description {
+    color: var(--black);
+  }
 }

@@ -22,14 +22,14 @@ header {
       margin-right: 1rem;
     }
     ul:first-child {
-    span:hover,
-    .active{
-      padding-bottom: 9px;
-      border-bottom: 2px solid;
-      border-color: var(--green);
+      span:hover,
+      .active {
+        padding-bottom: 9px;
+        border-bottom: 2px solid;
+        border-color: var(--green);
+      }
     }
-  }
-  .vector {
+    .vector {
       display: flex;
       margin-top: 0.2em;
       border: 1px solid $dark3;
@@ -40,19 +40,19 @@ header {
       span:hover {
         color: var(--black);
       }
-      span.svg:hover{
+      span.svg:hover {
         filter: invert(100%);
       }
+    }
   }
-}
   a {
     span {
       color: $dark3;
     }
     span.svg {
-       display: flex;
-       padding: 3px 3px;
-      }
+      display: flex;
+      padding: 3px 3px;
+    }
     span:hover {
       color: var(--green);
     }
@@ -71,10 +71,11 @@ header {
       position: absolute;
       background: transparent;
     }
-    &:hover,& input:focus, & input:hover {
-       width: 34rem;
-
-   }
+    &:hover,
+    & input:focus,
+    & input:hover {
+      width: 34rem;
+    }
   }
 }
 
@@ -104,7 +105,7 @@ header {
 }
 
 @media (max-width: 1000px) {
-   header form,
+  header form,
   #suggestions {
     display: none;
   }

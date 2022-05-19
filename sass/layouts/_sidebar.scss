@@ -1,4 +1,4 @@
-main > nav{
+main > nav {
   padding-left: 0;
   max-height: 100vh;
   width: 350px;
@@ -13,53 +13,53 @@ main > nav{
   li.subsection {
     margin-left: 0.5rem;
     svg {
-        position: relative;
-        cursor: pointer;
-        top: 0.150rem;
-        left: -0.15rem;
-   }
-   input[type="checkbox"] {
-    position: absolute;
-    opacity: 0;
-    overflow: hidden;
-    cursor: pointer;
-    z-index: 2;
-   }
-    input[type="checkbox"] ~ ul.subsection {
-        display: none;
+      position: relative;
+      cursor: pointer;
+      top: 0.15rem;
+      left: -0.15rem;
     }
-     input[type="checkbox"]:checked ~ ul.subsection {
-        display: block;
+    input[type='checkbox'] {
+      position: absolute;
+      opacity: 0;
+      overflow: hidden;
+      cursor: pointer;
+      z-index: 2;
     }
-     input[type="checkbox"] ~ nav > li > svg {
-        transform: rotate(0deg);
-        transition: .2s ease-in-out;
+    input[type='checkbox'] ~ ul.subsection {
+      display: none;
     }
-    input[type="checkbox"]:checked ~ svg {
-        transform: rotate(90deg);
-        transition: .2s ease-in-out;
+    input[type='checkbox']:checked ~ ul.subsection {
+      display: block;
+    }
+    input[type='checkbox'] ~ nav > li > svg {
+      transform: rotate(0deg);
+      transition: 0.2s ease-in-out;
+    }
+    input[type='checkbox']:checked ~ svg {
+      transform: rotate(90deg);
+      transition: 0.2s ease-in-out;
     }
     &:hover {
-        color: var(--black);
-        border-right: none;
+      color: var(--black);
+      border-right: none;
     }
   }
   ul.subsection {
     padding-left: 0.5em;
     margin-top: 1em;
     color: $dark3;
-   li {
-    display: flex;
-    text-align: left;
-    a {
-      margin-top: 0em;
-    }
-    &::before {
-      content: '';
-      padding-left: 1.5rem;
+    li {
+      display: flex;
+      text-align: left;
+      a {
+        margin-top: 0em;
+      }
+      &::before {
+        content: '';
+        padding-left: 1.5rem;
+      }
     }
   }
-}
   li.active,
   li:hover {
     color: var(--green);
@@ -79,9 +79,6 @@ main > nav{
       color: var(--green);
       border: none;
     }
-  }
-  .sidebar {
-    margin-left: 0.5rem;
   }
   #sidebar {
     display: block;

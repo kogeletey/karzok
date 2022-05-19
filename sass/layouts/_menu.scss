@@ -3,7 +3,7 @@ section {
   margin-bottom: 3rem;
   display: grid;
   position: relative;
-  grid-template-columns: repeat(auto-fit, minmax(33%,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(33%, 1fr));
   grid-auto-rows: 25rem;
   width: 100%;
   grid-gap: 1px 1px;
@@ -49,7 +49,7 @@ section {
 }
 
 @media (max-width: 1000px) {
-    section {
-        grid-template-columns: 1fr;
-    }
+  section {
+    grid-template-columns: 1fr;
+  }
 }
