@@ -59,12 +59,11 @@
        <script src="{{ get_url(path='search_index.'~ lang ~'.js') | safe }}" defer></script>
       {% if config.extra.assets_url %}
         <script src="{{ config.extra.assets_url }}/search.js" defer></script>
+        <script src="{{ config.extra.assets_url }}/mode-switch.js"></script>
       {% else %}
         <script src="{{ get_url(path="search.js") | safe }}" defer></script>
+        <script src="{{ get_url(path='mode-switch.js') }}"></script>
       {% endif %}
     {% endif%}
-    {% if config.extra.devmode %}
-    <script src="{{ get_url(path='dark-light-switcher.js') }}"></script>
-    {% endif %}
 </body>
 </html>

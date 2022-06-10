@@ -2,7 +2,7 @@
   "minify": true,
   "jsc": {
     "parser": {
-      "syntax": "ecmascript"
+      "syntax": "typescript"
     },
     "minify": {
       "compress": {
