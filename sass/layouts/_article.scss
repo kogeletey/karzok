@@ -4,6 +4,8 @@ article {
   flex-direction: column;
   overflow-x: auto;
   width: calc(100% - (1.5rem * 4 - 10rem));
+  color: var(--foreground);
+  background: var(--background);
   .title {
     margin: 0 0 1rem;
     font-size: 2.5rem;
@@ -25,8 +27,8 @@ article {
   a {
     color: var(--green);
     &:hover {
-      color: var(--black);
-      border-bottom: var(--black) solid 1px;
+      color: var(--foreground);
+      border-bottom: var(--foreground) solid 1px;
     }
   }
   blockquote {
@@ -60,7 +62,7 @@ article {
     td,
     th {
       border: 1px solid $dark1;
-      background-color: var(--white);
+      background-color: var(--background);
       padding: 5px 14px;
     }
   }
@@ -73,7 +75,7 @@ article {
   }
   code {
     font-family: 'JetBrains Mono';
-    color: var(--black);
+    color: var(--foreground);
     font-size: 85%;
     background-color: transparent !important;
   }

@@ -36,3 +36,25 @@ ul {
 img {
   max-width: 100%;
 }
+
+body[data-theme="black"] {
+    --background: var(--black);
+    --foreground: var(--white);
+}
+
+body[data-theme="light"] {
+    --foreground: var(--black);
+    --background: var(--white);
+}
+
+body {
+    --foreground: var(--black);
+    --background: var(--white);
+}
+
+//@media (prefers-color-scheme: dark) {
+ //body:not([data-theme="light"]) {
+//    --black: #111111;
+ //   --white: #ffffff;
+ //}
+//}

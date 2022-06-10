@@ -2,6 +2,8 @@ aside {
   margin-right: 1.25em;
   margin-left: 1em;
   width: 250px;
+  color: var(--foreground);
+  background: var(--background);
   span {
     font-weight: bold;
     font-size: 17px;

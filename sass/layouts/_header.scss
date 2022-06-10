@@ -34,11 +34,11 @@ header {
       margin-top: 0.2em;
       border: 1px solid $dark3;
       &:hover {
-        color: var(--white);
-        background: var(--black);
+        color: var(--background);
+        background: var(--foreground);
       }
       span:hover {
-        color: var(--black);
+        color: var(--background);
       }
       span.svg:hover {
         filter: invert(100%);
@@ -47,7 +47,7 @@ header {
   }
   a {
     span {
-      color: $dark3;
+      color: var(--foreground);
     }
     span.svg {
       display: flex;
@@ -60,7 +60,7 @@ header {
   form {
     display: flex;
     border: 1px solid;
-    border-color: var(--black);
+    border-color: var(--foreground);
     input {
       padding: 4px 4px;
       border: none;
@@ -86,11 +86,11 @@ header {
   max-width: 100%;
   z-index: 2;
   overflow: auto;
-  background-color: var(--white);
+  background-color: var(--background);
   & a {
     display: flex;
     padding: 0.75rem;
-    border: 1px solid var(--black);
+    border: 1px solid var(--foreground);
   }
 
   & span:first-child {

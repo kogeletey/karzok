@@ -1,7 +1,7 @@
 .header__container {
   display: none;
   flex-flow: row wrap;
-  background: var(--white);
+  background: var(--background);
   //    box-shadow: 0 3px 10px $light3;
   width: 100%;
   gap: 3rem;
@@ -17,7 +17,7 @@
   }
   &-svg {
     margin-top: 0.25rem;
-    color: var(--black);
+    color: var(--foreground);
   }
   &-column {
     display: flex;
@@ -25,6 +25,6 @@
     max-width: 10rem;
   }
   &-description {
-    color: var(--black);
+    color: var(--foreground);
   }
 }

@@ -2,7 +2,7 @@ main > nav {
   padding-left: 0;
   max-height: 100vh;
   width: 350px;
-  border-right: 1px solid var(--black);
+  border-right: 1px solid var(--foreground);
   li {
     margin-left: 0.5rem;
     margin-top: 1em;
@@ -40,7 +40,7 @@ main > nav {
       transition: 0.2s ease-in-out;
     }
     &:hover {
-      color: var(--black);
+      color: var(--foreground);
       border-right: none;
     }
   }
