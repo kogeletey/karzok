@@ -1,8 +1,10 @@
 main > nav {
   padding-left: 0;
   max-height: 100vh;
-  width: 350px;
-  border-right: 1px solid var(--foreground);
+  width: 300px;
+  background: var(--background);
+  color: var(--foreground);
+  border-right: 1px solid $dark1;
   li {
     margin-left: 0.5rem;
     margin-top: 1em;

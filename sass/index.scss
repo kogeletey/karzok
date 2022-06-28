@@ -1,9 +1,7 @@
 @import 'base';
 
-@import 'components/flexs';
-
-@import 'layouts/header';
-@import 'layouts/footer';
+@import 'macros/header';
+@import 'macros/footer';
 
 :root {
   --black: #111111;
@@ -24,7 +22,7 @@ html {
 }
 a {
   text-decoration: none;
-  color: var(--black);
+  color: var(--foreground);
   &:hover {
     color: var(--green);
   }
@@ -58,3 +56,16 @@ body {
  //   --white: #ffffff;
  //}
 //}
+
+// flex space between basic styles
+header > nav,
+main,
+main > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+header > nav > ul {
+  display: flex;
+  align-items: center;
+}

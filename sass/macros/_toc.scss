@@ -1,18 +1,19 @@
 aside {
-  margin-right: 1.25em;
-  margin-left: 1em;
+//  margin-right: 1.25em;
+ // margin-left: 1em;
   width: 250px;
-  color: var(--foreground);
   background: var(--background);
+  padding-top: 1rem;
   span {
+    color: var(--foreground);
     font-weight: bold;
     font-size: 17px;
   }
   ul {
     position: sticky;
     border-left: 1px solid;
+    border-color: $dark1;
     padding-left: 0;
-    border-color: $dark2;
     max-width: 100%;
   }
   li {
@@ -44,9 +45,6 @@ aside {
     display: none;
     ul {
       border: none;
-    }
-    a:hover {
-      color: var(--green);
     }
   }
   #toc {

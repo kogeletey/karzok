@@ -1,8 +1,10 @@
 header {
   height: 36px;
-  border-bottom: 1px solid;
+  border-bottom: 0.1rem solid;
   border-color: $dark1;
   width: 100%;
+  color: var(--foreground);
+  background: var(--background);
   .logotype {
     max-height: 2rem;
     min-height: 1.25rem;
@@ -32,13 +34,14 @@ header {
     .vector {
       display: flex;
       margin-top: 0.2em;
-      border: 1px solid $dark3;
+      border: 1px solid $dark1;
       &:hover {
-        color: var(--background);
-        background: var(--foreground);
+        color: var(--foreground);
+        background: var(--background);
       }
       span:hover {
-        color: var(--background);
+        color: var(--foreground);
+        background: var(--background);
       }
       span.svg:hover {
         filter: invert(100%);
@@ -62,6 +65,8 @@ header {
     border: 1px solid;
     border-color: var(--foreground);
     input {
+      color: var(--foreground);
+      background: var(--background);
       padding: 4px 4px;
       border: none;
     }

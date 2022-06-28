@@ -53,6 +53,10 @@ article {
     p {
       display: inline;
     }
+    pre {
+      background-color: var(--background) !important;
+      color: var(--foreground);
+    }
   }
   table {
     margin-top: 1rem;
@@ -119,6 +123,12 @@ article {
     padding-top: 1em;
   }
   time {
-    color: $dark2;
+    color: var(--foreground);
   }
+}
+
+@media (max-width: 1000px) {
+    article {
+        padding-top: 2.5rem;
+    }
 }

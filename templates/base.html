@@ -15,9 +15,9 @@
         <meta name="theme-color" content="{{ config.extra.theme_color | default(value="#fff") }}">
         <link rel="icon" href="{{ get_url(path=config.extra.favicon | default(value='/favicon.ico') ) }}">
         {% block math %}
-        {{ macros::math() }}
+          {{ macros::math() }}
         {% endblock math %}
-        {{ macros::styles(file='main.css') }}
+          {{ macros::styles(file='index.css') }}
         {% block styles %}
         {% endblock styles %}
         <title>{% block htmltitle %} {{ config.title }}{% endblock htmltitle %}</title>
