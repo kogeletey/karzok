@@ -1,0 +1,84 @@
+{% import 'macros/folio.html' as page -%}
+{% import 'macros/header.html' as top_nav -%}
+
+<!-- footer in the page -->
+{% macro footer() %}
+{% if config.extra.version and not config.extra.footer %}
+ <script>
+    fetch('{{ config.extra.version | safe }}')
+          .then((response) => {
+            return response.json();
+          })
+          .then((data) => {
+            let version_name = data.name;
+            let html_url = data.html_url;
+                   version.innerHTML = `<a href='${html_url}'>${version_name}</a>`;
+          });
+</script>
+{%endif%}
+<footer>
+        <ul>
+            {% if config.extra.footer %}
+            {% for item in config.extra.footer%}
+            <li>
+                <span {% if item.url %}<a href="{{ item.url }}"/> {% endif %}{{ item.text }} </a></span>
+            </li>
+            {% endfor %}
+            {% else %}
+            <li>
+            <span> powered by  <a href="https://karzok.re128.org"> karzok </a></span>
+            </li>
+            <li>
+                <span id="version"></span>
+            </li>
+            {% endif %}
+        </ul>
+</footer>
+{% endmacro %}
+{% macro title_or_last(component, offset=2) %}
+    {% set length = component.components | length %}
+    {% set last = component.components | last %}
+    {{ component.title | default(value=name) }}
+{% endmacro title_or_last %}
+<!-- Math liblary - katex enable -->
+{% macro math() %}
+{% if page.extra.math or section.extra.math or config.extra.math %}
+        {% if config.extra.localcdn %}
+        <link rel="stylesheet" href="{{ get_url(path='katex/dist/katex.min.css') }}">
+        <script src="{{ get_url(path='katex/dist/katex.min.js') }}"></script>
+        <script src="{{ get_url(path='katex/dist/contrib/auto-render.min.js') }}"></script>
+        <script async src="{{ get_url(path='katex/dist/contrib/mathtex-script-type.min.js') }}"></script>
+        {% else %}
+        {% set cdnurl = config.extra.cdnurl | default(value="https://cdn.jsdelivr.net/npm/") %}
+        <link rel="stylesheet" href="{{ cdnurl | safe }}katex/dist/katex.min.css">
+        <script src="{{ cdnurl | safe }}katex/dist/katex.min.js"></script>
+        <script src="{{ cdnurl | safe }}katex/dist/contrib/auto-render.min.js"></script>
+        <script async src="{{ cdnurl | safe }}katex/dist/contrib/mathtex-script-type.min.js"></script>
+        {% endif %}
+        <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body,
+          {
+          // customised options
+          // • auto-render specific keys, e.g.:
+          delimiters: [
+              {left: '$$', right: '$$', display: true },
+              {left: '$', right: '$', display: false}
+            ],
+          // • rendering keys, e.g.:
+          output: 'html',
+          throwOnError : false
+        });
+    });
+</script>
+        {% endif %}
+{% endmacro %}
+
+{% macro styles(file) %}
+{% if config.extra.assets_url %}
+<link rel="stylesheet" href="{{ config.extra.assets_url }}/{{ file }}">
+{% else %}
+<link rel="stylesheet" href="{{ get_url(path=file) }}">
+{% endif %}
+{% endmacro %}
+

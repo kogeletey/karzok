@@ -34,20 +34,20 @@
       </svg>
     </a>
   </div>
-  {{ page_macros::sidebar(current_url=current_url) }}
+  {{ page::sidebar(current_url=current_url) }}
   <article>
     <h1 class="title">{{ page.title }}</h1>
     {% block sections %}
     <ul class="sections">
-      {{ page_macros::relative_path() }}
-      {{ page_macros::word_count() }}
-      {{ page_macros::reading_time() }}
-      {{ page_macros::date() }}
-      {{ page_macros::taxonomies_authors() }}
+      {{ page::relative_path() }}
+      {{ page::word_count() }}
+      {{ page::reading_time() }}
+      {{ page::date() }}
+      {{ page::taxonomies_authors() }}
     </ul>
     {% endblock sections %}
     {{ page.content | safe }}
   </article>
-  {{ page_macros::toc(page=page) }}
+  {{ page::toc(page=page) }}
 </main>
 {% endblock content %}

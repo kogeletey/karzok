@@ -1,5 +1,4 @@
-{% import 'macros.html' as macros -%}
-{% import 'page_macros.html' as page_macros -%}
+{% import 'macros/common.html' as macros -%}
 <!DOCTYPE html>
 <html lang="{{ lang | default(value="en")}}">
     <head>
@@ -43,7 +42,7 @@
 </head>
 <body>
     {% block header%}
-        {{ macros::header(current_url=current_url) }}
+        {{ top_nav::header(current_url=current_url) }}
     {% endblock header%}
     {% block content %}
     {% endblock content %}

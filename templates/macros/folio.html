@@ -70,12 +70,12 @@
 {% endmacro %}
 
 {% macro taxonomies_authors() %}
-{% if page.taxonomies.authors %}
+{% if page.extra.authors %}
     <li>
     <span> Authors:  </span>
-    {% for author in page.taxonomies.authors %}
+    {% for author in page.extra.authors %}
       <li>
-        <!--  <a href="{{ get_taxonomy_url(kind="authors",name=author) | safe }}"> -->
+          {#         <!--  <a href="{{ get_taxonomy_url(kind="authors",name=author) | safe }}"> --> #}
         <span>{{ author }}</span>
         <!-- </a> -->
       </li>
