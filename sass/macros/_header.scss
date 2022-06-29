@@ -1,3 +1,31 @@
+header > nav > ul > li .toggle {
+    background: transparent;
+    svg {
+        margin: 3px 3px;
+    }
+}
+
+body[data-theme="black"] > header > nav > ul > li > button.toggle {
+    svg:not(.toggle-light) {
+        display: none;
+    }
+    svg.toggle-light {
+        color: var(--foreground);
+        display: block
+    }
+}
+
+body:not([data-theme="black"]) > header > nav > ul > li > button.toggle {
+    svg:not(.toggle-black) {
+        display: none;
+    }
+    svg.toggle-black {
+        color: var(--foreground);
+        display: block
+    }
+}
+
+
 header {
   height: 36px;
   border-bottom: 0.1rem solid;
