@@ -9,6 +9,7 @@ function set_theme(mode:string) {
 }
 
 function get_theme() {
+
 const current_theme = localStorage.getItem("theme") || "auto"
 const prefers_dark = window.matchMedia("(prefers-color-scheme: dark)").matches
 
@@ -32,6 +33,7 @@ if (prefers_dark) {
 }
 
 const btn = document.getElementsByClassName("toggle")
-Array.from(btn).forEach((button => {
+  Array.from(btn).forEach((button) => {
         button.addEventListener("click", get_theme)
-}))
+})
+

@@ -1,0 +1,44 @@
+.welcome {
+  padding-top: 2em;
+  color: var(--foreground);
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  justify-items: center;
+  h1 {
+    font-size: 100px;
+  }
+  p {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .welcome {
+    height: 20vh;
+    h1 {
+      font-size: 40px;
+    }
+    p {
+      font-size: 18px;
+    }
+  }
+}
+
+.error {
+  color: var(--foreground);
+  display: grid;
+  grid-template-rows: 0.1fr 0.1fr 0.1fr;
+  justify-items: center;
+  font-weight: 400;
+  margin-bottom: 2em;
+  min-height: 100vh;
+  & h1 {
+    font-size: 250px;
+  }
+  & h2 {
+    font-size: 100px;
+  }
+  & h3 {
+    font-size: 50px;
+  }
+}

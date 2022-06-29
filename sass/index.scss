@@ -46,16 +46,17 @@ body[data-theme="light"] {
 }
 
 body {
+    background: var(--background);
     --foreground: var(--black);
     --background: var(--white);
 }
 
-//@media (prefers-color-scheme: dark) {
- //body:not([data-theme="light"]) {
-//    --black: #111111;
- //   --white: #ffffff;
- //}
-//}
+@media (prefers-color-scheme: dark) {
+body:not([data-theme="light"]) {
+    --background: var(--black);
+    --foreground: var(--white);
+}
+}
 
 // flex space between basic styles
 header > nav,

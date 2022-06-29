@@ -4,11 +4,9 @@ date = "2019-03-11"
 description= "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 weight = 2
 
-[taxonomies]
-authors = ["Konrad Geletey","Hugo Authors"]
-
 [extra]
 math = true
+authors = ["Konrad Geletey","Hugo Authors"]
 +++
 
 This article offers a sample of basic Markdown syntax that can be used in Hugo

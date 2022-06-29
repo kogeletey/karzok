@@ -41,6 +41,9 @@
     {% endif %}
 </head>
 <body>
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
     {% block header%}
         {{ top_nav::header(current_url=current_url) }}
     {% endblock header%}
@@ -62,7 +65,7 @@
         <script src="{{ config.extra.assets_url }}/mode-switch.js"></script>
       {% else %}
         <script src="{{ get_url(path="search.js") | safe }}" defer></script>
-        <script src="{{ get_url(path='mode-switch.js') }}"></script>
+        <script src="{{ get_url(path='mode-switch.js') | safe }}"></script>
       {% endif %}
     {% endif%}
 </body>
