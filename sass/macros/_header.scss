@@ -27,7 +27,7 @@ body:not([data-theme="black"]) > header > nav > ul > li > button.toggle {
 
 
 header {
-  height: 36px;
+  height: 42px;
   border-bottom: 0.1rem solid;
   border-color: $dark1;
   width: 100%;
@@ -54,7 +54,7 @@ header {
     ul:first-child {
       span:hover,
       .active {
-        padding-bottom: 9px;
+        padding-bottom: 10px;
         border-bottom: 2px solid;
         border-color: var(--green);
       }
@@ -87,6 +87,14 @@ header {
     span:hover {
       color: var(--green);
     }
+  }
+  li.separator {
+    display: flex;
+  }
+  li.separator::before {
+    content: '';
+    border-left: 1px solid $dark1;
+    margin-right: 1rem;
   }
   form {
     display: flex;
