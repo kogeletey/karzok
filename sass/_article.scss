@@ -1,3 +1,9 @@
+body[data-theme="light"] {
+    article > pre {
+        background-color: #f6f7f6 !important;
+    }
+}
+
 article {
   display: flex;
   padding: 1.5rem;
@@ -45,17 +51,20 @@ article {
     }
   }
   .footnote-definition {
+    margin-top: 0.5rem;
+    border-top: 1px solid $dark1;
     sup {
-      top: -0.2.5em;
-      font-size: 0.75em;
-      display: inline;
+      padding-top: 1rem;
+      display: inline-block;
+      font-size: 0.75rem;
+      padding-right: 0.5rem;
+      &::after {
+        content: '.';
+      }
     }
     p {
-      display: inline;
-    }
-    pre {
-      background-color: var(--background) !important;
-      color: var(--foreground);
+        display: inline;
+        margin-top: 0;
     }
   }
   table {
@@ -72,7 +81,6 @@ article {
   }
   pre {
     margin-top: 1rem;
-    background-color: #f6f7f6 !important;
     box-shadow: 2px solid;
     padding: 8px;
     overflow-x: auto;
