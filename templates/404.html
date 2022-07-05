@@ -4,9 +4,9 @@
 {# set specifically so that there are no problems #}
 {% block header %} {{top_nav::header(current_url="/")}} {% endblock header %}
 {% block content %}
-<div class="error">
+<section class="error">
   <h1>404</h1>
   <h2>Page Not Found</h2>
   <h3>The requested page doesn't exist or you don't have access to it.</h3>
-</div>
+</section>
 {% endblock content %}

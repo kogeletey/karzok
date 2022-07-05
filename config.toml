@@ -41,7 +41,7 @@ header.name = "Karzok"
 version = "https://api.github.com/repos/kogeletey/karzok/releases/latest"
 
 # change default cdn
-cdnurl = "https://get.re128.net/"
+#cdnurl = "https://get.re128.net/"
 
 # special parameter for develop
 #assets_url = "https://get.re128.net/_/karzok"
