@@ -14,11 +14,8 @@ body[data-theme="light"] {
 }
 
 article {
-  display: flex;
   padding: 1.5rem;
-  flex-direction: column;
   overflow-x: auto;
-  width: calc(100% - (1.5rem * 4 - 10rem));
   color: var(--foreground);
   background: var(--background);
   .title {
@@ -125,6 +122,7 @@ article {
     height: auto;
   }
 }
+
 .sections {
   display: flex;
   flex-wrap: wrap;
