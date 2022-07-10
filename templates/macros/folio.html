@@ -5,6 +5,11 @@
     <a aria-label="close button" href="#close" class="close" role="button">
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" width="32" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><path d="M24 9.4L22.6 8L16 14.6L9.4 8L8 9.4l6.6 6.6L8 22.6L9.4 24l6.6-6.6l6.6 6.6l1.4-1.4l-6.6-6.6L24 9.4z" fill="currentColor"></path></svg>
     </a>
+    {% if config.extra.repo and config.extra.repo_branch %}
+    <ul>
+        <li> <a href = "{{ config.extra.repo }}/blob/{{ config.extra.repo_branch }}/content{{ current_path | replace(from="\\", to="/") | trim_end_matches(pat="/") }}.md"> edit this page </a> </li>
+    </ul>
+    {% endif %}
     <ul>
         {% for h1 in page.toc %}
         <li> <a aria-label="{{ h1.id }}" href="{{ h1.permalink | safe }}"> {{ h1.title }} </a></li>
@@ -15,7 +20,11 @@
 
 <!-- sidebar -->
 {% macro sidebar(current_url) %}
-    {% set index = get_section(path="_index.md") %}
+  {% if config.extra.current_section %}
+        {% set index = get_section(path=current_section) %}
+    {% else %}
+        {% set index = get_section(path="_index.md") %}
+    {% endif %}
     <nav id="sidebar" >
         <a aria-label="close button" href="#close" class = "close" role="button">
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" width="32" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><path d="M24 9.4L22.6 8L16 14.6L9.4 8L8 9.4l6.6 6.6L8 22.6L9.4 24l6.6-6.6l6.6 6.6l1.4-1.4l-6.6-6.6L24 9.4z" fill="currentColor"></path></svg>

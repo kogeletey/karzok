@@ -126,6 +126,9 @@ article {
 .sections {
   display: flex;
   flex-wrap: wrap;
+  ul {
+    display: inline-grid;
+  }
   li {
     display: flex;
     list-style: none;
