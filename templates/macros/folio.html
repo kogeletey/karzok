@@ -1,24 +1,36 @@
 {# table of content #}
 {% macro toc(page) %}
 <aside id="toc" class="nav">
-    <span> In this article: </span>
     <a aria-label="close button" href="#close" class="close" role="button">
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" width="32" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><path d="M24 9.4L22.6 8L16 14.6L9.4 8L8 9.4l6.6 6.6L8 22.6L9.4 24l6.6-6.6l6.6 6.6l1.4-1.4l-6.6-6.6L24 9.4z" fill="currentColor"></path></svg>
     </a>
     {% if config.extra.repo and config.extra.repo_branch %}
     <ul>
-        <li> <a href = "{{ config.extra.repo }}/blob/{{ config.extra.repo_branch }}/content{{ current_path | replace(from="\\", to="/") | trim_end_matches(pat="/") }}.md"> edit this page </a> </li>
+        <li class="edit-page">
+                <a aria-label = "edit this page" href="{{ config.extra.repo }}/blob/{{ config.extra.repo_branch }}/content{{ current_path | replace(from="\\", to="/") | trim_end_matches(pat="/") }}.md">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" width="17" height="17" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><path fill="currentColor" d="M2 26h28v2H2zM25.4 9c.8-.8.8-2 0-2.8l-3.6-3.6c-.8-.8-2-.8-2.8 0l-15 15V24h6.4l15-15zm-5-5L24 7.6l-3 3L17.4 7l3-3zM6 22v-3.6l10-10l3.6 3.6l-10 10H6z"></path></svg>
+                 Edit this page
+            </a>
+        </li>
     </ul>
     {% endif %}
+    <span> In this article: </span>
     <ul>
         {% for h1 in page.toc %}
-        <li> <a aria-label="{{ h1.id }}" href="{{ h1.permalink | safe }}"> {{ h1.title }} </a></li>
+        <li>
+            <a aria-label="{{ h1.id }}" href="{{ h1.permalink | safe }}"> {{ h1.title }} </a>
+        </li>
+            {% for h2 in h1.children %}
+                <li class="children">
+                    <a aria-label="{{ h2.id }}" href="{{ h2.permalink | safe }}"> {{ h2.title }} </a>
+                </li>
+            {% endfor %}
         {% endfor %}
     </ul>
 </aside>
 {% endmacro %}
 
-<!-- sidebar -->
+{# sidebar #}
 {% macro sidebar(current_url) %}
   {% if config.extra.current_section %}
         {% set index = get_section(path=current_section) %}
@@ -86,7 +98,7 @@
       <li>
           {#         <!--  <a href="{{ get_taxonomy_url(kind="authors",name=author) | safe }}"> --> #}
         <span>{{ author }}</span>
-        <!-- </a> -->
+        {#   <!-- </a> --> #}
       </li>
     {% endfor %}
     </li>

@@ -1,7 +1,4 @@
 aside {
-//  margin-right: 1.25em;
- // margin-left: 1em;
-  width: 250px;
   background: var(--background);
   padding-top: 1rem;
   span {
@@ -17,12 +14,23 @@ aside {
     max-width: 100%;
   }
   li {
+    display: grid;
     position: relative;
     margin-top: 0.345rem;
     padding-top: 0.345rem;
+    &.children {
+        a {
+          margin-left: 2.5rem;
+        }
+    }
+    &.edit-page {
+        svg {
+         margin-right: 0.5rem;
+        }
+    }
   }
   a {
-    display: block;
+    display: inline-block;
     letter-spacing: normal;
     margin-left: 24px;
     padding: 8px 0;
