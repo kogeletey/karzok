@@ -145,6 +145,31 @@ article {
   }
 }
 
+// navigation on this article
+nav.navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-top: 1px solid $dark1;
+  padding-top: 1.5rem;
+  a {
+    color: var(--foreground);
+    &:hover {
+      color: var(--green);
+      border: none;
+    }
+    & span:hover {
+      border-bottom: 1px solid $dark1;
+    }
+    & svg {
+        position: relative;
+        bottom: -4px;
+        margin-left: 0.25rem;
+        margin-right: 0.25rem;
+    }
+  }
+}
+
 @media (max-width: 1000px) {
     article {
         padding-top: 2.5rem;
