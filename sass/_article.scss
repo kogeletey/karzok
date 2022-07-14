@@ -27,6 +27,11 @@ article {
   h2 {
     margin-top: 1.25rem;
     margin-bottom: 1.25rem;
+    &:hover::before {
+        content: '#';
+        margin-right: 0.25rem;
+        color: var(--green);
+    }
   }
   h3,
   h4,
