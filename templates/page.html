@@ -47,9 +47,10 @@
       {{ page::word_count() }}
       {{ page::reading_time() }}
       {{ page::date() }}
+      {{ page::updated() }}
       {{ page::taxonomies_authors() }}
     </ul>
-    {% endblock sections %}
+    {%  endblock sections %}
     {{ page.content | safe }}
     {%- if page.heavier or page.lighter %}
     <nav class="navigation">
@@ -59,9 +60,26 @@
           <span>{{ page.lighter.title }} </span>
       </a>
     {% endif -%}
-    {%- if page.heavier %}
+    {% if page.heavier %}
       <a href="{{ page.heavier.permalink | safe }}">
           <span> {{ page.heavier.title }} </span>
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="18" height="18" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><path fill="currentColor" d="m18 6l-1.43 1.393L24.15 15H4v2h20.15l-7.58 7.573L18 26l10-10L18 6z"></path></svg>
+      </a>
+    {% endif %}
+    </nav>
+    {% endif -%}
+    {# page sorting by date #}
+    {%- if page.earlier or page.later %}
+    <nav class="navigation">
+    {% if page.later %}
+      <a href="{{ page.later.permalink | safe }}">
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" width="18" height="18" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><path fill="currentColor" d="m14 26l1.41-1.41L7.83 17H28v-2H7.83l7.58-7.59L14 6L4 16l10 10z"></path></svg>
+          <span>{{ page.later.title }} </span>
+      </a>
+    {% endif -%}
+    {%- if page.earlier %}
+      <a href="{{ page.earlier.permalink | safe }}">
+          <span> {{ page.earlier.title }} </span>
           <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="18" height="18" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><path fill="currentColor" d="m18 6l-1.43 1.393L24.15 15H4v2h20.15l-7.58 7.573L18 26l10-10L18 6z"></path></svg>
       </a>
     {% endif %}
