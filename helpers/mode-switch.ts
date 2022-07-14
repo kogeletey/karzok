@@ -1,4 +1,4 @@
-function set_theme(mode:string) {
+function set_theme(mode: string) {
     if (mode != "light" && mode != "black" && mode != "auto") {
         mode = "auto"
         console.log(`invalid theme mode: ${mode}`)

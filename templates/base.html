@@ -61,7 +61,7 @@
       {% endif %}
        <script src="{{ get_url(path='search_index.'~ lang ~'.js') | safe }}" defer></script>
       {% if config.extra.assets_url %}
-        <script src="{{ config.extra.assets_url }}/search.js" defer></script>
+        <script src="{{ config.extra.assets_url }}/search.js"></script>
         <script src="{{ config.extra.assets_url }}/mode-switch.js"></script>
       {% else %}
         <script src="{{ get_url(path="search.js") | safe }}" defer></script>
