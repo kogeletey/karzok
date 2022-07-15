@@ -40,7 +40,7 @@
     {% set last = component.components | last %}
     {{ component.title | default(value=name) }}
 {% endmacro title_or_last %}
-<!-- Math liblary - katex enable -->
+{# Math liblary - katex enable #}
 {% macro math() %}
 {% if page.extra.math or section.extra.math or config.extra.math %}
         {% if config.extra.localcdn %}
@@ -74,11 +74,24 @@
         {% endif %}
 {% endmacro %}
 
-{% macro styles(file) %}
-{% if config.extra.assets_url %}
-<link rel="stylesheet" href="{{ config.extra.assets_url }}/{{ file }}">
-{% else %}
+{% macro styles(file,usecdn=false) %}
+{% if config.extra.localcdn or usecdn == false %}
 <link rel="stylesheet" href="{{ get_url(path=file) }}">
+{% elif usecdn == true %}
+{% set cdnurl = config.extra.cdnurl | default(value="https://cdn.jsdelivr.net/npm") %}
+<link rel="stylesheet" href="{{cdnurl | safe }}/{{ file }}">
+{% elif config.extra.assets_url %}
+<link rel="stylesheet" href="{{ config.extra.assets_url }}/{{ file }}">
 {% endif %}
 {% endmacro %}
 
+{% macro scripts(file, usecdn=false, type="") %}
+{% if config.extra.localcdn or usecdn == false %}
+<script src="{{ get_url(path=file) | safe }}" {{ type }}></script>
+{% elif usecdn == true %}
+{% set cdnurl = config.extra.cdnurl | default(value="https://cdn.jsdelivr.net/npm") %}
+<script src="{{ cdnurl | safe }}/{{ file }}" {{ type }}></script>
+{% elif config.extra.assets_url %}
+<script src="{{ assets_url | safe }}/{{ file }}" {{ type }}></script>
+{% endif %}
+{% endmacro %}

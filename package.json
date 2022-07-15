@@ -6,7 +6,7 @@
   "scripts": {
     "postcss": "postcss public/{main,page,section}.css --replace",
     "compile:js": "swc helpers --only -d static",
-    "link": "rsync -va node_modules/@fontsource node_modules/katex node_modules/modern-normalize/modern-normalize.css static && npm run link:assets :",
+    "link": "rsync -va node_modules/@fontsource node_modules/katex node_modules/modern-normalize static && npm run link:assets :",
     "link:assets": "mkdir -p static && cp -r assets static || :",
     "clean": "rm -rf static node_modules",
     "gen": "npm run link && npm run compile:js && zola build && npm run postcss",

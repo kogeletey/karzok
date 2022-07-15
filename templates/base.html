@@ -12,6 +12,12 @@
         {% if config.description %}
         <meta name="description" content="{{ config.description }}">
         {% endif %}
+        {% if not config.extra.localcdn %}
+        <link rel="prefetch" href="{{ config.extra.cdnurl | default(value="https://cdn.jsdelivr.net") | safe }}" >
+        {% endif %}
+        {% if config.extra.assets_url %}
+        <link rel="prefetch" href="{{ config.extra.assets_url | safe }}" >
+        {% endif %}
         <meta name="theme-color" content="{{ config.extra.theme_color | default(value="#fff") }}">
         <link rel="icon" href="{{ get_url(path=config.extra.favicon | default(value='/favicon.ico') ) }}">
         {% block math %}
@@ -21,21 +27,9 @@
         {% block styles %}
         {% endblock styles %}
         <title>{% block htmltitle %} {{ config.title }}{% endblock htmltitle %}</title>
-        {% if config.extra.localcdn %}
-        <link rel="stylesheet" href="{{ get_url(path='modern-normalize.css') }}">
-        {#        <!--        <link rel="stylesheet" href="{{ get_url(path='normalize.css/normalize.css') }}"> --> #}
-        <link rel="stylesheet" href="{{ get_url(path='@fontsource/inter/400.css') }}">
-        <link rel="stylesheet" href="{{ get_url(path='@fontsource/inter/700.css') }}">
-        <link rel="stylesheet" href="{{ get_url(path='@fontsource/jetbrains-mono/400.css') }}">
-        {% else %}
-        {% set cdnurl = config.extra.cdnurl | default(value="https://cdn.jsdelivr.net/npm/") %}
-        {# <!--        <link rel="stylesheet" href="{{ cdnurl | safe }}normalize.css/normalize.css"> --> #}
-        <link rel="stylesheet" href="{{cdnurl | safe }}modern-normalize/modern-normalize.min.css">
-        <link rel="stylesheet" href="{{cdnurl | safe }}@fontsource/inter/400.css">
-        <link rel="stylesheet" href="{{cdnurl | safe }}@fontsource/inter/700.css">
-        <link rel="stylesheet" href="{{cdnurl | safe }}@fontsource/jetbrains-mono/400.css">
-        {% endif %}
-
+        {% for files in ["modern-normalize/modern-normalize.css","@fontsource/inter/400.css","@fontsource/inter/700.css","@fontsource/jetbrains-mono/400.css"] %}
+        {{ macros::styles(file=files,usecdn=true) }}
+        {% endfor %}
     {% if config.generate_rss %}
             <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path='rss.xml') }}">
     {% endif %}
@@ -52,21 +46,11 @@
     {% block footer %}
         {{ macros::footer() }}
     {% endblock footer%}
+    {{ macros::scripts(file="mode-switch.js")}}
     {% if config.build_search_index %}
-      {% if config.extra.localcdn %}
-        <script src="{{ get_url(path="elasticlunr.min.js") | safe }}" defer></script>
-      {% else %}
-      {# cdnurl is defined earlier #}
-        <script src="{{ cdnurl | safe }}elasticlunr/elasticlunr.min.js" defer></script>
-      {% endif %}
+    {{ macros::scripts(file="elasticlunr/elasticlunr.min.js",type="defer",usecdn=true) }}
        <script src="{{ get_url(path='search_index.'~ lang ~'.js') | safe }}" defer></script>
-      {% if config.extra.assets_url %}
-        <script src="{{ config.extra.assets_url }}/search.js"></script>
-        <script src="{{ config.extra.assets_url }}/mode-switch.js"></script>
-      {% else %}
-        <script src="{{ get_url(path="search.js") | safe }}" defer></script>
-        <script src="{{ get_url(path='mode-switch.js') | safe }}"></script>
-      {% endif %}
-    {% endif%}
+       {{ macros::scripts(file="search.js",type="defer")}}
+    {% endif %}
 </body>
 </html>
