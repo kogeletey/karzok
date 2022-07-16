@@ -27,11 +27,13 @@ article {
   h2 {
     margin-top: 1.25rem;
     margin-bottom: 1.25rem;
-    &:hover::before {
+    &:hover{
+      a.anchors::before {
         content: '#';
         margin-right: 0.25rem;
         color: var(--green);
-    }
+      }
+   }
   }
   h3,
   h4,
@@ -175,6 +177,7 @@ nav.navigation {
     }
   }
 }
+
 
 @media (max-width: 1000px) {
     article {

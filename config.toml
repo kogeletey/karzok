@@ -22,7 +22,8 @@ taxonomies = [
 ]
 
 [slugify]
-paths = "on"
+paths = "safe"
+anchors = "on"
 
 [markdown]
 highlight_code = true
