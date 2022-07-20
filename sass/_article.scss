@@ -1,14 +1,20 @@
 body[data-theme="light"] {
-    article > pre {
+    article pre {
         background-color: #f6f7f6 !important;
+    }
+    article code {
+        background-color: invert($dark3);
     }
 }
 
 
 @media (prefers-color-scheme: light) {
   body:not([data-theme="black"]) {
-    article > pre {
+    article pre {
         background-color: #f6f7f6 !important;
+    }
+    article code {
+        background-color: invert($dark3);
     }
   }
 }
@@ -95,14 +101,19 @@ article {
   pre {
     margin-top: 1rem;
     box-shadow: 2px solid;
-    padding: 8px;
+    padding: 12px;
     overflow-x: auto;
+    code {
+      padding: 0;
+      background-color: transparent !important;
+    }
   }
   code {
     font-family: 'JetBrains Mono';
     color: var(--foreground);
     font-size: 85%;
-    background-color: transparent !important;
+    padding: 2px;
+    background-color: $dark3;
   }
   ol {
     list-style-type: decimal;
