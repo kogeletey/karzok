@@ -32,8 +32,9 @@
 
 {# sidebar #}
 {% macro sidebar(current_url) %}
-  {% if config.extra.current_section %}
-        {% set index = get_section(path=current_section) %}
+  {% if config.extra.doc_section %}
+            {% set index_path = doc_section ~ "_index.md" %}
+            {% set index = get_section(path=index_path) %}
     {% else %}
         {% set index = get_section(path="_index.md") %}
     {% endif %}
