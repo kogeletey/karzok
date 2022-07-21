@@ -6,7 +6,7 @@
   "scripts": {
     "postcss": "postcss public/{main,page,section}.css --replace",
     "compile:js": "swc helpers --only -d static",
-    "link": "rsync -va node_modules/@fontsource node_modules/katex node_modules/modern-normalize static && npm run link:assets :",
+    "link": "rsync -va node_modules/@fontsource node_modules/katex node_modules/modern-normalize node_modules/mermaid static && npm run link:assets :",
     "link:assets": "mkdir -p static && cp -r assets static || :",
     "clean": "rm -rf static node_modules",
     "gen": "npm run link && npm run compile:js && zola build && npm run postcss",
@@ -16,6 +16,7 @@
     "@fontsource/inter": "^4.5.0",
     "@fontsource/jetbrains-mono": "^4.5.0",
     "katex": "^0.15.3",
+    "mermaid": "^9.1.3",
     "modern-normalize": "^1.1.0"
   },
   "otherDependencies": {

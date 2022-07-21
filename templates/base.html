@@ -52,5 +52,8 @@
        <script src="{{ get_url(path='search_index.'~ lang ~'.js') | safe }}" defer></script>
        {{ macros::scripts(file="search.js",type="defer")}}
     {% endif %}
+    {% block diagrams %}
+        {{ macros::diagrams() }}
+    {% endblock diagrams %}
 </body>
 </html>

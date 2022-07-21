@@ -47,23 +47,15 @@
 {% for files in ["katex/dist/katex.min.js","katex/dist/contrib/auto-render.min.js","katex/dist/contrib/mathtex-script-type.min.js"] %}
     {{ macros::scripts(file=files,type="defer",usecdn=true) }}
 {% endfor %}
-        <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        renderMathInElement(document.body,
-          {
-          // customised options
-          // • auto-render specific keys, e.g.:
-          delimiters: [
-              {left: '$$', right: '$$', display: true },
-              {left: '$', right: '$', display: false}
-            ],
-          // • rendering keys, e.g.:
-          output: 'html',
-          throwOnError : false
-        });
-    });
-</script>
+{{ macros::scripts(file="setting-katex.js") }}
         {% endif %}
+{% endmacro %}
+
+{% macro diagrams() %}
+{% if page.extra.diagrams or section.extra.diagrams or config.extra.diagrams %}
+{{ macros::scripts(file="setting-mermaid.js") }}
+{{ macros::scripts(file="mermaid/dist/mermaid.min.js",usecdn=true) }}
+{% endif %}
 {% endmacro %}
 
 {% macro styles(file,usecdn=false) %}

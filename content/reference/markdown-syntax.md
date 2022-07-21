@@ -6,6 +6,7 @@ weight = 2
 
 [extra]
 math = true
+diagrams = true
 authors = ["Konrad Geletey","Hugo Authors"]
 +++
 
@@ -183,6 +184,17 @@ You can use the underscore operator in any position in the variables list to inf
 This feature might require plugin developers to take migration steps for their existing plugins.
 
 Learn how to prepare your plugin for the update in this YouTrack issue.
+{% end %}
+
+# Mermaid
+```
+flowchart TD
+  Start --> Stop
+```
+
+{% mermaid() %}
+flowchart TD
+  Start --> Stop
 {% end %}
 
 [^1]:
