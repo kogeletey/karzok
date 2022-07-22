@@ -9,7 +9,7 @@ description = "The theme for launching fast documentation sites"
 
 default_language = "en"
 
-build_search_index = true
+#build_search_index = true
 
 minify_html = true
 

@@ -168,7 +168,9 @@ $$
 ![Image Backgorund](/test.png) 
 ![Another Media]()
 
-![Media CDN](https://plchldr.co/i/1280x720?bg=2ecc40)
+<!-- ![Media CDN](https://plchldr.co/i/1280x720?bg=2ecc40) -->
+
+{{ resize_image(path="/test.png", width=150, height=100, op="scale",alt="Background image") }}
 
 ## Hints
 

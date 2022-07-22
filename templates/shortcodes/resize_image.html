@@ -1,0 +1,5 @@
+{% set img = resize_image(path=path, width=width, height=height, op=op) %}
+<picture>
+    <source srcset="{{ img.url }} {{ img.height }}h {{ img.width }}w"></source>
+    <img src="{{ img.url }}" alt="{{ alt | default(value="image") }}" />
+</picture>
