@@ -39,7 +39,7 @@ favicon = "assets/favicon.ico"
 header.name = "Karzok"
 
 # github
-#version = "https://api.github.com/repos/kogeletey/karzok/releases/latest"
+version = "https://api.github.com/repos/kogeletey/karzok/releases/latest"
 
 # change default cdn
 #cdnurl = "https://get.re128.net/"

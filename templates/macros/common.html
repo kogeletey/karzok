@@ -3,19 +3,6 @@
 
 <!-- footer in the page -->
 {% macro footer() %}
-{% if config.extra.version and not config.extra.footer %}
- <script>
-    fetch('{{ config.extra.version | safe }}')
-          .then((response) => {
-            return response.json();
-          })
-          .then((data) => {
-            let version_name = data.name;
-            let html_url = data.html_url;
-                   version.innerHTML = `<a href='${html_url}'>${version_name}</a>`;
-          });
-</script>
-{%endif%}
 <footer>
         <ul>
             {% if config.extra.footer %}
@@ -29,7 +16,10 @@
             <span> powered by  <a href="https://karzok.re128.org"> karzok </a></span>
             </li>
             <li>
-                <span id="version"></span>
+            {% if config.extra.version and not config.extra.footer %}
+                {% set path = load_data(url=config.extra.version, format="json") %}
+                <a href="{{ path.html_url }}">  <span>  {{ path.tag_name }} </span> </a>
+            {%endif%}
             </li>
             {% endif %}
         </ul>
