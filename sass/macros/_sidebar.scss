@@ -1,4 +1,4 @@
-main > nav {
+main  nav {
   padding-left: 0;
   max-height: 100vh;
   background: var(--background);
@@ -83,7 +83,6 @@ main > nav {
   }
   #sidebar {
     display: block;
-    left: 0;
     transform: translateX(-100%);
     &:target {
       transform: translateX(0);

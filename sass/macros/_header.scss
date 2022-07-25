@@ -150,4 +150,8 @@ header {
   #suggestions {
     display: none;
   }
+  header {
+    position: fixed;
+    z-index: 5;
+  }
 }

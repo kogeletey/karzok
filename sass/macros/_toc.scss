@@ -51,6 +51,9 @@ aside {
 @media (max-width: 1000px) {
   aside {
     display: none;
+    span {
+     margin-left: 1rem;
+    }
     ul {
       border: none;
     }
@@ -58,10 +61,11 @@ aside {
   #toc {
     display: block;
     right: 0;
+    min-width: 50%;
     transform: translateX(150%);
     &:target {
-      transform: translateX(25px);
-      z-index: 6;
+      transform: translateX(10px);
+      z-index: 3;
     }
   }
 }

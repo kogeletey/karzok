@@ -11,9 +11,9 @@ aside {
 }
 
 @media (max-width: 1000px) {
-  main > nav,
+  main nav,
   aside {
-    top: -0.25rem;
+    top: 4.9rem;
     border: none;
     bottom: 0;
     background: var(--background);
