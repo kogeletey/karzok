@@ -83,6 +83,7 @@ main  nav {
   }
   #sidebar {
     display: block;
+    margin-top: 3.9rem;
     transform: translateX(-100%);
     &:target {
       transform: translateX(0);

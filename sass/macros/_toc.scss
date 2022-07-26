@@ -59,13 +59,17 @@ aside {
     }
   }
   #toc {
-    display: block;
+    display: grid;
     right: 0;
-    min-width: 50%;
     transform: translateX(150%);
     &:target {
       transform: translateX(10px);
       z-index: 3;
+    }
+    a.close {
+      margin-top: 2.3rem;
+      justify-self: end;
+      margin-bottom: -2rem;
     }
   }
 }

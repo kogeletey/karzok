@@ -13,18 +13,18 @@ aside {
 @media (max-width: 1000px) {
   main nav,
   aside {
-    top: 4.9rem;
     border: none;
-    bottom: 0;
     background: var(--background);
-    width: 50%;
+    max-width: 50%;
     height: 100%;
+    overflow-x: hidden;
     overflow-y: auto;
     position: fixed;
     transition: transform 0.25s ease;
     a.close {
-      display: block;
-      z-index: 6;
+      display: inline-block;
+      margin-right: 1.25rem;
+      padding: inherit;
     }
   }
 }
