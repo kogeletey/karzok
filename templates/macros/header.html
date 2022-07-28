@@ -19,7 +19,7 @@
             {% for item in config.extra.header_left %}
             {% set val_link = item.link  | replace(from="$base_url", to=config.base_url) %}
             <li>
-                <a itemprop="url" class="{% if current_link == val_link %} active {% endif %}" href="{{ val_link | safe }}">
+                <a itemprop="url" class="{% if current_url is starting_with(val_link) %} active {% endif %}" href="{{ val_link | safe }}">
                     <span > {{ item.text }} </span>
                 </a>
             </li>
