@@ -25,6 +25,24 @@ body:not([data-theme="black"]) > header > nav > ul > li > button.toggle {
     }
 }
 
+@media (prefers-color-scheme: light) {
+ body:not([data-theme="black"]) header form div.items {
+    a:hover {
+      background-color: $light3;
+    }
+  }
+}
+
+body[data-theme="light"] header form div.items {
+    a:hover {
+      background-color: $light3;
+  }
+}
+
+body[data-theme="black"] header form div.items {
+
+}
+
 
 header {
   height: 42px;
@@ -106,13 +124,6 @@ header {
       padding: 4px 4px;
       border: none;
     }
-    button {
-      margin-left: 0.1em;
-      margin-top: 0.35em;
-      position: absolute;
-      background: transparent;
-    }
-    &:hover,
     & input:focus,
     & input:hover {
       width: 34rem;
@@ -120,34 +131,46 @@ header {
   }
 }
 
-#suggestions {
+.items {
   position: absolute;
-  max-height: 200px;
-  margin-top: 2.1em;
-  max-width: 100%;
+  max-height: 30%;
+  margin-top: 2.1rem;
+  width: 34rem;
   z-index: 2;
-  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
   background-color: var(--background);
+  & div {
+   border: 1px solid var(--foreground);
+  }
   & a {
-    display: flex;
     padding: 0.75rem;
-    border: 1px solid var(--foreground);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.2fr 1fr;
+    gap: 1px;
+    align-content: center;
   }
 
   & span:first-child {
-    padding-right: 1.5rem;
-    text-align: right;
+      font-weight: 700;
+      font-size: 18px;
   }
 
   & span:nth-child(2) {
     width: 20rem;
-    padding-left: 1rem;
+  }
+  & a:hover {
+      background-color: $dark3;
+      span {
+       color: var(--foreground);
+   }
   }
 }
 
 @media (max-width: 1000px) {
   header form,
-  #suggestions {
+  div.items {
     display: none;
   }
   header {

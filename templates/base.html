@@ -48,9 +48,9 @@
     {% endblock footer%}
     {{ macros::scripts(file="mode-switch.js")}}
     {% if config.build_search_index %}
-    {{ macros::scripts(file="elasticlunr/elasticlunr.min.js",type="defer",usecdn=true) }}
-       <script src="{{ get_url(path='search_index.'~ lang ~'.js') | safe }}" defer></script>
-       {{ macros::scripts(file="search.js",type="defer")}}
+    {{ macros::scripts(file="elasticlunr.min.js") }}
+    <script src="{{ get_url(path='search_index.'~ lang ~'.js') | safe }}"></script>
+    {{ macros::scripts(file="search.js")}}
     {% endif %}
     {% block diagrams %}
         {{ macros::diagrams() }}

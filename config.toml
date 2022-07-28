@@ -9,7 +9,7 @@ description = "The theme for launching fast documentation sites"
 
 default_language = "en"
 
-#build_search_index = true
+build_search_index = true
 
 minify_html = true
 
@@ -17,9 +17,14 @@ minify_html = true
 
 compile_sass = true
 
-taxonomies = [
-    {name = "authors"},
-]
+[search]
+# Whether to include the title of the page/section in the index
+include_title = true
+# Whether to include the description of the page/section in the index
+include_description = false
+# Whether to include the rendered content of the page/section in the index
+include_content = true
+
 
 [slugify]
 paths = "safe"

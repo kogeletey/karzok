@@ -201,6 +201,7 @@ nav.navigation {
   border-top: 1px solid $dark1;
   margin-top: 0.75rem;
   padding-top: 1.5rem;
+  border-right: none;
   a {
     color: var(--foreground);
     &:hover {
