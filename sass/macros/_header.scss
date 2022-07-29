@@ -1,48 +1,46 @@
 header > nav > ul > li .toggle {
-    background: transparent;
-    svg {
-        margin: 3px 3px;
-    }
+  background: transparent;
+  svg {
+    margin: 3px 3px;
+  }
 }
 
-body[data-theme="black"] > header > nav > ul > li > button.toggle {
-    svg:not(.toggle-light) {
-        display: none;
-    }
-    svg.toggle-light {
-        color: var(--foreground);
-        display: block
-    }
+body[data-theme='black'] > header > nav > ul > li > button.toggle {
+  svg:not(.toggle-light) {
+    display: none;
+  }
+  svg.toggle-light {
+    color: var(--foreground);
+    display: block;
+  }
 }
 
-body:not([data-theme="black"]) > header > nav > ul > li > button.toggle {
-    svg:not(.toggle-black) {
-        display: none;
-    }
-    svg.toggle-black {
-        color: var(--foreground);
-        display: block
-    }
+body:not([data-theme='black']) > header > nav > ul > li > button.toggle {
+  svg:not(.toggle-black) {
+    display: none;
+  }
+  svg.toggle-black {
+    color: var(--foreground);
+    display: block;
+  }
 }
 
 @media (prefers-color-scheme: light) {
- body:not([data-theme="black"]) header form div.items {
+  body:not([data-theme='black']) header form div.items {
     a:hover {
       background-color: $light3;
     }
   }
 }
 
-body[data-theme="light"] header form div.items {
-    a:hover {
-      background-color: $light3;
+body[data-theme='light'] header form div.items {
+  a:hover {
+    background-color: $light3;
   }
 }
 
-body[data-theme="black"] header form div.items {
-
+body[data-theme='black'] header form div.items {
 }
-
 
 header {
   height: 42px;
@@ -128,50 +126,51 @@ header {
     & input:hover {
       width: 34rem;
     }
+    div.items {
+      position: absolute;
+      max-height: 30%;
+      margin-top: 2.1rem;
+      width: 34rem;
+      z-index: 2;
+      background-color: var(--background);
+      & a {
+        padding: 0.75rem;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.2fr 1fr;
+         gap: 1px;
+         align-content: center;
+    }
+      & div {
+        border: 1px solid var(--foreground);
+      }
+    }
   }
 }
 
-.items {
-  position: absolute;
-  max-height: 30%;
-  margin-top: 2.1rem;
-  width: 34rem;
-  z-index: 2;
+div.items {
   overflow-x: hidden;
   overflow-y: auto;
-  background-color: var(--background);
-  & div {
-   border: 1px solid var(--foreground);
-  }
-  & a {
-    padding: 0.75rem;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 0.2fr 1fr;
-    gap: 1px;
-    align-content: center;
-  }
-
   & span:first-child {
-      font-weight: 700;
-      font-size: 18px;
+    font-weight: 700;
+    font-size: 18px;
   }
-
   & span:nth-child(2) {
     width: 20rem;
   }
   & a:hover {
-      background-color: $dark3;
-      span {
-       color: var(--foreground);
-   }
+    background-color: $dark3;
+    span {
+      color: var(--foreground);
+    }
   }
 }
 
 @media (max-width: 1000px) {
-  header form,
-  div.items {
+  header {
+    form,div.items {
     display: none;
+    }
   }
   header {
     position: fixed;

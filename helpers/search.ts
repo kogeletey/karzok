@@ -1,5 +1,15 @@
-let userinput = document.querySelector('header form input');
-let suggestions = document.querySelector('div.items');
+const main = document.querySelector('main');
+const userinput = document.querySelector('input.search');
+const suggestions = document.querySelector('div.items');
+
+function go_search() {
+
+if (!window.main){
+    window.main = main.innerHTML
+};
+
+//const content = '<form>'
+}
 
 document.addEventListener('keydown', inputFocus);
 
