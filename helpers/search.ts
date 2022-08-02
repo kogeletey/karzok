@@ -1,17 +1,48 @@
-const main = document.querySelector('main');
-const userinput = document.querySelector('input.search');
-const suggestions = document.querySelector('div.items');
+let suggestions = document.querySelector('div.items');
+const body = document.querySelector('body');
 
-function go_search() {
-
-if (!window.main){
-    window.main = main.innerHTML
-};
-
-//const content = '<form>'
+// in page results when press enter or click search icon from search box
+function close_search() {
+    body.innerHTML = window.body
 }
 
-document.addEventListener('keydown', inputFocus);
+function search() {
+    if (!window.body) {
+        window.body = body.innerHTML
+    };
+
+    let userinput = document.querySelector('input.search');
+
+    let results_clone = suggestions.cloneNode(true);// make a clone of the results, so that we can alter it
+
+    let main = document.createElement("main")
+    main.classList.add("full-screen")
+
+    let content ='<div><input class="search" type="search" placeholder="'.concat(userinput.value, '"aria-label="Search ..." autocomplete="off"><button><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" width="25" height="25" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><path d="M24 9.4L22.6 8L16 14.6L9.4 8L8 9.4l6.6 6.6L8 22.6L9.4 24l6.6-6.6l6.6 6.6l1.4-1.4l-6.6-6.6L24 9.4z" fill="currentColor"></path></svg></button></div>');
+
+    let form_content = document.createElement("form")
+
+    let close_button = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" width="32" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><path d="M24 9.4L22.6 8L16 14.6L9.4 8L8 9.4l6.6 6.6L8 22.6L9.4 24l6.6-6.6l6.6 6.6l1.4-1.4l-6.6-6.6L24 9.4z" fill="currentColor"></path></svg>';
+
+    let button = document.createElement("button");
+    button.name = "closeSearch"
+
+    button.innerHTML = close_button;
+    form_content.innerHTML = content
+    main.appendChild(button)
+    main.appendChild(form_content)
+    main.appendChild(results_clone)
+    body.innerHTML = main.outerHTML;
+    suggestions.innerHTML = "";
+    userinput.value = "";// clear the search input box
+    document.body.contains(document.closeSearch) && (document.closeSearch.onsubmit = function() {  close_search() })
+    return false
+}
+window.onload = function() {
+    document.body.contains(document.goSearch) && (document.goSearch.onsubmit = function() { return search() })
+};
+
+const userinput = document.querySelector('input.search');
 
 function inputFocus(e) {
 
@@ -29,24 +60,7 @@ function inputFocus(e) {
 
 }
 
-document.addEventListener('click', function(event) {
-
-  let isClickInsideElement = suggestions.contains(event.target);
-
-  if (!isClickInsideElement) {
-    suggestions.classList.add('d-none');
-  }
-
-});
-
-/*
-Source:
-  - https://dev.to/shubhamprakash/trap-focus-using-javascript-6a3
-*/
-
-document.addEventListener('keydown',suggestionFocus);
-
-function suggestionFocus(e){
+function suggestionFocus(e) {
   const focusableSuggestions= suggestions.querySelectorAll('a');
   if (suggestions.classList.contains('d-none')
       || focusableSuggestions.length === 0) {
@@ -70,12 +84,88 @@ function suggestionFocus(e){
 
 }
 
+document.addEventListener("keydown", inputFocus);
+document.addEventListener("click", function(event) {suggestions.contains(event.target) || suggestions.classList.add("d-none")});
+document.addEventListener("keydown", suggestionFocus);
+
+// Get substring by bytes
+// If using JavaScript inline substring method, it will return error codes
+// Source: https://www.52pojie.cn/thread-1059814-1-1.html
+function substringByByte(str, maxLength) {
+  let result = "";
+  let flag = false;
+  let len = 0;
+  let length = 0;
+  let length2 = 0;
+  for (let i = 0; i < str.length; i++) {
+    let code = str.codePointAt(i).toString(16);
+    if (code.length > 4) {
+      i++;
+      if ((i + 1) < str.length) {
+        flag = str.codePointAt(i + 1).toString(16) == "200d";
+      }
+    }
+    if (flag) {
+      len += getByteByHex(code);
+      if (i == str.length - 1) {
+        length += len;
+        if (length <= maxLength) {
+          result += str.substr(length2, i - length2 + 1);
+        } else {
+          break
+        }
+      }
+    } else {
+      if (len != 0) {
+        length += len;
+        length += getByteByHex(code);
+        if (length <= maxLength) {
+          result += str.substr(length2, i - length2 + 1);
+          length2 = i + 1;
+        } else {
+          break
+        }
+        len = 0;
+        continue;
+      }
+      length += getByteByHex(code);
+      if (length <= maxLength) {
+        if (code.length <= 4) {
+          result += str[i]
+        } else {
+          result += str[i - 1] + str[i]
+        }
+        length2 = i + 1;
+      } else {
+        break
+      }
+    }
+  }
+  return result;
+}
+
+// Get the string bytes from binary
+function getByteByBinary(binaryCode) {
+  // Binary system, starts with `0b` in ES6
+  // Octal number system, starts with `0` in ES5 and starts with `0o` in ES6
+  // Hexadecimal, starts with `0x` in both ES5 and ES6
+  let byteLengthDatas = [0, 1, 2, 3, 4];
+  let len = byteLengthDatas[Math.ceil(binaryCode.length / 8)];
+  return len;
+}
+
+// Get the string bytes from hexadecimal
+function getByteByHex(hexCode) {
+  return getByteByBinary(parseInt(hexCode, 16).toString(2));
+}
+
 /*
 Source:
   - https://github.com/nextapps-de/flexsearch#index-documents-field-search
   - https://raw.githack.com/nextapps-de/flexsearch/master/demo/autocomplete.html
   - http://elasticlunr.com/
   - https://github.com/getzola/zola/blob/master/docs/static/search.js
+  - https://github.com/aaranxu/adidoks/blob/main/static/js/search.js
 */
 (function(){
   let index = elasticlunr.Index.load(window.searchIndex);
@@ -252,76 +342,7 @@ Source:
     teaser.push("…");
     return teaser.join("");
   }
+document.body.contains(document.goSearch) && (document.goSearch.onsubmit = function() { return search() })
 }());
 
 
-// Get substring by bytes
-// If using JavaScript inline substring method, it will return error codes
-// Source: https://www.52pojie.cn/thread-1059814-1-1.html
-function substringByByte(str, maxLength) {
-  let result = "";
-  let flag = false;
-  let len = 0;
-  let length = 0;
-  let length2 = 0;
-  for (let i = 0; i < str.length; i++) {
-    let code = str.codePointAt(i).toString(16);
-    if (code.length > 4) {
-      i++;
-      if ((i + 1) < str.length) {
-        flag = str.codePointAt(i + 1).toString(16) == "200d";
-      }
-    }
-    if (flag) {
-      len += getByteByHex(code);
-      if (i == str.length - 1) {
-        length += len;
-        if (length <= maxLength) {
-          result += str.substr(length2, i - length2 + 1);
-        } else {
-          break
-        }
-      }
-    } else {
-      if (len != 0) {
-        length += len;
-        length += getByteByHex(code);
-        if (length <= maxLength) {
-          result += str.substr(length2, i - length2 + 1);
-          length2 = i + 1;
-        } else {
-          break
-        }
-        len = 0;
-        continue;
-      }
-      length += getByteByHex(code);
-      if (length <= maxLength) {
-        if (code.length <= 4) {
-          result += str[i]
-        } else {
-          result += str[i - 1] + str[i]
-        }
-        length2 = i + 1;
-      } else {
-        break
-      }
-    }
-  }
-  return result;
-}
-
-// Get the string bytes from binary
-function getByteByBinary(binaryCode) {
-  // Binary system, starts with `0b` in ES6
-  // Octal number system, starts with `0` in ES5 and starts with `0o` in ES6
-  // Hexadecimal, starts with `0x` in both ES5 and ES6
-  let byteLengthDatas = [0, 1, 2, 3, 4];
-  let len = byteLengthDatas[Math.ceil(binaryCode.length / 8)];
-  return len;
-}
-
-// Get the string bytes from hexadecimal
-function getByteByHex(hexCode) {
-  return getByteByBinary(parseInt(hexCode, 16).toString(2));
-}
