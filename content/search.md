@@ -1,3 +1,0 @@
-+++
-template = "search.html"
-+++

@@ -1,48 +1,69 @@
-let suggestions = document.querySelector('div.items');
-const body = document.querySelector('body');
+let suggestions: HTMLElement = document.querySelector('div.items');
+const body: HTMLElement = document.querySelector('main') || document.querySelector('section');
+let userinput = document.querySelector('input.search');
 
 // in page results when press enter or click search icon from search box
 function close_search() {
-    body.innerHTML = window.body
+    window.onload = function() {
+        document.getElementById('close-search').onclick= function() {
+            body.innerHTML = window.body
+            return false;
+        }
+    };
 }
 
 function search() {
     if (!window.body) {
-        window.body = body.innerHTML
+        window.body = body.innerHTML;
     };
 
-    let userinput = document.querySelector('input.search');
 
     let results_clone = suggestions.cloneNode(true);// make a clone of the results, so that we can alter it
 
-    let main = document.createElement("main")
-    main.classList.add("full-screen")
+    for(let i of ['header','footer'] ) {
+      body.parentNode.removeChild(document.querySelector(i));
+    }
 
-    let content ='<div><input class="search" type="search" placeholder="'.concat(userinput.value, '"aria-label="Search ..." autocomplete="off"><button><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" width="25" height="25" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><path d="M24 9.4L22.6 8L16 14.6L9.4 8L8 9.4l6.6 6.6L8 22.6L9.4 24l6.6-6.6l6.6 6.6l1.4-1.4l-6.6-6.6L24 9.4z" fill="currentColor"></path></svg></button></div>');
+    if (!document.querySelector('main')) {
+        document.querySelector('section').remove();
+        if (document.querySelector('div')) {
+            document.querySelector('div').remove();
+        }
+    } else {
+        document.querySelector('main').remove();
+    }
 
-    let form_content = document.createElement("form")
+    let main: HTMLElement = document.createElement("main");
+    main.classList.add("full-screen");
 
-    let close_button = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" width="32" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><path d="M24 9.4L22.6 8L16 14.6L9.4 8L8 9.4l6.6 6.6L8 22.6L9.4 24l6.6-6.6l6.6 6.6l1.4-1.4l-6.6-6.6L24 9.4z" fill="currentColor"></path></svg>';
+   const content: string ='<div><input class="search" type="search" placeholder="'.concat(userinput.value, '"aria-label="Search ..." autocomplete="off"><button><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" width="25" height="25" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><path d="M24 9.4L22.6 8L16 14.6L9.4 8L8 9.4l6.6 6.6L8 22.6L9.4 24l6.6-6.6l6.6 6.6l1.4-1.4l-6.6-6.6L24 9.4z" fill="currentColor"></path></svg></button></div>');
+
+    const form_content: HTMLElement = document.createElement("form");
+
+    const close_button: string = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" width="32" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><path d="M24 9.4L22.6 8L16 14.6L9.4 8L8 9.4l6.6 6.6L8 22.6L9.4 24l6.6-6.6l6.6 6.6l1.4-1.4l-6.6-6.6L24 9.4z" fill="currentColor"></path></svg>';
 
     let button = document.createElement("button");
-    button.name = "closeSearch"
+    button.id = "close-search"
 
     button.innerHTML = close_button;
-    form_content.innerHTML = content
-    main.appendChild(button)
-    main.appendChild(form_content)
-    main.appendChild(results_clone)
-    body.innerHTML = main.outerHTML;
+    form_content.innerHTML = content;
+
+    let n = new Set([button, form_content, results_clone]);
+
+    for (let i of n) {
+        main.appendChild(i);
+    }
+
+    document.querySelector('body').appendChild(main);
     suggestions.innerHTML = "";
     userinput.value = "";// clear the search input box
-    document.body.contains(document.closeSearch) && (document.closeSearch.onsubmit = function() {  close_search() })
-    return false
+    //document.body.contains(document.close_search) && document.body.contains(document.close_search.onsubmit = function() {  close_search() })
+//    return false
 }
-window.onload = function() {
-    document.body.contains(document.goSearch) && (document.goSearch.onsubmit = function() { return search() })
-};
 
-const userinput = document.querySelector('input.search');
+window.onload = function() {
+    document.body.contains(document.go_search) && (document.go_search.onsubmit = function() { return search() });
+};
 
 function inputFocus(e) {
 
@@ -342,7 +363,7 @@ Source:
     teaser.push("…");
     return teaser.join("");
   }
-document.body.contains(document.goSearch) && (document.goSearch.onsubmit = function() { return search() })
+document.body.contains(document.go_search) && (document.go_search.onsubmit = function() { return search() });
 }());
 
 
