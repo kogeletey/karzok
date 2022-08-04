@@ -1,9 +1,9 @@
 main.full-screen {
     grid-template-columns: 1fr;
-    grid-template-rows: 0.1fr 0.1fr 1fr;
+    grid-template-rows: 0.1fr 1fr;
+    min-height: 100vh;
     align-content: center;
     justify-items: center;
-    z-index: 4;
     grid-gap: 20px 0;
     button {
         justify-self: end;
@@ -13,30 +13,6 @@ main.full-screen {
         color: var(--foreground);
         &:hover {
             border: 1px solid $dark1;
-        }
-    }
-    form {
-        position: sticky;
-        color: var(--foreground);
-        background: var(--background);
-        & div {
-         display: inline-grid;
-         grid-template-columns: 1fr 0.1fr;
-         border: 1px solid $dark1;
-         justify-items: center;
-        }
-        & input {
-            background: none;
-            width: 34rem;
-            padding: 0.5rem;
-        }
-        & button {
-          margin: 0;
-          margin-right: 1rem;
-            &:hover {
-                border: none;
-                color: var(--green);
-            }
         }
     }
     & div.items {
@@ -61,9 +37,9 @@ main.full-screen {
     main.full-screen {
         gap: 5px 0;
         button {
-            margin: 0.5rem 1rem 1rem 0;
+            margin: 3rem 1rem 1rem 0;
         }
-        form input,div.items span {
+        div.items span {
             max-width: 15rem;
         }
     div.items {
