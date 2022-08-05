@@ -5,10 +5,20 @@ let userinput = document.querySelector('input.search');
 // in page results when press enter or click search icon from search box
 function close_search() {
     document.getElementById('close-search').onclick= function() {
-        this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode)
         location.reload()
     }
 }
+
+function mobile_open_search() {
+    document.querySelectorAll('header ul').forEach(p => {
+        p.remove();
+    });
+    document.querySelector('header form').style.display = "flex";
+    userinput.focus();
+}
+
+
+document.querySelector('button.search').addEventListener("click", mobile_open_search);
 
 function search() {
     let results_clone = suggestions.cloneNode(true);

@@ -36,18 +36,18 @@ img {
   max-width: 100%;
 }
 
+body {
+    --foreground: var(--black);
+    --background: var(--white);
+    background: var(--background);
+}
+
 body[data-theme="black"] {
     --background: var(--black);
     --foreground: var(--white);
 }
 
 body[data-theme="light"] {
-    --foreground: var(--black);
-    --background: var(--white);
-}
-
-body {
-    background: var(--background);
     --foreground: var(--black);
     --background: var(--white);
 }
@@ -59,18 +59,21 @@ body:not([data-theme="light"]) {
 }
 }
 
+button {
+  background: transparent;
+}
+
 // flex space between basic styles
-header > nav {
+header nav {
   display: flex;
   justify-content: space-between;
+  ul {  
+    display: flex;
+    align-items: center;
+  }
 }
 
 main {
   display: grid;
   grid-template-columns: 0.25fr 1fr 0.25fr;
-}
-
-header > nav > ul {
-  display: flex;
-  align-items: center;
 }
