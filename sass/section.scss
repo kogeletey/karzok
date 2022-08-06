@@ -2,12 +2,12 @@
 
 @import 'special-pages';
 
-body[data-theme="black"] > section a {
-    border: 1px solid $light4;
+body[data-theme='black'] > section a {
+  border: 1px solid $light4;
 }
 
-body:not([data-theme="dark"]) > section a {
-    border: 1px solid $dark2;
+body:not([data-theme='dark']) > section a {
+  border: 1px solid $dark2;
 }
 
 section {

@@ -37,26 +37,26 @@ img {
 }
 
 body {
-    --foreground: var(--black);
-    --background: var(--white);
-    background: var(--background);
+  --foreground: var(--black);
+  --background: var(--white);
+  background: var(--background);
 }
 
-body[data-theme="black"] {
-    --background: var(--black);
-    --foreground: var(--white);
+body[data-theme='black'] {
+  --background: var(--black);
+  --foreground: var(--white);
 }
 
-body[data-theme="light"] {
-    --foreground: var(--black);
-    --background: var(--white);
+body[data-theme='light'] {
+  --foreground: var(--black);
+  --background: var(--white);
 }
 
 @media (prefers-color-scheme: dark) {
-body:not([data-theme="light"]) {
+  body:not([data-theme='light']) {
     --background: var(--black);
     --foreground: var(--white);
-}
+  }
 }
 
 button {
@@ -67,7 +67,7 @@ button {
 header nav {
   display: flex;
   justify-content: space-between;
-  ul {  
+  ul {
     display: flex;
     align-items: center;
   }

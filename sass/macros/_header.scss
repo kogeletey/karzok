@@ -1,8 +1,8 @@
 header > nav > ul > li.separator {
-    button {
-      margin-left: 0.75rem;
-    }
-   svg {
+  button {
+    margin-left: 0.75rem;
+  }
+  svg {
     margin: 3px 3px;
   }
 }
@@ -17,13 +17,15 @@ body[data-theme='black'] > header > nav > ul > li > button.toggle {
   }
 }
 
-body:not([data-theme='black']) > header > nav > ul > li > button.toggle {
-  svg:not(.toggle-black) {
-    display: none;
-  }
-  svg.toggle-black {
-    color: var(--foreground);
-    display: block;
+body:not([data-theme='black']) > header > nav {
+  & ul > li > button.toggle {
+    svg:not(.toggle-black) {
+      display: none;
+    }
+    svg.toggle-black {
+      color: var(--foreground);
+      display: block;
+    }
   }
 }
 
@@ -106,7 +108,7 @@ header {
   li.separator {
     display: flex;
     button.search {
-        display: none;
+      display: none;
     }
   }
   li.separator::before {
@@ -117,6 +119,12 @@ header {
     display: flex;
     border: 1px solid;
     border-color: var(--foreground);
+    button.clear {
+      color: var(--foreground);
+      &:hover {
+        color: var(--green);
+      }
+    }
     input {
       color: var(--foreground);
       background: var(--background);
@@ -139,9 +147,9 @@ header {
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: 0.2fr 1fr;
-         gap: 1px;
-         align-content: center;
-    }
+        gap: 1px;
+        align-content: center;
+      }
       & div {
         border: 1px solid var(--foreground);
       }
@@ -172,16 +180,19 @@ div.items {
     position: fixed;
     z-index: 5;
     form {
-        display: none;
+      display: none;
+      width: 98%;
+      input {
         width: 98%;
+      }
     }
     div.items {
-        display: none;
+      display: none !important;
     }
     li.separator {
-        button.search {
-            display: block;
-        }
+      button.search {
+        display: block;
+      }
     }
   }
 }

@@ -2,6 +2,19 @@ let suggestions: HTMLElement = document.querySelector('div.items');
 let body: HTMLElement = document.querySelector('main') || document.querySelector('section');
 let userinput = document.querySelector('input.search');
 
+const btn_clear = document.querySelector('form button.clear')
+btn_clear.style.display = "none";
+
+function clear_search() {
+    userinput.blur();
+    userinput.value = '';
+    for(let i of [suggestions,btn_clear]){
+        i.style.display = "none";
+    }
+}
+
+btn_clear.addEventListener("click", clear_search);
+
 // in page results when press enter or click search icon from search box
 function close_search() {
     document.getElementById('close-search').onclick= function() {
@@ -60,26 +73,25 @@ window.onload = function() {
 };
 
 function inputFocus(e) {
-
-  if (e.keyCode === 191
+  if (e.key === '/'
       && document.activeElement.tagName !== "INPUT"
       && document.activeElement.tagName !== "TEXTAREA") {
     e.preventDefault();
     userinput.focus();
   }
 
-  if (e.keyCode === 27 ) {
-    userinput.blur();
+  if (e.key == 'Escape' ) {
+      clear_search()
   }
-
+  btn_clear.style.display = "block";
 }
 
 function suggestionFocus(e) {
   const focusableSuggestions= suggestions.querySelectorAll('a');
-
-  if (focusableSuggestions.length === 0) {
+  if (focusableSuggestions.length == 0 || userinput.style.display == "none") {
     return;
   }
+
   const focusable= [...focusableSuggestions];
   const index = focusable.indexOf(document.activeElement);
 
@@ -95,11 +107,9 @@ function suggestionFocus(e) {
     nextIndex= index+1 < focusable.length ? index+1 : index;
     focusableSuggestions[nextIndex].focus();
   }
-
 }
 
 document.addEventListener("keydown", inputFocus);
-document.addEventListener("click", function(event) {suggestions.contains(event.target)});
 document.addEventListener("keydown", suggestionFocus);
 
 // Get substring by bytes
@@ -185,6 +195,8 @@ Source:
   let index = elasticlunr.Index.load(window.searchIndex);
   userinput.addEventListener('input', show_results, true);
   suggestions.addEventListener('click', accept_suggestion, true);
+ // if (userinput.value != '') {
+  //}
 
   function show_results(){
     let value = this.value.trim();
@@ -200,7 +212,7 @@ Source:
     let entry, childs = suggestions.childNodes;
     let i = 0, len = results.length;
     let items = value.split(/\s+/);
-//    suggestions.classList.remove('d-none');
+    suggestions.style.display = "block"
 
     results.forEach(function(page) {
       if (page.doc.body !== '') {

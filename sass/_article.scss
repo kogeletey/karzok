@@ -1,20 +1,19 @@
-body[data-theme="light"] {
-    article pre {
-        background-color: #f6f7f6 !important;
-    }
-    article code {
-        background-color: invert($dark3);
-    }
+body[data-theme='light'] {
+  article pre {
+    background-color: #f6f7f6 !important;
+  }
+  article code {
+    background-color: invert($dark3);
+  }
 }
 
-
 @media (prefers-color-scheme: light) {
-  body:not([data-theme="black"]) {
+  body:not([data-theme='black']) {
     article pre {
-        background-color: #f6f7f6 !important;
+      background-color: #f6f7f6 !important;
     }
     article code {
-        background-color: invert($dark3);
+      background-color: invert($dark3);
     }
   }
 }
@@ -33,13 +32,13 @@ article {
   h2 {
     margin-top: 1.25rem;
     margin-bottom: 1.25rem;
-    &:hover{
+    &:hover {
       a.anchors::before {
         content: '#';
         margin-right: 0.25rem;
         color: var(--green);
       }
-   }
+    }
   }
   h3,
   h4,
@@ -82,8 +81,8 @@ article {
       }
     }
     p {
-        display: inline;
-        margin-top: 0;
+      display: inline;
+      margin-top: 0;
     }
   }
   table {
@@ -140,35 +139,35 @@ article {
     height: auto;
   }
   blockquote.hint {
-       display: grid;
-       grid-template-columns: 0.1fr 1fr;
-       max-width: 100%;
-       padding: 15px;
-       overflow: hidden;
-       border: none;
-       svg {
-         width: 25px;
-         height: 25px;
-       }
-       p {
-        text-align: center;
-        opacity: 85%;
-        font-weight: inherit;
-        font-size: 16px;
-       }
+    display: grid;
+    grid-template-columns: 0.1fr 1fr;
+    max-width: 100%;
+    padding: 15px;
+    overflow: hidden;
+    border: none;
+    svg {
+      width: 25px;
+      height: 25px;
+    }
+    p {
+      text-align: center;
+      opacity: 85%;
+      font-weight: inherit;
+      font-size: 16px;
+    }
   }
   blockquote.warning {
-        background: $yellow;
-        color: var(--black);
+    background: $yellow;
+    color: var(--black);
   }
   blockquote.note {
-        background: $blue;
-        color: var(--white);
+    background: $blue;
+    color: var(--white);
   }
   blockquote.critical {
-      background: $red;
-      color: var(--white);
-}
+    background: $red;
+    color: var(--white);
+  }
 }
 
 .sections {
@@ -212,20 +211,19 @@ nav.navigation {
       border-bottom: 1px solid $dark1;
     }
     & svg {
-        position: relative;
-        bottom: -4px;
-        margin-left: 0.25rem;
-        margin-right: 0.25rem;
+      position: relative;
+      bottom: -4px;
+      margin-left: 0.25rem;
+      margin-right: 0.25rem;
     }
   }
 }
 
-
 @media (max-width: 1000px) {
-    article {
-        padding-top: 5rem;
-    }
-    nav.navigation {
-        min-width: 100%;
-    }
+  article {
+    padding-top: 5rem;
+  }
+  nav.navigation {
+    min-width: 100%;
+  }
 }
