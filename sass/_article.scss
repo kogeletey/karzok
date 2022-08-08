@@ -193,7 +193,7 @@ article {
 }
 
 // navigation on this article
-nav.navigation {
+div.navigation {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -202,6 +202,7 @@ nav.navigation {
   padding-top: 1.5rem;
   border-right: none;
   a {
+    display: inline-block;
     color: var(--foreground);
     &:hover {
       color: var(--green);
@@ -216,6 +217,9 @@ nav.navigation {
       margin-left: 0.25rem;
       margin-right: 0.25rem;
     }
+    &:nth-child(2){
+        margin-left: 0.75rem;
+    }
   }
 }
 
@@ -223,7 +227,7 @@ nav.navigation {
   article {
     padding-top: 5rem;
   }
-  nav.navigation {
-    min-width: 100%;
+  div.navigation {
+   min-width: 100%;
   }
 }
