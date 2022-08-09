@@ -1,30 +1,22 @@
-.header__container {
-  display: none;
-  flex-flow: row wrap;
+header div.container {
   background: var(--background);
-  //    box-shadow: 0 3px 10px $light3;
-  width: 100%;
-  gap: 3rem;
-  &-link {
-    display: flex;
-    margin: 1em;
-    margin-left: 3rem;
-    flex: 0 0 25%;
-  }
-  &-title,
-  &-description {
-    padding-left: 1em;
-  }
-  &-svg {
-    margin-top: 0.25rem;
+  border: 1px solid $dark1;
+  padding: 2rem;
+}
+
+div[role="alert"]{
+    display: grid;
+    align-items: center;
+    grid-template-columns: auto 0.1fr;
+    justify-items: center;
+    width: 100%;
+    height: 25px;
+    border-bottom: 1px solid $dark1;
     color: var(--foreground);
-  }
-  &-column {
-    display: flex;
-    flex-direction: column;
-    max-width: 10rem;
-  }
-  &-description {
-    color: var(--foreground);
-  }
+    background: var(--background);
+    button {
+        display: inline-grid;
+        margin-right: 1rem;
+        justify-self: end;
+    }
 }

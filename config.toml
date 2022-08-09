@@ -51,7 +51,7 @@ version = "https://api.github.com/repos/kogeletey/karzok/releases/latest"
 
 # special parameter for develop
 #assets_url = "https://get.re128.net/_/karzok"
-#devmode = true
+devmode = true
 
 #localcdn = true
 

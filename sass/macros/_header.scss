@@ -120,6 +120,7 @@ header {
     border: 1px solid;
     border-color: var(--foreground);
     button.clear {
+      display: none;
       color: var(--foreground);
       &:hover {
         color: var(--green);

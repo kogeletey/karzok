@@ -4,7 +4,6 @@ let body: HTMLElement =
 let userinput = document.querySelector('input.search');
 
 const btn_clear = document.querySelector('form button.clear');
-btn_clear.style.display = 'none';
 
 function clear_search() {
   userinput.value = '';
@@ -83,19 +82,13 @@ window.onload = function () {
 };
 
 function inputFocus(e) {
-  if (
-    e.key === '/' &&
-    document.activeElement.tagName !== 'INPUT' &&
-    document.activeElement.tagName !== 'TEXTAREA'
-  ) {
+  if (e.key === '/' && document.activeElement.tagName != 'input') {
     e.preventDefault();
     userinput.focus();
-  }
-
-  if (e.key == 'Escape') {
+  } else if (e.key == 'Escape') {
     clear_search();
   }
-  btn_clear.style.display = 'block';
+   btn_clear.style.display = 'block';
 }
 
 function suggestionFocus(e) {

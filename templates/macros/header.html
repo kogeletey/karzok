@@ -1,5 +1,8 @@
 {# header component  #}
 {% macro header(current_url) %}
+{% if config.extra.devmode %}
+    {{ top_nav::alert() }}
+{% endif %}
 {% set current_link = current_url | safe | trim_end_matches(pat="/")  %}
 <header>
     <nav aria-label="section navigation" itemscope itemtype="http://shema.org/SiteNavigationElement">
@@ -22,6 +25,11 @@
                 <a itemprop="url" class="{% if current_url is starting_with(val_link) %} active {% endif %}" href="{{ val_link | safe }}">
                     <span > {{ item.text }} </span>
                 </a>
+                {#
+              {% if config.extra.devmode %}
+                {{ top_nav::container() }}
+              {% endif %}
+              #}
             </li>
             {% endfor %}
             {% endif %}
@@ -70,17 +78,26 @@
     </nav>
 </header>
 
-{% if config.extra.devmode %}
-<div class="header__container flex-between">
-    <a itemprop="url" class="header__container-link" href="/zero">
-    <span class="header__container-svg">
-        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--simple-line-icons" width="32" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1024 1024"><path d="M768 0H416q-27 0-45.5 18.5T352 64h352v256h256v512H736v64h224q27 0 45.5-18.5T1024 832V256zm0 256V90l165 166H768zM64 128q-27 0-45.5 18.5T0 192v768q0 27 18.5 45.5T64 1024h544q27 0 45.5-18.5T672 960V384L416 128H64zm544 832H64V192h288v256h256v512zM416 384V218l165 166H416z" fill="currentColor"></path></svg>
-    </span>
-     <div class="header__container-column">
-     <h3 class="header__container-title"> zero </h3>
-     <p class="header__container-description"> is a number </p>
+{% endmacro %}
+
+{% macro alert() %}
+<div role="alert">
+    {% set alert = load_data(path="content/alert.toml")%}
+    <span> {{ alert.text | safe }} </span>
+    {% if alert.dismissable %}
+    <button aria-label="close alert">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" width="22" height="22" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><path d="M24 9.4L22.6 8L16 14.6L9.4 8L8 9.4l6.6 6.6L8 22.6L9.4 24l6.6-6.6l6.6 6.6l1.4-1.4l-6.6-6.6L24 9.4z" fill="currentColor"></path></svg>
+    </button>
+    {% endif %}
+</div>
+{% endmacro %}
+
+{% macro container() %}
+<div class="container">
+    <a itemprop="url" href="/zero">
+     <div>
+     <p> is a number </p>
      </div>
     </a>
 </div>
-{% endif %}
 {% endmacro %}
