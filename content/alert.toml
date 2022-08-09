@@ -1,4 +1,2 @@
-text = "release a new version"
-url = "https://karzok.re128.org/changelog/#0-2-8"
-color = "#ffdc00"
-dismissable = false
+text = "check a new  karzok release <a href=\"https://karzok.re128.org/changelog/#0-2-8\"> here </a>"
+#dismissable = true

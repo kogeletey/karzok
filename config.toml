@@ -51,7 +51,6 @@ version = "https://api.github.com/repos/kogeletey/karzok/releases/latest"
 
 # special parameter for develop
 #assets_url = "https://get.re128.net/_/karzok"
-devmode = true
 
 #localcdn = true
 
@@ -61,6 +60,9 @@ relative_path = true
 
 repo = "https://github.com/kogeletey/karzok"
 repo_branch = "develop"
+
+devmode = true
+alert_file = "content/alert.toml"
 
 [[extra.header_left]]
 text = "Reference"

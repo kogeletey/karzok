@@ -6,8 +6,8 @@ header div.container {
 
 div[role="alert"]{
     display: grid;
+    grid-template-columns: 98% 2%;
     align-items: center;
-    grid-template-columns: auto 0.1fr;
     justify-items: center;
     width: 100%;
     height: 25px;
@@ -18,5 +18,17 @@ div[role="alert"]{
         display: inline-grid;
         margin-right: 1rem;
         justify-self: end;
+        cursor: pointer;
+        color: var(--foreground);
+        &:hover {
+            color: var(--green);
+        }
+    }
+    a {
+        color: inherit;
+        &:hover {
+            color: var(--green);
+            border-bottom: 1px solid var(--green);
+        }
     }
 }

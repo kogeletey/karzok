@@ -1,7 +1,7 @@
 {# header component  #}
 {% macro header(current_url) %}
-{% if config.extra.devmode %}
-    {{ top_nav::alert() }}
+{% if config.extra.alert_file %}
+    {{ top_nav::alert(file=config.extra.alert_file) }}
 {% endif %}
 {% set current_link = current_url | safe | trim_end_matches(pat="/")  %}
 <header>
@@ -80,16 +80,31 @@
 
 {% endmacro %}
 
-{% macro alert() %}
-<div role="alert">
-    {% set alert = load_data(path="content/alert.toml")%}
+{% macro alert(file) %}
+{% set alert = load_data(path=file | safe) %}
+<div role="alert"
+     {% if alert.bg_color and alert.text_color %}
+     style="
+     background-color: {{ alert.bg_color }};
+     color: {{ alert.text_color }};
+     "
+     {% elif alert_bg_color %}
+     style="
+     background-color: {{ alert.bg_color }};
+     "
+     {% elif alert_text_color %}
+     style="
+     color: {{ alert.text_color }};
+     "
+    {% endif %}>
     <span> {{ alert.text | safe }} </span>
     {% if alert.dismissable %}
     <button aria-label="close alert">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" width="22" height="22" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><path d="M24 9.4L22.6 8L16 14.6L9.4 8L8 9.4l6.6 6.6L8 22.6L9.4 24l6.6-6.6l6.6 6.6l1.4-1.4l-6.6-6.6L24 9.4z" fill="currentColor"></path></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" width="22" height="22" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><path d="M24 9.4L22.6 8L16 14.6L9.4 8L8 9.4l6.6 6.6L8 22.6L9.4 24l6.6-6.6l6.6 6.6l1.4-1.4l-6.6-6.6L24 9.4z" fill="currentColor"></path></svg>
     </button>
     {% endif %}
 </div>
+{{ macros::scripts(file="alert-close.js") }}
 {% endmacro %}
 
 {% macro container() %}
