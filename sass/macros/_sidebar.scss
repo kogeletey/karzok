@@ -82,8 +82,7 @@ main nav {
     }
   }
   #sidebar {
-    display: block;
-    margin-top: 3.9rem;
+    display: inline-block;
     transform: translateX(-100%);
     &:target {
       transform: translateX(0);

@@ -13,13 +13,14 @@ aside {
 @media (max-width: 1000px) {
   main nav,
   aside {
+    position: fixed;
+    top: 0;
     border: none;
     background: var(--background);
-    max-width: 50%;
+    width: 50%;
     height: 100%;
     overflow-x: hidden;
     overflow-y: auto;
-    position: fixed;
     transition: transform 0.25s ease;
     a.close {
       display: inline-block;

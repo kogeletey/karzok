@@ -88,11 +88,11 @@
      background-color: {{ alert.bg_color }};
      color: {{ alert.text_color }};
      "
-     {% elif alert_bg_color %}
+     {% elif alert.bg_color %}
      style="
      background-color: {{ alert.bg_color }};
      "
-     {% elif alert_text_color %}
+     {% elif alert.text_color %}
      style="
      color: {{ alert.text_color }};
      "
@@ -104,7 +104,9 @@
     </button>
     {% endif %}
 </div>
+{% if alert.dismissable %}
 {{ macros::scripts(file="alert-close.js") }}
+{% endif %}
 {% endmacro %}
 
 {% macro container() %}

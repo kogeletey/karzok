@@ -3,7 +3,7 @@
 @import 'macros/header';
 @import 'macros/footer';
 @import 'macros/search';
-@import 'experimental';
+//@import 'experimental';
 
 :root {
   --black: #111111;
@@ -41,6 +41,7 @@ body {
   --foreground: var(--black);
   --background: var(--white);
   background: var(--background);
+  min-height: 100vh;
 }
 
 body[data-theme='black'] {

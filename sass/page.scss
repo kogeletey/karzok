@@ -17,9 +17,9 @@
     overflow-x: hidden;
   }
   div.mheader {
-    display: grid;
-    position: fixed;
-    top: 2.6rem;
+    position: sticky;
+    display: inline-grid;
+    top: 0;
     grid-template-rows: 1fr;
     grid-template-columns: repeat(2, 1fr);
     justify-content: space-around;

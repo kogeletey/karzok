@@ -59,15 +59,14 @@ aside {
     }
   }
   #toc {
-    display: grid;
-    right: 0;
-    transform: translateX(150%);
+    display: inline-grid;
+    transform: translateX(200%);
+    padding-top: 0;
+    z-index: 6;
     &:target {
-      transform: translateX(10px);
-      z-index: 3;
+      transform: translateX(100%);
     }
     a.close {
-      margin-top: 2.3rem;
       justify-self: end;
       margin-bottom: -2rem;
     }

@@ -1,2 +1,4 @@
-text = "check a new  karzok release <a href=\"https://karzok.re128.org/changelog/#0-2-8\"> here </a>"
+text = "This a staging site, use production <a href=\"https://karzok.re128.org\"> here </a>"
+bg_color = "#ffdc00"
+text_color = "#111"
 #dismissable = true
