@@ -1,5 +1,38 @@
-header div.container {
+header li.separator {
+    display: inline-flex;
+}
+
+header li.separator  {
+    button:hover ul.dropdown,div.dropdown:hover ul.dropdown {
+        opacity: 1;
+    }
+}
+
+header ul.dropdown {
+  position: absolute;
+  display: block;
+  top: 2.8rem;
+  right: 1rem;
   background: var(--background);
   border: 1px solid $dark1;
-  padding: 2rem;
+  padding: 12px;
+  max-width: 8rem;
+  overflow-y: auto;
+  box-shadow: -1px 10px 3px -3px rgba(0,0,0,0.07);
+  z-index: 7;
+  opacity: 0;
+  transition: opacity .5s;
+  & a{
+    padding: 0 12px;
+  }
+  & a:hover {
+    background: $dark3;
+    width: 100%;
+  }
+}
+
+@media (max-width: 1000px) {
+    header div.dropdown {
+        display: none;
+    }
 }

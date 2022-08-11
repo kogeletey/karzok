@@ -80,7 +80,7 @@ header {
       }
     }
     .vector {
-      display: flex;
+      display: inline-flex;
       margin-top: 0.2em;
       border: 1px solid $dark1;
       &:hover {
@@ -101,7 +101,7 @@ header {
       color: var(--foreground);
     }
     span.svg {
-      display: flex;
+      display: inline-flex;
       padding: 3px 3px;
     }
     span:hover {
@@ -109,7 +109,7 @@ header {
     }
   }
   li.separator {
-    display: flex;
+//   display: flex;
     button.search {
       display: none;
     }

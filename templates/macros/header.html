@@ -25,11 +25,6 @@
                 <a itemprop="url" class="{% if current_url is starting_with(val_link) %} active {% endif %}" href="{{ val_link | safe }}">
                     <span > {{ item.text }} </span>
                 </a>
-                {#
-              {% if config.extra.devmode %}
-                {{ top_nav::container() }}
-              {% endif %}
-              #}
             </li>
             {% endfor %}
             {% endif %}
@@ -62,6 +57,27 @@
                 </li>
                 {% endfor %}
                 <li class="separator">
+                {% if config.extra.devmode %}
+                <div class="dropdown">
+                    <button class="vector" aria-expanded="false">
+                        <span class="svg">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><path fill="currentColor" d="M27.85 29H30l-6-15h-2.35l-6 15h2.15l1.6-4h6.85zm-7.65-6l2.62-6.56L25.45 23zM18 7V5h-7V2H9v3H2v2h10.74a14.71 14.71 0 0 1-3.19 6.18A13.5 13.5 0 0 1 7.26 9h-2.1a16.47 16.47 0 0 0 3 5.58A16.84 16.84 0 0 1 3 18l.75 1.86A18.47 18.47 0 0 0 9.53 16a16.92 16.92 0 0 0 5.76 3.84L16 18a14.48 14.48 0 0 1-5.12-3.37A17.64 17.64 0 0 0 14.8 7z"></path></svg>
+                        </span>
+                </button>
+                    <ul class="dropdown">
+                        <li>
+                            <a itemprop="url" href="/en">
+                                 <span> english </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a itemprop="url" href="/es">
+                             <span> spanish </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                {% endif %}
                  <button class="toggle vector" type="button" aria-label="Toggle mode">
                  <span class="svg">
                      <svg class="toggle-light" fill = "currentColor" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 32 32"><title>asleep</title><path d="M13.5025,5.4136A15.0755,15.0755,0,0,0,25.096,23.6082a11.1134,11.1134,0,0,1-7.9749,3.3893c-.1385,0-.2782.0051-.4178,0A11.0944,11.0944,0,0,1,13.5025,5.4136M14.98,3a1.0024,1.0024,0,0,0-.1746.0156A13.0959,13.0959,0,0,0,16.63,28.9973c.1641.006.3282,0,.4909,0a13.0724,13.0724,0,0,0,10.702-5.5556,1.0094,1.0094,0,0,0-.7833-1.5644A13.08,13.08,0,0,1,15.8892,4.38,1.0149,1.0149,0,0,0,14.98,3Z"/></svg>
@@ -76,6 +92,7 @@
     </ul>
         {% endif %}
     </nav>
+
 </header>
 
 {% endmacro %}
@@ -107,14 +124,4 @@
 {% if alert.dismissable %}
 {{ macros::scripts(file="alert-close.js") }}
 {% endif %}
-{% endmacro %}
-
-{% macro container() %}
-<div class="container">
-    <a itemprop="url" href="/zero">
-     <div>
-     <p> is a number </p>
-     </div>
-    </a>
-</div>
 {% endmacro %}
