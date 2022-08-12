@@ -36,15 +36,27 @@ highlight_theme = "base16-ocean-dark"
 
 render_emoji = true
 
+
+[languages.en]
+[languages.en.translations]
+description = "The theme for launching fast documentation sites"
+
+[languages.ru]
+
+[languages.ru.translations]
+description = "Тема для запуска быстрых сайтов документации"
+
 [extra]
 # logotype
 favicon = "assets/favicon.ico"
+
+languages = ["en","ru"]
 
 # header title
 header.name = "Karzok"
 
 # github
-version = "https://api.github.com/repos/kogeletey/karzok/releases/latest"
+#version = "https://api.github.com/repos/kogeletey/karzok/releases/latest"
 
 # change default cdn
 #cdnurl = "https://get.re128.net/"
@@ -67,12 +79,6 @@ alert_file = "content/alert.toml"
 [[extra.header_left]]
 text = "Reference"
 link = "$base_url/reference"
-
-# experiments in container header, disabled
-#[[extra.meta.container]]
-#title = "Meta"
-#description = "meta"
-#url  = "/home"
 
 [[extra.header_right]]
 link = "https://github.com/kogeletey/karzok"

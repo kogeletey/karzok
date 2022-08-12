@@ -15,17 +15,23 @@ header ul.dropdown {
   right: 1rem;
   background: var(--background);
   border: 1px solid $dark1;
-  padding: 12px;
   max-width: 8rem;
   overflow-y: auto;
   box-shadow: -1px 10px 3px -3px rgba(0,0,0,0.07);
   z-index: 7;
   opacity: 0;
   transition: opacity .5s;
-  & a{
-    padding: 0 12px;
+  & li{
+      padding: 24px;
+      margin-right: inherit;
   }
-  & a:hover {
+  & span {
+    font-size: 17px;
+  }
+  & a {
+    padding: 0 20px;
+  }
+  & a:hover, a[aria-selected="true"] {
     background: $dark3;
     width: 100%;
   }

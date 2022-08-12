@@ -10,7 +10,11 @@
             <h1> Welcome to Karzok</h1>
             {% if config.description %}
             <p>
-                {{ config.description }}
+                {{ config.description}}
+            </p>
+            {% elif config.languages %}
+            <p>
+                {{ trans(key="description", lang=lang) }}
             </p>
             {% endif %}
             </div>
