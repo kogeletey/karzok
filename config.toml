@@ -38,10 +38,13 @@ render_emoji = true
 
 
 [languages.en]
+build_search_index = true
+
 [languages.en.translations]
 description = "The theme for launching fast documentation sites"
 
 [languages.ru]
+build_search_index = true
 
 [languages.ru.translations]
 description = "Тема для запуска быстрых сайтов документации"
@@ -88,15 +91,7 @@ svg = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/19
 link = "https://sr.ht/~kogeletey/karzok"
 svg = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path d="M11.5 3a9.5 9.5 0 1 1 0 19a9.5 9.5 0 0 1 0-19zm0 1a8.5 8.5 0 1 0 0 17a8.5 8.5 0 0 0 0-17z" fill="currentColor"></path></svg>'
 
-[[extra.menu]]
-text = "Install"
-link = "$base_url/install"
-
-[[extra.menu]]
-text = "Configure"
-link = "$base_url/configure"
-
-[[extra.menu]]
-text = "Contribute"
-link = "$base_url/contribute"
-
+[[extra.header_right]]
+text = "External Link"
+link = "https://karzok.re128.org"
+target = "_blank"

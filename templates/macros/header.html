@@ -20,12 +20,7 @@
             </li>
             {% if config.extra.header_left %}
             {% for item in config.extra.header_left %}
-            {% set val_link = item.link  | replace(from="$base_url", to=config.base_url) %}
-            <li>
-                <a itemprop="url" class="{% if current_url is starting_with(val_link) %} active {% endif %}" href="{{ val_link | safe }}">
-                    <span > {{ item.text }} </span>
-                </a>
-            </li>
+            {{ top_nav::links(item=item,current_url=current_url) }}
             {% endfor %}
             {% endif %}
         </ul>
@@ -39,23 +34,12 @@
                 <div class="items"></div>
 			</form>
 			{% endif %}
-        {% if config.extra.header_right %}
         <ul>
+        {% if config.extra.header_right %}
             {% for item in config.extra.header_right %}
-            {% set item_link = item.link | replace(from = "$base_url", to=config.base_url) %}
-                <li>
-                    <a  aria-label="{% if item.alt %} {{ item.alt }} {% else %} {{ item.link }} {%endif%}" itemprop="url" class="vector" href=" {{ item_link | safe }} ">
-                    {% if item.svg %}
-                        <span class="svg">
-                            {{ item.svg | safe }}
-                        </span>
-                    {% endif %}
-                    {% if item.text %}
-                        <span> {{ item.text }} </span>
-                    {% endif %}
-                    </a>
-                </li>
-                {% endfor %}
+                {{ top_nav::links(item=item,current_url=current_url) }}
+               {% endfor %}
+                {% endif %}
                 <li class="separator">
                 {% if config.extra.devmode %}
                 {% if config.languages and config.extra.languages %}
@@ -92,11 +76,8 @@
             </button>
         </li>
     </ul>
-        {% endif %}
     </nav>
-
 </header>
-
 {% endmacro %}
 
 {% macro alert(file) %}
@@ -126,4 +107,32 @@
 {% if alert.dismissable %}
 {{ macros::scripts(file="alert-close.js") }}
 {% endif %}
+{% endmacro %}
+
+{% macro links(item,current_url) %}
+{% set item_link = item.link | replace(from = "$base_url", to=config.base_url) %}
+{% set item_target = item.target | default(value="_self") %}
+                <li>
+                    {% if item.svg %}
+                    <a  aria-label="{% if item.alt %} {{ item.alt }} {% else %} {{ item.link }} {%endif%}" itemprop="url" class="vector" href=" {{ item_link | safe }} ">
+                    {% if item.svg %}
+                        <span class="svg">
+                            {{ item.svg | safe }}
+                        </span>
+                    {% endif %}
+                    </a>
+                    {% endif %}
+                    {% if item.text %}
+                    <a  aria-label="{% if item.alt %} {{ item.alt }} {% else %} {{ item.text }} {%endif%}" itemprop="url" href=" {{ item_link | safe }}"
+                    {% if item_target != "_blank" %}
+                      class="{% if  current_url is starting_with(item_link) %} active {% endif %}"
+                    {% endif %}
+                    target="{{ item_target }}">
+                        <span> {{ item.text }}
+                    {% if item_target == "_blank" %}
+                        <svg width="16" height="16" viewBox="0 0 32 32"><path fill="currentColor" d="M10 6v2h12.59L6 24.59L7.41 26L24 9.41V22h2V6H10z"/></svg>
+                    {% endif %}</span>
+                    </a>
+                    {% endif %}
+                </li>
 {% endmacro %}

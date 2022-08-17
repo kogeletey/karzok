@@ -48,11 +48,11 @@ body[data-theme='light'] header form div.items {
 header {
   position: relative;
   height: 42px;
-  border-bottom: 0.1rem solid;
-  border-color: $dark1;
+  border-bottom: 0.1rem solid $dark1;
   width: 100%;
   color: var(--foreground);
   background: var(--background);
+  overflow-x: auto;
   .logotype {
     max-height: 2rem;
     min-height: 1.25rem;
@@ -71,12 +71,15 @@ header {
       padding: 1em 0 1.25em;
       margin-right: 1rem;
     }
-    ul:first-child {
+    ul {
       span:hover,
       .active {
         padding-bottom: 10px;
         border-bottom: 2px solid;
         border-color: var(--green);
+      }
+      a:hover svg {
+        color: var(--foreground);
       }
     }
     .vector {
@@ -90,6 +93,9 @@ header {
       span:hover {
         color: var(--foreground);
         background: var(--background);
+        padding-bottom: inherit;
+        border-color: inherit;
+        border-bottom: inherit;
       }
       span.svg:hover {
         filter: invert(100%);
@@ -107,9 +113,14 @@ header {
     span:hover {
       color: var(--green);
     }
+    &[target="_blank"] {
+        svg {
+            display: inline-block;
+            margin-bottom: -3px;
+        }
+    }
   }
   li.separator {
-//   display: flex;
     button.search {
       display: none;
     }
@@ -141,7 +152,6 @@ header {
     }
     div.items {
       position: absolute;
-      max-height: 30%;
       margin-top: 2.1rem;
       width: 34rem;
       z-index: 2;
@@ -194,6 +204,7 @@ div.items {
     li.separator {
       button.search {
         display: block;
+        color: var(--foreground);
       }
     }
   }

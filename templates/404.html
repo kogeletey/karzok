@@ -2,7 +2,7 @@
 {% block styles %} {{macros::styles(file='section.css') }} {% endblock styles %}
 {% block htmltitle%} 404 Page Not Found {% endblock htmltitle %}
 {# set specifically so that there are no problems #}
-{% block header %} {{top_nav::header(current_url="/")}} {% endblock header %}
+{% block header %} {{top_nav::header(current_url="/404")}} {% endblock header %}
 {% block content %}
 <section class="error">
   <h1>404</h1>

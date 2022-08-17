@@ -61,14 +61,22 @@
           <input id="toggle" type="checkbox" {% if current_path is starting_with(subsection.path) %}checked{% endif %}>
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><path fill="currentColor" d="M22 16L12 26l-1.4-1.4l8.6-8.6l-8.6-8.6L12 6z"></path></svg>
         <label for="toggle">
-          {{ subsection.title }}
+          {% if config.translations %}
+            {{ trans(key="subsection.title", lang=lang) }}
+        {% else %}
+            {{ subsection.title }}
+         {% endif %}
         </label>
         <ul class="subsection">
             {% if subsection.pages %}
             {% for page in subsection.pages %}
             <li class ="{% if current_url == page.permalink %} active {% endif %}">
                 <a class="{% if current_url == page.permalink %} active {%endif%}"  href="{{ page.permalink | safe}}">
-                    <span> {{page.title }} </span>
+                    {% if config.translations %}
+                    <span> {{ trans(key=page.title,lang=lang) }} </span>
+                    {% else %}
+                    <span> {{ page.title }} </span>
+                    {% endif %}
                 </a>
             </li>
             {% endfor %}

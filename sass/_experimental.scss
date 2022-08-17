@@ -1,11 +1,12 @@
 header li.separator {
-    display: inline-flex;
+  display: inline-flex;
 }
 
-header li.separator  {
-    button:hover ul.dropdown,div.dropdown:hover ul.dropdown {
-        opacity: 1;
-    }
+header li.separator {
+  button:hover ul.dropdown,
+  div.dropdown:hover ul.dropdown {
+    opacity: 1;
+  }
 }
 
 header ul.dropdown {
@@ -17,13 +18,13 @@ header ul.dropdown {
   border: 1px solid $dark1;
   max-width: 8rem;
   overflow-y: auto;
-  box-shadow: -1px 10px 3px -3px rgba(0,0,0,0.07);
+  box-shadow: -1px 10px 3px -3px rgba(0, 0, 0, 0.07);
   z-index: 7;
   opacity: 0;
-  transition: opacity .5s;
-  & li{
-      padding: 24px;
-      margin-right: inherit;
+  transition: opacity 0.5s;
+  & li {
+    padding: 24px;
+    margin-right: inherit;
   }
   & span {
     font-size: 17px;
@@ -31,14 +32,18 @@ header ul.dropdown {
   & a {
     padding: 0 20px;
   }
-  & a:hover, a[aria-selected="true"] {
+  & span:hover {
+    border: inherit;
+  }
+  & a:hover,
+  a[aria-selected='true'] {
     background: $dark3;
     width: 100%;
   }
 }
 
 @media (max-width: 1000px) {
-    header div.dropdown {
-        display: none;
-    }
+  header div.dropdown {
+    display: none;
+  }
 }
