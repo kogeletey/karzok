@@ -52,7 +52,6 @@ header {
   width: 100%;
   color: var(--foreground);
   background: var(--background);
-  overflow-x: auto;
   .logotype {
     max-height: 2rem;
     min-height: 1.25rem;
@@ -191,6 +190,7 @@ div.items {
 
 @media (max-width: 1000px) {
   header {
+  overflow-x: auto;
     form {
       display: none;
       width: 98%;

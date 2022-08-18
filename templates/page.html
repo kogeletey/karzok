@@ -44,10 +44,10 @@
     {% block sections %}
     <ul class="sections">
       {{ page::relative_path() }}
-      {{ page::word_count() }}
+      {{ page::word_count(type=page) }}
       {{ page::reading_time() }}
-      {{ page::date() }}
-      {{ page::updated() }}
+      {{ page::date(type=page) }}
+      {{ page::updated(type=page) }}
       {{ page::taxonomies_authors() }}
     </ul>
     {%  endblock sections %}

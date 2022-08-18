@@ -52,7 +52,7 @@
                     <ul class="dropdown">
                         {% for l in config.extra.languages %}
                         <li>
-                            <a itemprop="url" href="{{ config.base_url | safe }}{% if l != config.default_language %}/{{ l }}{% endif %}"
+                            <a itemprop="url" href="{{ config.base_url | safe }}{% if l != config.default_language %}/{{ l }}{% endif %}{% if section.path %}{{ section.path | trim_start_matches(pat="/" ~ lang) }}{% elif page.path %}{{ page.path | trim_start_matches(pat="/" ~ lang) }}{% endif %}"
                                 {% if l == lang %}
                                 aria-selected="true"
                                 {% endif %}>

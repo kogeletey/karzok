@@ -2,7 +2,6 @@
 title = "Re128 | Karzok"
 
 base_url = "http://localhost:8080"
-#base_url = "/karzok"
 
 # change your description
 description = "The theme for launching fast documentation sites"
@@ -13,8 +12,6 @@ build_search_index = true
 
 minify_html = true
 
-#hard_link_static = true
-
 compile_sass = true
 
 [search]
@@ -24,7 +21,6 @@ include_title = true
 include_description = false
 # Whether to include the rendered content of the page/section in the index
 include_content = true
-
 
 [slugify]
 paths = "safe"
@@ -42,12 +38,25 @@ build_search_index = true
 
 [languages.en.translations]
 description = "The theme for launching fast documentation sites"
+toc_etp = "Edit this page"
+toc_ita = "In this article"
+date = "Date"
+authors = "Authors"
+updated = "Updated"
+words = "words"
 
 [languages.ru]
-build_search_index = true
+build_search_index = false
 
 [languages.ru.translations]
 description = "Тема для запуска быстрых сайтов документации"
+
+toc_etp = "Редактировать страницу"
+toc_ita = "В этой статье"
+date = "Дата"
+authors = "Aвторы"
+updated = "Последние обновление"
+words = "слова"
 
 [extra]
 # logotype
@@ -61,13 +70,8 @@ header.name = "Karzok"
 # github
 #version = "https://api.github.com/repos/kogeletey/karzok/releases/latest"
 
-# change default cdn
-#cdnurl = "https://get.re128.net/"
-
-# special parameter for develop
-#assets_url = "https://get.re128.net/_/karzok"
-
 #localcdn = true
+devmode = true
 
 show_word_count = true
 show_reading_time = true
@@ -76,7 +80,6 @@ relative_path = true
 repo = "https://github.com/kogeletey/karzok"
 repo_branch = "develop"
 
-devmode = true
 alert_file = "content/alert.toml"
 
 [[extra.header_left]]

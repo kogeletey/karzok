@@ -1,8 +1,8 @@
 +++
-title = "Markdown Syntax Guide"
+title = "Гайд по markdown"
 date = "2019-03-11"
-description= "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 updated = "2022-08-18"
+description= "Пример статьи показывающий синтаксис markdown и то как он будет выглядеть"
 weight = 2
 
 [extra]
