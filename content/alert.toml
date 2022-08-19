@@ -2,3 +2,11 @@ text = "This a staging site, use production <a href=\"https://karzok.re128.org\"
 bg_color = "#ffdc00"
 text_color = "#111"
 #dismissable = true
+
+[[translations]]
+lang = "en"
+text = "This a staging site, use production <a href=\"https://karzok.re128.org\"> here </a>"
+
+[[translations]]
+lang = "ru"
+text = "Это промежуточный сайт, лучше используйте <a href=\"https://karzok.re128.org\"> этот </a>"

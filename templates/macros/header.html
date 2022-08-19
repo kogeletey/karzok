@@ -4,6 +4,9 @@
     {{ top_nav::alert(file=config.extra.alert_file) }}
 {% endif %}
 {% set current_link = current_url | safe | trim_end_matches(pat="/")  %}
+{% if config.extra.header_file %}
+{% set h = load_data(path=config.extra.header_file | safe) %}
+{% endif %}
 <header>
     <nav aria-label="section navigation" itemscope itemtype="http://shema.org/SiteNavigationElement">
         <ul>
@@ -13,14 +16,20 @@
                     <div class="logotype">
                       <img width="31" height="31" alt="favicon" src="{{ get_url(path=config.extra.logotype)}}" />
                     </div>
-                    {% else %}
+                    {% elif config.extra.header.name %}
                     <span> {{ config.extra.header.name | default(value="Home") }}</span>
+                    {% elif h %}
+                    <span> {{ h.name | default(value="Home") }}</span>
                     {% endif %}
                 </a>
             </li>
             {% if config.extra.header_left %}
             {% for item in config.extra.header_left %}
-            {{ top_nav::links(item=item,current_url=current_url) }}
+                {{ top_nav::links(item=item,current_url=current_url) }}
+            {% endfor %}
+            {% elif h %}
+            {% for item in h.left %}
+                  {{ top_nav::links(item=item,current_url=current_url) }}
             {% endfor %}
             {% endif %}
         </ul>
@@ -39,9 +48,12 @@
             {% for item in config.extra.header_right %}
                 {{ top_nav::links(item=item,current_url=current_url) }}
                {% endfor %}
-                {% endif %}
-                <li class="separator">
-                {% if config.extra.devmode %}
+            {% elif h.right %}
+            {% for item in h.right %}
+                  {{ top_nav::links(item=item,current_url=current_url) }}
+            {% endfor %}
+         {% endif %}
+        <li class="separator">
                 {% if config.languages and config.extra.languages %}
                <div class="dropdown">
                     <button class="vector" aria-expanded="false">
@@ -62,7 +74,6 @@
                         {% endfor %}
                     </ul>
                 </div>
-                {% endif %}
                 {% endif %}
                  <button class="toggle vector" type="button" aria-label="Toggle mode">
                  <span class="svg">
@@ -97,7 +108,15 @@
      color: {{ alert.text_color }};
      "
     {% endif %}>
-    <span> {{ alert.text | safe }} </span>
+    {% if alert.translations %}
+        {% for trs in alert.translations %}
+            {% if trs.lang == lang %}
+                <span> {{ trs.text | safe }} </span>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        <span> {{ alert.text | safe }} </span>
+    {% endif %}
     {% if alert.dismissable %}
     <button aria-label="close alert">
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" width="22" height="22" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><path d="M24 9.4L22.6 8L16 14.6L9.4 8L8 9.4l6.6 6.6L8 22.6L9.4 24l6.6-6.6l6.6 6.6l1.4-1.4l-6.6-6.6L24 9.4z" fill="currentColor"></path></svg>
@@ -110,7 +129,10 @@
 {% endmacro %}
 
 {% macro links(item,current_url) %}
-{% set item_link = item.link | replace(from = "$base_url", to=config.base_url) %}
+{% set item_link = item.link | replace(from = "@", to=config.base_url) %}
+{% if item.lang and lang != config.default_language %}
+    {% set item_link = item.link | replace(from="@", to=config.base_url ~ "/" ~ lang) %}
+{% endif %}
 {% set item_target = item.target | default(value="_self") %}
                 <li>
                     {% if item.svg %}
@@ -122,17 +144,22 @@
                     {% endif %}
                     </a>
                     {% endif %}
-                    {% if item.text %}
-                    <a  aria-label="{% if item.alt %} {{ item.alt }} {% else %} {{ item.text }} {%endif%}" itemprop="url" href=" {{ item_link | safe }}"
+                    <a  aria-label="{% if item.alt %} {{ item.alt }} {% elif item.text %} {{ item.text }} {% elif item.lang and item.lang == lang %} {{ item.text }} {% endif %}" itemprop="url" href=" {{ item_link | safe }}"
                     {% if item_target != "_blank" %}
                       class="{% if  current_url is starting_with(item_link) %} active {% endif %}"
                     {% endif %}
                     target="{{ item_target }}">
-                        <span> {{ item.text }}
+                        {% if item.lang and item.lang == lang %}
+                            <span> {{ item.text }}
                     {% if item_target == "_blank" %}
                         <svg width="16" height="16" viewBox="0 0 32 32"><path fill="currentColor" d="M10 6v2h12.59L6 24.59L7.41 26L24 9.41V22h2V6H10z"/></svg>
                     {% endif %}</span>
+                        {% elif not item.lang and item.text %}
+                             <span> {{ item.text }}
+                    {% if item_target == "_blank" %}
+                        <svg width="16" height="16" viewBox="0 0 32 32"><path fill="currentColor" d="M10 6v2h12.59L6 24.59L7.41 26L24 9.41V22h2V6H10z"/></svg>
+                    {% endif %}</span>
+                        {% endif %}
                     </a>
-                    {% endif %}
                 </li>
 {% endmacro %}

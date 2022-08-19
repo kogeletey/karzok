@@ -3,28 +3,30 @@
 
 {# footer in the page #}
 {% macro footer() %}
+{% if config.extra.footer%}
 <footer>
         <ul>
-            {% if config.extra.footer %}
-            {% for item in config.extra.footer%}
+        {% for item in config.extra.footer %}
+        {% if item.lang and item.lang == lang and item.text %}
+        <li>
+             <span> {{ item.text | safe }} </span>
+        </li>
+        {% elif not item.lang and item.text %}
+        <li>
+            <span> {{ item.text | safe }} </span>
+        </li>
+        {% elif item.version and not item.text %}
+                {% set path = load_data(url=item.version, format="json") %}
             <li>
-                <span {% if item.url %}<a href="{{ item.url }}"/> {% endif %}{{ item.text }} </a></span>
-            </li>
-            {% endfor %}
-            {% else %}
-            <li>
-            <span> powered by  <a href="https://karzok.re128.org"> karzok </a></span>
-            </li>
-            <li>
-            {% if config.extra.version and not config.extra.footer %}
-                {% set path = load_data(url=config.extra.version, format="json") %}
                 <a href="{{ path.html_url }}">  <span>  {{ path.tag_name }} </span> </a>
-            {%endif%}
             </li>
-            {% endif %}
+        {% endif %}
+        {% endfor %}
         </ul>
 </footer>
+{% endif %}
 {% endmacro %}
+
 {% macro title_or_last(component, offset=2) %}
     {% set length = component.components | length %}
     {% set last = component.components | last %}
