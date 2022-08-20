@@ -1,7 +1,7 @@
 {# header component  #}
 {% macro header(current_url) %}
-{% if config.extra.alert_file %}
-    {{ top_nav::alert(file=config.extra.alert_file) }}
+{% if config.extra.announcement_file %}
+    {{ top_nav::alert(file=config.extra.announcement_file) }}
 {% endif %}
 {% set current_link = current_url | safe | trim_end_matches(pat="/")  %}
 {% if config.extra.header_file %}

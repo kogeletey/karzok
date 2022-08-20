@@ -59,17 +59,14 @@ updated = "Последние обновление"
 words = "слова"
 
 [extra]
-# logotype
+# favicon
 favicon = "assets/favicon.ico"
 
 languages = ["en","ru"]
 
 header_file = "content/header.toml"
 
-# github
-
 #localcdn = true
-devmode = true
 
 show_word_count = true
 show_reading_time = true
@@ -78,7 +75,7 @@ relative_path = true
 repo = "https://github.com/kogeletey/karzok"
 repo_branch = "develop"
 
-alert_file = "content/alert.toml"
+announcement_file = "content/alert.toml"
 
 [[extra.footer]]
 lang = "en"
@@ -88,9 +85,7 @@ text = "powered by <a href=\"https://karzok.re128.org\"> karzok</a>"
 lang = "ru"
 text = "запущен с помощью <a href=\"https://karzok.re128.org\"> karzok</a>"
 
-[[extra.footer]]
-version = "https://api.github.com/repos/kogeletey/karzok/releases/latest"
+#[[extra.footer]]
+#version = "https://api.github.com/repos/kogeletey/karzok/releases/latest"
 
-[[extra.footer]]
-text = "license: MIT"
 
