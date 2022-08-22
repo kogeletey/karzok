@@ -1,15 +1,15 @@
 {
-  "name": "karzok",
+  "name": "karzok-repo",
+  "private": true,
   "repository": "https://git.sr.ht/~kogeletey/karzok",
   "author": "kogeletey",
-  "private": true,
   "scripts": {
-    "postcss": "postcss public/{main,page,section}.css --replace",
     "compile:js": "swc helpers --only -d static",
-    "link": "rsync -va node_modules/@fontsource node_modules/katex node_modules/modern-normalize node_modules/mermaid static && npm run link:assets :",
+    "link": "rsync -va node_modules/@fontsource node_modules/katex node_modules/modern-normalize node_modules/mermaid static && npm run link:assets |:",
     "link:assets": "mkdir -p static && cp -r assets static || :",
     "clean": "rm -rf static node_modules",
-    "gen": "npm run link && npm run compile:js && zola-bin build && npm run postcss",
+    "build:local": "npm run link && npm run compile:js && zola-bin build",
+    "package": "rm -rf theme/static theme/templates && mkdir -p theme/static && npm run compile:js && zola-bin build && cp -r templates theme && cp -r static/*.js public/*.css theme/static",
     "watch": "swc helpers --only -d static --watch & zola-bin serve -O -f"
   },
   "dependencies": {
@@ -22,9 +22,6 @@
   "devDependencies": {
     "@swc/cli": "^0.1.53",
     "@swc/core": "^1.2.119",
-    "autoprefixer": "^10.4.0",
-    "postcss": "^8.4.4",
-    "postcss-cli": "^9.1.0",
     "prettier": "^2.5.1",
     "zola-bin": "^0.3.5"
   }
