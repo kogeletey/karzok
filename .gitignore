@@ -4,12 +4,10 @@ node_modules/
 public/
 static/
 
-# github
-!static/CNAME
-
-# toml files
-.build.toml
-compose.toml
+# files for npm run pack
+dist/static
+dist/templates
+dist/theme.toml
 
 # compiler js files
 .swc/

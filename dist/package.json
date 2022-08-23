@@ -1,12 +1,14 @@
 {
   "name": "karzok",
   "repository": "https://git.sr.ht/~kogeletey/karzok",
+  "version": "0.2.9",
   "author": "kogeletey",
   "scripts": {
       "link": "cp -r node_modules/@fontsource node_modules/katex node_modules/modern-normalize node_modules/mermaid static",
       "build": "zola-bin build",
       "build:local": "npm run link && zola-bin build",
-      "watch": "zola-bin serve -O -f"
+      "watch": "zola-bin serve -O -f",
+      "postinstall": "mkdir -p ../../themes/karzok && cp config.toml ../../config.toml && ln -s static templates theme.toml ../../themes/karzok"
   },
   "dependencies": {
     "@fontsource/inter": "^4.5.0",

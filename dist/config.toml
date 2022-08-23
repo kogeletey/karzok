@@ -1,0 +1,42 @@
+# change to you title
+title = "Re128 | Karzok"
+
+# change to your url
+base_url = "http://localhost:1111"
+
+# change your description
+description = "The theme for launching fast documentation sites"
+
+default_language = "en"
+
+build_search_index = true
+
+minify_html = true
+
+[search]
+# Whether to include the title of the page/section in the index
+include_title = true
+# Whether to include the description of the page/section in the index
+include_description = false
+# Whether to include the rendered content of the page/section in the index
+include_content = true
+
+[slugify]
+paths = "safe"
+anchors = "on"
+
+[markdown]
+highlight_code = true
+highlight_theme = "base16-ocean-dark"
+
+render_emoji = true
+
+[extra]
+#localcdn = true
+
+show_word_count = true
+show_reading_time = true
+relative_path = true
+
+[[extra.footer]]
+text = "powered by <a href=\"https://karzok.re128.org\"> karzok</a>"

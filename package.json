@@ -1,15 +1,13 @@
 {
-  "name": "karzok-repo",
   "private": true,
-  "repository": "https://git.sr.ht/~kogeletey/karzok",
   "author": "kogeletey",
   "scripts": {
     "compile:js": "swc helpers --only -d static",
     "link": "rsync -va node_modules/@fontsource node_modules/katex node_modules/modern-normalize node_modules/mermaid static && npm run link:assets |:",
     "link:assets": "mkdir -p static && cp -r assets static || :",
-    "clean": "rm -rf static node_modules",
+    "build": "npm run compile:js && zola-bin build",
     "build:local": "npm run link && npm run compile:js && zola-bin build",
-    "package": "rm -rf theme/static theme/templates && mkdir -p theme/static && npm run compile:js && zola-bin build && cp -r templates theme && cp -r static/*.js public/*.css theme/static",
+    "dist": "rm -rf dist/static dist/templates && mkdir -p dist/static && npm run compile:js && zola-bin build && cp -r templates theme.toml dist && cp -r static/*.js public/*.css dist/static",
     "watch": "swc helpers --only -d static --watch & zola-bin serve -O -f"
   },
   "dependencies": {

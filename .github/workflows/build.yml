@@ -1,9 +1,6 @@
-on:
-  push:
-    branches:
-      - develop
+on: push
 
-name: deploy to staging and build container
+name: build theme and build container
 jobs:
 
   page-build:
@@ -18,12 +15,8 @@ jobs:
         npm ci
         npm run compile:js
     - name: zola build
-      uses: shalzz/zola-deploy-action@master
-      env:
-        BUILD_ONLY: true
-      #- name: postcss
-      # run: |
-      #   npx postcss {main,page,section}.css --replace
+      run: |
+        npx zola-bin build
   container-build:
 
     runs-on: ubuntu-latest
@@ -42,8 +35,8 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
         with:
-          context: .
-          file: ./Dockerfile
+          context: dist
+          file: ./dist/Dockerfile
           push: false
           build-args: |
             "GITHUB_SHA=${GITHUB_SHA}"
