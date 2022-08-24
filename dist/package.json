@@ -7,8 +7,7 @@
       "link": "cp -r node_modules/@fontsource node_modules/katex node_modules/modern-normalize node_modules/mermaid static",
       "build": "zola-bin build",
       "build:local": "npm run link && zola-bin build",
-      "watch": "zola-bin serve -O -f",
-      "postinstall": "mkdir -p ../../themes/karzok && cp config.toml ../../config.toml && ln -s static templates theme.toml ../../themes/karzok"
+      "watch": "zola-bin serve -O -f"
   },
   "dependencies": {
     "@fontsource/inter": "^4.5.0",
