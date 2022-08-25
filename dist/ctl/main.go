@@ -2,8 +2,8 @@ package main
 
 import (
 	"archive/tar"
+	"bytes"
 	"compress/gzip"
-	"fmt"
 	"io"
 	"log"
 	"net/http"
@@ -12,33 +12,24 @@ import (
 	"strings"
 )
 
-func DownloadPackage(filename, url string) (*os.File, error) {
+func DownloadPackage(url string) ([]byte, error) {
 	resp, err := http.Get(url)
 	if err != nil {
 		return nil, err
 	}
 	defer resp.Body.Close()
-	out, err := os.Create(filename)
+	out, err := io.ReadAll(resp.Body)
 	if err != nil {
 		return nil, err
 	}
-	defer out.Close()
-
 	return out, err
 }
 
-func Untar(src, out string) error {
-	read, err := os.Open(src)
+func Untar(src []byte, out string) error {
+	gzipRead, err := gzip.NewReader(bytes.NewReader(src))
 	if err != nil {
-		log.Fatal("failed open file", err)
+		log.Printf("error creating gzip reader: %w", err)
 		return err
-	}
-
-	defer read.Close()
-
-	gzipRead, err := gzip.NewReader(read)
-	if err != nil {
-		return fmt.Errorf("error creating gzip reader: %w", err)
 	}
 	defer gzipRead.Close()
 
@@ -102,6 +93,13 @@ func Untar(src, out string) error {
 }
 
 func main() {
-	Untar("karzok-0.2.9.tgz", "themes/karzok")
-	//	DownloadPackage("${pkg}-${VERSION}.tgz", "https://registry.npmjs.org/${pkg}/-/${pkg}-${VERSION}.tgz")
+	var (
+		pkg     = "anymatch"
+		version = "3.1.2"
+	)
+	file, err := DownloadPackage("https://registry.npmjs.org/" + pkg + "/-/" + pkg + "-" + version + ".tgz")
+	if err != nil {
+		log.Printf("failed get package", err)
+	}
+	Untar(file, "themes/karzok")
 }

@@ -3,6 +3,7 @@
   "author": "kogeletey",
   "scripts": {
     "compile:js": "swc helpers --only -d static",
+    "compile:go": "CGO_ENABLED=0 go build -o dist/ctl/kzkctl dist/ctl/main.go",
     "link": "rsync -va node_modules/@fontsource node_modules/katex node_modules/modern-normalize node_modules/mermaid static && npm run link:assets |:",
     "link:assets": "mkdir -p static && cp -r assets static || :",
     "build": "npm run compile:js && zola-bin build",
