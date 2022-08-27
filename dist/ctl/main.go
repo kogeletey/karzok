@@ -4,6 +4,7 @@ import (
 	"archive/tar"
 	"bytes"
 	"compress/gzip"
+	"encoding/json"
 	"io"
 	"log"
 	"net/http"
@@ -100,11 +101,22 @@ func main() {
 		pkg     = "anymatch"
 		version = "3.1.2"
 	)
-	file, err := DownloadPackage("https://registry.npmjs.org/" + pkg + "/-/" + pkg + "-" + version + ".tgz")
+	archive, err := DownloadPackage("https://registry.npmjs.org/" + pkg + "/-/" + pkg + "-" + version + ".tgz")
 	if err != nil {
 		log.Printf("failed get package", err)
 	}
-	Untar(file, "themes/karzok")
+	folderExport := "themes"
+	_, err = os.Stat(folderExport)
+	if err == nil {
+		os.RemoveAll(folderExport)
+	}
+	Untar(archive, folderExport+"/karzok")
+
+	configFileString := "config.toml"
+	_, err = os.Stat(configFileString)
+	if err == nil {
+		os.Rename(configFileString, "old."+configFileString)
+	}
 
 	var qs = []*survey.Question{
 		{
@@ -124,8 +136,9 @@ func main() {
 			Prompt: &survey.Confirm{Message: "Do you want to build a search index of the content?"},
 		},
 		{
-			Name:   "default_language",
-			Prompt: &survey.Input{Message: "Enter a language of your site"},
+			Name:     "default_language",
+			Prompt:   &survey.Input{Message: "Enter a language of your site"},
+			Validate: survey.Required,
 		},
 		{
 			Name:   "compile_sass",
@@ -133,39 +146,70 @@ func main() {
 		},
 	}
 
-	type Answers struct {
+	type Config struct {
 		Title            string `toml:"title"`
 		BaseUrl          string `toml:"base_url" survey:"base_url"`
 		Description      string `toml:"description"`
 		DefaultLanguage  string `toml:"default_language" survey:"default_language"`
 		BuildSearchIndex bool   `toml:"build_search_index" survey:"build_search_index"`
 		CompileSass      bool   `toml:"compile_sass" survey:"compile_sass"`
+		MinifyHTML       bool   `toml:"minify_html"`
+		Theme            string `toml:"theme"`
 	}
 
-	var answers Answers
+	var config Config
 
-	survey.Ask(qs, &answers)
+	survey.Ask(qs, &config)
 
-	if answers.Title == "" {
-		answers.Title = "Karzok"
+	if config.Title == "" {
+		config.Title = "Karzok"
 	}
-	if answers.BaseUrl == "" {
-		answers.BaseUrl = "http://localhost:8080"
-	}
-
-	if answers.DefaultLanguage == "" {
-		answers.DefaultLanguage = "en"
+	if config.BaseUrl == "" {
+		config.BaseUrl = "http://localhost:8080"
 	}
 
-	file, err := os.Create("config.toml")
+	if config.DefaultLanguage == "" {
+		config.DefaultLanguage = "en"
+	}
+
+	config.MinifyHTML = true
+	config.Theme = "karzok"
+
+	configFile, err := os.Create(configFileString)
 	if err != nil {
-		log.Fatal("failed create config.toml", err)
+		log.Fatal("failed create"+configFileString, err)
 	}
 
-	defer file.Close()
+	defer configFile.Close()
 
-	err = toml.NewEncoder(file).Encode(&answers)
+	err = toml.NewEncoder(configFile).Encode(&config)
 	if err != nil {
-		log.Fatal("failed create config.toml", err)
+		log.Fatal("failed create"+configFileString, err)
 	}
+
+	type PackageJson map[string]interface{}
+
+	var packagejson PackageJson
+
+	packageFile, err := os.Open("package.json")
+	if err != nil {
+		log.Fatal("failed create package.json", err)
+	}
+
+	defer packageFile.Close()
+
+	err = json.NewDecoder(packageFile).Decode(&packagejson)
+	if err != nil {
+		log.Fatal("failed to open package.json", err)
+	}
+	packagejson["name"] = strings.ToLower(config.Title)
+	packagejson["private"] = true
+	//dep := []string{pkg: "^" + version}
+	err = json.NewEncoder(packageFile).Encode(&packagejson)
+
+	if err != nil {
+		log.Printf("failed copy package.json %s", err)
+	}
+
+	os.Remove("kzkctl")
 }
