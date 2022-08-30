@@ -98,8 +98,8 @@ func Untar(src []byte, out string) error {
 
 func main() {
 	var (
-		pkg     = "anymatch"
-		version = "3.1.2"
+		pkg     = "is-binary-path"
+		version = "2.1.0"
 	)
 	archive, err := DownloadPackage("https://registry.npmjs.org/" + pkg + "/-/" + pkg + "-" + version + ".tgz")
 	if err != nil {
@@ -190,26 +190,40 @@ func main() {
 	type PackageJson map[string]interface{}
 
 	var packagejson PackageJson
-
 	packageFile, err := os.Open("package.json")
 	if err != nil {
-		log.Fatal("failed create package.json", err)
+		log.Fatal("failed open default: %s", err)
 	}
 
 	defer packageFile.Close()
 
 	err = json.NewDecoder(packageFile).Decode(&packagejson)
 	if err != nil {
-		log.Fatal("failed to open package.json", err)
+		log.Fatalf("failed decoding: %s", err)
 	}
 	packagejson["name"] = strings.ToLower(config.Title)
 	packagejson["private"] = true
-	//dep := []string{pkg: "^" + version}
-	err = json.NewEncoder(packageFile).Encode(&packagejson)
 
-	if err != nil {
-		log.Printf("failed copy package.json %s", err)
+	for i := range packagejson {
+		if i == "author" || i == "version" || i == "repository" {
+			delete(packagejson, i)
+		}
 	}
 
-	os.Remove("kzkctl")
+	packageFile, err = os.Create("package.json")
+
+	if err != nil {
+		log.Printf("failed create modify: %s", err)
+	}
+
+	defer packageFile.Close()
+	enc := json.NewEncoder(packageFile)
+	enc.SetIndent("", "  ")
+	enc.SetEscapeHTML(false)
+	err = enc.Encode(&packagejson)
+
+	if err != nil {
+		log.Printf("failed encoding: %s", err)
+	}
+	//	os.Remove("kzkctl")
 }

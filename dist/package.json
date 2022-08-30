@@ -9,6 +9,11 @@
       "build:local": "npm run link && zola-bin build",
       "watch": "zola-bin serve -O -f"
   },
+  "files": [
+    "static/*",
+    "templates/**/*",
+    "theme.toml"
+  ],
   "dependencies": {
     "@fontsource/inter": "^4.5.0",
     "@fontsource/jetbrains-mono": "^4.5.0",
