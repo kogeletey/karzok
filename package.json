@@ -8,7 +8,7 @@
     "link:assets": "mkdir -p static && cp -r assets static || :",
     "build": "pnpm run compile:js && zola-bin build",
     "build:local": "pnpm run link && pnpm run compile:js && zola-bin build",
-    "dist": "rm -rf dist/static dist/templates && mkdir -p dist/static && pnpm run compile:js && zola-bin build && cp -r templates theme.toml dist && cp -r static/*.js public/*.css dist/static",
+    "dist": "rm -rf dist/static dist/templates && mkdir -p dist/static && pnpm run build && cp -r templates theme.toml config.toml dist && cp -r static/*.js public/*.css dist/static",
     "watch": "swc helpers --only -d static --watch & zola-bin serve -O -f"
   },
   "dependencies": {
