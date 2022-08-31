@@ -1,10 +1,8 @@
-@import 'base';
-
-@import 'navs';
-@import 'article';
-
-@import 'macros/sidebar';
-@import 'macros/toc';
+@import "base";
+@import "navs";
+@import "article";
+@import "macros/sidebar";
+@import "macros/toc";
 
 .mheader {
   display: none;
@@ -12,10 +10,11 @@
 
 @media (max-width: 1000px) {
   main {
-    margin-top: 0px;
+    margin-top: 0;
     grid-template-columns: 1fr;
     overflow-x: hidden;
   }
+
   div.mheader {
     position: sticky;
     display: inline-grid;
@@ -28,8 +27,10 @@
     width: 100%;
     z-index: 5;
     border-bottom: 1px solid $dark1;
+
     a {
       padding-left: 0.5rem;
+
       &:last-child {
         justify-self: end;
       }

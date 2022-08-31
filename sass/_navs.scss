@@ -5,6 +5,7 @@ aside {
   height: calc(110vh - 1rem);
   overflow-y: auto;
   overflow-x: hidden;
+
   a.close {
     display: none;
   }
@@ -22,6 +23,7 @@ aside {
     overflow-x: hidden;
     overflow-y: auto;
     transition: transform 0.25s ease;
+
     a.close {
       display: inline-block;
       margin-right: 1.25rem;

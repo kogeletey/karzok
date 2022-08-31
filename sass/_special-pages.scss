@@ -4,9 +4,11 @@
   display: grid;
   grid-template-rows: 1fr 1fr;
   justify-items: center;
+
   h1 {
     font-size: 100px;
   }
+
   p {
     font-size: 30px;
   }
@@ -17,17 +19,21 @@
     h1 {
       font-size: 40px;
     }
+
     p {
       font-size: 18px;
     }
   }
+
   .error {
     h1 {
       font-size: 80px !important;
     }
+
     h2 {
       font-size: 40px !important;
     }
+
     h3 {
       font-size: 20px !important;
     }
@@ -43,12 +49,15 @@
   justify-items: center;
   font-weight: 400;
   margin-bottom: 2em;
+
   h1 {
     font-size: 250px;
   }
+
   h2 {
     font-size: 100px;
   }
+
   h3 {
     font-size: 50px;
   }

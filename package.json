@@ -22,7 +22,10 @@
     "@swc/cli": "^0.1.57",
     "@swc/core": "^1.2.245",
     "chokidar": "^3.5.3",
+    "playwright": "^1.25.1",
     "prettier": "^2.7.1",
+    "stylelint": "^14.11.0",
+    "stylelint-config-standard-scss": "^5.0.0",
     "zola-bin": "^0.3.5"
   }
 }

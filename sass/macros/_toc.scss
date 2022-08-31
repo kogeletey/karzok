@@ -1,11 +1,13 @@
 aside {
   background: var(--background);
   padding-top: 1rem;
+
   span {
     color: var(--foreground);
     font-weight: bold;
     font-size: 17px;
   }
+
   ul {
     position: sticky;
     border-left: 1px solid;
@@ -13,22 +15,26 @@ aside {
     padding-left: 0;
     max-width: 100%;
   }
+
   li {
     display: grid;
     position: relative;
     margin-top: 0.345rem;
     padding-top: 0.345rem;
+
     &.children {
       a {
         margin-left: 2.5rem;
       }
     }
+
     &.edit-page {
       svg {
         margin-right: 0.5rem;
       }
     }
   }
+
   a {
     display: inline-block;
     letter-spacing: normal;
@@ -37,12 +43,13 @@ aside {
     font-size: 15px;
     line-height: 16px;
   }
+
   li:hover::before,
   .active::before {
     position: absolute;
     left: -2px;
     height: 100%;
-    content: '';
+    content: "";
     border-left: 2px solid;
     border-color: var(--green);
   }
@@ -51,21 +58,26 @@ aside {
 @media (max-width: 1000px) {
   aside {
     display: none;
+
     span {
       margin-left: 1rem;
     }
+
     ul {
       border: none;
     }
   }
+
   #toc {
     display: inline-grid;
     transform: translateX(200%);
     padding-top: 0;
     z-index: 6;
+
     &:target {
       transform: translateX(100%);
     }
+
     a.close {
       justify-self: end;
       margin-bottom: -2rem;
