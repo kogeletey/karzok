@@ -4,24 +4,25 @@
   "scripts": {
     "compile:js": "swc helpers --only -d static",
     "compile:go": "CGO_ENABLED=0 go build -o dist/ctl/kzkctl dist/ctl/main.go",
-    "link": "rsync -va node_modules/@fontsource node_modules/katex node_modules/modern-normalize node_modules/mermaid static && npm run link:assets |:",
+    "link": "rsync -va node_modules/@fontsource node_modules/katex node_modules/modern-normalize node_modules/mermaid static && pnpm run link:assets |:",
     "link:assets": "mkdir -p static && cp -r assets static || :",
-    "build": "npm run compile:js && zola-bin build",
-    "build:local": "npm run link && npm run compile:js && zola-bin build",
-    "dist": "rm -rf dist/static dist/templates && mkdir -p dist/static && npm run compile:js && zola-bin build && cp -r templates theme.toml dist && cp -r static/*.js public/*.css dist/static",
+    "build": "pnpm run compile:js && zola-bin build",
+    "build:local": "pnpm run link && pnpm run compile:js && zola-bin build",
+    "dist": "rm -rf dist/static dist/templates && mkdir -p dist/static && pnpm run compile:js && zola-bin build && cp -r templates theme.toml dist && cp -r static/*.js public/*.css dist/static",
     "watch": "swc helpers --only -d static --watch & zola-bin serve -O -f"
   },
   "dependencies": {
-    "@fontsource/inter": "^4.5.0",
-    "@fontsource/jetbrains-mono": "^4.5.0",
-    "katex": "^0.15.3",
-    "mermaid": "^9.1.3",
+    "@fontsource/inter": "^4.5.12",
+    "@fontsource/jetbrains-mono": "^4.5.10",
+    "katex": "^0.16.2",
+    "mermaid": "^9.1.6",
     "modern-normalize": "^1.1.0"
   },
   "devDependencies": {
-    "@swc/cli": "^0.1.53",
-    "@swc/core": "^1.2.119",
-    "prettier": "^2.5.1",
+    "@swc/cli": "^0.1.57",
+    "@swc/core": "^1.2.245",
+    "chokidar": "^3.5.3",
+    "prettier": "^2.7.1",
     "zola-bin": "^0.3.5"
   }
 }
