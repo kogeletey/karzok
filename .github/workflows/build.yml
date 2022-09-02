@@ -1,6 +1,6 @@
 on: push
 
-name: build theme and build container
+name: build theme and container
 jobs:
 
   build:
@@ -37,3 +37,23 @@ jobs:
           "GITHUB_SHA=${GITHUB_SHA}"
           "GITHUB_REF=${GITHUB_REF}"
           "GITHUB_REPOSITORY=${GITHUB_REPOSITORY}"
+  lint:
+
+    name: lint
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    - uses: pnpm/action-setup@v2.2.2
+      with:
+        version: 7
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: 17
+        cache: 'pnpm'
+    - name: swc compile
+      run: |
+        pnpm i
+        pnpm run dist
