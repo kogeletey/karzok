@@ -6,6 +6,7 @@
     "compile:go": "CGO_ENABLED=0 go build -o dist/ctl/kzkctl dist/ctl/main.go",
     "link": "rsync -va node_modules/@fontsource node_modules/katex node_modules/modern-normalize node_modules/mermaid static && pnpm run link:assets |:",
     "link:assets": "mkdir -p static && cp -r assets static || :",
+    "lint": "stylelint sass",
     "build": "pnpm run compile:js && zola-bin build",
     "build:local": "pnpm run link && pnpm run compile:js && zola-bin build",
     "dist": "rm -rf dist/static dist/templates && mkdir -p dist/static && pnpm run build && cp -r templates theme.toml config.toml dist && cp -r static/*.js public/*.css dist/static",

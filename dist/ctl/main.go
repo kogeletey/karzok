@@ -5,6 +5,7 @@ import (
 	"bytes"
 	"compress/gzip"
 	"encoding/json"
+	"errors"
 	"io"
 	"log"
 	"net/http"
@@ -32,7 +33,7 @@ func DownloadPackage(url string) ([]byte, error) {
 func Untar(src []byte, out string) error {
 	gzipRead, err := gzip.NewReader(bytes.NewReader(src))
 	if err != nil {
-		log.Printf("error creating gzip reader: %w", err)
+		log.Printf("error creating gzip reader: %s", err)
 		return err
 	}
 	defer gzipRead.Close()
@@ -43,13 +44,11 @@ func Untar(src []byte, out string) error {
 		header, err := tarRead.Next()
 
 		switch {
-
-		case err == io.EOF:
+		case errors.Is(err, io.EOF):
 			return nil
 
 		// Return any other error
 		case err != nil:
-			log.Fatal(err)
 			return err
 
 		// If the header is nil, skip it
@@ -69,7 +68,10 @@ func Untar(src []byte, out string) error {
 		hInfo := header.FileInfo()
 
 		if hInfo.IsDir() {
-			os.MkdirAll(target, os.ModePerm)
+			err = os.MkdirAll(target, os.ModePerm)
+			if err != nil {
+				return err
+			}
 			continue
 		}
 
@@ -85,7 +87,7 @@ func Untar(src []byte, out string) error {
 		for {
 			_, err := io.CopyN(file, tarRead, 1024)
 			if err != nil {
-				if err == io.EOF {
+				if errors.Is(err, io.EOF) {
 					break
 				}
 				return err
@@ -96,29 +98,19 @@ func Untar(src []byte, out string) error {
 	}
 }
 
-func main() {
-	var (
-		pkg     = "is-binary-path"
-		version = "2.1.0"
-	)
-	archive, err := DownloadPackage("https://registry.npmjs.org/" + pkg + "/-/" + pkg + "-" + version + ".tgz")
-	if err != nil {
-		log.Printf("failed get package", err)
-	}
-	folderExport := "themes"
-	_, err = os.Stat(folderExport)
-	if err == nil {
-		os.RemoveAll(folderExport)
-	}
-	Untar(archive, folderExport+"/karzok")
+type Config struct {
+	Title            string `toml:"title"`
+	BaseUrl          string `toml:"base_url" survey:"base_url"`
+	Description      string `toml:"description"`
+	DefaultLanguage  string `toml:"default_language" survey:"default_language"`
+	BuildSearchIndex bool   `toml:"build_search_index" survey:"build_search_index"`
+	CompileSass      bool   `toml:"compile_sass" survey:"compile_sass"`
+	MinifyHTML       bool   `toml:"minify_html"`
+	Theme            string `toml:"theme"`
+}
 
-	configFileString := "config.toml"
-	_, err = os.Stat(configFileString)
-	if err == nil {
-		os.Rename(configFileString, "old."+configFileString)
-	}
-
-	var qs = []*survey.Question{
+func questAnswers() (Config, error) {
+	qs := []*survey.Question{
 		{
 			Name:   "title",
 			Prompt: &survey.Input{Message: "Enter a title of your site (Default: Karzok)"},
@@ -146,20 +138,13 @@ func main() {
 		},
 	}
 
-	type Config struct {
-		Title            string `toml:"title"`
-		BaseUrl          string `toml:"base_url" survey:"base_url"`
-		Description      string `toml:"description"`
-		DefaultLanguage  string `toml:"default_language" survey:"default_language"`
-		BuildSearchIndex bool   `toml:"build_search_index" survey:"build_search_index"`
-		CompileSass      bool   `toml:"compile_sass" survey:"compile_sass"`
-		MinifyHTML       bool   `toml:"minify_html"`
-		Theme            string `toml:"theme"`
-	}
-
 	var config Config
 
-	survey.Ask(qs, &config)
+	err := survey.Ask(qs, &config)
+	if err != nil {
+		config := Config{}
+		return config, err
+	}
 
 	if config.Title == "" {
 		config.Title = "Karzok"
@@ -175,32 +160,65 @@ func main() {
 	config.MinifyHTML = true
 	config.Theme = "karzok"
 
+	return config, nil
+}
+
+func main() {
+	var (
+		pkg     = "is-binary-path"
+		version = "2.1.0"
+	)
+	archive, err := DownloadPackage("https://registry.npmjs.org/" + pkg + "/-/" + pkg + "-" + version + ".tgz")
+	if err != nil {
+		log.Printf("failed get package %s", err)
+	}
+	folderExport := "themes"
+	_, err = os.Stat(folderExport)
+	if err == nil {
+		os.RemoveAll(folderExport)
+	}
+	err = Untar(archive, folderExport+"/karzok")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	config, err := questAnswers()
+	if err != nil {
+		log.Printf("failed questions")
+	}
+	configFileString := "config.toml"
+	_, err = os.Stat(configFileString)
+	if err == nil {
+		if err := os.Rename(configFileString, "old."+configFileString); err != nil {
+			log.Print(err)
+		}
+	}
+
 	configFile, err := os.Create(configFileString)
 	if err != nil {
 		log.Fatal("failed create"+configFileString, err)
 	}
-
 	defer configFile.Close()
-
 	err = toml.NewEncoder(configFile).Encode(&config)
+
 	if err != nil {
-		log.Fatal("failed create"+configFileString, err)
+		log.Panic("failed create"+configFileString, err)
 	}
 
-	type PackageJson map[string]interface{}
+	type PackageJSON map[string]interface{}
 
-	var packagejson PackageJson
+	var packagejson PackageJSON
 	packageFile, err := os.Open("package.json")
 	if err != nil {
-		log.Fatal("failed open default: %s", err)
+		log.Panicf("failed open default: %s", err)
 	}
-
 	defer packageFile.Close()
 
 	err = json.NewDecoder(packageFile).Decode(&packagejson)
 	if err != nil {
-		log.Fatalf("failed decoding: %s", err)
+		log.Panicf("failed decoding: %s", err)
 	}
+
 	packagejson["name"] = strings.ToLower(config.Title)
 	packagejson["private"] = true
 
