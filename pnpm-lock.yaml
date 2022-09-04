@@ -14,6 +14,7 @@ importers:
       modern-normalize: ^1.1.0
       playwright: ^1.25.1
       prettier: ^2.7.1
+      prettier-plugin-toml: ^0.3.1
       stylelint: ^14.11.0
       stylelint-config-standard-scss: ^5.0.0
       zola-bin: ^0.3.5
@@ -29,6 +30,7 @@ importers:
       chokidar: 3.5.3
       playwright: 1.25.1
       prettier: 2.7.1
+      prettier-plugin-toml: 0.3.1
       stylelint: 14.11.0
       stylelint-config-standard-scss: 5.0.0_stylelint@14.11.0
       zola-bin: 0.3.5
@@ -298,6 +300,19 @@ packages:
     dev: true
     optional: true
 
+  /@toml-tools/lexer/0.3.1:
+    resolution: {integrity: sha512-CCKHQb5OWpgFu47MQ2rcql4AnE9GaehNk/c1oJOyOBovED6XmdzQPXsvPSu+NJ9lToqJNoX+nLXQsB8WyQGdzQ==}
+    dependencies:
+      chevrotain: 4.1.1
+    dev: true
+
+  /@toml-tools/parser/0.3.1:
+    resolution: {integrity: sha512-vadwVx5TkgByt19dbp/rfIUKPkDdn5werANYvziiGK9wHlqPA0BWnvOloQw/dPDxF31+Ag0+zarXJpPDdRsPPg==}
+    dependencies:
+      '@toml-tools/lexer': 0.3.1
+      chevrotain: 4.1.1
+    dev: true
+
   /@types/minimist/1.2.2:
     resolution: {integrity: sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==}
     dev: true
@@ -414,6 +429,12 @@ packages:
       ansi-styles: 3.2.1
       escape-string-regexp: 1.0.5
       supports-color: 5.5.0
+    dev: true
+
+  /chevrotain/4.1.1:
+    resolution: {integrity: sha512-NQky1HQyiAzxsxpq4Ppt47SYO2U3JLtmfs85QPf3kYSzGBjjp5AA8kqjH8hCjGFRpaQ781QOk1ragQIOkBgUTA==}
+    dependencies:
+      regexp-to-ast: 0.3.5
     dev: true
 
   /chokidar/3.5.3:
@@ -1639,6 +1660,19 @@ packages:
       source-map-js: 1.0.2
     dev: true
 
+  /prettier-plugin-toml/0.3.1:
+    resolution: {integrity: sha512-j47DEO/dN/acU1nSL/B7q4A4Z2SYJhpWPCLPkcmfAXIQC6A5GD6Ao/bi9HRHZ8ueIDOauqjuAQbnvRxLXMjazA==}
+    dependencies:
+      '@toml-tools/parser': 0.3.1
+      prettier: 1.19.1
+    dev: true
+
+  /prettier/1.19.1:
+    resolution: {integrity: sha512-s7PoyDv/II1ObgQunCbB9PdLmUcBZcnWOcxDh7O0N/UwDEsHyqkW+Qh28jW+mVuCdx7gLB0BotYI1Y6uI9iyew==}
+    engines: {node: '>=4'}
+    hasBin: true
+    dev: true
+
   /prettier/2.7.1:
     resolution: {integrity: sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==}
     engines: {node: '>=10.13.0'}
@@ -1691,6 +1725,10 @@ packages:
     dependencies:
       indent-string: 4.0.0
       strip-indent: 3.0.0
+    dev: true
+
+  /regexp-to-ast/0.3.5:
+    resolution: {integrity: sha512-1CJygtdvsfNFwiyjaMLBWtg2tfEqx/jSZ8S6TV+GlNL8kiH8rb4cm5Pb7A/C2BpyM/fA8ZJEudlCwi/jvAY+Ow==}
     dev: true
 
   /require-from-string/2.0.2:

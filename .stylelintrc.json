@@ -1,6 +1,7 @@
 {
   "extends": "stylelint-config-standard-scss",
   "rules": {
-    "no-descending-specificity": null
+    "no-descending-specificity": null,
+    "rule-empty-line-before": null
   }
 }
