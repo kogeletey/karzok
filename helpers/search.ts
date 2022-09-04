@@ -1,56 +1,56 @@
-let suggestions: HTMLElement = document.querySelector('div.items');
+let suggestions: HTMLElement = document.querySelector("div.items");
 let body: HTMLElement =
-  document.querySelector('main') || document.querySelector('section');
-let userinput = document.querySelector('input.search');
+  document.querySelector("main") || document.querySelector("section");
+let userinput = document.querySelector("input.search");
 
-const btn_clear = document.querySelector('form button.clear');
+const btn_clear = document.querySelector("form button.clear");
 
 function clear_search() {
-  userinput.value = '';
+  userinput.value = "";
   for (let i of [suggestions, btn_clear]) {
-    i.style.display = 'none';
+    i.style.display = "none";
   }
   userinput.blur();
-  if(window.matchMedia('(max-width: 1000px)').matches) {
-        document.querySelector('header nav form').style.display = 'none';
-        document.querySelectorAll('header ul').forEach((p) => {
-            p.style.display = 'inherit';
-        });
+  if (window.matchMedia("(max-width: 1000px)").matches) {
+    document.querySelector("header nav form").style.display = "none";
+    document.querySelectorAll("header ul").forEach((p) => {
+      p.style.display = "inherit";
+    });
   }
 }
 
-btn_clear.addEventListener('click', clear_search);
+btn_clear.addEventListener("click", clear_search);
 
 // in page results when press enter or click search icon from search box
 function close_search() {
-  document.getElementById('close-search').onclick = function () {
+  document.getElementById("close-search").onclick = function () {
     location.reload();
   };
 }
 
 function mobile_open_search() {
-  document.querySelectorAll('header ul').forEach((p) => {
-    p.style.display = 'none';
+  document.querySelectorAll("header ul").forEach((p) => {
+    p.style.display = "none";
   });
-  document.querySelector('header nav form').style.display = 'flex';
+  document.querySelector("header nav form").style.display = "flex";
   userinput.focus();
 }
 
 document
-  .querySelector('button.search')
-  .addEventListener('click', mobile_open_search);
+  .querySelector("button.search")
+  .addEventListener("click", mobile_open_search);
 
 function search() {
   let results_clone = suggestions.cloneNode(true);
 
-  let main: HTMLElement = document.createElement('main');
-  main.classList.add('full-screen');
+  let main: HTMLElement = document.createElement("main");
+  main.classList.add("full-screen");
 
   const close_button: string =
     '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" width="32" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><path d="M24 9.4L22.6 8L16 14.6L9.4 8L8 9.4l6.6 6.6L8 22.6L9.4 24l6.6-6.6l6.6 6.6l1.4-1.4l-6.6-6.6L24 9.4z" fill="currentColor"></path></svg>';
 
-  let button = document.createElement('button');
-  button.id = 'close-search';
+  let button = document.createElement("button");
+  button.id = "close-search";
 
   button.innerHTML = close_button;
 
@@ -60,16 +60,16 @@ function search() {
     main.appendChild(i);
   }
 
-  if (!document.querySelector('main')) {
-    if (document.querySelector('div.welcome')) {
-      document.querySelector('div.welcome').remove();
+  if (!document.querySelector("main")) {
+    if (document.querySelector("div.welcome")) {
+      document.querySelector("div.welcome").remove();
     }
-    document.querySelector('section').replaceWith(main);
+    document.querySelector("section").replaceWith(main);
   } else {
-    document.querySelector('main').replaceWith(main);
+    document.querySelector("main").replaceWith(main);
   }
 
-  suggestions.innerHTML = '';
+  suggestions.innerHTML = "";
   close_search();
   return false;
 }
@@ -82,18 +82,18 @@ window.onload = function () {
 };
 
 function inputFocus(e) {
-  if (e.key === '/' && document.activeElement.tagName != 'input') {
+  if (e.key === "/" && document.activeElement.tagName != "input") {
     e.preventDefault();
     userinput.focus();
-  } else if (e.key == 'Escape') {
+  } else if (e.key == "Escape") {
     clear_search();
   }
-   btn_clear.style.display = 'block';
+  btn_clear.style.display = "block";
 }
 
 function suggestionFocus(e) {
-  const focusableSuggestions = suggestions.querySelectorAll('a');
-  if (focusableSuggestions.length == 0 || userinput.style.display == 'none') {
+  const focusableSuggestions = suggestions.querySelectorAll("a");
+  if (focusableSuggestions.length == 0 || userinput.style.display == "none") {
     return;
   }
 
@@ -113,14 +113,14 @@ function suggestionFocus(e) {
   }
 }
 
-document.addEventListener('keydown', inputFocus);
-document.addEventListener('keydown', suggestionFocus);
+document.addEventListener("keydown", inputFocus);
+document.addEventListener("keydown", suggestionFocus);
 
 // Get substring by bytes
 // If using JavaScript inline substring method, it will return error codes
 // Source: https://www.52pojie.cn/thread-1059814-1-1.html
 function substringByByte(str, maxLength) {
-  let result = '';
+  let result = "";
   let flag = false;
   let len = 0;
   let length = 0;
@@ -130,7 +130,7 @@ function substringByByte(str, maxLength) {
     if (code.length > 4) {
       i++;
       if (i + 1 < str.length) {
-        flag = str.codePointAt(i + 1).toString(16) == '200d';
+        flag = str.codePointAt(i + 1).toString(16) == "200d";
       }
     }
     if (flag) {
@@ -197,15 +197,15 @@ Source:
 */
 (function () {
   let index = elasticlunr.Index.load(window.searchIndex);
-  userinput.addEventListener('input', show_results, true);
-  suggestions.addEventListener('click', accept_suggestion, true);
+  userinput.addEventListener("input", show_results, true);
+  suggestions.addEventListener("click", accept_suggestion, true);
   // if (userinput.value != '') {
   //}
 
   function show_results() {
     let value = this.value.trim();
     let options = {
-      bool: 'OR',
+      bool: "OR",
       fields: {
         title: { boost: 2 },
         body: { boost: 1 },
@@ -218,17 +218,17 @@ Source:
     let i = 0,
       len = results.length;
     let items = value.split(/\s+/);
-    suggestions.style.display = 'block';
+    suggestions.style.display = "block";
 
     results.forEach(function (page) {
-      if (page.doc.body !== '') {
-        entry = document.createElement('div');
+      if (page.doc.body !== "") {
+        entry = document.createElement("div");
 
-        entry.innerHTML = '<a href><span></span><span></span></a>';
+        entry.innerHTML = "<a href><span></span><span></span></a>";
 
-        (a = entry.querySelector('a')),
-          (t = entry.querySelector('span:first-child')),
-          (d = entry.querySelector('span:nth-child(2)'));
+        (a = entry.querySelector("a")),
+          (t = entry.querySelector("span:first-child")),
+          (d = entry.querySelector("span:nth-child(2)"));
         a.href = page.ref;
         t.textContent = page.doc.title;
         d.innerHTML = makeTeaser(page.doc.body, items);
@@ -274,7 +274,7 @@ Source:
     let weighted = []; // contains elements of ["word", weight, index_in_document]
 
     // split in sentences, then words
-    let sentences = body.toLowerCase().split('. ');
+    let sentences = body.toLowerCase().split(". ");
     for (let i in sentences) {
       let words = sentences[i].split(/[\s\n]/);
       let value = FIRST_WORD_WEIGHT;
@@ -301,7 +301,7 @@ Source:
 
     if (weighted.length === 0) {
       if (body.length !== undefined && body.length > TEASER_MAX_WORDS * 10) {
-        return body.substring(0, TEASER_MAX_WORDS * 10) + '...';
+        return body.substring(0, TEASER_MAX_WORDS * 10) + "...";
       } else {
         return body;
       }
@@ -347,7 +347,7 @@ Source:
 
       // add <em/> around search terms
       if (word[1] === TERM_WEIGHT) {
-        teaser.push('<b>');
+        teaser.push("<b>");
       }
 
       startIndex = word[2] + word[0].length;
@@ -368,11 +368,11 @@ Source:
       }
 
       if (word[1] === TERM_WEIGHT) {
-        teaser.push('</b>');
+        teaser.push("</b>");
       }
     }
-    teaser.push('…');
-    return teaser.join('');
+    teaser.push("…");
+    return teaser.join("");
   }
   document.body.contains(document.go_search) &&
     (document.go_search.onsubmit = function () {

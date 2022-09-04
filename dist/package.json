@@ -4,10 +4,10 @@
   "version": "0.2.9",
   "author": "kogeletey",
   "scripts": {
-      "link": "cp -r node_modules/@fontsource node_modules/katex node_modules/modern-normalize node_modules/mermaid static",
-      "build": "zola-bin build",
-      "build:local": "npm run link && zola-bin build",
-      "watch": "zola-bin serve -O -f"
+    "link": "cp -r node_modules/@fontsource node_modules/katex node_modules/modern-normalize node_modules/mermaid static",
+    "build": "zola-bin build",
+    "build:local": "npm run link && zola-bin build",
+    "watch": "zola-bin serve -O -f"
   },
   "files": [
     "static/*",

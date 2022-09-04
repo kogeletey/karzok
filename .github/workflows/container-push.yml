@@ -6,16 +6,15 @@ name: container image push to registry
 # documentation.
 
 on:
- push:
+  push:
     tags:
-    - '**'
+      - "**"
 
 env:
   # Use docker.io for Docker Hub if empty
   REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
   IMAGE_NAME: ${{ github.repository }}
-
 
 jobs:
   push:
@@ -34,7 +33,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 17
-          cache: 'pnpm'
+          cache: "pnpm"
       - name: dist compile
         run: |
           pnpm i
@@ -57,7 +56,6 @@ jobs:
         uses: docker/metadata-action@v3
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-
 
       # Build and push Docker image with Buildx (don't push on PR)
       # https://github.com/docker/build-push-action
