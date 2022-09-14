@@ -1,5 +1,6 @@
-aside {
-  background: var(--background);
+@import "aside";
+
+div#toc {
   padding-top: 1rem;
 
   span {

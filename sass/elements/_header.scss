@@ -1,3 +1,4 @@
+@import "dropdown";
 @import "alert";
 
 header > nav > ul > li.separator {
@@ -49,12 +50,14 @@ body[data-theme="light"] header form div.items {
 }
 
 header {
-  position: relative;
+  position: sticky;
   height: 42px;
-  border-bottom: 0.1rem solid $dark1;
+  top: 0;
+  //border-bottom: 0.1rem solid $dark1;
   width: 100%;
   color: var(--foreground);
   background: var(--background);
+  z-index: 7;
 
   .logotype {
     max-height: 2rem;

@@ -1,0 +1,39 @@
+.error {
+  display: grid;
+  color: var(--foreground);
+  grid-template-rows: 0.1fr 0.1fr 0.1fr;
+  grid-template-columns: inherit;
+  grid-gap: inherit;
+  grid-auto-rows: inherit;
+  justify-items: center;
+  font-weight: 400;
+  margin-bottom: 2em;
+
+  h1 {
+    font-size: 250px;
+  }
+
+  h2 {
+    font-size: 100px;
+  }
+
+  h3 {
+    font-size: 50px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .error {
+    h1 {
+      font-size: 80px !important;
+    }
+
+    h2 {
+      font-size: 40px !important;
+    }
+
+    h3 {
+      font-size: 20px !important;
+    }
+  }
+}

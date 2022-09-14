@@ -1,8 +1,7 @@
 @import "base";
-@import "navs";
 @import "article";
-@import "macros/sidebar";
-@import "macros/toc";
+@import "elements/sidebar";
+@import "elements/toc";
 
 .mheader {
   display: none;

@@ -4,7 +4,7 @@
 {% block title %} {{macros::title_or_last(component=section) }} {% endblock title %}
 {% block math%} {{ macros::math() }} {% endblock math %}
 {% block content %}
-<section>
+<section class="cards">
   {% for page in section.pages %}
   <a href="{{ page.permalink }}">
     <span>{{ macros::title_or_last(component=page, offset=0) }}</span>

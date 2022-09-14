@@ -1,15 +1,14 @@
 @import "base";
-@import "special-pages";
 
-body[data-theme="black"] > section a {
+body[data-theme="black"] > section.cards a {
   border: 1px solid $light4;
 }
 
-body:not([data-theme="dark"]) > section a {
+body:not([data-theme="dark"]) > section.cards a {
   border: 1px solid $dark2;
 }
 
-section {
+section.cards {
   padding-top: 0.25rem;
   padding-bottom: 3rem;
   display: grid;
