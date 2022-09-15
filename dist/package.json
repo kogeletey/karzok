@@ -12,7 +12,8 @@
   "files": [
     "static/*",
     "templates/**/*",
-    "theme.toml"
+    "theme.toml",
+    "package.json"
   ],
   "dependencies": {
     "@fontsource/inter": "^4.5.0",

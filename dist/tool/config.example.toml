@@ -1,16 +1,11 @@
 # change to you title
 title = "Re128 | Karzok"
-
 # change to your url
 base_url = "http://localhost:1111"
-
 # change your description
 description = "The theme for launching fast documentation sites"
-
 default_language = "en"
-
 build_search_index = true
-
 minify_html = true
 
 [search]
@@ -28,12 +23,10 @@ anchors = "on"
 [markdown]
 highlight_code = true
 highlight_theme = "base16-ocean-dark"
-
 render_emoji = true
 
 [extra]
 #localcdn = true
-
 show_word_count = true
 show_reading_time = true
 relative_path = true

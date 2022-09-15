@@ -2,15 +2,15 @@
   "private": true,
   "author": "kogeletey",
   "scripts": {
-    "compile:js": "swc helpers --only -d static",
-    "compile:go": "CGO_ENABLED=0 go build -o dist/ctl/kzkctl dist/ctl/main.go",
+    "compile:js": "swc islands --only -d static",
+    "compile:go": "CGO_ENABLED=0 go build -o dist/tool/kzktool dist/tool/main.go",
     "link": "rsync -va node_modules/@fontsource node_modules/katex node_modules/modern-normalize node_modules/mermaid static && pnpm run link:assets |:",
     "link:assets": "mkdir -p static && cp -r assets static || :",
     "lint": "stylelint sass",
     "build": "pnpm run compile:js && zola-bin build",
     "build:local": "pnpm run link && pnpm run compile:js && zola-bin build",
     "dist": "rm -rf dist/static dist/templates && mkdir -p dist/static && pnpm run build && cp -r templates theme.toml config.toml dist && cp -r static/*.js public/*.css dist/static",
-    "watch": "swc helpers --only -d static --watch & zola-bin serve -O -f"
+    "watch": "swc islands --only -d static --watch & zola-bin serve -O -f"
   },
   "dependencies": {
     "@fontsource/inter": "^4.5.12",
