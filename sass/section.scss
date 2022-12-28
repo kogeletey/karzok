@@ -11,14 +11,13 @@ body:not([data-theme="dark"]) > section.cards a {
 section.cards {
   padding-top: 0.25rem;
   padding-bottom: 3rem;
+  margin-left: 0.5rem;
   display: grid;
   position: relative;
   grid-template-columns: repeat(auto-fit, minmax(33%, 1fr));
   grid-auto-rows: 25rem;
   min-height: 100vh;
-  width: 100%;
-  grid-gap: 1px;
-
+  grid-gap: 2rem;
   a {
     display: block;
     position: relative;

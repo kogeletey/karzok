@@ -1,8 +1,7 @@
 @import "base";
-@import "macros/header";
-@import "macros/footer";
-@import "macros/search";
-@import "experimental";
+@import "elements/header";
+@import "elements/footer";
+@import "elements/search";
 
 :root {
   --black: #111;
