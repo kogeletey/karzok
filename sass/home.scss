@@ -37,6 +37,7 @@ section.intro {
       background-color: var(--background);
     }
     a span {
+      display: inline-block;
       color: var(--foreground);
       font-size: 17px;
       opacity: 85%;

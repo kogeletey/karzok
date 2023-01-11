@@ -1,35 +1,48 @@
 {% extends 'base.html' %}
+
 {% block styles %}
+{{ macros::styles(file='home.css')}}
 {{ macros::styles(file='section.css') }}
 {% endblock styles %}
-    <body>
-        {% block body %}
-            {% block content %}
-            {% block welcome %}
-            <div class="welcome">
-            <h1> Welcome to Karzok</h1>
-            {% if config.description %}
-            <p>
-                {{ config.description}}
-            </p>
-            {% elif config.languages %}
-            <p>
-                {{ trans(key="description", lang=lang) }}
-            </p>
-            {% endif %}
-            </div>
-            {% endblock welcome %}
-            <section>
-                {% if config.extra.menu %}
-                {% for link in config.extra.menu %}
-                {% set item_link = link.link  | replace(from="$base_url", to=config.base_url) %}
-                        <a  href="{{ item_link | safe }}">
-                            <span> {{ link.text }} </span>
-                    </a>
-                    {% endfor %}
-                {% endif %}
-            </section>
-            {% endblock content %}
-        {% endblock body %}
-    </body>
-</html>
+
+<body>
+  {% block body %}
+  {% block content %}
+  <section class="intro">
+    <div class="started">
+      <h1>A theme for fast sites</h1>
+      <p>
+        It will help speed up the development of a website and docs for your
+        product
+      </p>
+    </div>
+    <div role="install">
+      <span> Install </span>
+      {# {% set shell_script = "git clone --depth=1 --branch v0.2.9 https://git.sr.ht/~kogeletey/karzok themes/karzok" %} #}
+      {% set shell_script = "curl https://karzok.re128.org/install.sh | sh " %}
+      <code> {{ shell_script }} </code>
+      <a href="{{ shell_script }}" target="_blank" rel="_noreferrer">
+        <span class="lite"> view source </span>
+      </a>
+      <a type="button" href="{{ config.base_url }}/install" target="_blank" rel="_noreferrer">
+        <span> Get started</span>
+        <svg width="25" height="25" viewBox="-8 -6 32 32">
+          <path
+            fill="currentColor"
+            d="M22 16L12 26l-1.4-1.4l8.6-8.6l-8.6-8.6L12 6z"
+          />
+        </svg>
+      </a>
+      <div class="text">
+          <a href="{{ config.base_url }}/configure" target="_blank" rel="_noreferrer">
+              <span class="lite">Configure</span>
+          </a>
+        <a href="{{ config.base_url }}/contribute">
+            <span class="lite">Contribute</span>
+        </a>
+    </div>
+  </div>
+  </section>
+  {% endblock content %}
+  {% endblock body %}
+</body>
