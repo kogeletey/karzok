@@ -1,29 +1,33 @@
-@import 'alert';
+@import "dropdown";
+@import "alert";
 
 header > nav > ul > li.separator {
   button {
     margin-left: 0.75rem;
   }
+
   svg {
-    margin: 3px 3px;
+    margin: 3px;
   }
 }
 
-body[data-theme='black'] > header > nav > ul > li > button.toggle {
+body[data-theme="black"] > header > nav > ul > li > button.toggle {
   svg:not(.toggle-light) {
     display: none;
   }
+
   svg.toggle-light {
     color: var(--foreground);
     display: block;
   }
 }
 
-body:not([data-theme='black']) > header > nav {
+body:not([data-theme="black"]) > header > nav {
   & ul > li > button.toggle {
     svg:not(.toggle-black) {
       display: none;
     }
+
     svg.toggle-black {
       color: var(--foreground);
       display: block;
@@ -32,44 +36,51 @@ body:not([data-theme='black']) > header > nav {
 }
 
 @media (prefers-color-scheme: light) {
-  body:not([data-theme='black']) header form div.items {
+  body:not([data-theme="black"]) header form div.items {
     a:hover {
       background-color: $light3;
     }
   }
 }
 
-body[data-theme='light'] header form div.items {
+body[data-theme="light"] header form div.items {
   a:hover {
     background-color: $light3;
   }
 }
 
 header {
-  position: relative;
+  position: sticky;
   height: 42px;
-  border-bottom: 0.1rem solid $dark1;
+  top: 0;
+  //border-bottom: 0.1rem solid $dark1;
   width: 100%;
   color: var(--foreground);
   background: var(--background);
+  z-index: 7;
+
   .logotype {
     max-height: 2rem;
     min-height: 1.25rem;
     padding-top: 0.15em;
+
     a {
       padding-bottom: 0%;
     }
   }
+
   nav {
     font-size: 16px;
     font-weight: 400;
     margin-left: 10px;
     align-items: center;
     height: 100%;
+
     li {
       padding: 1em 0 1.25em;
       margin-right: 1rem;
     }
+
     ul {
       span:hover,
       .active {
@@ -77,18 +88,22 @@ header {
         border-bottom: 2px solid;
         border-color: var(--green);
       }
+
       a:hover svg {
         color: var(--foreground);
       }
     }
+
     .vector {
       display: inline-flex;
       margin-top: 0.2em;
       border: 1px solid $dark1;
+
       &:hover {
         color: var(--foreground);
         background: var(--background);
       }
+
       span:hover {
         color: var(--foreground);
         background: var(--background);
@@ -96,65 +111,79 @@ header {
         border-color: inherit;
         border-bottom: inherit;
       }
+
       span.svg:hover {
         filter: invert(100%);
       }
     }
   }
+
   a {
     span {
       color: var(--foreground);
     }
+
     span.svg {
       display: inline-flex;
-      padding: 3px 3px;
+      padding: 3px;
     }
+
     span:hover {
       color: var(--green);
     }
+
     &[target="_blank"] {
-        svg {
-            display: inline-block;
-            margin-bottom: -3px;
-        }
+      svg {
+        display: inline-block;
+        margin-bottom: -3px;
+      }
     }
   }
+
   li.separator {
     button.search {
       display: none;
     }
   }
+
   li.separator::before {
-    content: '';
+    content: "";
     border-left: 1px solid $dark1;
   }
+
   form {
     display: flex;
     border: 1px solid;
     border-color: var(--foreground);
+
     button.clear {
       display: none;
       color: var(--foreground);
+
       &:hover {
         color: var(--green);
       }
     }
+
     input {
       color: var(--foreground);
       background: var(--background);
-      padding: 4px 4px;
+      padding: 4px;
       border: none;
     }
+
     & input:focus,
     & input:hover {
       width: 34rem;
     }
+
     div.items {
       position: absolute;
       margin-top: 2.1rem;
       width: 34rem;
       z-index: 2;
       background-color: var(--background);
+
       & a {
         padding: 0.75rem;
         display: grid;
@@ -163,6 +192,7 @@ header {
         gap: 1px;
         align-content: center;
       }
+
       & div {
         border: 1px solid var(--foreground);
       }
@@ -173,15 +203,19 @@ header {
 div.items {
   overflow-x: hidden;
   overflow-y: auto;
+
   & span:first-child {
     font-weight: 700;
     font-size: 18px;
   }
+
   & span:nth-child(2) {
     width: 20rem;
   }
+
   & a:hover {
     background-color: $dark3;
+
     span {
       color: var(--foreground);
     }
@@ -190,17 +224,21 @@ div.items {
 
 @media (max-width: 1000px) {
   header {
-  overflow-x: auto;
+    overflow-x: auto;
+
     form {
       display: none;
       width: 98%;
+
       input {
         width: 98%;
       }
     }
+
     div.items {
       display: none !important;
     }
+
     li.separator {
       button.search {
         display: block;

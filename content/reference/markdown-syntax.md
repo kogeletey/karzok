@@ -159,14 +159,14 @@ x_3
 $$
 
 {% katex(block=true) %}
-1\% \\ x 
+1\% \\ x
 {%end %}
 
 # Media
 
 ## Images
 
-![Image Backgorund](/test.png) 
+![Image Backgorund](/test.png)
 ![Another Media]()
 
 <!-- ![Media CDN](https://plchldr.co/i/1280x720?bg=2ecc40) -->
@@ -175,7 +175,7 @@ $$
 
 ## Hints
 
-{% hint(style="warning") %} 
+{% hint(style="warning") %}
 123
 {% end %}
 
@@ -183,13 +183,14 @@ $$
 You can use the underscore operator in any position in the variables list to infer a type argument.
 {% end %}
 
-{% hint(style="critical") %} 
+{% hint(style="critical") %}
 This feature might require plugin developers to take migration steps for their existing plugins.
 
 Learn how to prepare your plugin for the update in this YouTrack issue.
 {% end %}
 
 # Mermaid
+
 ```
 flowchart TD
   Start --> Stop
@@ -197,10 +198,11 @@ flowchart TD
 
 {% mermaid() %}
 flowchart TD
-  Start --> Stop
+Start --> Stop
 {% end %}
 
 [^1]:
+
 The above quote is excerpted from Rob Pike's
 [talk](https://www.youtube.com/watch?v=PAAkCSZUG1c) during Gopherfest,
 November 18, 2015.

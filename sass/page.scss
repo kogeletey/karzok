@@ -1,10 +1,13 @@
-@import 'base';
+@import "base";
+@import "article";
+@import "elements/sidebar";
+@import "elements/toc";
 
-@import 'navs';
-@import 'article';
-
-@import 'macros/sidebar';
-@import 'macros/toc';
+main {
+  display: grid;
+  grid-template-columns: 0.25fr 1fr 0.25fr;
+  //grid-template-rows: 1fr;
+}
 
 .mheader {
   display: none;
@@ -12,10 +15,11 @@
 
 @media (max-width: 1000px) {
   main {
-    margin-top: 0px;
+    margin-top: 0;
     grid-template-columns: 1fr;
     overflow-x: hidden;
   }
+
   div.mheader {
     position: sticky;
     display: inline-grid;
@@ -28,8 +32,10 @@
     width: 100%;
     z-index: 5;
     border-bottom: 1px solid $dark1;
+
     a {
       padding-left: 0.5rem;
+
       &:last-child {
         justify-self: end;
       }

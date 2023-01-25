@@ -17,20 +17,13 @@ A theme for your documentation. Fast and secure
 
 ## Requirements
 
-Karzok uses npm,zola to dependency managment,rendering, scripts and plugins.
-
-### Install
-
-1. [Zola](https://www.getzola.org/documentation/getting-started/installation/)
-2. [Node.js](https://nodejs.org/)
-3. [rsync](https://rsync.samba.org)
-
-for your platform.
+- [Node.js](https://nodejs.org/)
 
 ### Optional
 
 - [docker](https://docs.docker.com/engine/install/)
-   > for packaging container and production
+
+> for packaging container and production
 
 ## Get Started
 

@@ -1,25 +1,23 @@
-@import 'base';
+@import "base";
 
-@import 'special-pages';
-
-body[data-theme='black'] > section a {
+body[data-theme="black"] > section.cards a {
   border: 1px solid $light4;
 }
 
-body:not([data-theme='dark']) > section a {
+body:not([data-theme="dark"]) > section.cards a {
   border: 1px solid $dark2;
 }
 
-section {
+section.cards {
   padding-top: 0.25rem;
   padding-bottom: 3rem;
+  margin-left: 0.5rem;
   display: grid;
   position: relative;
   grid-template-columns: repeat(auto-fit, minmax(33%, 1fr));
   grid-auto-rows: 25rem;
   min-height: 100vh;
-  width: 100%;
-  grid-gap: 1px 1px;
+  grid-gap: 2rem;
   a {
     display: block;
     position: relative;
@@ -29,8 +27,8 @@ section {
     text-decoration: none;
     padding-top: 1em;
     padding-left: 1em;
-
     overflow: hidden;
+
     & span {
       display: block;
       position: relative;
@@ -38,16 +36,19 @@ section {
       margin-bottom: 10px;
       color: var(--foreground);
     }
+
     & div {
       opacity: 0;
       transform: translateY(40px);
       transition: transform 0.4s, opacity 0.4s;
       color: var(--foreground);
     }
+
     &:hover div {
       opacity: 1;
       transform: translateY(0);
     }
+
     & time,
     p {
       display: block;
@@ -55,6 +56,7 @@ section {
       opacity: 0.8;
     }
   }
+
   & a:hover {
     outline: 1px solid var(--green);
     transform: scale(1, 1);

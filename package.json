@@ -1,31 +1,34 @@
 {
-  "name": "karzok",
-  "repository": "https://git.sr.ht/~kogeletey/karzok",
-  "author": "kogeletey",
   "private": true,
+  "author": "kogeletey",
   "scripts": {
-    "postcss": "postcss public/{main,page,section}.css --replace",
-    "compile:js": "swc helpers --only -d static",
-    "link": "rsync -va node_modules/@fontsource node_modules/katex node_modules/modern-normalize node_modules/mermaid static && npm run link:assets :",
+    "compile:js": "swc islands --only -d static",
+    "compile:go": "CGO_ENABLED=0 go build -o dist/tool/kzktool dist/tool/main.go",
+    "link": "rsync -va node_modules/@fontsource node_modules/katex node_modules/modern-normalize node_modules/mermaid static && pnpm run link:assets |:",
     "link:assets": "mkdir -p static && cp -r assets static || :",
-    "clean": "rm -rf static node_modules",
-    "gen": "npm run link && npm run compile:js && zola-bin build && npm run postcss",
-    "watch": "swc helpers --only -d static --watch & zola-bin serve -O -f"
+    "lint": "stylelint sass",
+    "build": "pnpm run compile:js && zola-bin build",
+    "build:local": "pnpm run link && pnpm run compile:js && zola-bin build",
+    "dist": "rm -rf dist/static dist/templates && mkdir -p dist/static && pnpm run build && cp -r templates theme.toml config.toml dist && cp -r static/*.js public/*.css dist/static",
+    "watch": "swc islands --only -d static --watch & zola-bin serve -O -f"
   },
   "dependencies": {
-    "@fontsource/inter": "^4.5.0",
-    "@fontsource/jetbrains-mono": "^4.5.0",
-    "katex": "^0.15.3",
-    "mermaid": "^9.1.7",
+    "@fontsource/inter": "^4.5.12",
+    "@fontsource/jetbrains-mono": "^4.5.10",
+    "katex": "^0.16.2",
+    "mermaid": "^9.1.6",
     "modern-normalize": "^1.1.0"
   },
   "devDependencies": {
-    "@swc/cli": "^0.1.53",
-    "@swc/core": "^1.2.119",
-    "autoprefixer": "^10.4.0",
-    "postcss": "^8.4.4",
-    "postcss-cli": "^9.1.0",
-    "prettier": "^2.5.1",
+    "@evilmartians/lefthook-installer": "^1.1.1",
+    "@swc/cli": "^0.1.57",
+    "@swc/core": "^1.2.245",
+    "chokidar": "^3.5.3",
+    "playwright": "^1.25.1",
+    "prettier": "^2.7.1",
+    "prettier-plugin-toml": "^0.3.1",
+    "stylelint": "^14.11.0",
+    "stylelint-config-standard-scss": "^5.0.0",
     "zola-bin": "^0.3.5"
   }
 }

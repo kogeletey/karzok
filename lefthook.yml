@@ -1,0 +1,10 @@
+pre-commit:
+  commands:
+    format:
+      tags: format
+      glob: "**/*.{toml,yml,json,scss,ts}"
+      run: pnpx prettier -w {staged_files}
+    stylelint:
+      tags: frontend style
+      glob: "sass/**/*.scss"
+      run: pnpx stylelint {staged_files}

@@ -8,18 +8,22 @@ footer {
   border-color: $dark1;
   font-size: 16px;
   color: var(--foreground);
+
   ul {
     display: flex;
     flex-wrap: wrap;
     flex: 0 0 auto;
   }
+
   li {
     margin-right: 33%;
   }
+
   span {
     padding-left: 1em;
     font-size: 16px;
   }
+
   a {
     color: var(--foreground);
   }

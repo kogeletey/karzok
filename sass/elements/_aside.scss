@@ -1,18 +1,20 @@
-main > nav,
-aside {
+aside,
+div#toc {
   position: sticky;
-  top: 1rem;
-  height: calc(110vh - 1rem);
+  top: 2rem;
+  height: calc(110vh - 2rem);
   overflow-y: auto;
   overflow-x: hidden;
+  background: var(--background);
+  color: var(--foreground);
   a.close {
     display: none;
   }
 }
 
 @media (max-width: 1000px) {
-  main nav,
-  aside {
+  aside,
+  div#toc {
     position: fixed;
     top: 0;
     border: none;
@@ -22,6 +24,7 @@ aside {
     overflow-x: hidden;
     overflow-y: auto;
     transition: transform 0.25s ease;
+
     a.close {
       display: inline-block;
       margin-right: 1.25rem;

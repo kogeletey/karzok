@@ -5,16 +5,19 @@ main.full-screen {
   align-content: center;
   justify-items: center;
   grid-gap: 20px 0;
+
   button {
     justify-self: end;
     margin: 2rem 2rem 0;
     border: none;
     background: none;
     color: var(--foreground);
+
     &:hover {
       border: 1px solid $dark1;
     }
   }
+
   & div.items {
     & a {
       display: inline-grid;
@@ -22,11 +25,13 @@ main.full-screen {
       justify-items: start;
       padding: 0.75rem;
     }
+
     & span {
       width: 37rem;
       font-size: 15px;
       margin-top: 0.5rem;
     }
+
     & span:first-child {
       font-size: 20px;
     }
@@ -36,17 +41,18 @@ main.full-screen {
 @media (max-width: 1000px) {
   main.full-screen {
     gap: 5px 0;
+
     button {
       margin: 3rem 1rem 1rem 0;
     }
-    div.items span {
-      max-width: 15rem;
-    }
+
     div.items {
       span {
+        max-width: 15rem;
         margin-top: 0.2rem;
         font-size: 12px;
       }
+
       span:first-child {
         font-size: 18px;
       }

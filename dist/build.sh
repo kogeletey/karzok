@@ -12,8 +12,8 @@ done
 
 if [ $1 ]; then
   cd /www
-  zola build -u $1
+  npm run build -- -u $1
 else
   cd /www
-  zola build
+  npm run build
 fi

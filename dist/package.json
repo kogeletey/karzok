@@ -1,0 +1,28 @@
+{
+  "name": "karzok",
+  "repository": "https://git.sr.ht/~kogeletey/karzok",
+  "version": "0.2.9",
+  "author": "kogeletey",
+  "scripts": {
+    "link": "cp -r node_modules/@fontsource node_modules/katex node_modules/modern-normalize node_modules/mermaid static",
+    "build": "zola-bin build",
+    "build:local": "npm run link && zola-bin build",
+    "watch": "zola-bin serve -O -f"
+  },
+  "files": [
+    "static/*",
+    "templates/**/*",
+    "theme.toml",
+    "package.json"
+  ],
+  "dependencies": {
+    "@fontsource/inter": "^4.5.0",
+    "@fontsource/jetbrains-mono": "^4.5.0",
+    "katex": "^0.15.3",
+    "mermaid": "^9.1.3",
+    "modern-normalize": "^1.1.0"
+  },
+  "devDependencies": {
+    "zola-bin": "^0.3.5"
+  }
+}
