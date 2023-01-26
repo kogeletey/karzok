@@ -11,8 +11,7 @@ specifiers:
   mermaid: ^9.3.0
   mkdirp: ^2.1.3
   modern-normalize: ^1.1.0
-  prettier: ^2.8.3
-  prettier-plugin-toml: ^0.3.1
+  postcss: ^8.4.21
   stylelint: ^14.16.1
   stylelint-config-standard-scss: ^6.1.0
   zola-bin: ^0.3.5
@@ -30,10 +29,9 @@ devDependencies:
   '@swc/core': 1.3.28
   chokidar: 3.5.3
   mkdirp: 2.1.3
-  prettier: 2.8.3
-  prettier-plugin-toml: 0.3.1
+  postcss: 8.4.21
   stylelint: 14.16.1
-  stylelint-config-standard-scss: 6.1.0_stylelint@14.16.1
+  stylelint-config-standard-scss: 6.1.0_w5gtdy6oq4ictd5o4eu6befejy
   zola-bin: 0.3.5
 
 packages:
@@ -244,19 +242,6 @@ packages:
       '@swc/core-win32-arm64-msvc': 1.3.28
       '@swc/core-win32-ia32-msvc': 1.3.28
       '@swc/core-win32-x64-msvc': 1.3.28
-    dev: true
-
-  /@toml-tools/lexer/0.3.1:
-    resolution: {integrity: sha512-CCKHQb5OWpgFu47MQ2rcql4AnE9GaehNk/c1oJOyOBovED6XmdzQPXsvPSu+NJ9lToqJNoX+nLXQsB8WyQGdzQ==}
-    dependencies:
-      chevrotain: 4.1.1
-    dev: true
-
-  /@toml-tools/parser/0.3.1:
-    resolution: {integrity: sha512-vadwVx5TkgByt19dbp/rfIUKPkDdn5werANYvziiGK9wHlqPA0BWnvOloQw/dPDxF31+Ag0+zarXJpPDdRsPPg==}
-    dependencies:
-      '@toml-tools/lexer': 0.3.1
-      chevrotain: 4.1.1
     dev: true
 
   /@types/keyv/3.1.4:
@@ -498,12 +483,6 @@ packages:
       ansi-styles: 3.2.1
       escape-string-regexp: 1.0.5
       supports-color: 5.5.0
-    dev: true
-
-  /chevrotain/4.1.1:
-    resolution: {integrity: sha512-NQky1HQyiAzxsxpq4Ppt47SYO2U3JLtmfs85QPf3kYSzGBjjp5AA8kqjH8hCjGFRpaQ781QOk1ragQIOkBgUTA==}
-    dependencies:
-      regexp-to-ast: 0.3.5
     dev: true
 
   /chokidar/3.5.3:
@@ -1975,11 +1954,13 @@ packages:
       postcss: 8.4.21
     dev: true
 
-  /postcss-scss/4.0.6:
+  /postcss-scss/4.0.6_postcss@8.4.21:
     resolution: {integrity: sha512-rLDPhJY4z/i4nVFZ27j9GqLxj1pwxE80eAzUNRMXtcpipFYIeowerzBgG3yJhMtObGEXidtIgbUpQ3eLDsf5OQ==}
     engines: {node: '>=12.0'}
     peerDependencies:
       postcss: ^8.4.19
+    dependencies:
+      postcss: 8.4.21
     dev: true
 
   /postcss-selector-parser/6.0.11:
@@ -2006,25 +1987,6 @@ packages:
   /prepend-http/2.0.0:
     resolution: {integrity: sha512-ravE6m9Atw9Z/jjttRUZ+clIXogdghyZAuWJ3qEzjT+jI/dL1ifAqhZeC5VHzQp1MSt1+jxKkFNemj/iO7tVUA==}
     engines: {node: '>=4'}
-    dev: true
-
-  /prettier-plugin-toml/0.3.1:
-    resolution: {integrity: sha512-j47DEO/dN/acU1nSL/B7q4A4Z2SYJhpWPCLPkcmfAXIQC6A5GD6Ao/bi9HRHZ8ueIDOauqjuAQbnvRxLXMjazA==}
-    dependencies:
-      '@toml-tools/parser': 0.3.1
-      prettier: 1.19.1
-    dev: true
-
-  /prettier/1.19.1:
-    resolution: {integrity: sha512-s7PoyDv/II1ObgQunCbB9PdLmUcBZcnWOcxDh7O0N/UwDEsHyqkW+Qh28jW+mVuCdx7gLB0BotYI1Y6uI9iyew==}
-    engines: {node: '>=4'}
-    hasBin: true
-    dev: true
-
-  /prettier/2.8.3:
-    resolution: {integrity: sha512-tJ/oJ4amDihPoufT5sM0Z1SKEuKay8LfVAMlbbhnnkvt6BUserZylqo2PN+p9KeljLr0OHa2rXHU1T8reeoTrw==}
-    engines: {node: '>=10.13.0'}
-    hasBin: true
     dev: true
 
   /process-nextick-args/2.0.1:
@@ -2113,10 +2075,6 @@ packages:
     dependencies:
       indent-string: 4.0.0
       strip-indent: 3.0.0
-    dev: true
-
-  /regexp-to-ast/0.3.5:
-    resolution: {integrity: sha512-1CJygtdvsfNFwiyjaMLBWtg2tfEqx/jSZ8S6TV+GlNL8kiH8rb4cm5Pb7A/C2BpyM/fA8ZJEudlCwi/jvAY+Ow==}
     dev: true
 
   /require-from-string/2.0.2:
@@ -2358,7 +2316,7 @@ packages:
     resolution: {integrity: sha512-Dj1Okke1C3uKKwQcetra4jSuk0DqbzbYtXipzFlFMZtowbF1x7BKJwB9AayVMyFARvU8EDrZdcax4At/452cAg==}
     dev: true
 
-  /stylelint-config-recommended-scss/8.0.0_stylelint@14.16.1:
+  /stylelint-config-recommended-scss/8.0.0_w5gtdy6oq4ictd5o4eu6befejy:
     resolution: {integrity: sha512-BxjxEzRaZoQb7Iinc3p92GS6zRdRAkIuEu2ZFLTxJK2e1AIcCb5B5MXY9KOXdGTnYFZ+KKx6R4Fv9zU6CtMYPQ==}
     peerDependencies:
       postcss: ^8.3.3
@@ -2367,7 +2325,8 @@ packages:
       postcss:
         optional: true
     dependencies:
-      postcss-scss: 4.0.6
+      postcss: 8.4.21
+      postcss-scss: 4.0.6_postcss@8.4.21
       stylelint: 14.16.1
       stylelint-config-recommended: 9.0.0_stylelint@14.16.1
       stylelint-scss: 4.3.0_stylelint@14.16.1
@@ -2381,7 +2340,7 @@ packages:
       stylelint: 14.16.1
     dev: true
 
-  /stylelint-config-standard-scss/6.1.0_stylelint@14.16.1:
+  /stylelint-config-standard-scss/6.1.0_w5gtdy6oq4ictd5o4eu6befejy:
     resolution: {integrity: sha512-iZ2B5kQT2G3rUzx+437cEpdcnFOQkwnwqXuY8Z0QUwIHQVE8mnYChGAquyKFUKZRZ0pRnrciARlPaR1RBtPb0Q==}
     peerDependencies:
       postcss: ^8.3.3
@@ -2390,8 +2349,9 @@ packages:
       postcss:
         optional: true
     dependencies:
+      postcss: 8.4.21
       stylelint: 14.16.1
-      stylelint-config-recommended-scss: 8.0.0_stylelint@14.16.1
+      stylelint-config-recommended-scss: 8.0.0_w5gtdy6oq4ictd5o4eu6befejy
       stylelint-config-standard: 29.0.0_stylelint@14.16.1
     dev: true
 

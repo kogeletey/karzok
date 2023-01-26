@@ -24,10 +24,12 @@
     "@swc/core": "^1.3.28",
     "chokidar": "^3.5.3",
     "mkdirp": "^2.1.3",
-    "prettier": "^2.8.3",
-    "prettier-plugin-toml": "^0.3.1",
+    "postcss": "^8.4.21",
     "stylelint": "^14.16.1",
     "stylelint-config-standard-scss": "^6.1.0",
     "zola-bin": "^0.3.5"
+  },
+  "peerDependencies": {
+    "postcss": "^8.4.21"
   }
 }
