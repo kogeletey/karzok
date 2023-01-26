@@ -23,7 +23,7 @@ btn_clear.addEventListener("click", clear_search);
 
 // in page results when press enter or click search icon from search box
 function close_search() {
-  document.getElementById("close-search").onclick = function () {
+  document.getElementById("close-search")!.onclick = function () {
     location.reload();
   };
 }
@@ -32,7 +32,7 @@ function mobile_open_search() {
   document.querySelectorAll("header ul").forEach((p) => {
     p.style.display = "none";
   });
-  document.querySelector("header nav form").style.display = "flex";
+  document.querySelector<HTMLInputElement>("header nav form")!.style.display = "flex";
   userinput.focus();
 }
 
