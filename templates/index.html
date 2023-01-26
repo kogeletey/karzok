@@ -17,6 +17,7 @@
       </p>
     </div>
     <div role="install">
+        <div>
       <span> Install </span>
       {# {% set shell_script = "git clone --depth=1 --branch v0.2.9 https://git.sr.ht/~kogeletey/karzok themes/karzok" %} #}
       {% set shell_script = "curl https://karzok.re128.org/install.sh | sh " %}
@@ -24,6 +25,8 @@
       <a href="{{ shell_script }}" target="_blank" rel="_noreferrer">
         <span class="lite"> view source </span>
       </a>
+      </div>
+      <div class="text">
       <a type="button" href="{{ config.base_url }}/install" target="_blank" rel="_noreferrer">
         <span> Get started</span>
         <svg width="25" height="25" viewBox="-8 -6 32 32">
@@ -33,7 +36,6 @@
           />
         </svg>
       </a>
-      <div class="text">
           <a href="{{ config.base_url }}/configure" target="_blank" rel="_noreferrer">
               <span class="lite">Configure</span>
           </a>
