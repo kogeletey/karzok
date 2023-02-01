@@ -43,7 +43,7 @@ section.intro {
         display: inline-block;
         color: var(--foreground);
         font-size: 17px;
-        opacity: 85%;
+        opacity: 0.85;
       }
     }
     a[type="button"] {
@@ -66,13 +66,26 @@ section.intro {
 }
 
 @media (max-width: 1000px) {
-  section.intro div.started {
-    h1 {
-      font-size: 40px;
+  section.intro {
+    grid-template-columns: 1fr;
+    margin-top: -8rem;
+    margin-right: 10px;
+    margin-left: 10px;
+    div.started {
+      width: 100%;
+      margin: 0;
+      h1 {
+        font-size: 50px;
+      }
+      p:nth-child(2) {
+        font-size: 20px;
+      }
     }
-
-    p {
-      font-size: 18px;
+    div[role="install"] {
+      grid-row-gap: 3rem;
+      div.text {
+        grid-template-rows: 0.5fr 0.2fr;
+      }
     }
   }
 }

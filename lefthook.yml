@@ -2,5 +2,6 @@ pre-push:
   commands:
     stylelint:
       tags: frontend style
+      files: git diff --cached
       glob: "sass/**/*.scss"
-      run: pnpx stylelint {staged_files}
+      run: pnpx stylelint {files}

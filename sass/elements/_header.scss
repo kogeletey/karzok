@@ -1,7 +1,7 @@
 @import "dropdown";
 @import "alert";
 
-header > nav > ul > li.separator {
+header nav ul li.separator {
   button {
     margin-left: 0.75rem;
   }
@@ -11,7 +11,7 @@ header > nav > ul > li.separator {
   }
 }
 
-body[data-theme="black"] > header > nav > ul > li > button.toggle {
+body[data-theme="black"] header nav ul li button.toggle {
   svg:not(.toggle-light) {
     display: none;
   }
@@ -22,7 +22,7 @@ body[data-theme="black"] > header > nav > ul > li > button.toggle {
   }
 }
 
-body:not([data-theme="black"]) > header > nav {
+body:not([data-theme="black"]) header nav {
   & ul > li > button.toggle {
     svg:not(.toggle-black) {
       display: none;
@@ -53,35 +53,33 @@ header {
   position: sticky;
   height: 42px;
   top: 0;
-  //border-bottom: 0.1rem solid $dark1;
   width: 100%;
   color: var(--foreground);
   background: var(--background);
-  z-index: 7;
-
+  z-index: 6;
   .logotype {
     max-height: 2rem;
     min-height: 1.25rem;
     padding-top: 0.15em;
-
     a {
       padding-bottom: 0%;
     }
   }
-
   nav {
     font-size: 16px;
     font-weight: 400;
     margin-left: 10px;
     align-items: center;
     height: 100%;
-
+    display: flex;
+    justify-content: space-between;
     li {
       padding: 1em 0 1.25em;
       margin-right: 1rem;
     }
-
     ul {
+      display: flex;
+      align-items: center;
       span:hover,
       .active {
         padding-bottom: 10px;
@@ -93,7 +91,6 @@ header {
         color: var(--foreground);
       }
     }
-
     .vector {
       display: inline-flex;
       margin-top: 0.2em;
@@ -224,8 +221,8 @@ div.items {
 
 @media (max-width: 1000px) {
   header {
-    overflow-x: auto;
-
+    overflow-x: scroll;
+    overflow-y: hidden;
     form {
       display: none;
       width: 98%;

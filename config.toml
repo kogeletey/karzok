@@ -87,5 +87,3 @@ text = "запущен с помощью <a href=\"https://karzok.re128.org\"> k
 
 #[[extra.footer]]
 #version = "https://api.github.com/repos/kogeletey/karzok/releases/latest"
-
-
