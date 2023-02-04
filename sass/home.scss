@@ -68,12 +68,15 @@ section.intro {
 @media (max-width: 1000px) {
   section.intro {
     grid-template-columns: 1fr;
-    margin-top: -8rem;
+    margin-top: -6rem;
     margin-right: 10px;
     margin-left: 10px;
+    justify-content: center;
     div.started {
-      width: 100%;
+      display: inline-grid;
+      width: unset;
       margin: 0;
+      justify-items: center;
       h1 {
         font-size: 50px;
       }
