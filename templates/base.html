@@ -11,6 +11,8 @@
         <meta name="color-scheme" content="light dark">
         {% if config.description %}
         <meta name="description" content="{{ config.description }}">
+        {% elif config.languages %}
+        <meta name="description" content="{{ trans(key="description", lang=lang) }}">
         {% endif %}
         {% if not config.extra.localcdn %}
         <link rel="prefetch" href="{{ config.extra.cdnurl | default(value="https://cdn.jsdelivr.net") | safe }}" >

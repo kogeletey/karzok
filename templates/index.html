@@ -11,10 +11,15 @@
   <section class="intro">
     <div class="started">
       <h1>A theme for fast sites</h1>
+      {% if config.description %}
       <p>
-        It will help speed up the development of a website and docs for your
-        product
+        {{ config.description }}
       </p>
+      {% elif config.languages %}
+      <p>
+        {{ trans(key="description", lang=lang) }}
+      </p>
+      {% endif %}
     </div>
     <div role="install">
         <div>

@@ -1,10 +1,10 @@
 # Change to you title
 title = "Re128 | Karzok"
 
+description = "It will help speed up the development of a website and docs for your product"
+
 base_url = "http://localhost:8080"
 
-# change your description
-description = "The theme for launching fast documentation sites"
 
 default_language = "en"
 
@@ -13,6 +13,10 @@ build_search_index = true
 minify_html = true
 
 compile_sass = true
+
+#generate_feed = true
+
+#feed_filename = "rss.xml"
 
 [search]
 # Whether to include the title of the page/section in the index
@@ -37,7 +41,7 @@ render_emoji = true
 build_search_index = true
 
 [languages.en.translations]
-description = "The theme for launching fast documentation sites"
+description = "It will help speed up the development of a website and docs for your product"
 toc_etp = "Edit this page"
 toc_ita = "In this article"
 date = "Date"
