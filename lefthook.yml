@@ -1,10 +1,7 @@
-pre-commit:
+pre-push:
   commands:
-    format:
-      tags: format
-      glob: "**/*.{toml,yml,json,scss,ts}"
-      run: pnpx prettier -w {staged_files}
     stylelint:
       tags: frontend style
+      files: git diff --cached
       glob: "sass/**/*.scss"
-      run: pnpx stylelint {staged_files}
+      run: pnpx stylelint {files}

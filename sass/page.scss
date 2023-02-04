@@ -3,10 +3,14 @@
 @import "elements/sidebar";
 @import "elements/toc";
 
+header {
+  border-bottom: 0.1rem solid $dark1;
+}
+
 main {
+  // grid-template-rows: 1fr;
   display: grid;
   grid-template-columns: 0.25fr 1fr 0.25fr;
-  //grid-template-rows: 1fr;
 }
 
 .mheader {

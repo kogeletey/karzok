@@ -66,14 +66,3 @@ body[data-theme="light"] {
 button {
   background: transparent;
 }
-
-// flex space between basic styles
-header nav {
-  display: flex;
-  justify-content: space-between;
-
-  ul {
-    display: flex;
-    align-items: center;
-  }
-}
