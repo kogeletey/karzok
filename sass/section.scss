@@ -12,12 +12,13 @@ section.cards {
   padding-top: 0.25rem;
   padding-bottom: 3rem;
   margin-left: 0.5rem;
+  margin-right: 0.5rem;
   display: grid;
   position: relative;
   grid-template-columns: repeat(auto-fit, minmax(33%, 1fr));
   grid-auto-rows: 25rem;
   min-height: 100vh;
-  grid-gap: 2rem;
+  grid-gap: 1.5rem;
   a {
     display: block;
     position: relative;
@@ -32,7 +33,7 @@ section.cards {
     & span {
       display: block;
       position: relative;
-      font-size: 20px;
+      font-size: 30px;
       margin-bottom: 10px;
       color: var(--foreground);
     }
