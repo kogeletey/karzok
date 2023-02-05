@@ -1,21 +1,47 @@
 {% extends "base.html" %}
-{% block styles %} {{macros::styles(file='section.css') }} {% endblock styles %}
-{% block htmltitle%} {{ macros::title_or_last(component=section) }} - {{ config.title }} {%endblock htmltitle %}
-{% block title %} {{macros::title_or_last(component=section) }} {% endblock title %}
-{% block math%} {{ macros::math() }} {% endblock math %}
+
+{# import styles for page #}
+{% block styles %}
+{{ macros::styles(file='page.css')}}
+{% endblock styles %}
+
+{# page title #}
+{% block htmltitle %}
+{{ section.title }}
+{% endblock htmltitle %}
+
 {% block content %}
-<section class="cards">
-  {% for page in section.pages %}
-  <a href="{{ page.permalink }}">
-    <span>{{ macros::title_or_last(component=page, offset=0) }}</span>
-    <div>
-      {% if page.date %}
-      <time> {{page.date}} </time>
-      {% endif %} {% if page.description %}
-      <p>{{ page.description }}</p>
-      {% endif %}
-    </div>
-  </a>
-  {% endfor %}
-</section>
+
+{{ mobile_header::mobile_header() }}
+
+<main>
+  {{ page::sidebar(current_url=current_url) }}
+  <article>
+    <h1 class="title">{{ section.title }}</h1>
+    {#
+    {% block sections %}
+    <ul class="sections">
+      {{ page::relative_path() }}
+      {{ page::word_count(type=page) }}
+      {{ page::reading_time() }}
+      {{ page::date(type=page) }}
+      {{ page::updated(type=page) }}
+      {{ page::taxonomies_authors() }}
+    </ul>
+    {%  endblock sections %}
+    #}
+    {{ section.content | safe }}
+    {% if section.extra.links %}
+    {% for page in section.pages %}
+    <ul>
+        <li>
+          <a href="{{ page.permalink }}">
+                <span> {{ page.title }} </span>
+            </a>
+        </li>
+    </ul>
+    {% endfor %}
+    {% endif %}
+  </article>
+</main>
 {% endblock content %}
