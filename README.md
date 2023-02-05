@@ -135,17 +135,9 @@ will. Specifically you can redistribute and/or modify it under the terms of the
 
 # Contribute
 
-Make sure to read the [Code of Conduct](https://karzok.re128.org/reference/code-of-conduct/)
+Make sure to read the [Code of Conduct](https://karzok.re128.org/reference/code_of_conduct/)
 
 ## Find bugs and come up with features
 
 On the [todo.sr.ht](https://todo.sr.ht/~kogeletey/karzok) or
 [github issues](https://github.com/kogeletey/karzok/issues)
-
-## Improve Code
-
-The karzok is stored in the repository at
-[sr.ht](https://sr.ht/~kogeletey/karzok) and mirror
-[github](https://github.com/kogeletey/karzok)
-
-> Thank you so much for any help
