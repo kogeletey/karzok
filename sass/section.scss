@@ -64,7 +64,7 @@ section.cards {
 }
 
 @media (max-width: 1000px) {
-  section {
+  section.cards {
     grid-template-columns: 1fr;
     overflow-x: hidden;
     padding-top: 2.6rem;
