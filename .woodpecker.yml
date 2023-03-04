@@ -1,0 +1,57 @@
+# https://github.com/woodpecker-ci/woodpecker/blob/master/.woodpecker/docker.yml
+#  https://woodpecker-ci.org/plugins/Docker%20Buildx
+pipeline:
+  mirror:
+    image: appleboy/drone-git-push
+    settings:
+      remote_name: origin
+      branch: ${CI_COMMIT_BRANCH}
+      force: false
+      commit: false
+  build:
+    image: codeberg.org/woodpecker-plugins/node-pm
+    settings:
+      run:
+        - lint
+        - dist
+      with: pnpm
+  push-rls:
+    image: woodpeckerci/plugin-docker-buildx
+    settings:
+      repo: codeberg.org/${CI_REPO}
+      dockerfile: dist/Containerfile
+      dry_run: true
+      mirror: ghcr.io
+      tag: rls
+      logins:
+        - registry: https://codeberg.org
+          username: ${CI_REPO_OWNER}
+          password:
+            from_secret: cb_password
+        - registry: https://ghcr.io
+          username: ${CI_REPO_OWNER}
+          password:
+            from_secret: gh_password
+    when:
+      branch: release
+      event: push
+  push-stable:
+    image: woodpeckerci/plugin-docker-buildx
+    settings:
+      repo: codeberg.org/${CI_REPO}
+      dockerfile: dist/Containerfile
+      dry_run: true
+      mirror: ghcr.io
+      tags: ${CI_COMMIT_TAG}, latest
+      logins:
+        - registry: https://codeberg.org
+          username: ${CI_REPO_OWNER}
+          password:
+            from_secret: cb_password
+        - registry: https://ghcr.io
+          username: ${CI_REPO_OWNER}
+          password:
+            from_secret: gh_password
+    when:
+      event: tag
+      branch: release
