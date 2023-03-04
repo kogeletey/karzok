@@ -1,13 +1,6 @@
 # https://github.com/woodpecker-ci/woodpecker/blob/master/.woodpecker/docker.yml
 #  https://woodpecker-ci.org/plugins/Docker%20Buildx
 pipeline:
-  mirror:
-    image: appleboy/drone-git-push
-    settings:
-      remote_name: origin
-      branch: ${CI_COMMIT_BRANCH}
-      force: false
-      commit: false
   build:
     image: codeberg.org/woodpecker-plugins/node-pm
     settings:
