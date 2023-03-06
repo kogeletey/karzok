@@ -2,12 +2,16 @@
 #  https://woodpecker-ci.org/plugins/Docker%20Buildx
 pipeline:
   build:
-    image: codeberg.org/woodpecker-plugins/node-pm
-    settings:
-      run:
-        - lint
-        - dist
-      with: pnpm
+    image: node:19-alpine
+    commands:
+      - corepack enable
+      - corepack prepare pnpm@latest-7 --activate
+      #      - pnpm config set store-dir .pnpm-store
+      - pnpm install --frozen-lockfile
+      - pnpm run lint
+      # FIXME: remove for newer zola-bin
+      - chmod +x ./node_modules/.pnpm/zola-bin@0.3.6/node_modules/zola-bin-linux/bin/zola
+      - pnpm run dist
   push-rls:
     image: woodpeckerci/plugin-docker-buildx
     settings:
