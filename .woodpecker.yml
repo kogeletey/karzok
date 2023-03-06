@@ -26,7 +26,7 @@ pipeline:
           password:
             from_secret: gh_password
     when:
-      branch: release
+      branch: ${CI_REPO_DEFAULT_BRANCH}
       event: push
   push-stable:
     image: woodpeckerci/plugin-docker-buildx
@@ -35,7 +35,8 @@ pipeline:
       dockerfile: dist/Containerfile
       dry_run: true
       mirror: ghcr.io
-      tags: ${CI_COMMIT_TAG}, latest
+      auto_tag: true
+      # tags: ${CI_COMMIT_TAG}, latest
       logins:
         - registry: https://codeberg.org
           username: ${CI_REPO_OWNER}
@@ -46,5 +47,5 @@ pipeline:
           password:
             from_secret: gh_password
     when:
+      branch: ${CI_REPO_DEFAULT_BRANCH}
       event: tag
-      branch: release
