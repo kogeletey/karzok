@@ -6,7 +6,7 @@
     "link": "rsync -va node_modules/@fontsource node_modules/katex node_modules/modern-normalize node_modules/mermaid static && pnpm run link:assets |:",
     "link:assets": "mkdir -p static && cp -r assets static || :",
     "lint": "stylelint sass",
-    "build": "pnpm run compile:js && zola build",
+    "build": "pnpm run compile:js && zola-bin build",
     "build:local": "pnpm run link && pnpm run compile:js && zola-bin build",
     "dist": "rm -rf dist/templates && mkdirp dist/static && pnpm run build && cp -r templates theme.toml config.toml dist && cp -r static/*.js public/*.css dist/static",
     "watch": "swc islands --only -d static --watch & zola-bin serve -O -f"
@@ -15,15 +15,15 @@
     "@fontsource/inter": "^4.5.15",
     "@fontsource/jetbrains-mono": "^4.5.12",
     "katex": "^0.16.4",
-    "mermaid": "^9.4.0",
+    "mermaid": "^9.4.3",
     "modern-normalize": "^1.1.0"
   },
   "devDependencies": {
-    "@evilmartians/lefthook": "^1.3.3",
+    "@evilmartians/lefthook": "^1.3.5",
     "@swc/cli": "^0.1.62",
-    "@swc/core": "^1.3.37",
+    "@swc/core": "^1.3.40",
     "chokidar": "^3.5.3",
-    "mkdirp": "^2.1.4",
+    "mkdirp": "^2.1.5",
     "postcss": "^8.4.21",
     "stylelint": "^14.16.1",
     "stylelint-config-standard-scss": "^6.1.0",

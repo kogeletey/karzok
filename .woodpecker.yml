@@ -9,8 +9,6 @@ pipeline:
       #      - pnpm config set store-dir .pnpm-store
       - pnpm install --frozen-lockfile
       - pnpm run lint
-      # FIXME: remove for newer zola-bin
-      - apk add zola
       - pnpm run dist
   push-rls:
     image: woodpeckerci/plugin-docker-buildx
