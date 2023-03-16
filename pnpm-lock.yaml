@@ -22,6 +22,7 @@ dependencies:
   katex: 0.16.4
   mermaid: 9.4.3
   modern-normalize: 1.1.0
+  zola-bin: 0.3.6
 
 devDependencies:
   '@evilmartians/lefthook': 1.3.5
@@ -32,7 +33,6 @@ devDependencies:
   postcss: 8.4.21
   stylelint: 14.16.1
   stylelint-config-standard-scss: 6.1.0_w5gtdy6oq4ictd5o4eu6befejy
-  zola-bin: 0.3.6
 
 packages:
 
@@ -920,7 +920,7 @@ packages:
   /dotenv/16.0.3:
     resolution: {integrity: sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==}
     engines: {node: '>=12'}
-    dev: true
+    dev: false
 
   /elkjs/0.8.2:
     resolution: {integrity: sha512-L6uRgvZTH+4OF5NE/MBbzQx/WYpru1xCBE9respNj6qznEewGUIfhzmm7horWWxbNO2M0WckQypGctR8lH79xQ==}
@@ -2405,21 +2405,21 @@ packages:
     resolution: {integrity: sha512-4ndk73IFOf2C9VhAShkc378G3Mlet5rMzQ/R3pfXnqgS9MptSOYV0C5k6shrEA8wbSF+KPCdr51Bg7eJbCqfJQ==}
     os: [darwin]
     requiresBuild: true
-    dev: true
+    dev: false
     optional: true
 
   /zola-bin-linux/0.17.3:
     resolution: {integrity: sha512-8wzHMWrPSE64V1wz3KH9I64OfD2h+d2PP0j3m6oGB7SnIABI735AIAJyMjBIAfpwamn86b/0tIPHK0ty4qWu8A==}
     os: [linux]
     requiresBuild: true
-    dev: true
+    dev: false
     optional: true
 
   /zola-bin-win32/0.17.2:
     resolution: {integrity: sha512-DIP4ImbtMFW+p3EgDAT313Ef/dVtu+qrN7IA8gmcTJPvPBhrVziMCi7PolFARya2sz/HXjJ24i+n14REOqzIcA==}
     os: [win32]
     requiresBuild: true
-    dev: true
+    dev: false
     optional: true
 
   /zola-bin/0.3.6:
@@ -2432,4 +2432,4 @@ packages:
       zola-bin-darwin: 0.17.1
       zola-bin-linux: 0.17.3
       zola-bin-win32: 0.17.2
-    dev: true
+    dev: false
