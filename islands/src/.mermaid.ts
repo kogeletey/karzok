@@ -1,4 +1,6 @@
+import mermaid from "npm:mermaid";
+
 document.addEventListener("DOMContentLoaded", () => {
-  //     @ts-ignore
+  //     @ts-ignore: no need for types
   mermaid.initialize({ startOnLoad: true });
 });
