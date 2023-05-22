@@ -11,5 +11,4 @@ dist/theme.toml
 dist/config.toml
 
 # compiler js files
-.swc/
-
+deno.lock
