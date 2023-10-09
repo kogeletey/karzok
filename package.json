@@ -17,7 +17,7 @@
     "katex": "^0.16.7",
     "mermaid": "^9.4.3",
     "modern-normalize": "^1.1.0",
-    "postcss": "^8.4.23",
+    "postcss": "^8.4.31",
     "zola-bin": "^0.3.7"
   },
   "devDependencies": {
