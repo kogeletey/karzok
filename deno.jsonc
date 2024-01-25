@@ -1,6 +1,0 @@
-{
-   "tasks": {
-    "lume": "echo \"import 'lume/cli.ts'\" | deno run --unstable -A - --config .website-builder.ts",
-    "spell": "deno run --node-modules-dir --allow-read --allow-env npm:cspell@6.31  && rm -rf node_modules"
-    }
-}

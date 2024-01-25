@@ -1,0 +1,24 @@
+{
+  "name": "@karzok/tera",
+  "license": "MIT",
+  "repository": "https://codeberg.org/kogeletey/karzok",
+  "version": "0.2.9",
+  "author": "kogeletey",
+  "scripts": {
+    "build": "zola-bin build",
+    "watch": "zola-bin serve -O -f"
+  },
+  "files": [
+    "static/*",
+    "templates/**/*",
+    "theme.toml",
+    "package.json"
+  ],
+  "dependencies": {
+    "katex": "^0.16.4",
+    "mermaid": "^9.3.0"
+  },
+  "devDependencies": {
+    "zola-bin": "^0.3.5"
+  }
+}

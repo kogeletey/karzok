@@ -1,14 +1,9 @@
 # node_moodules folder from styles and math rendering
 node_modules/
+
 # public folder generation from zola
 public/
-static/
+dist/
 
-# files for npm run pack
-dist/static
-dist/templates
-dist/theme.toml
-dist/config.toml
-
-# compiler js files
-deno.lock
+# pipelight logs
+.pipelight/

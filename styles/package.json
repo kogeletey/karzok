@@ -1,0 +1,15 @@
+{
+  "name": "@karzok/styles",
+  "module": "index.js",
+  "type": "module",
+  "scripts": {
+      "build": "lightningcss --minify --css-modules -d dist index.css"
+  },
+  "devDependencies": {
+    "@fontsource/inter": "^4.5.15",
+    "@fontsource/jetbrains-mono": "^4.5.12",
+    "lightningcss": "^1.23.0",
+    "lightningcss-cli": "^1.23.0",
+    "modern-normalize": "^1.1.0"
+  }
+}
