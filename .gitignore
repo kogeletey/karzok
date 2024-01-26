@@ -4,6 +4,7 @@ node_modules/
 # public folder generation from zola
 public/
 dist/
+static/
 
 # pipelight logs
 .pipelight/

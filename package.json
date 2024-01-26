@@ -2,5 +2,8 @@
   "private": true,
   "license": "MIT",
   "type": "module",
-  "workspaces": ["styles", "tera"]
+  "workspaces": ["styles", "tera"],
+  "devDependencies": {
+    "vite": "^5.0.12"
+  }
 }

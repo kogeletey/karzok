@@ -1,7 +1,6 @@
-import type RenderMathInElementOptions from "npm:katex@0.16";
-import renderMathInElement from "npm:katex@0.16/dist/contrib/auto-render";
+import renderMathInElement from "katex";
 
-const autoRender: RenderMathInElementOptions = {
+const autoRender = {
   delimiters: [
     { left: "$$", right: "$$", display: true },
     { left: "$", right: "$", display: false },

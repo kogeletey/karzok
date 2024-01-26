@@ -1,0 +1,162 @@
+main {
+    display: grid;
+    padding: 1.5rem;
+    overflow-x: auto;
+    justify-content: center;
+    align-content: center;
+    background: var(--background);
+    article {
+        color: var(--foreground);
+        display: grid;
+        max-width: 40rem;
+  }
+}
+
+main article p,h4,h5,h6  {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+
+main article {
+   h1:first-child {
+    margin: 0 0 1rem;
+    font-size: 2.5rem;
+    font-weight: 900;
+    justify-self: center;
+   }
+
+   h2, h3 {
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    font-weight: 700;
+
+    &:hover {
+      a.anchors::before {
+        content: "#";
+        margin-right: 0.25rem;
+        color: var(--green);
+      }
+    }
+  }
+}
+
+main article a {
+    color: var(--green);
+
+    &:hover {
+      color: var(--foreground);
+      border-bottom: var(--foreground) solid 1px;
+  }
+}
+
+
+main article blockquote {
+    margin-left: 0;
+    margin-right: 0;
+    color: var(--foreground);
+    opacity: 0.7;
+    padding-left: 10px;
+    border-left: 3px solid var(--foreground-ness);
+    sup {
+      padding-left: 0.25rem;
+    }
+
+    a {
+      border-bottom: 1px solid var(--green);
+    }
+}
+
+main article table {
+    margin-top: 1rem;
+    width: 100%;
+    border-collapse: collapse;
+    overflow-x: auto;
+
+    td,
+    th {
+    border: 1px solid var(--foreground-ness);
+    background-color: var(--background);
+    padding: 5px 14px;
+    }
+}
+
+main article {
+  ol {
+    list-style-type: decimal;
+    margin: 0.5rem 0 0.5rem 0.8rem;
+  }
+
+  ul {
+    list-style-type: square;
+    margin-left: 0.8rem;
+
+    ol {
+      padding-left: 15px;
+    }
+  }
+  li {
+      margin-top: 0.5rem;
+    }
+}
+
+main article kbd {
+    display: inline-block;
+    padding: 4px 5px;
+    font-size: 1.125rem;
+    box-shadow: inset var(--foreground-ness) 0 -1px 0;
+    vertical-align: middle;
+    border-radius: 2px;
+}
+
+main article pre {
+    margin-top: 1rem;
+    box-shadow: 2px solid;
+    padding: 12px;
+    overflow-x: auto;
+
+    code {
+      padding: 0;
+      background-color: transparent !important;
+    }
+}
+
+main article code {
+    font-family: "JetBrains Mono", monospace;
+    color: var(--foreground);
+    font-size: 85%;
+    padding: 2px;
+    background-color: invert(var(--foreground-ness));
+}
+
+main article hr {
+    height: 0.1rem;
+    margin: 10px 0;
+    overflow: hidden;
+    background: var(--foreground);
+}
+
+
+main article img {
+    height: auto;
+}
+
+main article figure {
+    text-align: center;
+}
+
+main article a.footnote-ref {
+    margin-top: 0.5rem;
+
+    sup {
+      padding-top: 1rem;
+      display: inline-block;
+      font-size: 0.75rem;
+      padding-right: 0.5rem;
+    }
+
+    p {
+      display: inline;
+      margin-top: 0;
+    }
+}

@@ -12,7 +12,7 @@ build_search_index = true
 
 minify_html = true
 
-compile_sass = true
+compile_sass = false
 
 #generate_feed = true
 

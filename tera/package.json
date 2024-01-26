@@ -6,7 +6,7 @@
   "author": "kogeletey",
   "scripts": {
     "build": "zola-bin build",
-    "watch": "zola-bin serve -O -f"
+    "watch": "zola-bin serve -f"
   },
   "files": [
     "static/*",
