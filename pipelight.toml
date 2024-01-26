@@ -16,8 +16,14 @@ actions = ["pre-push"]
 name = "watch"
 
 [[pipelines.steps]]
+[[pipelines.steps.parallel]]
 name = "watch files style"
-commands = ["cat styles/index.css","cd styles && bun run build"]
+commands = ["cd styles && bun vite build"]
+
+[[pipelines.steps.parallel]]
+name = "zola build"
+commands = ["cd tera && bun run watch"]
+
 
 [[pipelines.triggers]]
 actions = ["watch"]
