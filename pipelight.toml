@@ -1,0 +1,23 @@
+[options]
+attach = true
+log_level = "debug"
+
+[[pipelines]]
+name =  "stylelint"
+
+[[pipelines.steps]]
+name = "styleing"
+commands = ["bun stylelint styles/**/*.css"]
+
+[[pipelines.triggers]]
+actions = ["pre-push"]
+
+[[pipelines]]
+name = "watch"
+
+[[pipelines.steps]]
+name = "watch files style"
+commands = ["cat styles/index.css","cd styles && bun run build"]
+
+[[pipelines.triggers]]
+actions = ["watch"]
