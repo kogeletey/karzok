@@ -1,9 +1,10 @@
 import { readdirSync } from "fs"
 import { resolve } from "path"
+import { viteStaticCopy } from "vite-plugin-static-copy"
 
 export default {
+  appType: "mpa",
   publicDir: false,
-  target: ["esnext"],
   build: {
       lib: {
           entry: readdirSync("lib", {recursive: true}).map((file)=>
@@ -16,5 +17,21 @@ export default {
           formats: ["cjs"],
       },
       outDir: "static",
-  }
+  },
+  plugins: [
+   viteStaticCopy({
+       targets: [{
+          src: readdirSync("assets", {recursive: true}).map((file)=>
+            resolve(`${__dirname}/assets`,file)
+          ),
+           dest: "assets"
+       },
+       {
+        src: readdirSync("../node_modules/@karzok/styles/dist", {recursive: true}).map((file)=>
+            resolve("../node_modules/@karzok/styles/dist",file)
+          ),
+          dest: "."
+       }]
+   })
+  ]
 }

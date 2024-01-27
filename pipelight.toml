@@ -17,12 +17,16 @@ name = "watch"
 
 [[pipelines.steps]]
 [[pipelines.steps.parallel]]
-name = "watch files style"
+name = "styles file watch"
 commands = ["cd styles && bun vite build"]
 
 [[pipelines.steps.parallel]]
+name = "javascript serve"
+commands = ["cd tera && bun vite build"]
+
+[[pipelines.steps.parallel]]
 name = "zola build"
-commands = ["cd tera && bun run watch"]
+commands = ["cd tera && zola serve -f"]
 
 
 [[pipelines.triggers]]

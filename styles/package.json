@@ -5,6 +5,10 @@
   "exports": {
     ".": "./dist/*.css"
   },
+  "files": [
+    "dist/*",
+    "package.json"
+  ],
   "devDependencies": {
     "@fontsource/inter": "^4.5.15",
     "@fontsource/jetbrains-mono": "^4.5.12",

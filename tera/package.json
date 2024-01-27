@@ -1,13 +1,10 @@
 {
   "name": "@karzok/tera",
   "license": "MIT",
+  "type": "module",
   "repository": "https://codeberg.org/kogeletey/karzok",
   "version": "0.2.9",
   "author": "kogeletey",
-  "scripts": {
-    "build": "zola-bin build",
-    "watch": "zola-bin serve -f"
-  },
   "files": [
     "static/*",
     "templates/**/*",
@@ -16,9 +13,10 @@
   ],
   "dependencies": {
     "katex": "^0.16.4",
-    "mermaid": "^9.3.0"
+    "mermaid": "^9.3.0",
+    "@karzok/styles": "workspace:^"
   },
   "devDependencies": {
-    "zola-bin": "^0.3.5"
+    "vite-plugin-static-copy": "^1.0.1"
   }
 }
