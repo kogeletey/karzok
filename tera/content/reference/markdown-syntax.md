@@ -6,8 +6,8 @@ updated = "2022-08-18"
 weight = 2
 
 [extra]
-math = true
-diagrams = true
+math = false
+diagrams = false
 authors = ["Konrad Geletey","Hugo Authors"]
 +++
 

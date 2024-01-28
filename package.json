@@ -4,6 +4,7 @@
   "type": "module",
   "workspaces": ["styles", "tera"],
   "devDependencies": {
+    "lightningcss": "^1.23.0",
     "vite": "^5.0.12"
   }
 }

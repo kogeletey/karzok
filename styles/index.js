@@ -1,4 +1,2 @@
-import "./lib.css"
 import "modern-normalize"
-import "unfonts.css"
-import "./article"
+import "./src/lib.css"

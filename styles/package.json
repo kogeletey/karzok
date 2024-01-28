@@ -1,18 +1,22 @@
 {
   "name": "@karzok/styles",
+  "version": "01.2023",
   "type": "module",
-  "module": "index.js",
   "exports": {
-    ".": "./dist/*.css"
+    "./lib": "./dist/style.css",
+    "./article": "./src/article/index.js",
+    "./header": "./src/header/index.js"
   },
   "files": [
-    "dist/*",
+    "src/**/*.{css,js}",
+    "dist/style.css",
     "package.json"
   ],
-  "devDependencies": {
+  "dependencies": {
     "@fontsource/inter": "^4.5.15",
-    "@fontsource/jetbrains-mono": "^4.5.12",
-    "lightningcss": "^1.23.0",
+    "@fontsource/jetbrains-mono": "^4.5.12"
+  },
+  "devDependencies": {
     "modern-normalize": "^1.1.0",
     "unplugin-fonts": "^1.1.1"
   }

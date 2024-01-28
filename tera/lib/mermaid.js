@@ -1,4 +1,4 @@
-import mermaid from "mermaid";
+//import mermaid from "mermaid";
 
 document.addEventListener("DOMContentLoaded", () => {
   //     @ts-ignore: no need for types

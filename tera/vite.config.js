@@ -3,9 +3,13 @@ import { resolve } from "path"
 import { viteStaticCopy } from "vite-plugin-static-copy"
 
 export default {
+  css: {
+    transformer: "lightningcss",
+  },
   appType: "mpa",
   publicDir: false,
   build: {
+      cssMinify: "lightningcss",
       lib: {
           entry: readdirSync("lib", {recursive: true}).map((file)=>
             resolve(`${__dirname}/lib`,file)
@@ -26,12 +30,7 @@ export default {
           ),
            dest: "assets"
        },
-       {
-        src: readdirSync("../node_modules/@karzok/styles/dist", {recursive: true}).map((file)=>
-            resolve("../node_modules/@karzok/styles/dist",file)
-          ),
-          dest: "."
-       }]
+       ]
    })
   ]
 }
