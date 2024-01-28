@@ -1,3 +1,4 @@
 .git/
 .pipelight/
 node_modules/
+public/

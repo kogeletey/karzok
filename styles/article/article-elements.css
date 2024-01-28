@@ -1,0 +1,39 @@
+blockquote.hint {
+    display: grid;
+    grid-template-columns: 0.1fr 1fr;
+    max-width: 100%;
+    padding: 15px;
+    overflow: hidden;
+    border: none;
+
+    svg {
+      width: 25px;
+      height: 25px;
+    }
+
+    p {
+      text-align: center;
+      opacity: 0.85;
+      font-weight: inherit;
+      font-size: 16px;
+    }
+  }
+
+  blockquote.warning {
+    --yellow: #ffdc00;
+    background: var(--yellow);
+    color: var(--black);
+  }
+
+  blockquote.note {
+    --blue: #ffdc00;
+    background: var(--blue);
+    color: var(--white);
+  }
+
+  blockquote.critical {
+    --red: #ff4136;
+    background: var(--red);
+    color: var(--background);
+  }
+

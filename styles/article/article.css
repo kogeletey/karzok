@@ -1,3 +1,26 @@
+body[data-theme="light"] {
+  --darken: #333;
+  article pre {
+    background-color: #f6f7f6 !important;
+  }
+
+  article code {
+    background-color: invert(var(--darken));
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body:not([data-theme="black"]) {
+    article pre {
+      background-color: #f6f7f6 !important;
+    }
+
+    article code {
+      background-color: invert(var(--darken));
+    }
+  }
+}
+
 main {
     display: grid;
     padding: 1.5rem;

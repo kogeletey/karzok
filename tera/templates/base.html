@@ -25,13 +25,15 @@
         {% block math %}
           {{ macros::math() }}
         {% endblock math %}
-          {{ macros::styles(file='index.css') }}
+          {{ macros::styles(file='style.css') }}
         {% block styles %}
         {% endblock styles %}
         <title>{% block htmltitle %} {{ config.title }}{% endblock htmltitle %}</title>
+        {#
         {% for files in ["modern-normalize/modern-normalize.css","@fontsource/inter/400.css","@fontsource/inter/700.css","@fontsource/jetbrains-mono/400.css"] %}
         {{ macros::styles(file=files,usecdn=true) }}
         {% endfor %}
+        #}
     {% if config.generate_rss %}
             <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path='rss.xml') }}">
     {% endif %}
@@ -40,9 +42,6 @@
     <script>
       document.body.dataset.theme = localStorage.getItem("theme") || "auto";
     </script>
-    {% block header%}
-        {{ top_nav::header(current_url=current_url) }}
-    {% endblock header%}
     {% block content %}
     {% endblock content %}
     {% block footer %}

@@ -26,8 +26,11 @@ commands = ["cd tera && bun vite build"]
 
 [[pipelines.steps.parallel]]
 name = "zola build"
-commands = ["cd tera && zola serve -f"]
+commands = ["cd tera && zola build -u http://localhost:3000"]
 
+#[[pipelines.steps]]
+#name = "serve folder"
+#commands = ["bunx serve tera/public"]
 
 [[pipelines.triggers]]
 actions = ["watch"]
