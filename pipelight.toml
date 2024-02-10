@@ -13,11 +13,16 @@ commands = ["bun stylelint styles/**/*.css"]
 actions = ["pre-push"]
 
 [[pipelines]]
-name = "codeberg mirror"
+name = "mirror repository"
 
 [[pipelines.steps]]
-name = "pushing git branch"
-commands = ["git push -u git@codeberg.org:kogeletey/karzok.git"]
+[[pipelines.steps.parallel]]
+name = "pushing git branch to codeberg"
+commands = ["git push -u git@codeberg.org:kogeletey/karzok.git -f"]
+
+[[pipelines.steps.parallel]]
+name = "pushing git branch to github"
+commands = ["git push -u git@github.com:kogeletey/karzok.git -f"]
 
 [[pipelines.triggers]]
 actions = ["pre-push"]
