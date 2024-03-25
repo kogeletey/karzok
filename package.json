@@ -14,7 +14,7 @@
   "dependencies": {
     "@fontsource/inter": "^4.5.15",
     "@fontsource/jetbrains-mono": "^4.5.12",
-    "katex": "^0.16.7",
+    "katex": "^0.16.10",
     "mermaid": "^9.4.3",
     "modern-normalize": "^1.1.0",
     "postcss": "^8.4.31",
